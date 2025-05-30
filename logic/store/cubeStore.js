@@ -1,7 +1,7 @@
 import { createStore } from "zustand/vanilla";
 
 const useCubeStore = createStore((set) => ({
-  cubeColours: {
+  cube: {
     front: [
       ["g", "g", "g"],
       ["g", "g", "g"],
@@ -33,7 +33,7 @@ const useCubeStore = createStore((set) => ({
       ["y", "y", "y"]
     ]
   },
-  setCubeColours: (newCubeColours) => set({ cubeColours: newCubeColours })
+  setCube: (newCube) => set({ cube: newCube })
 }));
 
 export default useCubeStore;

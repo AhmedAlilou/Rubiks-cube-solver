@@ -1,106 +1,46 @@
 import cubeStore from "../../store/cubeStore.js";
+// helper functions
+import rotateFace from "./helperFunctions/rotateFace.js";
+import getRow from "./helperFunctions/getRow.js";
+import getCol from "./helperFunctions/getCol.js";
+import setRow from "./helperFunctions/setRow.js";
+import setCol from "./helperFunctions/setCol.js";
 
 const B = () => {
-  const cube = cubeStore.getState().cube;
-  const setCube = cubeStore.getState().setCube;
-  const bufferCube = cubeStore.getState().bufferCube;
-  const setBufferCube = cubeStore.getState().setBufferCube;
+  const { cube, setCube } = cubeStore.getState();
 
-  const cubeColours = cubeStore.getState().cubeColours;
-  const setCubeColours = cubeStore.getState().setCubeColours;
-  const bufferCubeColours = cubeStore.getState().bufferCubeColours;
-  const setBufferCubeColours = cubeStore.getState().setBufferCubeColours;
+  // 1. Rotate back face
+  const newBack = rotateFace([...cube.back], true);
 
-  console.log("Original: ", cube, cubeColours);
-  console.log("Turning Back face...");
+  // 2. Handle adjacent faces using cycle notation
+  const cycle = {
+    from: {
+      top: { row: 0, isRow: true },
+      left: { col: 0, isRow: false },
+      down: { row: 2, isRow: true },
+      right: { col: 2, isRow: false }
+    }
+  };
 
+  // Get values before we change anything
+  const values = {
+    top: getRow(cube.top, cycle.from.top.row),
+    left: getCol(cube.left, cycle.from.left.col),
+    down: getRow(cube.down, cycle.from.down.row),
+    right: getCol(cube.right, cycle.from.right.col)
+  };
+
+  // Rotate values around the cycle
   const newCube = {
-    front: cube.front,
-    back: [
-      [bufferCube.back[2][0], bufferCube.back[1][0], bufferCube.back[0][0]],
-      [bufferCube.back[2][1], bufferCube.back[1][1], bufferCube.back[0][1]],
-      [bufferCube.back[2][2], bufferCube.back[1][2], bufferCube.back[0][2]]
-    ],
-    left: [
-      [bufferCube.top[0][0], ...bufferCube.left[0].slice(1)],
-      [bufferCube.top[0][1], ...bufferCube.left[1].slice(1)],
-      [bufferCube.top[0][2], ...bufferCube.left[2].slice(1)]
-    ],
-    right: [
-      [...bufferCube.right[0].slice(0, -1), bufferCube.down[2][2]],
-      [...bufferCube.right[1].slice(0, -1), bufferCube.down[2][1]],
-      [...bufferCube.right[2].slice(0, -1), bufferCube.down[2][0]]
-    ],
-    top: [
-      [bufferCube.right[0][2], bufferCube.right[1][2], bufferCube.right[2][2]],
-      ...bufferCube.top.slice(1)
-    ],
-    down: [
-      ...bufferCube.down.slice(0, 2),
-      [bufferCube.left[2][0], bufferCube.left[1][0], bufferCube.left[0][0]]
-    ]
+    ...cube,
+    back: newBack,
+    top: setRow(cube.top, cycle.from.top.row, values.right),
+    left: setCol(cube.left, cycle.from.left.col, values.top.reverse()),
+    down: setRow(cube.down, cycle.from.down.row, values.left),
+    right: setCol(cube.right, cycle.from.right.col, values.down.reverse())
   };
-
   setCube(newCube);
-  setBufferCube(newCube);
-
-  const newCubeColours = {
-    front: cubeColours.front,
-    back: [
-      [
-        bufferCubeColours.back[2][0],
-        bufferCubeColours.back[1][0],
-        bufferCubeColours.back[0][0]
-      ],
-      [
-        bufferCubeColours.back[2][1],
-        bufferCubeColours.back[1][1],
-        bufferCubeColours.back[0][1]
-      ],
-      [
-        bufferCubeColours.back[2][2],
-        bufferCubeColours.back[1][2],
-        bufferCubeColours.back[0][2]
-      ]
-    ],
-    left: [
-      [bufferCubeColours.top[0][0], ...bufferCubeColours.left[0].slice(1)],
-      [bufferCubeColours.top[0][1], ...bufferCubeColours.left[1].slice(1)],
-      [bufferCubeColours.top[0][2], ...bufferCubeColours.left[2].slice(1)]
-    ],
-    right: [
-      [
-        ...bufferCubeColours.right[0].slice(0, -1),
-        bufferCubeColours.down[2][2]
-      ],
-      [
-        ...bufferCubeColours.right[1].slice(0, -1),
-        bufferCubeColours.down[2][1]
-      ],
-      [...bufferCubeColours.right[2].slice(0, -1), bufferCubeColours.down[2][0]]
-    ],
-    top: [
-      [
-        bufferCubeColours.right[0][2],
-        bufferCubeColours.right[1][2],
-        bufferCubeColours.right[2][2]
-      ],
-      ...bufferCubeColours.top.slice(1)
-    ],
-    down: [
-      ...bufferCubeColours.down.slice(0, 2),
-      [
-        bufferCubeColours.left[2][0],
-        bufferCubeColours.left[1][0],
-        bufferCubeColours.left[0][0]
-      ]
-    ]
-  };
-
-  setCubeColours(newCubeColours);
-  setBufferCubeColours(newCubeColours);
-
-  console.log("New: ", newCube, newCubeColours);
+  console.log(newCube);
 };
 
 export default B;
