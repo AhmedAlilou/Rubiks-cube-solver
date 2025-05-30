@@ -6,39 +6,37 @@ import getCol from "./helperFunctions/getCol.js";
 import setRow from "./helperFunctions/setRow.js";
 import setCol from "./helperFunctions/setCol.js";
 
-const B = () => {
+const B = (clockWise) => {
   const { cube, setCube } = cubeStore.getState();
 
   // 1. Rotate back face
-  const newBack = rotateFace([...cube.back], true);
+  const newBack = rotateFace([...cube.back], clockWise);
 
   // 2. Handle adjacent faces using cycle notation
-  const cycle = {
-    from: {
-      top: { row: 0, isRow: true },
-      left: { col: 0, isRow: false },
-      down: { row: 2, isRow: true },
-      right: { col: 2, isRow: false }
-    }
-  };
-
-  // Get values before we change anything
   const values = {
-    top: getRow(cube.top, cycle.from.top.row),
-    left: getCol(cube.left, cycle.from.left.col),
-    down: getRow(cube.down, cycle.from.down.row),
-    right: getCol(cube.right, cycle.from.right.col)
+    top: getRow(cube.top, 0),
+    left: getCol(cube.left, 0),
+    down: getRow(cube.down, 2),
+    right: getCol(cube.right, 2)
   };
 
-  // Rotate values around the cycle
-  const newCube = {
-    ...cube,
-    back: newBack,
-    top: setRow(cube.top, cycle.from.top.row, values.right),
-    left: setCol(cube.left, cycle.from.left.col, values.top.reverse()),
-    down: setRow(cube.down, cycle.from.down.row, values.left),
-    right: setCol(cube.right, cycle.from.right.col, values.down.reverse())
-  };
+  const newCube = { ...cube, back: newBack };
+  if (clockWise) {
+    // Clockwise: top → left → down → right → top
+    newCube.top = setRow(cube.top, 0, values.right);
+    newCube.right = setCol(cube.right, 2, values.down.reverse());
+    newCube.down = setRow(cube.down, 2, values.left);
+    newCube.left = setCol(cube.left, 0, values.top.reverse());
+
+    console.log("B");
+  } else {
+    // Anticlockwise: top → right → down → left → top
+    newCube.top = setRow(cube.top, 0, values.left.reverse());
+    newCube.left = setCol(cube.left, 0, values.down);
+    newCube.down = setRow(cube.down, 2, values.right.reverse());
+    newCube.right = setCol(cube.right, 2, values.top);
+    console.log("B'");
+  }
   setCube(newCube);
   console.log(newCube);
 };

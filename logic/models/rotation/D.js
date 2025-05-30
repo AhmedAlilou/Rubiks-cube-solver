@@ -4,36 +4,36 @@ import rotateFace from "./helperFunctions/rotateFace.js";
 import getRow from "./helperFunctions/getRow.js";
 import setRow from "./helperFunctions/setRow.js";
 
-const D = () => {
+const D = (clockWise) => {
   const { cube, setCube } = cubeStore.getState();
 
   // 1. Rotate down face
-  const newDown = rotateFace([...cube.down], true);
+  const newDown = rotateFace([...cube.down], clockWise);
   // 2. Handle adjacent faces using cycle notation
-  const cycle = {
-    from: {
-      front: { row: 2, isRow: true },
-      right: { row: 2, isRow: true },
-      back: { row: 2, isRow: true },
-      left: { row: 2, isRow: true }
-    }
-  };
-  // Get values before we change anything
   const values = {
-    front: getRow(cube.front, cycle.from.front.row),
-    right: getRow(cube.right, cycle.from.right.row),
-    back: getRow(cube.back, cycle.from.back.row),
-    left: getRow(cube.left, cycle.from.left.row)
+    front: getRow(cube.front, 2),
+    right: getRow(cube.right, 2),
+    back: getRow(cube.back, 2),
+    left: getRow(cube.left, 2)
   };
-  // Rotate values around the cycle
-  const newCube = {
-    ...cube,
-    down: newDown,
-    front: setRow(cube.front, cycle.from.front.row, values.left),
-    right: setRow(cube.right, cycle.from.right.row, values.front),
-    back: setRow(cube.back, cycle.from.back.row, values.right),
-    left: setRow(cube.left, cycle.from.left.row, values.back)
-  };
+
+  const newCube = { ...cube, down: newDown };
+  if (clockWise) {
+    // Clockwise: front → right → back → left → front
+    newCube.front = setRow(cube.front, 2, values.left);
+    newCube.left = setRow(cube.left, 2, values.back);
+    newCube.back = setRow(cube.back, 2, values.right);
+    newCube.right = setRow(cube.right, 2, values.front);
+
+    console.log("D");
+  } else {
+    // Anticlockwise: front → left → back → right → front
+    newCube.front = setRow(cube.front, 2, values.right);
+    newCube.right = setRow(cube.right, 2, values.back);
+    newCube.back = setRow(cube.back, 2, values.left);
+    newCube.left = setRow(cube.left, 2, values.front);
+    console.log("D'");
+  }
   setCube(newCube);
   console.log(newCube);
 };

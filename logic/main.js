@@ -11,10 +11,15 @@ console.log(
 );
 console.log("Initial Cube State:");
 console.log(cube);
-console.log("F turn:");
-F(false);
-B();
 F(true);
+R(false);
+U(false);
+D(true);
+B(true);
+L(true);
+D(false);
+R(false);
+U(false);
 
 console.log(
   "------------------------------------------------------------------------------------------------------------------------------------------------"
