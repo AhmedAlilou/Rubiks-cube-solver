@@ -21,8 +21,17 @@ An interactive web application built with React and Three.js that teaches the CF
 
 ## Tech Stack
 
+### Frontend:
+
 - React
 - Three.js / React Three Fiber
+
+### Logic:
+
+- Vanilla JS
+
+### Build Tool:
+
 - Vite
 
 ## Running Locally
