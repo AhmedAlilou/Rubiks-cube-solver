@@ -1,16 +1,25 @@
 import React from "react";
-import Top from "./rows/top.jsx";
-import Middle from "./rows/middle.jsx";
-import Bottom from "./rows/bottom.jsx";
+import cubeStore from "../../store/cubiesStore.js";
+import Cubie from "./cubie.jsx";
 
-function Cube() {
+const Cube = () => {
+  const cubies = cubeStore((state) => state.cubies);
+
   return (
     <group position={[0, 0, 0]}>
-      <Top />
-      <Middle />
-      <Bottom />
+      {cubies.map((cubie) => {
+        console.log(cubie);
+        return (
+          <Cubie
+            key={cubie.id}
+            cubieID={cubie.id}
+            currentPosition={cubie.position}
+            colours={cubie.colours}
+          />
+        );
+      })}
     </group>
   );
-}
+};
 
 export default Cube;
