@@ -8,7 +8,6 @@ const handleFrontTurn = (clockwise, numberOfRotations) => {
   useRotationStore.getState().setRotating(true);
   useRotationStore.getState().setLayerValue(1);
   useRotationStore.getState().setTarget((Math.PI / 2) * numberOfRotations);
-  useRotationStore.getState().setProgress(0);
   console.log("turning front face", rotating);
 };
 
@@ -20,7 +19,6 @@ const handleUpTurn = (clockwise, numberOfRotations) => {
   useRotationStore.getState().setRotating(true);
   useRotationStore.getState().setLayerValue(1);
   useRotationStore.getState().setTarget((Math.PI / 2) * numberOfRotations);
-  useRotationStore.getState().setProgress(0);
   console.log("turning up face", rotating);
 };
 

@@ -22,7 +22,7 @@ const Cube = () => {
   const setRotating = useRotationStore((state) => state.setRotating);
 
   const rotating = useRotationStore((state) => state.rotating);
-  const speed = 1.5;
+  const speed = 3;
   useEffect(() => {
     progressRef.current = 0;
   }, [rotating]);
