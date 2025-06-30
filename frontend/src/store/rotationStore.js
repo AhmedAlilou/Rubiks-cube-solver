@@ -13,8 +13,6 @@ const useRotationStore = create((set) => ({
   setNumOfRotations: (newCount) => set({ numOfRotations: newCount }),
   target: 0,
   setTarget: (newTarget) => set({ target: newTarget }),
-  progress: 0,
-  setProgress: (newProgress) => set({ progress: newProgress }),
   complete: false,
   setComplete: (newState) => set({ complete: newState })
 }));

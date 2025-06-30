@@ -4,6 +4,7 @@ import Cubie from "./cubie.jsx";
 import useRotationStore from "../../store/rotationStore.js";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
+import { useEffect } from "react";
 import getRotatingCubies from "../../store/helperFunctions/getRotatingCubies.js";
 
 const Cube = () => {
@@ -17,22 +18,22 @@ const Cube = () => {
     (cubie) => !rotatingCubies.includes(cubie)
   );
   const target = useRotationStore((state) => state.target);
-  const progress = useRotationStore((state) => state.progress);
-  const setProgress = useRotationStore((state) => state.setProgress);
-  const setComplete = useRotationStore((state) => state.setComplete);
+  const progressRef = useRef(0); // ref instead of useState because Usestate causes over turns
+  const setRotating = useRotationStore((state) => state.setRotating);
 
   const rotating = useRotationStore((state) => state.rotating);
   const speed = 1.5;
+  useEffect(() => {
+    progressRef.current = 0;
+  }, [rotating]);
 
   useFrame((state, delta) => {
-    if (rotating && rotatingGroup.current && progress < target) {
+    if (rotating && progressRef.current < target) {
       let step = delta * speed;
-      if (progress + step > target) {
-        // We've finished
-        step = target - progress;
-        setProgress(target);
-        setComplete(true);
-        console.log(rotatingCubies);
+
+      if (progressRef.current + step > target) {
+        step = target - progressRef.current;
+        setRotating(false);
       }
 
       if (clockWise) {
@@ -45,7 +46,7 @@ const Cube = () => {
         if (axis === "z") rotatingGroup.current.rotation.z += step;
       }
 
-      setProgress(progress + step);
+      progressRef.current += step;
     }
   });
 

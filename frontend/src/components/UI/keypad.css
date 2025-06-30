@@ -1,8 +1,10 @@
 .keypad {
   width: 100vw;
-  height: 15vh;
+  height: 8vh;
   display: flex;
+  align-items: center;
   justify-content: first baseline;
+  background-color: rgb(33, 33, 33);
 }
 
 .button {
