@@ -3,7 +3,7 @@ import "./keypad.css";
 import {
   handleFrontTurn,
   handleUpTurn
-} from "../../store/helperFunctions/rotationfunctions.js";
+} from "../../functions/rotationfunctions.js";
 import useRotationStore from "../../store/rotationStore.js";
 
 function Keypad() {

@@ -5,7 +5,7 @@ import useRotationStore from "../../store/rotationStore.js";
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { useEffect } from "react";
-import getRotatingCubies from "../../store/helperFunctions/getRotatingCubies.js";
+import getRotatingCubies from "../../functions/helperFunctions/getRotatingCubies.js";
 
 const Cube = () => {
   const cubies = cubeStore((state) => state.cubies);

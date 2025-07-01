@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import getInitialCubies from "./helperFunctions/getInitialCubies.js";
+import getInitialCubies from "../functions/helperFunctions/getInitialCubies.js";
 
 const useCubiesStore = create((set) => ({
   cubies: getInitialCubies(),
