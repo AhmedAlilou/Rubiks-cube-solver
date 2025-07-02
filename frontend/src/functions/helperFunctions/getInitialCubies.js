@@ -8,7 +8,7 @@ function getInitialCubies() {
         if (x === 0 && y === 0 && z === 0) continue;
 
         // Determine face colors for this cubie
-        const colours = {
+        let colours = {
           right: null,
           left: null,
           top: null,
@@ -16,6 +16,7 @@ function getInitialCubies() {
           front: null,
           back: null
         };
+
         if (x === 1) colours.right = "red";
         if (x === -1) colours.left = "#FF4D00"; // orange
         if (y === 1) colours.top = "white";

@@ -6,6 +6,7 @@ import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import { useEffect } from "react";
 import getRotatingCubies from "../../functions/helperFunctions/getRotatingCubies.js";
+import updateRotationState from "../../functions/helperFunctions/updateRotationState.js";
 
 const Cube = () => {
   const cubies = cubeStore((state) => state.cubies);
@@ -47,6 +48,13 @@ const Cube = () => {
       }
 
       progressRef.current += step;
+      if (progressRef.current >= target) {
+        console.log("Rotation complete");
+      }
+      // INSIDE IF STATEMENT:
+      // function here to update positions
+      // updateCubiePositions(axis, numOfRotations)
+      // update colours not sure how rn
     }
   });
 

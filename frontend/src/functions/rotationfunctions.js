@@ -1,11 +1,11 @@
-import initiateRotationState from "./helperFunctions/initiateRotationState";
+import updateRotationState from "./helperFunctions/updateRotationState";
 
 const handleFrontTurn = (clockwise, numberOfRotations) => {
-  initiateRotationState("z", clockwise, numberOfRotations);
+  updateRotationState("z", clockwise, numberOfRotations);
 };
 
 const handleUpTurn = (clockwise, numberOfRotations) => {
-  initiateRotationState("y", clockwise, numberOfRotations);
+  updateRotationState("y", clockwise, numberOfRotations);
 };
 
 export { handleFrontTurn, handleUpTurn };
