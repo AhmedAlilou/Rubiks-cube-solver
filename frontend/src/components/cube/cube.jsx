@@ -50,7 +50,11 @@ const Cube = () => {
       // if statement here to check if progressRef.current = Target, in other words the rotation has completed
       // INSIDE IF STATEMENT:
       // move setRotating(false) into here
-      // 
+      // or just use initiateRotationState/updateRotationsState
+      // updateRotationState(null, null, 0) or whatever it is
+      // function here to update positions
+      // updateCubiePositions(axis, numOfRotations)
+      // update colours not sure how rn
     }
   });
 
