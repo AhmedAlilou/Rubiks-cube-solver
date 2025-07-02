@@ -45,8 +45,12 @@ const Cube = () => {
         if (axis === "y") rotatingGroup.current.rotation.y += step;
         if (axis === "z") rotatingGroup.current.rotation.z += step;
       }
-
+     
       progressRef.current += step;
+      // if statement here to check if progressRef.current = Target, in other words the rotation has completed
+      // INSIDE IF STATEMENT:
+      // move setRotating(false) into here
+      // 
     }
   });
 
