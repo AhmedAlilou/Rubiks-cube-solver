@@ -1,34 +1,31 @@
 function rotateFace(face, clockwise) {
-  // 1. Transpose the matrix
+  // Deep copy to avoid mutating the original
+  let newFace = face.map((row) => [...row]);
   if (clockwise) {
+    // Transpose
     for (let i = 0; i < 3; i++) {
       for (let j = i; j < 3; j++) {
-        [face[i][j], face[j][i]] = [face[j][i], face[i][j]];
+        [newFace[i][j], newFace[j][i]] = [newFace[j][i], newFace[i][j]];
       }
     }
-
-    // 2. Swap first and last columns
+    // Reverse each row
     for (let i = 0; i < 3; i++) {
-      face[i].reverse();
+      newFace[i].reverse();
     }
-
-    return face;
+    return newFace;
   } else {
-    // If not clockwise, we will rotate anti-clockwise
-    // 1. Swap first and last columns
+    // Reverse each row
     for (let i = 0; i < 3; i++) {
-      face[i].reverse();
+      newFace[i].reverse();
     }
-    // 2. Transponse the matrix
+    // Transpose
     for (let i = 0; i < 3; i++) {
       for (let j = i; j < 3; j++) {
-        [face[i][j], face[j][i]] = [face[j][i], face[i][j]];
+        [newFace[i][j], newFace[j][i]] = [newFace[j][i], newFace[i][j]];
       }
     }
-    return face;
+    return newFace;
   }
 }
-
-// antilockwise here too
 
 export default rotateFace;

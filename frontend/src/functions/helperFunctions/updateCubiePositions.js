@@ -1,5 +1,6 @@
 import useCubiesStore from "../../store/cubiesStore.js";
 import useRotationStore from "../../store/rotationStore.js";
+import rotateFace from "../../../../logic/models/rotation/helperFunctions/rotateFace.js";
 const cubies = useCubiesStore.getState().cubies;
 const setCubies = useCubiesStore.getState().setCubies;
 const cubieMatrix = useRotationStore.getState().cubieMatrix;
@@ -9,7 +10,7 @@ const axisMap = {
   y: 1,
   z: 2
 };
-const matrix = [
+let matrix = [
   [null, null, null],
   [null, null, null],
   [null, null, null]
@@ -52,6 +53,9 @@ const updateCubiePositions = (axis, layerValue, numOfRotations, clockwise) => {
   // ROTATION LOGIC
   // here we transpose matrix and swap columns depending on numOfRoations and clockwise
   // start with numOfRotations === 1
+  if (numOfRotations === 1) {
+    matrix = rotateFace(matrix, clockwise);
+  }
 
   // then we use the position in the matrix of the cubie to update that cubie's position
   console.log("Matrix after rotation:", matrix);
