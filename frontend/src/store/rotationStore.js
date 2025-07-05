@@ -7,12 +7,18 @@ const useRotationStore = create((set) => ({
   setAxis: (newAxis) => set({ axis: newAxis }),
   layerValue: null,
   setLayerValue: (newValue) => set({ layerValue: newValue }),
-  clockWise: null,
-  setClockWise: (newDirection) => set({ clockWise: newDirection }),
+  clockwise: null,
+  setClockwise: (newDirection) => set({ clockwise: newDirection }),
   numOfRotations: 0,
   setNumOfRotations: (newCount) => set({ numOfRotations: newCount }),
   target: 0,
-  setTarget: (newTarget) => set({ target: newTarget })
+  setTarget: (newTarget) => set({ target: newTarget }),
+  cubieMatrix: [
+    [null, null, null],
+    [null, null, null],
+    [null, null, null]
+  ],
+  setCubieMatrix: (newMatrix) => set({ cubieMatrix: newMatrix })
 }));
 
 export default useRotationStore;

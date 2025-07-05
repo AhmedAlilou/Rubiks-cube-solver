@@ -15,7 +15,7 @@ const Cube = () => {
   const axis = useRotationStore((state) => state.axis);
   const layerValue = useRotationStore((state) => state.layerValue);
   const rotatingCubies = getRotatingCubies(cubies, axis, layerValue);
-  const clockWise = useRotationStore((state) => state.clockWise);
+  const clockwise = useRotationStore((state) => state.clockwise);
   const staticCubies = cubies.filter(
     (cubie) => !rotatingCubies.includes(cubie)
   );
@@ -38,7 +38,7 @@ const Cube = () => {
         setRotating(false);
       }
 
-      if (clockWise) {
+      if (clockwise) {
         if (axis === "x") rotatingGroup.current.rotation.x -= step;
         if (axis === "y") rotatingGroup.current.rotation.y -= step;
         if (axis === "z") rotatingGroup.current.rotation.z -= step;
@@ -51,7 +51,16 @@ const Cube = () => {
       progressRef.current += step;
       if (progressRef.current >= target) {
         console.log("Rotation complete");
-        updateCubiePositions(axis, useRotationStore.getState().numOfRotations);
+        console.log(
+          "clockwise in Cube before updateCubiePositions:",
+          clockwise
+        );
+        updateCubiePositions(
+          axis,
+          layerValue,
+          useRotationStore.getState().numOfRotations,
+          clockwise
+        );
         // update positions of cubies here
       }
       // INSIDE IF STATEMENT:

@@ -7,7 +7,7 @@ const updateRotationState = (
   layerValue
 ) => {
   useRotationStore.getState().setAxis(axis);
-  useRotationStore.getState().setClockWise(clockwise);
+  useRotationStore.getState().setClockwise(clockwise);
   useRotationStore.getState().setNumOfRotations(numberOfRotations);
   useRotationStore.getState().setRotating(true);
   useRotationStore.getState().setLayerValue(layerValue);

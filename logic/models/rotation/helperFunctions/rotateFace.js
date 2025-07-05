@@ -1,6 +1,6 @@
-function rotateFace(face, clockWise) {
+function rotateFace(face, clockwise) {
   // 1. Transpose the matrix
-  if (clockWise) {
+  if (clockwise) {
     for (let i = 0; i < 3; i++) {
       for (let j = i; j < 3; j++) {
         [face[i][j], face[j][i]] = [face[j][i], face[i][j]];

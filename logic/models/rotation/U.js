@@ -4,11 +4,11 @@ import rotateFace from "./helperFunctions/rotateFace.js";
 import getRow from "./helperFunctions/getRow.js";
 import setRow from "./helperFunctions/setRow.js";
 
-const U = (clockWise) => {
+const U = (clockwise) => {
   const { cube, setCube } = cubeStore.getState();
 
   // 1. Rotate top face
-  const newTop = rotateFace([...cube.top], clockWise);
+  const newTop = rotateFace([...cube.top], clockwise);
   // 2. Handle adjacent faces using cycle notation
   const values = {
     back: getRow(cube.back, 0),
@@ -18,7 +18,7 @@ const U = (clockWise) => {
   };
   // Rotate values around the cycle
   const newCube = { ...cube, top: newTop };
-  if (clockWise) {
+  if (clockwise) {
     // Clockwise: back → right → front → left → back
     newCube.back = setRow(cube.back, 0, values.left);
     newCube.left = setRow(cube.left, 0, values.front);

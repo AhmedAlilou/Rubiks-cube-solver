@@ -6,11 +6,11 @@ import getCol from "./helperFunctions/getCol.js";
 import setRow from "./helperFunctions/setRow.js";
 import setCol from "./helperFunctions/setCol.js";
 
-const B = (clockWise) => {
+const B = (clockwise) => {
   const { cube, setCube } = cubeStore.getState();
 
   // 1. Rotate back face
-  const newBack = rotateFace([...cube.back], clockWise);
+  const newBack = rotateFace([...cube.back], clockwise);
 
   // 2. Handle adjacent faces using cycle notation
   const values = {
@@ -21,7 +21,7 @@ const B = (clockWise) => {
   };
 
   const newCube = { ...cube, back: newBack };
-  if (clockWise) {
+  if (clockwise) {
     // Clockwise: top → left → down → right → top
     newCube.top = setRow(cube.top, 0, values.right);
     newCube.right = setCol(cube.right, 2, values.down.reverse());

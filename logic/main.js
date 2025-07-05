@@ -1,5 +1,5 @@
 import useCubeStore from "./store/cubeStore.js";
-import F from "./models/rotation/f.js";
+import F from "./models/rotation/F.js";
 import U from "./models/rotation/U.js";
 import D from "./models/rotation/D.js";
 import B from "./models/rotation/B.js";

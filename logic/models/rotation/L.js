@@ -4,11 +4,11 @@ import rotateFace from "./helperFunctions/rotateFace.js";
 import getCol from "./helperFunctions/getCol.js";
 import setCol from "./helperFunctions/setCol.js";
 
-const L = (clockWise) => {
+const L = (clockwise) => {
   const { cube, setCube } = cubeStore.getState();
 
   // 1. Rotate left face
-  const newLeft = rotateFace([...cube.left], clockWise);
+  const newLeft = rotateFace([...cube.left], clockwise);
 
   // Get values before we change anything
   const values = {
@@ -21,7 +21,7 @@ const L = (clockWise) => {
   // Rotate values around the cycle
   const newCube = { ...cube, left: newLeft };
 
-  if (clockWise) {
+  if (clockwise) {
     // Clockwise: top → front → down → back → top
     newCube.top = setCol(cube.top, 0, values.back.reverse());
     newCube.back = setCol(cube.back, 2, values.down.reverse());
