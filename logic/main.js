@@ -18,18 +18,14 @@ import b from "./models/wide/b.js";
 import l from "./models/wide/l.js";
 import r from "./models/wide/r.js";
 
+import M from "./models/slice/M.js";
+import S from "./models/slice/S.js";
+import E from "./models/slice/E.js";
+
 console.log(
   "------------------------------------------------------------------------------------------------------------------------------------------------"
 );
 console.log("Initial Cube State:");
-
-b(false);
-f(true);
-l(true);
-d(false);
-r(false);
-u(false);
-r(true);
 
 console.log(
   "------------------------------------------------------------------------------------------------------------------------------------------------"

@@ -1,9 +1,11 @@
-import L from "../turns/L.js";
-import x from "../rotation/x.js";
+import F from "../turns/F.js";
+import B from "../turns/B.js";
+import z from "../rotation/z.js";
 
-const r = (clockwise) => {
-  L(clockwise);
-  x(clockwise);
+const S = (clockwise) => {
+  F(!clockwise);
+  B(clockwise);
+  z(clockwise);
 };
 
-export default r;
+export default S;
