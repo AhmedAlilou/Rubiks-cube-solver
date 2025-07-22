@@ -26,16 +26,16 @@ const execute = (moves) => {
     r
   };
 
-  // Loop through and execute each move
   moves.forEach((move) => {
-    const match = move.match(/^([A-Za-z])([2]?)(['"]?)$/);
+    // Match: base letter + optional 2 or 3 + optional prime
+    const match = move.match(/^([A-Za-z])([23]?)(['"]?)$/);
 
     if (!match) {
       console.warn(`Invalid move format: "${move}"`);
       return;
     }
 
-    const [, base, double, prime] = match;
+    const [, base, countStr, prime] = match;
 
     const fn = moveFunctions[base];
     if (!fn) {
@@ -44,9 +44,9 @@ const execute = (moves) => {
     }
 
     const isClockwise = prime !== "'";
-    const repetitions = double === "2" ? 2 : 1;
+    const count = countStr ? parseInt(countStr) : 1;
 
-    for (let i = 0; i < repetitions; i++) {
+    for (let i = 0; i < count; i++) {
       fn(isClockwise);
     }
   });
