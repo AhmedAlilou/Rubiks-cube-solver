@@ -8,7 +8,6 @@ import Tile from "./components/tile/tile.jsx";
 const Scene = () => {
   return (
     <>
-      <Cubie />
       <Cube />
       <OrbitControls />
     </>
