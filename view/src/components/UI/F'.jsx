@@ -34,6 +34,7 @@ function FPrime() {
 
   return (
     <button
+      className="button"
       onClick={() => {
         handleFPrime();
         console.log("Current Rotation:", currentZRotation);

@@ -3,12 +3,12 @@ import "./UI.css"; // Assuming you have some styles for the button
 import useCubiesStore from "../../store/cubiesStore.js";
 const PI = Math.PI;
 
-function F() {
+function UPrime() {
   const cubies = useCubiesStore((state) => state.cubies);
   const setCubies = useCubiesStore((state) => state.setCubies);
-  const currentZRotation = useCubiesStore((state) => state.currentZRotation);
-  const setCurrentZRotation = useCubiesStore(
-    (state) => state.setCurrentZRotation
+  const currentYRotation = useCubiesStore((state) => state.currentYRotation);
+  const setCurrentYRotation = useCubiesStore(
+    (state) => state.setCurrentYRotation
   );
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -16,18 +16,18 @@ function F() {
     (state) => state.setButtonsDisabled
   );
 
-  const handleF = () => {
+  const handleUPrime = () => {
     const newCubies = {};
     for (const i in cubies) {
-      if (cubies[i].position[2] === 1) {
+      if (cubies[i].position[1] === 1) {
         newCubies[i] = { ...cubies[i], isRotating: true };
       } else {
         newCubies[i] = { ...cubies[i], isRotating: false };
       }
     }
     setCubies(newCubies);
-    setCurrentZRotation(currentZRotation - PI / 2);
-    setPrime(false);
+    setCurrentYRotation(currentYRotation + PI / 2);
+    setPrime(true);
     setButtonsDisabled(true);
   };
 
@@ -35,14 +35,14 @@ function F() {
     <button
       className="button"
       onClick={() => {
-        handleF();
-        console.log("Current Rotation:", currentZRotation);
+        handleUPrime();
+        console.log("Current Rotation:", currentYRotation);
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      F
+      U'
     </button>
   );
 }
 
-export default F;
+export default UPrime;

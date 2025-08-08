@@ -35,6 +35,7 @@ function R() {
 
   return (
     <button
+      className="button"
       onClick={() => {
         handleR();
         console.log("Current Rotation:", currentXRotation);

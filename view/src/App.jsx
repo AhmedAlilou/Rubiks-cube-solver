@@ -6,6 +6,9 @@ import F from "./components/UI/F.jsx";
 import FPrime from "./components/UI/F'.jsx"; // Importing the F' component
 import R from "./components/UI/R.jsx";
 import RPrime from "./components/UI/R'.jsx";
+import U from "./components/UI/U.jsx";
+import UPrime from "./components/UI/U'.jsx";
+import "./app.css";
 
 function App() {
   return (
@@ -14,7 +17,10 @@ function App() {
       <FPrime />
       <R />
       <RPrime />
-      <Canvas style={{ height: "80vh", width: "100vw" }}>
+      <U />
+      <UPrime />
+
+      <Canvas style={{ height: "70vh", width: "100vw", marginTop: "30px" }}>
         <Scene />
         <axesHelper args={[5]} />
       </Canvas>

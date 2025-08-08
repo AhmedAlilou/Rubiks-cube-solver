@@ -51,6 +51,116 @@ const useCubiesStore = create((set) => ({
       topColour: "white",
       frontColour: "green",
       isRotating: false
+    },
+    9: {
+      position: [0, 1, 0],
+      topColour: "white",
+      isRotating: false
+    },
+    10: {
+      position: [1, 1, -1],
+      rightColour: "red",
+      topColour: "white",
+      backColour: "blue",
+      isRotating: false
+    },
+    11: {
+      position: [0, 1, -1],
+      topColour: "white",
+      backColour: "blue",
+      isRotating: false
+    },
+    12: {
+      position: [-1, 1, 0],
+      leftColour: orange,
+      topColour: "white",
+      isRotating: false
+    },
+    13: {
+      position: [-1, 1, -1],
+      leftColour: orange,
+      topColour: "white",
+      backColour: "blue",
+      isRotating: false
+    },
+    14: {
+      position: [-1, 0, 0],
+      leftColour: orange,
+      isRotating: false
+    },
+    15: {
+      position: [-1, 0, -1],
+      leftColour: orange,
+      backColour: "blue",
+      isRotating: false
+    },
+    16: {
+      position: [0, 0, -1],
+      backColour: "blue",
+      isRotating: false
+    },
+    17: {
+      position: [1, -1, 0],
+      rightColour: "red",
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    18: {
+      position: [1, -1, 1],
+      rightColour: "red",
+      frontColour: "green",
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    19: {
+      position: [0, -1, 1],
+      frontColour: "green",
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    20: {
+      position: [-1, -1, 0],
+      leftColour: orange,
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    21: {
+      position: [-1, -1, 1],
+      leftColour: orange,
+      frontColour: "green",
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    22: {
+      position: [0, -1, 0],
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    23: {
+      position: [1, -1, -1],
+      rightColour: "red",
+      backColour: "blue",
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    24: {
+      position: [0, -1, -1],
+      backColour: "blue",
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    25: {
+      position: [-1, -1, -1],
+      leftColour: orange,
+      backColour: "blue",
+      bottomColour: "yellow",
+      isRotating: false
+    },
+    26: {
+      position: [-1, 1, 1],
+      leftColour: orange,
+      topColour: "white",
+      frontColour: "green"
     }
   },
   setCubies: (newCubies) =>
@@ -58,7 +168,7 @@ const useCubiesStore = create((set) => ({
   currentXRotation: 0,
   setCurrentXRotation: (value) => set({ currentXRotation: value }),
   currentYRotation: 0,
-  setCurrentYRotation: (value) => set({ currentXRotation: value }),
+  setCurrentYRotation: (value) => set({ currentYRotation: value }),
   currentZRotation: 0,
   setCurrentZRotation: (value) => set({ currentZRotation: value }),
   prime: false,
