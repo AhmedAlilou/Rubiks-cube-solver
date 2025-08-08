@@ -2,21 +2,38 @@ import Cubie from "./cubie.jsx";
 import useCubiesStore from "../../store/cubiesStore.js";
 import React from "react";
 import { useSpring, a } from "@react-spring/three";
+import { useState } from "react";
 
 const PI = Math.PI;
 
 const Cube = () => {
   const cubies = useCubiesStore((state) => state.cubies);
   const setCubies = useCubiesStore((state) => state.setCubies);
-  const move = useCubiesStore((state) => state.move); // boolean from store
 
   const staticCubies = [];
   const rotatingCubies = [];
 
-  const currentRotation = useCubiesStore((state) => state.currentRotation); // current rotation state
-  const setCurrentRotation = useCubiesStore(
-    (state) => state.setCurrentRotation
-  ); // function to update current rotation state
+  const currentXRotation = useCubiesStore((state) => state.currentXRotation); // current rotation state
+  const setCurrentXRotation = useCubiesStore(
+    (state) => state.setCurrentXRotation
+  ); // function to update current rotation
+  const currentZRotation = useCubiesStore((state) => state.currentZRotation); // current rotation state
+  const setCurrentZRotation = useCubiesStore(
+    (state) => state.setCurrentZRotation
+  ); // function to update current rotation
+  const prime = useCubiesStore((state) => state.prime); // whether the rotation is a prime turn
+  const setPrime = useCubiesStore((state) => state.setPrime); // function to update prime state
+
+  const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
+  const setButtonsDisabled = useCubiesStore(
+    (state) => state.setButtonsDisabled
+  );
+
+  const pivotPosition = useCubiesStore((state) => state.pivotPosition);
+  const setPivotPosition = useCubiesStore((state) => state.setPivotPosition);
+
+  const [resetZSpring, setResetZSpring] = useState(false);
+  const [resetXSpring, setResetXSpring] = useState(false);
 
   // Separate cubies into static and rotating
   for (const i in cubies) {
@@ -28,46 +45,130 @@ const Cube = () => {
     }
   }
 
+  const { rotationX } = useSpring({
+    rotationX: currentXRotation,
+    config: { tension: 300, friction: 30 },
+    reset: resetXSpring,
+    onRest: () => {
+      setButtonsDisabled(false);
+      if (!resetXSpring) {
+        console.log("Animation complete - updating cubie positions");
+
+        const updatedCubies = {};
+
+        rotatingCubies.forEach((cubie) => {
+          if (!prime) {
+            updatedCubies[cubie.id] = {
+              ...cubie,
+              position: [
+                cubie.position[0],
+                cubie.position[2],
+                -cubie.position[1]
+              ],
+              backColour: cubie.topColour,
+              topColour: cubie.frontColour,
+              frontColour: cubie.bottomColour,
+              bottomColour: cubie.backColour,
+              isRotating: false
+            };
+          } else {
+            updatedCubies[cubie.id] = {
+              ...cubie,
+              position: [
+                cubie.position[0],
+                -cubie.position[2],
+                cubie.position[1]
+              ],
+              topColour: cubie.backColour,
+              backColour: cubie.bottomColour,
+              bottomColour: cubie.frontColour,
+              frontColour: cubie.topColour,
+              isRotating: false
+            };
+          }
+        });
+
+        setCubies(updatedCubies);
+        console.log(staticCubies, rotatingCubies);
+
+        setResetXSpring(true);
+        setCurrentXRotation(0);
+      } else {
+        setResetXSpring(false);
+      }
+    }
+  });
+
   // Spring animation for Z-axis rotation
   const { rotationZ } = useSpring({
-    rotationZ: currentRotation,
+    rotationZ: currentZRotation,
     config: { tension: 300, friction: 30 },
+    reset: resetZSpring,
     onRest: () => {
-      console.log("Animation complete - updating cubie rotations");
+      setButtonsDisabled(false);
+      if (!resetZSpring) {
+        console.log("Animation complete - updating cubie positions");
 
-      // Update cubies rotations on z axis to currentRotation
-      // We'll assume all rotatingCubies rotate together along z
-      const updatedCubies = {};
+        const updatedCubies = {};
 
-      rotatingCubies.forEach((cubie) => {
-        updatedCubies[cubie.id] = {
-          ...cubie,
-          rotations: [cubie.rotations[0], cubie.rotations[1], PI / 2],
-          position: [cubie.position[1], -cubie.position[0], cubie.position[2]],
-          topColour: cubie.leftColour,
-          leftColour: cubie.bottomColour,
-          rightColour: cubie.topColour,
-          bottomColour: cubie.rightColour,
-          isRotating: false
-        };
-      });
+        rotatingCubies.forEach((cubie) => {
+          if (!prime) {
+            updatedCubies[cubie.id] = {
+              ...cubie,
+              position: [
+                cubie.position[1],
+                -cubie.position[0],
+                cubie.position[2]
+              ],
+              topColour: cubie.leftColour,
+              leftColour: cubie.bottomColour,
+              rightColour: cubie.topColour,
+              bottomColour: cubie.rightColour,
+              isRotating: false
+            };
+          } else {
+            updatedCubies[cubie.id] = {
+              ...cubie,
+              position: [
+                -cubie.position[1],
+                cubie.position[0],
+                cubie.position[2]
+              ],
+              topColour: cubie.rightColour,
+              rightColour: cubie.bottomColour,
+              bottomColour: cubie.leftColour,
+              leftColour: cubie.topColour,
+              isRotating: false
+            };
+          }
+        });
 
-      setCubies(updatedCubies);
-      console.log(staticCubies, rotatingCubies);
+        setCubies(updatedCubies);
+        console.log(staticCubies, rotatingCubies);
+
+        setResetZSpring(true);
+        setCurrentZRotation(0);
+      } else {
+        setResetZSpring(false);
+      }
     }
   });
 
   return (
-    <group>
+    <group position={[0, 0, 0]} rotation={[0, 0, 0]}>
       {/* Static cubies */}
       {staticCubies.map((cubie) => (
-        <Cubie key={cubie.id} rotation-z={cubie.rotations[2]} {...cubie} />
+        <Cubie key={cubie.id} {...cubie} />
       ))}
 
       {/* Rotating cubies */}
-      <a.group rotation-z={rotationZ}>
+      <a.group
+        position={[0, 0, 0]}
+        rotation-x={rotationX}
+        rotation-z={rotationZ}
+      >
         {rotatingCubies.map((cubie) => (
-          <Cubie key={cubie.id} {...cubie} />
+          <Cubie key={cubie.id} position={cubie.position} {...cubie} />
         ))}
       </a.group>
     </group>

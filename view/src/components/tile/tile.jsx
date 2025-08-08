@@ -4,7 +4,7 @@ import { DoubleSide } from "three";
 function Tile(props) {
   return (
     <mesh position={props.position} rotation={props.rotation}>
-      <planeGeometry args={[1, 1, 1]} />
+      <planeGeometry args={[1, 1]} />
       <meshBasicMaterial color={props.colour} side={DoubleSide} />
     </mesh>
   );

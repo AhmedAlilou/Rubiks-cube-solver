@@ -8,6 +8,12 @@ import Tile from "./components/tile/tile.jsx";
 const Scene = () => {
   return (
     <>
+      <ambientLight intensity={0.5} />
+      <pointLight position={[10, 10, -5]} />
+      <mesh position={[0, 0, 0]}>
+        <sphereGeometry args={[0.5]} />
+        <meshPhysicalMaterial color="red" />
+      </mesh>
       <Cube />
       <OrbitControls />
     </>

@@ -12,32 +12,32 @@ const Cubie = (props) => {
       <Tile
         colour={props.frontColour || grey}
         rotation={[0, 0, 0]}
-        position={[0, 0, 1]}
+        position={[0, 0, 0.5]}
       />
       <Tile
         colour={props.rightColour || grey}
         rotation={[0, PI / 2, 0]}
-        position={[0.5, 0, 0.5]}
+        position={[0.5, 0, 0]}
       />
       <Tile
         colour={props.leftColour || grey}
         rotation={[0, PI / 2, 0]}
-        position={[-0.5, 0, 0.5]}
+        position={[-0.5, 0, 0]}
       />
       <Tile
         colour={props.backColour || grey}
         rotation={[0, 0, 0]}
-        position={[0, 0, 0]}
+        position={[0, 0, -0.5]}
       />
       <Tile
         colour={props.topColour || grey}
         rotation={[PI / 2, 0, 0]}
-        position={[0, 0.5, 0.5]}
+        position={[0, 0.5, 0]}
       />
       <Tile
         colour={props.bottomColour || grey}
         rotation={[PI / 2, 0, 0]}
-        position={[0, -0.5, 0.5]}
+        position={[0, -0.5, 0]}
       />
     </group>
   );
