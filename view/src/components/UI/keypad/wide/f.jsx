@@ -1,9 +1,9 @@
 import React from "react";
-import "./UI.css"; // Assuming you have some styles for the button
-import useCubiesStore from "../../store/cubiesStore.js";
-const PI = Math.PI;
+import "../../UI.css";
+import useCubiesStore from "../../../../store/cubiesStore.js";
+import { handlef } from "../../../../moves/moveHandlers/index.js";
 
-function BPrime() {
+function Wf() {
   const cubies = useCubiesStore((state) => state.cubies);
   const setCubies = useCubiesStore((state) => state.setCubies);
   const currentZRotation = useCubiesStore((state) => state.currentZRotation);
@@ -16,33 +16,24 @@ function BPrime() {
     (state) => state.setButtonsDisabled
   );
 
-  const handleBPrime = () => {
-    const newCubies = {};
-    for (const i in cubies) {
-      if (cubies[i].position[2] === -1) {
-        newCubies[i] = { ...cubies[i], isRotating: true };
-      } else {
-        newCubies[i] = { ...cubies[i], isRotating: false };
-      }
-    }
-    setCubies(newCubies);
-    setCurrentZRotation(currentZRotation - PI / 2);
-    setPrime(false);
-    setButtonsDisabled(true);
-  };
-
   return (
     <button
       className="button"
       onClick={() => {
-        handleBPrime();
-        console.log("Current Rotation:", currentZRotation);
+        handlef({
+          cubies,
+          setCubies,
+          currentZRotation,
+          setCurrentZRotation,
+          setPrime,
+          setButtonsDisabled
+        });
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      B'
+      f
     </button>
   );
 }
 
-export default BPrime;
+export default Wf;

@@ -1,7 +1,7 @@
 import React from "react";
-import "./UI.css"; // Assuming you have some styles for the button
-import useCubiesStore from "../../store/cubiesStore.js";
-const PI = Math.PI;
+import "../../UI.css";
+import useCubiesStore from "../../../../store/cubiesStore.js";
+import { handleU } from "../../../../moves/moveHandlers/index.js";
 
 function U() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -16,26 +16,18 @@ function U() {
     (state) => state.setButtonsDisabled
   );
 
-  const handleU = () => {
-    const newCubies = {};
-    for (const i in cubies) {
-      if (cubies[i].position[1] === 1) {
-        newCubies[i] = { ...cubies[i], isRotating: true };
-      } else {
-        newCubies[i] = { ...cubies[i], isRotating: false };
-      }
-    }
-    setCubies(newCubies);
-    setCurrentYRotation(currentYRotation - PI / 2);
-    setPrime(false);
-    setButtonsDisabled(true);
-  };
-
   return (
     <button
       className="button"
       onClick={() => {
-        handleU();
+        handleU({
+          cubies,
+          setCubies,
+          currentYRotation,
+          setCurrentYRotation,
+          setPrime,
+          setButtonsDisabled
+        });
         console.log("Current Rotation:", currentYRotation);
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true

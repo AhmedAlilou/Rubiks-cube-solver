@@ -11,11 +11,11 @@ body {
 
 .keypad {
   position: relative;
-  left: 5vw;
+  left: 2.5vw;
   background-color: #333;
-  width: 90vw;
+  width: 95vw;
   height: 10vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }

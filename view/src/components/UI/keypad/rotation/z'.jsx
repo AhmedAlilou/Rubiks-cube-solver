@@ -1,10 +1,9 @@
 import React from "react";
-import "./UI.css"; // Assuming you have some styles for the button
-import useCubiesStore from "../../store/cubiesStore.js";
-import F from "./F.jsx";
-const PI = Math.PI;
+import "../../UI.css";
+import useCubiesStore from "../../../../store/cubiesStore.js";
+import { handleZPrime } from "../../../../moves/moveHandlers/index.js";
 
-function FPrime() {
+function ZPrime() {
   const cubies = useCubiesStore((state) => state.cubies);
   const setCubies = useCubiesStore((state) => state.setCubies);
   const currentZRotation = useCubiesStore((state) => state.currentZRotation);
@@ -17,33 +16,25 @@ function FPrime() {
     (state) => state.setButtonsDisabled
   );
 
-  const handleFPrime = () => {
-    const newCubies = {};
-    for (const i in cubies) {
-      if (cubies[i].position[2] === 1) {
-        newCubies[i] = { ...cubies[i], isRotating: true };
-      } else {
-        newCubies[i] = { ...cubies[i], isRotating: false };
-      }
-    }
-    setCubies(newCubies);
-    setCurrentZRotation(currentZRotation + PI / 2);
-    setPrime(true);
-    setButtonsDisabled(true); // Disable buttons during rotation
-  };
-
   return (
     <button
       className="button"
       onClick={() => {
-        handleFPrime();
+        handleZPrime({
+          cubies,
+          setCubies,
+          currentZRotation,
+          setCurrentZRotation,
+          setPrime,
+          setButtonsDisabled
+        });
         console.log("Current Rotation:", currentZRotation);
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      F'
+      z'
     </button>
   );
 }
 
-export default FPrime;
+export default ZPrime;
