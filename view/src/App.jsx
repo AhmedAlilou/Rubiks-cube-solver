@@ -8,19 +8,39 @@ import R from "./components/UI/R.jsx";
 import RPrime from "./components/UI/R'.jsx";
 import U from "./components/UI/U.jsx";
 import UPrime from "./components/UI/U'.jsx";
-import "./app.css";
+import D from "./components/UI/D.jsx";
+import DPrime from "./components/UI/D'.jsx";
+import L from "./components/UI/L.jsx";
+import LPrime from "./components/UI/L'.jsx"; // Importing the L' component
+import B from "./components/UI/B.jsx";
+import BPrime from "./components/UI/B'.jsx"; // Importing the B' component
 
 function App() {
   return (
     <>
-      <F />
-      <FPrime />
-      <R />
-      <RPrime />
-      <U />
-      <UPrime />
+      <div className="keypad">
+        <F />
+        <FPrime />
+        <R />
+        <RPrime />
+        <U />
+        <UPrime />
+        <D />
+        <DPrime />
+        <L />
+        <LPrime />
+        <B />
+        <BPrime />
+      </div>
 
-      <Canvas style={{ height: "70vh", width: "100vw", marginTop: "30px" }}>
+      <Canvas
+        style={{
+          backgroundColor: "#0A0A0A",
+          height: "70vh",
+          width: "100vw",
+          marginTop: "30px"
+        }}
+      >
         <Scene />
         <axesHelper args={[5]} />
       </Canvas>

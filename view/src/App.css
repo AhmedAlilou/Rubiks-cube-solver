@@ -8,3 +8,14 @@
 body {
   background-color: black;
 }
+
+.keypad {
+  position: relative;
+  left: 5vw;
+  background-color: #333;
+  width: 90vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

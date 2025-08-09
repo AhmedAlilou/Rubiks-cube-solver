@@ -14,4 +14,10 @@
   font-size: 16px;
   margin: 4px 2px;
   cursor: pointer;
+  width: 6%;
+}
+
+.button:disabled {
+  background-color: #162d17; /* Gray */
+  cursor: not-allowed;
 }

@@ -5,6 +5,8 @@ import { useSpring, a } from "@react-spring/three";
 import { useState } from "react";
 
 const PI = Math.PI;
+const tension = 350;
+const friction = 25;
 
 const Cube = () => {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -50,7 +52,7 @@ const Cube = () => {
 
   const { rotationX } = useSpring({
     rotationX: currentXRotation,
-    config: { tension: 300, friction: 30 },
+    config: { tension: tension, friction: friction },
     reset: resetXSpring,
     onRest: () => {
       if (!resetXSpring) {
@@ -103,7 +105,7 @@ const Cube = () => {
   });
   const { rotationY } = useSpring({
     rotationY: currentYRotation,
-    config: { tension: 300, friction: 30 },
+    config: { tension: tension, friction: friction },
     reset: resetYSpring,
     onRest: () => {
       if (!resetYSpring) {
@@ -156,7 +158,7 @@ const Cube = () => {
   });
   const { rotationZ } = useSpring({
     rotationZ: currentZRotation,
-    config: { tension: 300, friction: 30 },
+    config: { tension: tension, friction: friction },
     reset: resetZSpring,
     onRest: () => {
       if (!resetZSpring) {
