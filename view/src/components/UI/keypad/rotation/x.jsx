@@ -10,6 +10,7 @@ function X() {
   const setCurrentXRotation = useCubiesStore(
     (state) => state.setCurrentXRotation
   );
+  const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
@@ -25,6 +26,7 @@ function X() {
           setCubies,
           currentXRotation,
           setCurrentXRotation,
+          prime,
           setPrime,
           setButtonsDisabled
         });
@@ -32,7 +34,7 @@ function X() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      X
+      x
     </button>
   );
 }

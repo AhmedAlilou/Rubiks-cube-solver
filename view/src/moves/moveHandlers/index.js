@@ -12,14 +12,7 @@ import {
   handleU,
   handleUPrime
 } from "./regular.js";
-import {
-  handleX,
-  handleXPrime,
-  handleY,
-  handleYPrime,
-  handleZ,
-  handleZPrime
-} from "./rotations.js";
+import { handleX, handleY, handleZ } from "./rotations.js";
 import {
   handleM,
   handleMPrime,
@@ -57,11 +50,8 @@ export {
   handleU,
   handleUPrime,
   handleX,
-  handleXPrime,
   handleY,
-  handleYPrime,
   handleZ,
-  handleZPrime,
   handleM,
   handleMPrime,
   handleE,

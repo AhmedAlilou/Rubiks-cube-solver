@@ -176,6 +176,8 @@ const useCubiesStore = create((set) => ({
   setCurrentZRotation: (value) => set({ currentZRotation: value }),
   prime: false,
   setPrime: (value) => set({ prime: value }),
+  double: false,
+  setDouble: (value) => set({ double: value }),
   buttonsDisabled: false,
   setButtonsDisabled: (value) => set({ buttonsDisabled: value })
 }));

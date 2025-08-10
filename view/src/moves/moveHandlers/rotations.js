@@ -5,6 +5,7 @@ const handleX = ({
   setCubies,
   currentXRotation,
   setCurrentXRotation,
+  prime,
   setPrime,
   setButtonsDisabled
 }) => {
@@ -13,26 +14,10 @@ const handleX = ({
     newCubies[i] = { ...cubies[i], isRotating: true };
   }
   setCubies(newCubies);
-  setCurrentXRotation(currentXRotation - PI / 2);
-  setPrime(false);
-  setButtonsDisabled(true);
-};
-
-const handleXPrime = ({
-  cubies,
-  setCubies,
-  currentXRotation,
-  setCurrentXRotation,
-  setPrime,
-  setButtonsDisabled
-}) => {
-  const newCubies = {};
-  for (const i in cubies) {
-    newCubies[i] = { ...cubies[i], isRotating: true };
-  }
-  setCubies(newCubies);
-  setCurrentXRotation(currentXRotation + PI / 2);
-  setPrime(true);
+  setCurrentXRotation(
+    prime ? currentXRotation + PI / 2 : currentXRotation - PI / 2
+  );
+  setPrime(prime);
   setButtonsDisabled(true);
 };
 
@@ -41,6 +26,7 @@ const handleY = ({
   setCubies,
   currentYRotation,
   setCurrentYRotation,
+  prime,
   setPrime,
   setButtonsDisabled
 }) => {
@@ -49,26 +35,10 @@ const handleY = ({
     newCubies[i] = { ...cubies[i], isRotating: true };
   }
   setCubies(newCubies);
-  setCurrentYRotation(currentYRotation - PI / 2);
-  setPrime(false);
-  setButtonsDisabled(true);
-};
-
-const handleYPrime = ({
-  cubies,
-  setCubies,
-  currentYRotation,
-  setCurrentYRotation,
-  setPrime,
-  setButtonsDisabled
-}) => {
-  const newCubies = {};
-  for (const i in cubies) {
-    newCubies[i] = { ...cubies[i], isRotating: true };
-  }
-  setCubies(newCubies);
-  setCurrentYRotation(currentYRotation + PI / 2);
-  setPrime(true);
+  setCurrentYRotation(
+    prime ? currentYRotation + PI / 2 : currentYRotation - PI / 2
+  );
+  setPrime(prime);
   setButtonsDisabled(true);
 };
 
@@ -77,6 +47,7 @@ const handleZ = ({
   setCubies,
   currentZRotation,
   setCurrentZRotation,
+  prime,
   setPrime,
   setButtonsDisabled
 }) => {
@@ -85,27 +56,11 @@ const handleZ = ({
     newCubies[i] = { ...cubies[i], isRotating: true };
   }
   setCubies(newCubies);
-  setCurrentZRotation(currentZRotation - PI / 2);
-  setPrime(false);
+  setCurrentZRotation(
+    prime ? currentZRotation + PI / 2 : currentZRotation - PI / 2
+  );
+  setPrime(prime);
   setButtonsDisabled(true);
 };
 
-const handleZPrime = ({
-  cubies,
-  setCubies,
-  currentZRotation,
-  setCurrentZRotation,
-  setPrime,
-  setButtonsDisabled
-}) => {
-  const newCubies = {};
-  for (const i in cubies) {
-    newCubies[i] = { ...cubies[i], isRotating: true };
-  }
-  setCubies(newCubies);
-  setCurrentZRotation(currentZRotation - PI / 2);
-  setPrime(false);
-  setButtonsDisabled(true);
-};
-
-export { handleX, handleXPrime, handleY, handleYPrime, handleZ, handleZPrime };
+export { handleX, handleY, handleZ };
