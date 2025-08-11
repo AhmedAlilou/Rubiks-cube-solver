@@ -10,6 +10,7 @@ function UPrime() {
   const setCurrentYRotation = useCubiesStore(
     (state) => state.setCurrentYRotation
   );
+  const double = useCubiesStore((state) => state.double);
   const prime = true;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -26,6 +27,7 @@ function UPrime() {
           setCubies,
           currentYRotation,
           setCurrentYRotation,
+          double,
           prime,
           setPrime,
           setButtonsDisabled

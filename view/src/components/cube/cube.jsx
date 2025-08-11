@@ -31,6 +31,9 @@ const Cube = () => {
   const prime = useCubiesStore((state) => state.prime); // whether the rotation is a prime turn
   const setPrime = useCubiesStore((state) => state.setPrime); // function to update prime state
 
+  const double = useCubiesStore((state) => state.double);
+  const setDouble = useCubiesStore((state) => state.setDouble);
+
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
     (state) => state.setButtonsDisabled
@@ -61,7 +64,23 @@ const Cube = () => {
         const updatedCubies = {};
 
         rotatingCubies.forEach((cubie) => {
-          if (!prime) {
+          if (double) {
+            updatedCubies[cubie.id] = {
+              ...cubies,
+              position: [
+                cubie.position[0],
+                -cubie.position[1],
+                -cubie.position[2]
+              ],
+              backColour: cubie.frontColour,
+              frontColour: cubie.backColour,
+              bottomColour: cubie.topColour,
+              topColour: cubie.bottomColour,
+              rightColour: cubie.rightColour,
+              leftColour: cubie.leftColour,
+              isRotating: false
+            };
+          } else if (!prime) {
             updatedCubies[cubie.id] = {
               ...cubie,
               position: [
@@ -114,7 +133,23 @@ const Cube = () => {
         const updatedCubies = {};
 
         rotatingCubies.forEach((cubie) => {
-          if (!prime) {
+          if (double) {
+            updatedCubies[cubie.id] = {
+              ...cubies,
+              position: [
+                -cubie.position[0],
+                cubie.position[1],
+                -cubie.position[2]
+              ],
+              backColour: cubie.frontColour,
+              frontColour: cubie.backColour,
+              rightColour: cubie.leftColour,
+              leftColour: cubie.rightColour,
+              topColour: cubie.topColour,
+              bottomColour: cubie.bottomColour,
+              isRotating: false
+            };
+          } else if (!prime) {
             updatedCubies[cubie.id] = {
               ...cubie,
               position: [
@@ -167,7 +202,23 @@ const Cube = () => {
         const updatedCubies = {};
 
         rotatingCubies.forEach((cubie) => {
-          if (!prime) {
+          if (double) {
+            updatedCubies[cubie.id] = {
+              ...cubies,
+              position: [
+                -cubie.position[0],
+                -cubie.position[1],
+                cubie.position[2]
+              ],
+              leftColour: cubie.rightColour,
+              rightColour: cubie.leftColour,
+              bottomColour: cubie.topColour,
+              topColour: cubie.bottomColour,
+              frontColour: cubie.frontColour,
+              backColour: cubie.backColour,
+              isRotating: false
+            };
+          } else if (!prime) {
             updatedCubies[cubie.id] = {
               ...cubie,
               position: [

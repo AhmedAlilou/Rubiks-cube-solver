@@ -5,6 +5,7 @@ const handleB = ({
   setCubies,
   currentZRotation,
   setCurrentZRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -18,8 +19,9 @@ const handleB = ({
     }
   }
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentZRotation(
-    prime ? currentZRotation - PI / 2 : currentZRotation + PI / 2
+    prime ? currentZRotation - amount : currentZRotation + amount
   );
   setPrime(!prime);
   setButtonsDisabled(true); // Disable buttons during rotation
@@ -30,6 +32,7 @@ const handleD = ({
   setCubies,
   currentYRotation,
   setCurrentYRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -43,8 +46,9 @@ const handleD = ({
     }
   }
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentYRotation(
-    prime ? currentYRotation - PI / 2 : currentYRotation + PI / 2
+    prime ? currentYRotation - amount : currentYRotation + amount
   );
   setPrime(!prime);
   setButtonsDisabled(true);
@@ -55,6 +59,7 @@ const handleF = ({
   setCubies,
   currentZRotation,
   setCurrentZRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -68,8 +73,9 @@ const handleF = ({
     }
   }
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentZRotation(
-    prime ? currentZRotation + PI / 2 : currentZRotation - PI / 2
+    prime ? currentZRotation + amount : currentZRotation - amount
   );
   setPrime(prime);
   setButtonsDisabled(true);
@@ -80,6 +86,7 @@ const handleL = ({
   setCubies,
   currentXRotation,
   setCurrentXRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -93,8 +100,9 @@ const handleL = ({
     }
   }
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentXRotation(
-    prime ? currentXRotation - PI / 2 : currentXRotation + PI / 2
+    prime ? currentXRotation - amount : currentXRotation + amount
   );
   setPrime(!prime);
   setButtonsDisabled(true);
@@ -105,6 +113,7 @@ const handleR = ({
   setCubies,
   currentXRotation,
   setCurrentXRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -117,9 +126,11 @@ const handleR = ({
       newCubies[i] = { ...cubies[i], isRotating: false };
     }
   }
+
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentXRotation(
-    prime ? currentXRotation + PI / 2 : currentXRotation - PI / 2
+    prime ? currentXRotation + amount : currentXRotation - amount
   );
   setPrime(prime);
   setButtonsDisabled(true);
@@ -130,6 +141,7 @@ const handleU = ({
   setCubies,
   currentYRotation,
   setCurrentYRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -143,8 +155,9 @@ const handleU = ({
     }
   }
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentYRotation(
-    prime ? currentYRotation + PI / 2 : currentYRotation - PI / 2
+    prime ? currentYRotation + amount : currentYRotation - amount
   );
   setPrime(prime);
   setButtonsDisabled(true);
