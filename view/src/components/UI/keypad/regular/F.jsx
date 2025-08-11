@@ -10,6 +10,7 @@ function F() {
   const setCurrentZRotation = useCubiesStore(
     (state) => state.setCurrentZRotation
   );
+  const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
@@ -25,6 +26,7 @@ function F() {
           setCubies,
           currentZRotation,
           setCurrentZRotation,
+          prime,
           setPrime,
           setButtonsDisabled
         });

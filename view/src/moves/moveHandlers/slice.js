@@ -5,6 +5,7 @@ const handleM = ({
   setCubies,
   currentXRotation,
   setCurrentXRotation,
+  prime,
   setPrime,
   setButtonsDisabled
 }) => {
@@ -17,30 +18,10 @@ const handleM = ({
     }
   }
   setCubies(newCubies);
-  setCurrentXRotation(currentXRotation + PI / 2);
-  setPrime(true);
-  setButtonsDisabled(true);
-};
-
-const handleMPrime = ({
-  cubies,
-  setCubies,
-  currentXRotation,
-  setCurrentXRotation,
-  setPrime,
-  setButtonsDisabled
-}) => {
-  const newCubies = {};
-  for (const i in cubies) {
-    if (cubies[i].position[0] === 0) {
-      newCubies[i] = { ...cubies[i], isRotating: true };
-    } else {
-      newCubies[i] = { ...cubies[i], isRotating: false };
-    }
-  }
-  setCubies(newCubies);
-  setCurrentXRotation(currentXRotation - PI / 2);
-  setPrime(false);
+  setCurrentXRotation(
+    prime ? currentXRotation - PI / 2 : currentXRotation + PI / 2
+  );
+  setPrime(!prime);
   setButtonsDisabled(true);
 };
 
@@ -49,6 +30,7 @@ const handleE = ({
   setCubies,
   currentYRotation,
   setCurrentYRotation,
+  prime,
   setPrime,
   setButtonsDisabled
 }) => {
@@ -61,30 +43,10 @@ const handleE = ({
     }
   }
   setCubies(newCubies);
-  setCurrentYRotation(currentYRotation + PI / 2);
-  setPrime(true);
-  setButtonsDisabled(true);
-};
-
-const handleEPrime = ({
-  cubies,
-  setCubies,
-  currentYRotation,
-  setCurrentYRotation,
-  setPrime,
-  setButtonsDisabled
-}) => {
-  const newCubies = {};
-  for (const i in cubies) {
-    if (cubies[i].position[1] === 0) {
-      newCubies[i] = { ...cubies[i], isRotating: true };
-    } else {
-      newCubies[i] = { ...cubies[i], isRotating: false };
-    }
-  }
-  setCubies(newCubies);
-  setCurrentYRotation(currentYRotation - PI / 2);
-  setPrime(false);
+  setCurrentYRotation(
+    prime ? currentYRotation - PI / 2 : currentYRotation + PI / 2
+  );
+  setPrime(!prime);
   setButtonsDisabled(true);
 };
 
@@ -93,6 +55,7 @@ const handleS = ({
   setCubies,
   currentZRotation,
   setCurrentZRotation,
+  prime,
   setPrime,
   setButtonsDisabled
 }) => {
@@ -105,31 +68,11 @@ const handleS = ({
     }
   }
   setCubies(newCubies);
-  setCurrentZRotation(currentZRotation - PI / 2);
-  setPrime(false);
+  setCurrentZRotation(
+    prime ? currentZRotation + PI / 2 : currentZRotation - PI / 2
+  );
+  setPrime(prime);
   setButtonsDisabled(true);
 };
 
-const handleSPrime = ({
-  cubies,
-  setCubies,
-  currentZRotation,
-  setCurrentZRotation,
-  setPrime,
-  setButtonsDisabled
-}) => {
-  const newCubies = {};
-  for (const i in cubies) {
-    if (cubies[i].position[2] === 0) {
-      newCubies[i] = { ...cubies[i], isRotating: true };
-    } else {
-      newCubies[i] = { ...cubies[i], isRotating: false };
-    }
-  }
-  setCubies(newCubies);
-  setCurrentZRotation(currentZRotation + PI / 2);
-  setPrime(true);
-  setButtonsDisabled(true);
-};
-
-export { handleM, handleMPrime, handleE, handleEPrime, handleS, handleSPrime };
+export { handleM, handleE, handleS };

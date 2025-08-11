@@ -1,7 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
-import { handleBPrime } from "../../../../moves/moveHandlers/index.js";
+import { handleB } from "../../../../moves/moveHandlers/index.js";
 
 function BPrime() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -10,6 +10,7 @@ function BPrime() {
   const setCurrentZRotation = useCubiesStore(
     (state) => state.setCurrentZRotation
   );
+  const prime = true;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
@@ -20,11 +21,12 @@ function BPrime() {
     <button
       className="button"
       onClick={() => {
-        handleBPrime({
+        handleB({
           cubies,
           setCubies,
           currentZRotation,
           setCurrentZRotation,
+          prime,
           setPrime,
           setButtonsDisabled
         });
