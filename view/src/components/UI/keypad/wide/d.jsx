@@ -10,6 +10,8 @@ function Wd() {
   const setCurrentYRotation = useCubiesStore(
     (state) => state.setCurrentYRotation
   );
+  const double = useCubiesStore((state) => state.double);
+  const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
@@ -25,13 +27,15 @@ function Wd() {
           setCubies,
           currentYRotation,
           setCurrentYRotation,
+          double,
+          prime,
           setPrime,
           setButtonsDisabled
         });
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      d
+      d{double ? "2" : ""}
     </button>
   );
 }

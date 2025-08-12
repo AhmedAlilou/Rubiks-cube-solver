@@ -36,7 +36,7 @@ function L() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      L
+      L{double ? "2" : ""}
     </button>
   );
 }

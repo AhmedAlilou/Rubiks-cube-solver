@@ -36,7 +36,7 @@ function U() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      U
+      U{double ? "2" : ""}
     </button>
   );
 }

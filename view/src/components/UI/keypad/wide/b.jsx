@@ -10,6 +10,7 @@ function Wb() {
   const setCurrentZRotation = useCubiesStore(
     (state) => state.setCurrentZRotation
   );
+  const double = useCubiesStore((state) => state.double);
   const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -25,6 +26,7 @@ function Wb() {
           setCubies,
           currentZRotation,
           setCurrentZRotation,
+          double,
           prime,
           setPrime,
           setButtonsDisabled
@@ -32,7 +34,7 @@ function Wb() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      b
+      b{double ? "2" : ""}
     </button>
   );
 }

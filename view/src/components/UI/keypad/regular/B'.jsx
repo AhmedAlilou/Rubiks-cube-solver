@@ -35,7 +35,7 @@ function BPrime() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      B'
+      B{double ? "2" : ""}'
     </button>
   );
 }

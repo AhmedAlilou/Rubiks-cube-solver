@@ -10,6 +10,7 @@ function WfPrime() {
   const setCurrentZRotation = useCubiesStore(
     (state) => state.setCurrentZRotation
   );
+  const double = useCubiesStore((state) => state.double);
   const prime = true;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -26,6 +27,7 @@ function WfPrime() {
           setCubies,
           currentZRotation,
           setCurrentZRotation,
+          double,
           prime,
           setPrime,
           setButtonsDisabled
@@ -33,7 +35,7 @@ function WfPrime() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      f'
+      f{double ? "2" : ""}'
     </button>
   );
 }

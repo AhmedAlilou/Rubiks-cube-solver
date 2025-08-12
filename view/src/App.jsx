@@ -38,6 +38,7 @@ import Wr from "./components/UI/keypad/wide/r.jsx";
 import WrPrime from "./components/UI/keypad/wide/r'.jsx";
 import Wu from "./components/UI/keypad/wide/u.jsx";
 import WuPrime from "./components/UI/keypad/wide/u'.jsx";
+import Toggle from "./components/UI/keypad/toggle.jsx";
 
 function App() {
   return (
@@ -80,6 +81,7 @@ function App() {
         <Wu />
         <WuPrime />
       </div>
+      <Toggle />
 
       <Canvas
         style={{

@@ -10,6 +10,7 @@ function WrPrime() {
   const setCurrentXRotation = useCubiesStore(
     (state) => state.setCurrentXRotation
   );
+  const double = useCubiesStore((state) => state.double);
   const prime = true;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -26,6 +27,7 @@ function WrPrime() {
           setCubies,
           currentXRotation,
           setCurrentXRotation,
+          double,
           prime,
           setPrime,
           setButtonsDisabled
@@ -34,7 +36,7 @@ function WrPrime() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      r'
+      r{double ? "2" : ""}'
     </button>
   );
 }

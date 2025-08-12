@@ -10,6 +10,7 @@ function EPrime() {
   const setCurrentYRotation = useCubiesStore(
     (state) => state.setCurrentYRotation
   );
+  const double = useCubiesStore((state) => state.double);
   const prime = true;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -26,6 +27,7 @@ function EPrime() {
           setCubies,
           currentYRotation,
           setCurrentYRotation,
+          double,
           prime,
           setPrime,
           setButtonsDisabled
@@ -33,7 +35,7 @@ function EPrime() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      E'
+      E{double ? "2" : ""}'
     </button>
   );
 }

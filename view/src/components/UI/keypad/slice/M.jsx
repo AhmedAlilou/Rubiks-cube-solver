@@ -10,6 +10,7 @@ function M() {
   const setCurrentXRotation = useCubiesStore(
     (state) => state.setCurrentXRotation
   );
+  const double = useCubiesStore((state) => state.double);
   const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -26,6 +27,7 @@ function M() {
           setCubies,
           currentXRotation,
           setCurrentXRotation,
+          double,
           prime,
           setPrime,
           setButtonsDisabled
@@ -33,7 +35,7 @@ function M() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      M
+      M{double ? "2" : ""}
     </button>
   );
 }

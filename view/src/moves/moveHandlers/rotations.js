@@ -5,6 +5,7 @@ const handleX = ({
   setCubies,
   currentXRotation,
   setCurrentXRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -14,8 +15,9 @@ const handleX = ({
     newCubies[i] = { ...cubies[i], isRotating: true };
   }
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentXRotation(
-    prime ? currentXRotation + PI / 2 : currentXRotation - PI / 2
+    prime ? currentXRotation + amount : currentXRotation - amount
   );
   setPrime(prime);
   setButtonsDisabled(true);
@@ -26,6 +28,7 @@ const handleY = ({
   setCubies,
   currentYRotation,
   setCurrentYRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -35,8 +38,9 @@ const handleY = ({
     newCubies[i] = { ...cubies[i], isRotating: true };
   }
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentYRotation(
-    prime ? currentYRotation + PI / 2 : currentYRotation - PI / 2
+    prime ? currentYRotation + amount : currentYRotation - amount
   );
   setPrime(prime);
   setButtonsDisabled(true);
@@ -47,6 +51,7 @@ const handleZ = ({
   setCubies,
   currentZRotation,
   setCurrentZRotation,
+  double,
   prime,
   setPrime,
   setButtonsDisabled
@@ -56,8 +61,9 @@ const handleZ = ({
     newCubies[i] = { ...cubies[i], isRotating: true };
   }
   setCubies(newCubies);
+  const amount = double ? PI : PI / 2;
   setCurrentZRotation(
-    prime ? currentZRotation + PI / 2 : currentZRotation - PI / 2
+    prime ? currentZRotation + amount : currentZRotation - amount
   );
   setPrime(prime);
   setButtonsDisabled(true);

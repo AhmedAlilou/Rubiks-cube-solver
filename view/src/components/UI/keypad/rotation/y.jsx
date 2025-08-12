@@ -10,6 +10,7 @@ function Y() {
   const setCurrentYRotation = useCubiesStore(
     (state) => state.setCurrentYRotation
   );
+  const double = useCubiesStore((state) => state.double);
   const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -26,6 +27,7 @@ function Y() {
           setCubies,
           currentYRotation,
           setCurrentYRotation,
+          double,
           prime,
           setPrime,
           setButtonsDisabled
@@ -33,7 +35,7 @@ function Y() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      y
+      y{double ? "2" : ""}
     </button>
   );
 }

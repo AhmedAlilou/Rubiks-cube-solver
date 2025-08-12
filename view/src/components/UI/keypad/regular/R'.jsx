@@ -36,7 +36,7 @@ function RPrime() {
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
-      R'
+      R{double ? "2" : ""}'
     </button>
   );
 }
