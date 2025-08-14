@@ -82,18 +82,12 @@ function App() {
         <WuPrime />
       </div>
       <Toggle />
-
-      <Canvas
-        style={{
-          backgroundColor: "#0A0A0A",
-          height: "70vh",
-          width: "100vw",
-          marginTop: "30px"
-        }}
-      >
-        <Scene />
-        <axesHelper args={[5]} />
-      </Canvas>
+      <div className="canvas">
+        <Canvas>
+          <Scene />
+          <axesHelper args={[5]} />
+        </Canvas>
+      </div>
     </>
   );
 }
