@@ -7,12 +7,14 @@ import Keypad from "./components/UI/keypad/keypad";
 function App() {
   return (
     <div className="App">
-      <Keypad />
-      <div className="canvas">
-        <Canvas>
-          <Scene />
-          <axesHelper args={[5]} />
-        </Canvas>
+      <div className="flex flex-row w-[100vw]">
+        <Keypad />
+        <div className="canvas">
+          <Canvas>
+            <Scene />
+            <axesHelper args={[5]} />
+          </Canvas>
+        </div>
       </div>
     </div>
   );

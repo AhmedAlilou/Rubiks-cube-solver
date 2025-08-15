@@ -35,37 +35,56 @@ import WrPrime from "./wide/r'.jsx";
 import Wu from "./wide/u.jsx";
 import WuPrime from "./wide/u'.jsx";
 import Toggle from "./toggle.jsx";
-
-import React from "react";
+import Subheading from "./subheading.jsx";
 
 function Keypad() {
   return (
-    <div className="keypad">
-      <Toggle />
+    <div className="keypad grid grid-cols-6 grid-rows-12 w-[24vw] mx-[1.5vw] gap-4">
+      <div className=" col-span-6 row-span-1 flex flex-row">
+        <Subheading text={"Regular"} />
+        <Toggle />
+      </div>
       <F />
       <FPrime />
+
       <R />
       <RPrime />
+
       <U />
       <UPrime />
+
       <D />
       <DPrime />
+
       <L />
       <LPrime />
+
       <B />
       <BPrime />
+      <div className="col-span-6">
+        <Subheading text={"Rotations"} />
+      </div>
       <X />
       <XPrime />
+
       <Y />
       <YPrime />
       <Z />
       <ZPrime />
+      <div className="col-span-6">
+        <Subheading text={"Middle layer"} />
+      </div>
       <M />
       <MPrime />
       <E />
       <EPrime />
       <S />
       <SPrime />
+
+      <div className="col-span-6">
+        <Subheading text={"Wide"} />
+      </div>
+
       <Wb />
       <WbPrime />
       <Wd />
