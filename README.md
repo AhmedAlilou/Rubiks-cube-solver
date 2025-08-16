@@ -25,6 +25,7 @@ An interactive web application built with React and Three.js that teaches the CF
 
 - React
 - Three.js / React Three Fiber
+- react-spring for cube animations
 
 ### Logic:
 

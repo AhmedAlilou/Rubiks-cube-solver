@@ -41,7 +41,7 @@ function Keypad() {
   return (
     <div className="keypad grid grid-cols-6 grid-rows-12 w-[24vw] mx-[1.5vw] gap-4">
       <div className=" col-span-6 row-span-1 flex flex-row">
-        <Subheading text={"Regular"} />
+        <Subheading text={"Regular turns"} />
         <Toggle />
       </div>
       <F />
@@ -72,7 +72,7 @@ function Keypad() {
       <Z />
       <ZPrime />
       <div className="col-span-6">
-        <Subheading text={"Middle layer"} />
+        <Subheading text={"Slice turns"} />
       </div>
       <M />
       <MPrime />
@@ -82,7 +82,7 @@ function Keypad() {
       <SPrime />
 
       <div className="col-span-6">
-        <Subheading text={"Wide"} />
+        <Subheading text={"Wide turns"} />
       </div>
 
       <Wb />
