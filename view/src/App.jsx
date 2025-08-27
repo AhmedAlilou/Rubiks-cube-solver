@@ -3,11 +3,12 @@ import { Canvas } from "@react-three/fiber";
 import "./App.css";
 import Scene from "./scene";
 import Keypad from "./components/UI/keypad/keypad";
+import Scramble from "./components/UI/scramble/scramble";
 
 function App() {
   return (
     <div className="App">
-      <div className="flex flex-row w-[100vw]">
+      <div className="flex flex-row w-[100vw] h-[60vh]">
         <Keypad />
         <div className="canvas">
           <Canvas>
@@ -16,6 +17,7 @@ function App() {
           </Canvas>
         </div>
       </div>
+      <Scramble />
     </div>
   );
 }

@@ -48,3 +48,17 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+.scrambleinput {
+  background-color: #333533;
+  border: none;
+  color: white;
+  padding: 0.8%;
+  border-radius: 10px;
+}
+
+.scrambleinput:focus {
+  outline: none;
+  box-shadow: 0 0 5px #b83333;
+  transition: 0.3s ease-in;
+}
