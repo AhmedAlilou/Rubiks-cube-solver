@@ -17,6 +17,7 @@ const formatAlg = (string) => {
       sequence.push(currentMove);
     }
   }
+  console.log(sequence);
   return sequence;
 };
 
