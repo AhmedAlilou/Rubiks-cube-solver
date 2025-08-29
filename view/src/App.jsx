@@ -4,6 +4,7 @@ import "./App.css";
 import Scene from "./scene";
 import Keypad from "./components/UI/keypad/keypad";
 import Scramble from "./components/UI/scramble/scramble";
+import Solution from "./components/UI/solution/solution";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <axesHelper args={[5]} />
           </Canvas>
         </div>
+        <Solution />
       </div>
       <Scramble />
     </div>

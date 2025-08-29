@@ -20,8 +20,10 @@ body {
 
 .canvas {
   background-color: #333533;
-  width: 65vw;
+  width: 50vw;
   height: 60vh;
+  margin: 1%;
+  border-radius: 10px;
 }
 
 .keypad {
