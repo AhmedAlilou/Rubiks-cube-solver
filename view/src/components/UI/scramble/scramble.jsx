@@ -17,8 +17,8 @@ function Scramble() {
         </form>
       </div>
       <div className="flex flex-row w-[25vw] justify-start">
-        <ScrambleButton text="Enter" />
-        <ScrambleButton text="Generate" />
+        <ScrambleButton type="enter" text="Enter" />
+        <ScrambleButton type="generate" text="Generate" />
       </div>
     </div>
   );
