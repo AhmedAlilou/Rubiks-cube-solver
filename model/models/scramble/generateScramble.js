@@ -11,7 +11,7 @@ const generateScramble = (length) => {
   let axis = [];
   let lastAxis = [];
   for (let i = 0; i < length; i++) {
-    valid = false;
+    valid = false;0
     while (!valid) {
       axis = Math.floor(Math.random() * moves.length);
       move = moves[axis][Math.floor(Math.random() * moves[axis].length)];
