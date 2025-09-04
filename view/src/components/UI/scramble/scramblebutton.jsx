@@ -1,11 +1,21 @@
 import React from "react";
-import useScrambleStore from "../../../store/scrambleStore";
+import generateScramble from "../../../../../model/models/scramble/generateScramble";
+import {
+  getScramble,
+  setScramble,
+  setScrambling
+} from "../../../../../global/store/globalStore";
+import execute from "../../../functions/execute";
 
 function ScrambleButton(props) {
-  const generateScramble = useScrambleStore((state) => state.generateScramble);
   const handleClick = (props) => {
     if (props.type === "generate") {
-      generateScramble(20);
+      setScrambling(true);
+      const newScramble = generateScramble(20);
+      setScramble(newScramble);
+
+      execute(newScramble);
+      setScrambling(false);
     }
   };
   return (

@@ -30,7 +30,8 @@ function D() {
           double,
           prime,
           setPrime,
-          setButtonsDisabled
+          setButtonsDisabled,
+          automated: false
         });
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true

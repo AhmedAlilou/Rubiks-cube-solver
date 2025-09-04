@@ -1,5 +1,5 @@
 const formatAlg = (string) => {
-  const moves = string.trim();
+  const moves = string;
   const sequence = [];
   let currentMove = "";
 
@@ -17,7 +17,6 @@ const formatAlg = (string) => {
       sequence.push(currentMove);
     }
   }
-  console.log(sequence);
   return sequence;
 };
 

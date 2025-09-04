@@ -30,7 +30,8 @@ function LPrime() {
           double,
           prime,
           setPrime,
-          setButtonsDisabled
+          setButtonsDisabled,
+          automated: false
         });
         console.log("Current Rotation:", currentXRotation);
       }}

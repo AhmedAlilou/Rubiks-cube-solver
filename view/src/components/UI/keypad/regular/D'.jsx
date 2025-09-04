@@ -30,7 +30,8 @@ function DPrime() {
           double,
           prime,
           setPrime,
-          setButtonsDisabled
+          setButtonsDisabled,
+          automated: false
         });
         console.log("Current Rotation:", currentYRotation);
       }}

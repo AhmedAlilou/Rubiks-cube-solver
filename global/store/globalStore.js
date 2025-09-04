@@ -8,6 +8,16 @@ export function setScrambling(value) {
   scrambling = value;
 }
 
+let scramble = "";
+
+export function getScramble() {
+  return scramble;
+}
+
+export function setScramble(value) {
+  scramble = value;
+}
+
 let solving = false;
 
 export function getSolving() {

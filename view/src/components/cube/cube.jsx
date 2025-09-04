@@ -7,7 +7,7 @@ import { useState } from "react";
 const PI = Math.PI;
 const tension = 350;
 const friction = 25;
-let mass = 1;
+let mass = 0;
 
 const Cube = () => {
   const cubies = useCubiesStore((state) => state.cubies);

@@ -8,7 +8,8 @@ const handleB = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -24,7 +25,10 @@ const handleB = ({
     prime ? currentZRotation - amount : currentZRotation + amount
   );
   setPrime(!prime);
-  setButtonsDisabled(true); // Disable buttons during rotation
+  console.log(automated);
+  if (!automated) {
+    setButtonsDisabled(true);
+  }
 };
 
 const handleD = ({
@@ -35,7 +39,8 @@ const handleD = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -51,7 +56,9 @@ const handleD = ({
     prime ? currentYRotation - amount : currentYRotation + amount
   );
   setPrime(!prime);
-  setButtonsDisabled(true);
+  if (!automated) {
+    setButtonsDisabled(true);
+  }
 };
 
 const handleF = ({
@@ -62,7 +69,8 @@ const handleF = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -78,7 +86,9 @@ const handleF = ({
     prime ? currentZRotation + amount : currentZRotation - amount
   );
   setPrime(prime);
-  setButtonsDisabled(true);
+  if (!automated) {
+    setButtonsDisabled(true);
+  }
 };
 
 const handleL = ({
@@ -89,7 +99,8 @@ const handleL = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -105,7 +116,9 @@ const handleL = ({
     prime ? currentXRotation - amount : currentXRotation + amount
   );
   setPrime(!prime);
-  setButtonsDisabled(true);
+  if (!automated) {
+    setButtonsDisabled(true);
+  }
 };
 
 const handleR = ({
@@ -116,7 +129,8 @@ const handleR = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -133,7 +147,9 @@ const handleR = ({
     prime ? currentXRotation + amount : currentXRotation - amount
   );
   setPrime(prime);
-  setButtonsDisabled(true);
+  if (!automated) {
+    setButtonsDisabled(true);
+  }
 };
 
 const handleU = ({
@@ -144,7 +160,8 @@ const handleU = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -160,7 +177,9 @@ const handleU = ({
     prime ? currentYRotation + amount : currentYRotation - amount
   );
   setPrime(prime);
-  setButtonsDisabled(true);
+  if (!automated) {
+    setButtonsDisabled(true);
+  }
 };
 
 export { handleB, handleD, handleF, handleL, handleR, handleU };

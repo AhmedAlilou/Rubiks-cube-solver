@@ -1,8 +1,8 @@
 import React from "react";
-import useScrambleStore from "../../../store/scrambleStore";
+import { getScramble } from "../../../../../global/store/globalStore";
 
 function Solution() {
-  const scramble = useScrambleStore((state) => state.scramble);
+  const scramble = getScramble();
   return (
     <div className="solution">
       <div className="mt-[2%]">Solution {scramble}</div>

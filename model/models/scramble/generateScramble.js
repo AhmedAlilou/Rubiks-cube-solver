@@ -11,21 +11,20 @@ const generateScramble = (length) => {
   let axis = [];
   let lastAxis = [];
   for (let i = 0; i < length; i++) {
-    valid = false;0
+    valid = false;
+    0;
     while (!valid) {
       axis = Math.floor(Math.random() * moves.length);
       move = moves[axis][Math.floor(Math.random() * moves[axis].length)];
       if (axis !== lastAxis) {
         move += modifiers[Math.floor(Math.random() * modifiers.length)];
         lastAxis = axis;
-        console.log(axis);
         valid = true;
         break;
       }
     }
-    scramble.push(move);
+    scramble.push(move + " ");
   }
-  console.log(scramble);
   return scramble;
 };
 
