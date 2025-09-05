@@ -7,7 +7,6 @@ import { useState } from "react";
 const PI = Math.PI;
 const tension = 350;
 const friction = 25;
-let mass = 0;
 
 const Cube = () => {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -40,6 +39,8 @@ const Cube = () => {
     (state) => state.setButtonsDisabled
   );
 
+  const mass = useCubiesStore((state) => state.mass);
+
   const [resetXSpring, setResetXSpring] = useState(false); // these are here to reset rotation to 0 without triggering another useSpring animation
   const [resetYSpring, setResetYSpring] = useState(false);
   const [resetZSpring, setResetZSpring] = useState(false);
@@ -56,7 +57,11 @@ const Cube = () => {
 
   const { rotationX } = useSpring({
     rotationX: currentXRotation,
-    config: { tension: tension, friction: friction, mass: mass },
+    config: {
+      tension: tension,
+      friction: friction,
+      mass: mass
+    },
     reset: resetXSpring,
     onRest: () => {
       if (!resetXSpring) {
@@ -113,7 +118,6 @@ const Cube = () => {
         });
 
         setCubies(updatedCubies);
-        console.log(staticCubies, rotatingCubies);
 
         setResetXSpring(true);
         setCurrentXRotation(0);
@@ -125,7 +129,11 @@ const Cube = () => {
   });
   const { rotationY } = useSpring({
     rotationY: currentYRotation,
-    config: { tension: tension, friction: friction, mass: mass },
+    config: {
+      tension: tension,
+      friction: friction,
+      mass: mass
+    },
     reset: resetYSpring,
     onRest: () => {
       if (!resetYSpring) {
@@ -182,7 +190,6 @@ const Cube = () => {
         });
 
         setCubies(updatedCubies);
-        console.log(staticCubies, rotatingCubies);
 
         setResetYSpring(true);
         setCurrentYRotation(0);
@@ -194,7 +201,11 @@ const Cube = () => {
   });
   const { rotationZ } = useSpring({
     rotationZ: currentZRotation,
-    config: { tension: tension, friction: friction, mass: mass },
+    config: {
+      tension: tension,
+      friction: friction,
+      mass: mass
+    },
     reset: resetZSpring,
     onRest: () => {
       if (!resetZSpring) {
@@ -251,7 +262,6 @@ const Cube = () => {
         });
 
         setCubies(updatedCubies);
-        console.log(staticCubies, rotatingCubies);
 
         setResetZSpring(true);
         setCurrentZRotation(0);

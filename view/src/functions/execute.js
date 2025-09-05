@@ -19,31 +19,22 @@ import {
   handler,
   handleu
 } from "../moves/moveHandlers/";
+import useScrambleStore from "../store/scrambleStore";
 
 import useCubiesStore from "../store/cubiesStore";
 
 const execute = (sequence) => {
-  const cubiesStore = useCubiesStore.getState();
-  const {
-    cubies,
-    setCubies,
-    currentXRotation,
-    currentYRotation,
-    currentZRotation,
-    setCurrentXRotation,
-    setCurrentYRotation,
-    setCurrentZRotation,
-    setPrime,
-    setButtonsDisabled
-  } = cubiesStore;
+  const setMass = useCubiesStore.getState().setMass;
+  setMass(0);
 
   const list = sequence;
 
-  console.log(list);
-
   let i = 0;
   function nextMove() {
-    if (i >= list.length) return;
+    if (i >= list.length) {
+      setMass(1);
+      return;
+    }
 
     const cubiesStore = useCubiesStore.getState();
     const {
@@ -61,11 +52,9 @@ const execute = (sequence) => {
     } = cubiesStore;
 
     const move = list[i];
-    console.log(move);
     const double = move.includes("2");
     const prime = move.includes("'");
     setDouble(double);
-    console.log(double);
 
     switch (move[0]) {
       case "B":

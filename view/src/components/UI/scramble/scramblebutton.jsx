@@ -1,21 +1,24 @@
 import React from "react";
 import generateScramble from "../../../../../model/models/scramble/generateScramble";
 import {
-  getScramble,
   setScramble,
   setScrambling
 } from "../../../../../global/store/globalStore";
+import useScrambleStore from "../../../store/scrambleStore";
 import execute from "../../../functions/execute";
+import useCubiesStore from "../../../store/cubiesStore";
 
 function ScrambleButton(props) {
+  const setIsScrambling = useScrambleStore((state) => state.setIsScrambling);
+  const setMass = useCubiesStore((state) => state.setMass);
   const handleClick = (props) => {
     if (props.type === "generate") {
-      setScrambling(true);
+      setIsScrambling(true);
+      setMass(0);
       const newScramble = generateScramble(20);
       setScramble(newScramble);
 
       execute(newScramble);
-      setScrambling(false);
     }
   };
   return (
