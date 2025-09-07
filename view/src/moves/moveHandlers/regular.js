@@ -1,3 +1,8 @@
+import { x, y, z } from "../../../../model/models/rotation/index.js";
+import { M, S, E } from "../../../../model/models/slice/index.js";
+import { F, U, D, B, L, R } from "../../../../model/models/turns/index.js";
+import { f, u, d, b, l, r } from "../../../../model/models/wide/index.js";
+
 const PI = Math.PI;
 
 const handleB = ({
@@ -25,10 +30,12 @@ const handleB = ({
     prime ? currentZRotation - amount : currentZRotation + amount
   );
   setPrime(!prime);
-  console.log(automated);
   if (!automated) {
     setButtonsDisabled(true);
   }
+
+  B(!prime);
+  if (double) B(!prime);
 };
 
 const handleD = ({
@@ -59,6 +66,9 @@ const handleD = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
+
+  D(!prime);
+  if (double) D(!prime);
 };
 
 const handleF = ({
@@ -89,6 +99,9 @@ const handleF = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
+
+  F(!prime);
+  if (double) F(!prime);
 };
 
 const handleL = ({
@@ -119,6 +132,9 @@ const handleL = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
+
+  L(!prime);
+  if (double) L(!prime);
 };
 
 const handleR = ({
@@ -150,6 +166,9 @@ const handleR = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
+
+  R(!prime);
+  if (double) R(!prime);
 };
 
 const handleU = ({
@@ -180,6 +199,9 @@ const handleU = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
+
+  U(!prime);
+  if (double) U(!prime);
 };
 
 export { handleB, handleD, handleF, handleL, handleR, handleU };

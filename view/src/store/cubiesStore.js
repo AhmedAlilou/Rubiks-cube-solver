@@ -180,7 +180,7 @@ const useCubiesStore = create((set) => ({
   setPrime: (value) => set({ prime: value }),
   buttonsDisabled: false,
   setButtonsDisabled: (value) => set({ buttonsDisabled: value }),
-  mass: 1,
+  mass: 0.8,
   setMass: (value) => set({ mass: value })
 }));
 

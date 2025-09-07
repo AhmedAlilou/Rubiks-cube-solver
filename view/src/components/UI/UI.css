@@ -85,14 +85,17 @@
 }
 
 .solution {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: #333533;
   border: none;
   color: white;
+  margin-left: 1%;
   margin-right: 1%;
   margin-top: 1%;
-
   text-align: center;
-  width: 30vw;
+  width: 28vw;
   height: 60vh;
   border-radius: 10px;
 }

@@ -18,12 +18,14 @@ import {
   handlel,
   handler,
   handleu
-} from "../moves/moveHandlers/";
-import useScrambleStore from "../store/scrambleStore";
+} from "../moves/moveHandlers";
 
+import useScrambleStore from "../store/applicationStore";
 import useCubiesStore from "../store/cubiesStore";
 
-const execute = (sequence) => {
+const executeScramble = (sequence) => {
+  const setIsScrambling = useScrambleStore.getState().setIsScrambling;
+  setIsScrambling(true);
   const setMass = useCubiesStore.getState().setMass;
   setMass(0);
 
@@ -32,7 +34,7 @@ const execute = (sequence) => {
   let i = 0;
   function nextMove() {
     if (i >= list.length) {
-      setMass(1);
+      setMass(0.8);
       return;
     }
 
@@ -175,7 +177,7 @@ const execute = (sequence) => {
         break;
     }
 
-    const waitTime = 200;
+    const waitTime = 100;
     i++;
     setTimeout(nextMove, waitTime);
   }
@@ -183,4 +185,4 @@ const execute = (sequence) => {
   nextMove();
 };
 
-export default execute;
+export default executeScramble;
