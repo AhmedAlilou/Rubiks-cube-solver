@@ -1,3 +1,4 @@
+import { f, u, d, b, l, r } from "../../../../model/models/moves/wide/index.js";
 const PI = Math.PI;
 
 const handleb = ({
@@ -25,6 +26,9 @@ const handleb = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true); // Disable buttons during rotation
+
+  b(!prime);
+  if (double) b(!prime);
 };
 
 const handled = ({
@@ -52,6 +56,8 @@ const handled = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
+  d(!prime);
+  if (double) d(!prime);
 };
 
 const handlef = ({
@@ -79,6 +85,8 @@ const handlef = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
+  f(!prime);
+  if (double) f(!prime);
 };
 
 const handlel = ({
@@ -106,6 +114,8 @@ const handlel = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
+  l(!prime);
+  if (double) l(!prime);
 };
 
 const handler = ({
@@ -133,6 +143,8 @@ const handler = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
+  r(!prime);
+  if (double) r(!prime);
 };
 
 const handleu = ({
@@ -160,6 +172,8 @@ const handleu = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
+  u(!prime);
+  if (double) u(!prime);
 };
 
 export { handleb, handled, handlef, handlel, handler, handleu };

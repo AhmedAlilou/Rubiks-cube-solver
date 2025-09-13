@@ -1,7 +1,11 @@
-import { x, y, z } from "../../../../model/models/rotation/index.js";
-import { M, S, E } from "../../../../model/models/slice/index.js";
-import { F, U, D, B, L, R } from "../../../../model/models/turns/index.js";
-import { f, u, d, b, l, r } from "../../../../model/models/wide/index.js";
+import {
+  F,
+  U,
+  D,
+  B,
+  L,
+  R
+} from "../../../../model/models/moves/turns/index.js";
 
 const PI = Math.PI;
 

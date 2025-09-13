@@ -11,7 +11,6 @@ import { getCube } from "../../../../../model/store/cubeStore";
 
 function ScrambleButton(props) {
   const setScramble = useScrambleStore((state) => state.setScramble);
-  const isScrambling = useScrambleStore((state) => state.isScrambling);
   const setIsScrambling = useScrambleStore((state) => state.setIsScrambling);
   const setIsFreePlay = useScrambleStore((state) => state.setIsFreePlay);
   const setMass = useCubiesStore((state) => state.setMass);

@@ -1,3 +1,4 @@
+import { M, S, E } from "../../../../model/models/moves/slice/index.js";
 const PI = Math.PI;
 
 const handleM = ({
@@ -25,6 +26,9 @@ const handleM = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
+
+  M(!prime);
+  if (double) M(!prime);
 };
 
 const handleE = ({
@@ -52,6 +56,8 @@ const handleE = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
+  E(!prime);
+  if (double) E(!prime);
 };
 
 const handleS = ({
@@ -79,6 +85,8 @@ const handleS = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
+  S(!prime);
+  if (double) S(!prime);
 };
 
 export { handleM, handleE, handleS };
