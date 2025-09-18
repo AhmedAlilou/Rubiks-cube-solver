@@ -1,7 +1,7 @@
-import { F, U, D, B, L, R } from "./turns/index.js";
-import { M, S, E } from "./slice/index.js";
-import { x, y, z } from "./rotation/index.js";
-import { f, u, d, b, l, r } from "./wide/index.js";
+import { F, U, D, B, L, R } from "./moves/turns/index.js";
+import { M, S, E } from "./moves/slice/index.js";
+import { x, y, z } from "./moves/rotation/index.js";
+import { f, u, d, b, l, r } from "./moves/wide/index.js";
 
 const execute = (moves) => {
   // Map of all move names to their corresponding functions
@@ -28,7 +28,7 @@ const execute = (moves) => {
 
   moves.forEach((move) => {
     // Match: base letter + optional 2 or 3 + optional prime
-    const match = move.match(/^([A-Za-z])([23]?)(['"]?)$/);
+    const match = move.trim().match(/^([A-Za-z])([23]?)(['"]?)$/);
 
     if (!match) {
       console.warn(`Invalid move format: "${move}"`);

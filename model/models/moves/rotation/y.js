@@ -1,9 +1,7 @@
-import { getCube } from "../../store/cubeStore.js";
-import { setCube } from "../../store/cubeStore.js";
+import { getCube } from "../../../store/cubeStore.js";
+import { setCube } from "../../../store/cubeStore.js";
 // helper functions
-import rotateFace from "../helperFunctions/rotateFace.js";
-import getCol from "../helperFunctions/getCol.js";
-import setCol from "../helperFunctions/setCol.js";
+import rotateFace from "../../helperFunctions/rotateFace.js";
 
 const y = (clockwise) => {
   const cube = getCube();

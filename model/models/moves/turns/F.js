@@ -1,11 +1,11 @@
-import { getCube } from "../../store/cubeStore.js";
-import { setCube } from "../../store/cubeStore.js";
+import { getCube } from "../../../store/cubeStore.js";
+import { setCube } from "../../../store/cubeStore.js";
 // helper functions
-import rotateFace from "../helperFunctions/rotateFace.js";
-import getRow from "../helperFunctions/getRow.js";
-import getCol from "../helperFunctions/getCol.js";
-import setRow from "../helperFunctions/setRow.js";
-import setCol from "../helperFunctions/setCol.js";
+import rotateFace from "../../helperFunctions/rotateFace.js";
+import getRow from "../../helperFunctions/getRow.js";
+import getCol from "../../helperFunctions/getCol.js";
+import setRow from "../../helperFunctions/setRow.js";
+import setCol from "../../helperFunctions/setCol.js";
 
 const F = (clockwise) => {
   const cube = getCube();
