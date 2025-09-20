@@ -18,7 +18,28 @@ const cross = (cube) => {
     console.log("doing:", colour, "cross");
     setTempCube(cube); // reset tempCube to current cube state
     // rotate face that needs cross to bottom
-    // to move cube I need to change the function to take in a cube in this case the temp cube because i dont want it to change the main cube
+    if (tempCube.down[1][1] !== colour) {
+      switch (colour) {
+        case tempCube.front[1][1]:
+          setTempCube(x(false, tempCube));
+          break;
+        case tempCube.right[1][1]:
+          setTempCube(z(true, tempCube));
+          break;
+        case tempCube.back[1][1]:
+          setTempCube(x(true, tempCube));
+          break;
+        case tempCube.left[1][1]:
+          tempCube = z(false, tempCube);
+          break;
+        case tempCube.top[1][1]:
+          setTempCube(x(true, tempCube));
+          setTempCube(x(true, tempCube));
+          break;
+        default:
+          console.warn("Colour not found on cube:", colour);
+      }
+    }
     // check for edge pieces of cross colour that are solved
     console.log(colourInfo[colour].adjacent);
     // add all other edge pieces to array to look for
