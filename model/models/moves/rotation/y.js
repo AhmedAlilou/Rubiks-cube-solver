@@ -1,11 +1,7 @@
-import { getCube } from "../../../store/cubeStore.js";
-import { setCube } from "../../../store/cubeStore.js";
 // helper functions
 import rotateFace from "../../helperFunctions/rotateFace.js";
 
-const y = (clockwise) => {
-  const cube = getCube();
-
+const y = (clockwise, cube) => {
   // 1. Rotate faces on the top and bottom
   const newTop = rotateFace([...cube.top], clockwise);
   const newDown = rotateFace([...cube.down], !clockwise);
@@ -25,8 +21,8 @@ const y = (clockwise) => {
     newCube.back = cube.right;
     console.log("y'");
   }
-  setCube(newCube);
   console.log(newCube);
+  return newCube;
 };
 
 export default y;

@@ -2,6 +2,7 @@ import { F, U, D, B, L, R } from "./moves/turns/index.js";
 import { M, S, E } from "./moves/slice/index.js";
 import { x, y, z } from "./moves/rotation/index.js";
 import { f, u, d, b, l, r } from "./moves/wide/index.js";
+import { setCube, getCube } from "../store/cubeStore.js";
 
 const execute = (moves) => {
   // Map of all move names to their corresponding functions
@@ -47,7 +48,8 @@ const execute = (moves) => {
     const count = countStr ? parseInt(countStr) : 1;
 
     for (let i = 0; i < count; i++) {
-      fn(isClockwise);
+      const cube = getCube();
+      setCube(fn(isClockwise, cube));
     }
   });
 };

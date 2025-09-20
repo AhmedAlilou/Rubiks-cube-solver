@@ -1,13 +1,9 @@
-import { getCube } from "../../../store/cubeStore.js";
-import { setCube } from "../../../store/cubeStore.js";
 // helper functions
 import rotateFace from "../../helperFunctions/rotateFace.js";
 import getRow from "../../helperFunctions/getRow.js";
 import setRow from "../../helperFunctions/setRow.js";
 
-const D = (clockwise) => {
-  const cube = getCube();
-
+const D = (clockwise, cube) => {
   // 1. Rotate down face
   const newDown = rotateFace([...cube.down], clockwise);
   // 2. Handle adjacent faces using cycle notation
@@ -35,8 +31,8 @@ const D = (clockwise) => {
     newCube.left = setRow(cube.left, 2, values.front);
     console.log("D'");
   }
-  setCube(newCube);
   console.log(newCube);
+  return newCube;
 };
 
 export default D;

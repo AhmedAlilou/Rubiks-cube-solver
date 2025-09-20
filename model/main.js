@@ -16,7 +16,7 @@ console.log(
 console.log("INITIAL CUBE: ", getCube());
 execute(sequence);
 console.log("SEQUENCE: ", sequence);
-console.log(formatAlg("D L2 B' R2 F' D L D' B2 U B2 U2 R2 U F' U2 R B2 L D"));
+console.log("AFTER SCRAMBLE: ", getCube());
 solve(getCube());
 
 console.log(
