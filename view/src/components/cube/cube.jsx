@@ -4,7 +4,6 @@ import React from "react";
 import { useSpring, a } from "@react-spring/three";
 import { useState } from "react";
 
-const PI = Math.PI;
 const tension = 350;
 const friction = 25;
 

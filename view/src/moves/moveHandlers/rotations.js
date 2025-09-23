@@ -1,4 +1,5 @@
 import { x, y, z } from "../../../../model/models/moves/rotation/index.js";
+import { setCube, getCube } from "../../../../model/store/cubeStore.js";
 const PI = Math.PI;
 
 const handleX = ({
@@ -22,8 +23,8 @@ const handleX = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  x(!prime);
-  if (double) x(!prime);
+  setCube(x(!prime, getCube()));
+  if (double) setCube(x(!prime, getCube()));
 };
 
 const handleY = ({
@@ -47,8 +48,8 @@ const handleY = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  y(!prime);
-  if (double) y(!prime);
+  setCube(y(!prime, getCube()));
+  if (double) setCube(y(!prime, getCube()));
 };
 
 const handleZ = ({
@@ -72,8 +73,8 @@ const handleZ = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  z(!prime);
-  if (double) z(!prime);
+  setCube(z(!prime, getCube()));
+  if (double) setCube(z(!prime, getCube()));
 };
 
 export { handleX, handleY, handleZ };

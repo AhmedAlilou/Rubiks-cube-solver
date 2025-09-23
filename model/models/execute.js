@@ -49,6 +49,7 @@ const execute = (moves) => {
 
     for (let i = 0; i < count; i++) {
       const cube = getCube();
+      console.log(cube);
       setCube(fn(isClockwise, cube));
     }
   });

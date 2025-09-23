@@ -1,10 +1,10 @@
-import { x, y, z } from "../moves/rotation/index.js";
-import { M, S, E } from "../moves/slice/index.js";
-import { R, L, U, D, F, B } from "../moves/turns/index.js";
-import { r, l, u, d, f, b } from "../moves/wide/index.js";
-import { getCrossColours } from "../../store/solveStore.js";
-import { getCube } from "../../store/cubeStore.js";
-import colourInfo from "../helperFunctions/colourInfo.js";
+import { x, y, z } from "../../moves/rotation/index.js";
+import { M, S, E } from "../../moves/slice/index.js";
+import { R, L, U, D, F, B } from "../../moves/turns/index.js";
+import { r, l, u, d, f, b } from "../../moves/wide/index.js";
+import { getCrossColours } from "../../../store/solveStore.js";
+import { getCube } from "../../../store/cubeStore.js";
+import colourInfo from "../../helperFunctions/colourInfo.js";
 
 const cross = (cube) => {
   let tempCube = getCube();

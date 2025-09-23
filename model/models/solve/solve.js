@@ -1,4 +1,4 @@
-import cross from "./cross.js";
+import cross from "./cross/cross.js";
 
 const solve = (cube) => {
   console.log("Solve initiated");

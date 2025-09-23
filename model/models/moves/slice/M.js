@@ -3,7 +3,7 @@ import L from "../turns/L.js";
 import x from "../rotation/x.js";
 
 const M = (clockwise, cube) => {
-  const newCube = { ...cube };
+  let newCube = { ...cube };
   newCube = R(clockwise, newCube);
   newCube = L(!clockwise, newCube);
   newCube = x(!clockwise, newCube);

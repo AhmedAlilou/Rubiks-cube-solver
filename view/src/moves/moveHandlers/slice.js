@@ -1,4 +1,5 @@
 import { M, S, E } from "../../../../model/models/moves/slice/index.js";
+import { setCube, getCube } from "../../../../model/store/cubeStore.js";
 const PI = Math.PI;
 
 const handleM = ({
@@ -27,8 +28,8 @@ const handleM = ({
   setPrime(!prime);
   setButtonsDisabled(true);
 
-  M(!prime);
-  if (double) M(!prime);
+  setCube(M(!prime, getCube()));
+  if (double) setCube(M(!prime, getCube()));
 };
 
 const handleE = ({
@@ -56,8 +57,8 @@ const handleE = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
-  E(!prime);
-  if (double) E(!prime);
+  setCube(E(!prime, getCube()));
+  if (double) setCube(E(!prime, getCube()));
 };
 
 const handleS = ({
@@ -85,8 +86,8 @@ const handleS = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  S(!prime);
-  if (double) S(!prime);
+  setCube(S(!prime, getCube()));
+  if (double) setCube(S(!prime, getCube()));
 };
 
 export { handleM, handleE, handleS };
