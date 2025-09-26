@@ -46,10 +46,10 @@ const execute = (moves) => {
 
     const isClockwise = prime !== "'";
     const count = countStr ? parseInt(countStr) : 1;
+    let cube = getCube();
 
     for (let i = 0; i < count; i++) {
-      const cube = getCube();
-      console.log(cube);
+      cube = getCube();
       setCube(fn(isClockwise, cube));
     }
   });

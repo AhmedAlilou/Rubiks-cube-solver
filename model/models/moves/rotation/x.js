@@ -33,7 +33,6 @@ const x = (clockwise, cube) => {
       clockwise
     );
     newCube.down = cube.front;
-    console.log("x");
     console.log("x'");
   }
   console.log(newCube);
