@@ -5,6 +5,7 @@ import { r, l, u, d, f, b } from "../../moves/wide/index.js";
 import { getCrossColours } from "../../../store/solveStore.js";
 import { getCube } from "../../../store/cubeStore.js";
 import colourInfo from "../../helperFunctions/colourInfo.js";
+import edgePairs from "../../helperFunctions/edgePairs.js";
 import rotateFaceToBottom from "../cross/rotateFaceToBottom.js";
 
 const cross = (cube) => {
@@ -18,10 +19,26 @@ const cross = (cube) => {
     // rotate side to bottom
     console.log("doing:", colour, "cross");
     setTempCube(cube); // reset tempCube to current cube state
-
+    console.log("T:", tempCube);
     tempCube = rotateFaceToBottom(tempCube, colour); // rotate face that needs cross to bottom
+    console.log("T:", tempCube);
     // check for edge pieces of cross colour that are solved
-    console.log(colourInfo[colour].adjacent);
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        if ((i === 1) ^ (j === 1)) {
+          // this means its an edge piece
+          if (tempCube.down[i][j] === colour) {
+            const pair = edgePairs[`front[${i}][${j}]`];
+            console.log("Pair:", pair);
+            console.log(
+              "edge piece already solved",
+              colour,
+              tempCube[pair.face][pair.row][pair.col]
+            );
+          }
+        }
+      }
+    }
     // add all other edge pieces to array to look for
     // for each edge piece in array:
     //  locate edge piece

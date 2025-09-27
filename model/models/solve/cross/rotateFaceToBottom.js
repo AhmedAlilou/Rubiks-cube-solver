@@ -17,6 +17,8 @@ const rotateFaceToBottom = (tempCube, colour) => {
         console.warn("Colour not found on cube:", colour);
         return;
     }
+  } else {
+    return tempCube;
   }
 };
 
