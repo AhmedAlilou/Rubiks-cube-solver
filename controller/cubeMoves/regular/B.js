@@ -1,8 +1,8 @@
-import { handleF } from "../../../view/src/moves/moveHandlers";
+import { handleB } from "../../../view/src/moves/moveHandlers";
 import { getCube, setCube } from "../../../model/store/cubeStore.js";
-import F from "../../../model/models/moves/turns/F.js";
+import B from "../../../model/models/moves/turns/B.js";
 
-const controllerF = (
+const controllerB = (
   {
     cubies,
     setCubies,
@@ -16,7 +16,7 @@ const controllerF = (
   },
   clockwise
 ) => {
-  handleF({
+  handleB({
     cubies,
     setCubies,
     currentZRotation,
@@ -27,10 +27,10 @@ const controllerF = (
     setButtonsDisabled,
     automated
   });
-  setCube(F(clockwise, getCube()));
+  setCube(B(clockwise, getCube()));
   if (double) {
-    setCube(F(clockwise, getCube()));
+    setCube(B(clockwise, getCube()));
   }
 };
 
-export default controllerF;
+export default controllerB;

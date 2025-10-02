@@ -1,14 +1,3 @@
-import {
-  F,
-  U,
-  D,
-  B,
-  L,
-  R
-} from "../../../../model/models/moves/turns/index.js";
-
-import { setCube, getCube } from "../../../../model/store/cubeStore.js";
-
 const PI = Math.PI;
 
 const handleB = ({
@@ -39,9 +28,6 @@ const handleB = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
-
-  setCube(B(!prime, getCube()));
-  if (double) setCube(B(!prime, getCube()));
 };
 
 const handleD = ({
@@ -72,9 +58,6 @@ const handleD = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
-
-  setCube(D(!prime, getCube()));
-  if (double) setCube(D(!prime, getCube()));
 };
 
 const handleF = ({
@@ -88,9 +71,19 @@ const handleF = ({
   setButtonsDisabled,
   automated
 }) => {
+  console.log({
+    cubies,
+    setCubies,
+    currentZRotation,
+    setCurrentZRotation,
+    double,
+    prime,
+    setPrime,
+    setButtonsDisabled,
+    automated
+  });
   const newCubies = {};
   for (const i in cubies) {
-    console.log(cubies[i].position[2]);
     if (cubies[i].position[2] === 1) {
       newCubies[i] = { ...cubies[i], isRotating: true };
     } else {
@@ -99,6 +92,7 @@ const handleF = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  console.log("bruv");
   setCurrentZRotation(
     prime ? currentZRotation + amount : currentZRotation - amount
   );
@@ -106,9 +100,6 @@ const handleF = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
-
-  setCube(F(!prime, getCube()));
-  if (double) setCube(F(!prime, getCube()));
 };
 
 const handleL = ({
@@ -139,9 +130,6 @@ const handleL = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
-
-  setCube(L(!prime, getCube()));
-  if (double) setCube(L(!prime, getCube()));
 };
 
 const handleR = ({
@@ -173,9 +161,6 @@ const handleR = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
-
-  setCube(R(!prime, getCube()));
-  if (double) setCube(R(!prime, getCube()));
 };
 
 const handleU = ({
@@ -206,9 +191,6 @@ const handleU = ({
   if (!automated) {
     setButtonsDisabled(true);
   }
-
-  setCube(U(!prime, getCube()));
-  if (double) setCube(U(!prime, getCube()));
 };
 
 export { handleB, handleD, handleF, handleL, handleR, handleU };

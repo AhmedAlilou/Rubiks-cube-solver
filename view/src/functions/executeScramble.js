@@ -1,11 +1,5 @@
 import formatAlg from "../../../model/models/formatAlg";
 import {
-  handleB,
-  handleD,
-  handleF,
-  handleL,
-  handleR,
-  handleU,
   handleX,
   handleY,
   handleZ,
@@ -19,6 +13,14 @@ import {
   handler,
   handleu
 } from "../moves/moveHandlers";
+import {
+  controllerB,
+  controllerD,
+  controllerF,
+  controllerL,
+  controllerR,
+  controllerU
+} from "../../../controller/cubeMoves/regular/index.js";
 
 import useScrambleStore from "../store/applicationStore";
 import useCubiesStore from "../store/cubiesStore";
@@ -51,7 +53,7 @@ const executeScramble = (sequence) => {
       setDouble,
       setPrime,
       setButtonsDisabled
-    } = cubiesStore;
+    } = useCubiesStore.getState();
 
     const move = list[i];
     const double = move.includes("2");
@@ -60,82 +62,100 @@ const executeScramble = (sequence) => {
 
     switch (move[0]) {
       case "B":
-        handleB({
-          cubies,
-          setCubies,
-          currentZRotation,
-          setCurrentZRotation,
-          double: double,
-          prime: prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: true
-        });
+        controllerB(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true
+          },
+          !prime
+        );
         break;
       case "D":
-        handleD({
-          cubies,
-          setCubies,
-          currentYRotation,
-          setCurrentYRotation,
-          double: double,
-          prime: prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: true
-        });
+        controllerD(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true
+          },
+          !prime
+        );
         break;
       case "F":
-        handleF({
-          cubies,
-          setCubies,
-          currentZRotation,
-          setCurrentZRotation,
-          double: double,
-          prime: prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: true
-        });
+        controllerF(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true
+          },
+          !prime
+        );
         break;
       case "L":
-        handleL({
-          cubies,
-          setCubies,
-          currentXRotation,
-          setCurrentXRotation,
-          double: double,
-          prime: prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: true
-        });
+        controllerL(
+          {
+            cubies,
+            setCubies,
+            currentXRotation,
+            setCurrentXRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true
+          },
+          !prime
+        );
         break;
       case "R":
-        handleR({
-          cubies,
-          setCubies,
-          currentXRotation,
-          setCurrentXRotation,
-          double: double,
-          prime: prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: true
-        });
+        controllerR(
+          {
+            cubies,
+            setCubies,
+            currentXRotation,
+            setCurrentXRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true
+          },
+          !prime
+        );
         break;
       case "U":
-        handleU({
-          cubies,
-          setCubies,
-          currentYRotation,
-          setCurrentYRotation,
-          double: double,
-          prime: prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: true
-        });
+        controllerU(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true
+          },
+          !prime
+        );
         break;
       case "X":
         handleX(double, prime);

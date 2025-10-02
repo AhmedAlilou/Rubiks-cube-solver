@@ -1,7 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
-import { handleF } from "../../../../moves/moveHandlers/index.js";
+import controllerF from "../../../../../../controller/cubeMoves/regular/F.js";
 
 function FPrime() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -22,18 +22,20 @@ function FPrime() {
     <button
       className="button"
       onClick={() => {
-        handleF({
-          cubies,
-          setCubies,
-          currentZRotation,
-          setCurrentZRotation,
-          double,
-          prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: false
-        });
-        console.log("Current Rotation:", currentZRotation);
+        controllerF(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double,
+            prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: false
+          },
+          false
+        );
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >
