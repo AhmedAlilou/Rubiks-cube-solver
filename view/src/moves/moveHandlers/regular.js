@@ -90,6 +90,7 @@ const handleF = ({
 }) => {
   const newCubies = {};
   for (const i in cubies) {
+    console.log(cubies[i].position[2]);
     if (cubies[i].position[2] === 1) {
       newCubies[i] = { ...cubies[i], isRotating: true };
     } else {
