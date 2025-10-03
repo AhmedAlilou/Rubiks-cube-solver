@@ -22,11 +22,11 @@ import {
   controllerU
 } from "../../../controller/cubeMoves/regular/index.js";
 
-import useScrambleStore from "../store/applicationStore";
+import useApplicationStore from "../store/applicationStore";
 import useCubiesStore from "../store/cubiesStore";
 
 const executeScramble = (sequence) => {
-  const setIsScrambling = useScrambleStore.getState().setIsScrambling;
+  const setIsScrambling = useApplicationStore.getState().setIsScrambling;
   setIsScrambling(true);
   const setMass = useCubiesStore.getState().setMass;
   setMass(0);

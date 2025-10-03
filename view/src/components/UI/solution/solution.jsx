@@ -1,9 +1,9 @@
 import React from "react";
 import Solve from "./solve";
-import useScrambleStore from "../../../store/applicationStore";
+import useApplicationStore from "../../../store/applicationStore";
 
 function Solution() {
-  const scramble = useScrambleStore((state) => state.scramble);
+  const scramble = useApplicationStore((state) => state.scramble);
   return (
     <div className="solution justify-between">
       <div className="mt-[4%] h-[15%]">Scramble: {scramble}</div>

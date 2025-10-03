@@ -1,4 +1,7 @@
+import useApplicationStore from "../../store/applicationStore";
 const PI = Math.PI;
+const moveHistory = useApplicationStore.getState().moveHistory;
+const setMoveHistory = useApplicationStore.getState().setMoveHistory;
 
 const handleB = ({
   cubies,
@@ -69,19 +72,9 @@ const handleF = ({
   prime,
   setPrime,
   setButtonsDisabled,
-  automated
+  automated,
+  isUndo
 }) => {
-  console.log({
-    cubies,
-    setCubies,
-    currentZRotation,
-    setCurrentZRotation,
-    double,
-    prime,
-    setPrime,
-    setButtonsDisabled,
-    automated
-  });
   const newCubies = {};
   for (const i in cubies) {
     if (cubies[i].position[2] === 1) {
@@ -92,13 +85,24 @@ const handleF = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
-  console.log("bruv");
   setCurrentZRotation(
     prime ? currentZRotation + amount : currentZRotation - amount
   );
   setPrime(prime);
   if (!automated) {
     setButtonsDisabled(true);
+  }
+  if (!isUndo) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["F", double, !prime]
+    ]);
+    console.log(
+      "Move history after F: ",
+      useApplicationStore.getState().moveHistory
+    );
+  } else {
+    return;
   }
 };
 

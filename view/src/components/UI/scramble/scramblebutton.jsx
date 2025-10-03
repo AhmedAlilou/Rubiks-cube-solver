@@ -4,15 +4,15 @@ import {
   setScramble,
   setScrambling
 } from "../../../../../global/store/globalStore";
-import useScrambleStore from "../../../store/applicationStore";
+import useApplicationStore from "../../../store/applicationStore";
 import executeScramble from "../../../functions/executeScramble.js";
 import useCubiesStore from "../../../store/cubiesStore";
 import { getCube } from "../../../../../model/store/cubeStore";
 
 function ScrambleButton(props) {
-  const setScramble = useScrambleStore((state) => state.setScramble);
-  const setIsScrambling = useScrambleStore((state) => state.setIsScrambling);
-  const setIsFreePlay = useScrambleStore((state) => state.setIsFreePlay);
+  const setScramble = useApplicationStore((state) => state.setScramble);
+  const setIsScrambling = useApplicationStore((state) => state.setIsScrambling);
+  const setIsFreePlay = useApplicationStore((state) => state.setIsFreePlay);
   const setMass = useCubiesStore((state) => state.setMass);
   const handleClick = (props) => {
     if (props.type === "generate") {

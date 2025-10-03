@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const useScrambleStore = create((set) => ({
+const useApplicationStore = create((set) => ({
   scramble: "",
   setScramble: (value) => set({ scramble: value }),
   isFreePlay: true,
@@ -9,8 +9,8 @@ const useScrambleStore = create((set) => ({
   setIsScrambling: (value) => set({ isScrambling: value }),
   isSolving: false,
   setIsSolving: (value) => set({ solving: value }),
-  movesHistory: [],
-  setMovesHistory: (value) => set({ movesHistory: value })
+  moveHistory: [],
+  setMoveHistory: (value) => set({ moveHistory: value })
 }));
 
-export default useScrambleStore;
+export default useApplicationStore;
