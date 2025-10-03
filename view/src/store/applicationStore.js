@@ -8,7 +8,9 @@ const useScrambleStore = create((set) => ({
   isScrambling: false,
   setIsScrambling: (value) => set({ isScrambling: value }),
   isSolving: false,
-  setIsSolving: (value) => set({ solving: value })
+  setIsSolving: (value) => set({ solving: value }),
+  movesHistory: [],
+  setMovesHistory: (value) => set({ movesHistory: value })
 }));
 
 export default useScrambleStore;

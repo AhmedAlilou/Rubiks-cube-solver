@@ -1,7 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
-import { handlef } from "../../../../moves/moveHandlers/index.js";
+import controllerf from "../../../../../../controller/cubeMoves/wide/f.js";
 
 function Wf() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -22,16 +22,19 @@ function Wf() {
     <button
       className="button"
       onClick={() => {
-        handlef({
-          cubies,
-          setCubies,
-          currentZRotation,
-          setCurrentZRotation,
-          prime,
-          double,
-          setPrime,
-          setButtonsDisabled
-        });
+        controllerf(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            prime,
+            double,
+            setPrime,
+            setButtonsDisabled
+          },
+          true
+        );
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

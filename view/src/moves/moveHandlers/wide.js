@@ -1,5 +1,3 @@
-import { f, u, d, b, l, r } from "../../../../model/models/moves/wide/index.js";
-import { setCube, getCube } from "../../../../model/store/cubeStore.js";
 const PI = Math.PI;
 
 const handleb = ({
@@ -27,9 +25,6 @@ const handleb = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true); // Disable buttons during rotation
-
-  setCube(b(!prime, getCube()));
-  if (double) setCube(b(!prime, getCube()));
 };
 
 const handled = ({
@@ -57,8 +52,6 @@ const handled = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
-  setCube(d(!prime, getCube()));
-  if (double) setCube(d(!prime, getCube()));
 };
 
 const handlef = ({
@@ -86,8 +79,6 @@ const handlef = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  setCube(f(!prime, getCube()));
-  if (double) setCube(f(!prime, getCube()));
 };
 
 const handlel = ({
@@ -115,8 +106,6 @@ const handlel = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
-  setCube(l(!prime, getCube()));
-  if (double) setCube(l(!prime, getCube()));
 };
 
 const handler = ({
@@ -144,8 +133,6 @@ const handler = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  setCube(r(!prime, getCube()));
-  if (double) setCube(r(!prime, getCube()));
 };
 
 const handleu = ({
@@ -173,8 +160,6 @@ const handleu = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  setCube(u(!prime, getCube()));
-  if (double) setCube(u(!prime, getCube()));
 };
 
 export { handleb, handled, handlef, handlel, handler, handleu };

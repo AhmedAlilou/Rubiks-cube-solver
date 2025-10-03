@@ -22,6 +22,32 @@
   background-color: #b83333;
 }
 
+.undo {
+  border: none;
+  color: white;
+  background-color: #162d17;
+  width: 100%;
+  background-color: #333533;
+  border: none;
+  color: white;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  height: 80%;
+  border-radius: 10px;
+  transition: 0.3s ease-in;
+  transition: 0.3s ease-out;
+}
+
+.undo:hover {
+  background-color: #b83333;
+}
+.undo:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .toggle {
   border: none;
   color: white;

@@ -1,7 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
-import { handled } from "../../../../moves/moveHandlers/index.js";
+import controllerd from "../../../../../../controller/cubeMoves/wide/d.js";
 
 function WdPrime() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -22,16 +22,19 @@ function WdPrime() {
     <button
       className="button"
       onClick={() => {
-        handled({
-          cubies,
-          setCubies,
-          currentYRotation,
-          setCurrentYRotation,
-          double,
-          prime,
-          setPrime,
-          setButtonsDisabled
-        });
+        controllerd(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double,
+            prime,
+            setPrime,
+            setButtonsDisabled
+          },
+          false
+        );
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

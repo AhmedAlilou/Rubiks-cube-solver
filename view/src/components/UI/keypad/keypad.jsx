@@ -35,6 +35,7 @@ import WrPrime from "./wide/r'.jsx";
 import Wu from "./wide/u.jsx";
 import WuPrime from "./wide/u'.jsx";
 import Toggle from "./toggle.jsx";
+import Undo from "./undo.jsx";
 import Subheading from "./subheading.jsx";
 
 function Keypad() {
@@ -43,6 +44,7 @@ function Keypad() {
       <div className=" col-span-6 row-span-1 flex flex-row">
         <Subheading text={"Regular turns"} />
         <Toggle />
+        <Undo />
       </div>
       <F />
       <FPrime />

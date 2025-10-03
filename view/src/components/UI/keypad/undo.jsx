@@ -4,13 +4,14 @@ function Undo() {
   const handleClick = () => {};
 
   return (
-    <div
+    <button
+      className="undo"
       onClick={() => {
         handleClick;
       }}
     >
       Undo
-    </div>
+    </button>
   );
 }
 
