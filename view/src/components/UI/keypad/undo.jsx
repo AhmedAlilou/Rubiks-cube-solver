@@ -9,6 +9,24 @@ import {
   controllerF,
   controllerB
 } from "../../../../../controller/cubeMoves/regular/index.js";
+import {
+  controllerx,
+  controllery,
+  controllerz
+} from "../.././../../../controller/cubeMoves/rotation/index.js";
+import {
+  controllerM,
+  controllerE,
+  controllerS
+} from "../../../../../controller/cubeMoves/slice/index.js";
+import {
+  controllerr,
+  controllerl,
+  controlleru,
+  controllerd,
+  controllerf,
+  controllerb
+} from "../../../../../controller/cubeMoves/wide/index.js";
 
 function Undo() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -88,6 +106,78 @@ function Undo() {
         );
         break;
       default:
+        break;
+      case "x":
+        controllerx(
+          { ...params, currentXRotation, setCurrentXRotation },
+          !prime
+        );
+        break;
+      case "y":
+        controllery(
+          { ...params, currentYRotation, setCurrentYRotation },
+          !prime
+        );
+        break;
+      case "z":
+        controllerz(
+          { ...params, currentZRotation, setCurrentZRotation },
+          !prime
+        );
+        break;
+      case "M":
+        controllerM(
+          { ...params, currentXRotation, setCurrentXRotation },
+          !prime
+        );
+        break;
+      case "E":
+        controllerE(
+          { ...params, currentYRotation, setCurrentYRotation },
+          !prime
+        );
+        break;
+      case "S":
+        controllerS(
+          { ...params, currentZRotation, setCurrentZRotation },
+          !prime
+        );
+        break;
+      case "f":
+        controllerf(
+          { ...params, currentZRotation, setCurrentZRotation },
+          !prime
+        );
+        break;
+      case "b":
+        controllerb(
+          { ...params, currentZRotation, setCurrentZRotation },
+          !prime
+        );
+        break;
+      case "l":
+        controllerl(
+          { ...params, currentXRotation, setCurrentXRotation },
+          !prime
+        );
+        break;
+      case "r":
+        controllerr(
+          { ...params, currentXRotation, setCurrentXRotation },
+          !prime
+        );
+        break;
+      case "u":
+        controlleru(
+          { ...params, currentYRotation, setCurrentYRotation },
+          !prime
+        );
+        break;
+      case "d":
+        controllerd(
+          { ...params, currentYRotation, setCurrentYRotation },
+          !prime
+        );
         break;
     }
     console.log("moveHistory in Undo: ", moveHistory);

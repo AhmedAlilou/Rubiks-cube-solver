@@ -22,17 +22,21 @@ function SPrime() {
     <button
       className="button"
       onClick={() => {
-        handleS({
-          cubies,
-          setCubies,
-          currentZRotation,
-          setCurrentZRotation,
-          double,
-          prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: false
-        });
+        handleS(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double,
+            prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
+          },
+          false
+        );
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

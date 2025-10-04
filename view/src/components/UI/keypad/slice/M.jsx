@@ -22,17 +22,21 @@ function M() {
     <button
       className="button"
       onClick={() => {
-        handleM({
-          cubies,
-          setCubies,
-          currentXRotation,
-          setCurrentXRotation,
-          double,
-          prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: false
-        });
+        handleM(
+          {
+            cubies,
+            setCubies,
+            currentXRotation,
+            setCurrentXRotation,
+            double,
+            prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
+          },
+          true
+        );
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

@@ -22,17 +22,21 @@ function E() {
     <button
       className="button"
       onClick={() => {
-        handleE({
-          cubies,
-          setCubies,
-          currentYRotation,
-          setCurrentYRotation,
-          double,
-          prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: false
-        });
+        handleE(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double,
+            prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
+          },
+          true
+        );
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

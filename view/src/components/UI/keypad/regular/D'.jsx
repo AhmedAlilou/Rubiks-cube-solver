@@ -32,7 +32,8 @@ function DPrime() {
             prime,
             setPrime,
             setButtonsDisabled,
-            automated: false
+            automated: false,
+            isUndo: false
           },
           false
         );

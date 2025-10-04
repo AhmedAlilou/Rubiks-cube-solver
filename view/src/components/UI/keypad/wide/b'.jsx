@@ -30,7 +30,9 @@ function WbPrime() {
             double,
             prime,
             setPrime,
-            setButtonsDisabled
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
           },
           false
         );

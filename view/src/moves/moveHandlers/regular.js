@@ -1,7 +1,6 @@
 import useApplicationStore from "../../store/applicationStore";
-const PI = Math.PI;
-const moveHistory = useApplicationStore.getState().moveHistory;
 const setMoveHistory = useApplicationStore.getState().setMoveHistory;
+const PI = Math.PI;
 
 const handleB = ({
   cubies,
@@ -12,7 +11,8 @@ const handleB = ({
   prime,
   setPrime,
   setButtonsDisabled,
-  automated
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -28,8 +28,12 @@ const handleB = ({
     prime ? currentZRotation - amount : currentZRotation + amount
   );
   setPrime(!prime);
-  if (!automated) {
-    setButtonsDisabled(true);
+  setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["B", double, !prime]
+    ]);
   }
 };
 
@@ -42,7 +46,8 @@ const handleD = ({
   prime,
   setPrime,
   setButtonsDisabled,
-  automated
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -58,8 +63,12 @@ const handleD = ({
     prime ? currentYRotation - amount : currentYRotation + amount
   );
   setPrime(!prime);
-  if (!automated) {
-    setButtonsDisabled(true);
+  setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["D", double, !prime]
+    ]);
   }
 };
 
@@ -89,20 +98,13 @@ const handleF = ({
     prime ? currentZRotation + amount : currentZRotation - amount
   );
   setPrime(prime);
-  if (!automated) {
-    setButtonsDisabled(true);
-  }
-  if (!isUndo) {
+  setButtonsDisabled(true);
+
+  if (!isUndo && !automated) {
     setMoveHistory([
       ...useApplicationStore.getState().moveHistory,
       ["F", double, !prime]
     ]);
-    console.log(
-      "Move history after F: ",
-      useApplicationStore.getState().moveHistory
-    );
-  } else {
-    return;
   }
 };
 
@@ -115,7 +117,8 @@ const handleL = ({
   prime,
   setPrime,
   setButtonsDisabled,
-  automated
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -131,8 +134,12 @@ const handleL = ({
     prime ? currentXRotation - amount : currentXRotation + amount
   );
   setPrime(!prime);
-  if (!automated) {
-    setButtonsDisabled(true);
+  setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["L", double, !prime]
+    ]);
   }
 };
 
@@ -145,7 +152,8 @@ const handleR = ({
   prime,
   setPrime,
   setButtonsDisabled,
-  automated
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -162,8 +170,12 @@ const handleR = ({
     prime ? currentXRotation + amount : currentXRotation - amount
   );
   setPrime(prime);
-  if (!automated) {
-    setButtonsDisabled(true);
+  setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["R", double, !prime]
+    ]);
   }
 };
 
@@ -176,7 +188,8 @@ const handleU = ({
   prime,
   setPrime,
   setButtonsDisabled,
-  automated
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -192,8 +205,12 @@ const handleU = ({
     prime ? currentYRotation + amount : currentYRotation - amount
   );
   setPrime(prime);
-  if (!automated) {
-    setButtonsDisabled(true);
+  setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["U", double, !prime]
+    ]);
   }
 };
 

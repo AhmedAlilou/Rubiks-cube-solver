@@ -23,11 +23,13 @@ import {
 } from "../../../controller/cubeMoves/regular/index.js";
 
 import useApplicationStore from "../store/applicationStore";
-import useCubiesStore from "../store/cubiesStore";
+import useCubiesStore from "../store/cubiesStore.js";
 
 const executeScramble = (sequence) => {
   const setIsScrambling = useApplicationStore.getState().setIsScrambling;
+  const setButtonsDisabled = useCubiesStore.getState().setButtonsDisabled;
   setIsScrambling(true);
+  setButtonsDisabled(true);
   const setMass = useCubiesStore.getState().setMass;
   setMass(0);
 
@@ -72,7 +74,8 @@ const executeScramble = (sequence) => {
             prime: prime,
             setPrime,
             setButtonsDisabled,
-            automated: true
+            automated: true,
+            isUndo: false
           },
           !prime
         );
@@ -88,7 +91,8 @@ const executeScramble = (sequence) => {
             prime: prime,
             setPrime,
             setButtonsDisabled,
-            automated: true
+            automated: true,
+            isUndo: false
           },
           !prime
         );
@@ -104,7 +108,8 @@ const executeScramble = (sequence) => {
             prime: prime,
             setPrime,
             setButtonsDisabled,
-            automated: true
+            automated: true,
+            isUndo: false
           },
           !prime
         );
@@ -120,7 +125,8 @@ const executeScramble = (sequence) => {
             prime: prime,
             setPrime,
             setButtonsDisabled,
-            automated: true
+            automated: true,
+            isUndo: false
           },
           !prime
         );
@@ -136,7 +142,8 @@ const executeScramble = (sequence) => {
             prime: prime,
             setPrime,
             setButtonsDisabled,
-            automated: true
+            automated: true,
+            isUndo: false
           },
           !prime
         );
@@ -152,7 +159,8 @@ const executeScramble = (sequence) => {
             prime: prime,
             setPrime,
             setButtonsDisabled,
-            automated: true
+            automated: true,
+            isUndo: false
           },
           !prime
         );

@@ -31,7 +31,9 @@ function Wl() {
             double,
             prime,
             setPrime,
-            setButtonsDisabled
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
           },
           true
         );

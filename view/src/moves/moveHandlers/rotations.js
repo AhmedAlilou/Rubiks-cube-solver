@@ -1,5 +1,5 @@
-import { x, y, z } from "../../../../model/models/moves/rotation/index.js";
-import { setCube, getCube } from "../../../../model/store/cubeStore.js";
+import useApplicationStore from "../../store/applicationStore";
+const setMoveHistory = useApplicationStore.getState().setMoveHistory;
 const PI = Math.PI;
 
 const handleX = ({
@@ -10,7 +10,9 @@ const handleX = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -23,8 +25,12 @@ const handleX = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  setCube(x(!prime, getCube()));
-  if (double) setCube(x(!prime, getCube()));
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["x", double, !prime]
+    ]);
+  }
 };
 
 const handleY = ({
@@ -35,7 +41,9 @@ const handleY = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -48,8 +56,12 @@ const handleY = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  setCube(y(!prime, getCube()));
-  if (double) setCube(y(!prime, getCube()));
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["y", double, !prime]
+    ]);
+  }
 };
 
 const handleZ = ({
@@ -60,7 +72,9 @@ const handleZ = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -73,8 +87,12 @@ const handleZ = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  setCube(z(!prime, getCube()));
-  if (double) setCube(z(!prime, getCube()));
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["z", double, !prime]
+    ]);
+  }
 };
 
 export { handleX, handleY, handleZ };

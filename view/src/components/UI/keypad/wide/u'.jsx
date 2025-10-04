@@ -31,7 +31,9 @@ function WuPrime() {
             double,
             prime,
             setPrime,
-            setButtonsDisabled
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
           },
           false
         );

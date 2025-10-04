@@ -1,3 +1,5 @@
+import useApplicationStore from "../../store/applicationStore";
+const setMoveHistory = useApplicationStore.getState().setMoveHistory;
 const PI = Math.PI;
 
 const handleb = ({
@@ -8,7 +10,9 @@ const handleb = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -25,6 +29,12 @@ const handleb = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true); // Disable buttons during rotation
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["b", double, !prime]
+    ]);
+  }
 };
 
 const handled = ({
@@ -35,7 +45,9 @@ const handled = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -52,6 +64,12 @@ const handled = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["d", double, !prime]
+    ]);
+  }
 };
 
 const handlef = ({
@@ -62,7 +80,9 @@ const handlef = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -79,6 +99,12 @@ const handlef = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["f", double, !prime]
+    ]);
+  }
 };
 
 const handlel = ({
@@ -89,7 +115,9 @@ const handlel = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -106,6 +134,12 @@ const handlel = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["l", double, !prime]
+    ]);
+  }
 };
 
 const handler = ({
@@ -116,7 +150,9 @@ const handler = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -133,6 +169,12 @@ const handler = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["r", double, !prime]
+    ]);
+  }
 };
 
 const handleu = ({
@@ -143,7 +185,9 @@ const handleu = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -160,6 +204,12 @@ const handleu = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["u", double, !prime]
+    ]);
+  }
 };
 
 export { handleb, handled, handlef, handlel, handler, handleu };

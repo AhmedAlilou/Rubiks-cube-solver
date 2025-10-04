@@ -1,7 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
-import { handleY } from "../../../../moves/moveHandlers/index.js";
+import controllery from "../../../../../../controller/cubeMoves/rotation/y.js";
 
 function Y() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -22,17 +22,21 @@ function Y() {
     <button
       className="button"
       onClick={() => {
-        handleY({
-          cubies,
-          setCubies,
-          currentYRotation,
-          setCurrentYRotation,
-          double,
-          prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: false
-        });
+        controllery(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double,
+            prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
+          },
+          true
+        );
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

@@ -32,7 +32,8 @@ function R() {
             prime,
             setPrime,
             setButtonsDisabled,
-            automated: false
+            automated: false,
+            isUndo: false
           },
           true
         );

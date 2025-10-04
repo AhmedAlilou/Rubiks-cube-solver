@@ -1,5 +1,5 @@
-import { M, S, E } from "../../../../model/models/moves/slice/index.js";
-import { setCube, getCube } from "../../../../model/store/cubeStore.js";
+import useApplicationStore from "../../store/applicationStore";
+const setMoveHistory = useApplicationStore.getState().setMoveHistory;
 const PI = Math.PI;
 
 const handleM = ({
@@ -10,7 +10,9 @@ const handleM = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -28,8 +30,12 @@ const handleM = ({
   setPrime(!prime);
   setButtonsDisabled(true);
 
-  setCube(M(!prime, getCube()));
-  if (double) setCube(M(!prime, getCube()));
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["M", double, !prime]
+    ]);
+  }
 };
 
 const handleE = ({
@@ -40,7 +46,9 @@ const handleE = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -57,8 +65,12 @@ const handleE = ({
   );
   setPrime(!prime);
   setButtonsDisabled(true);
-  setCube(E(!prime, getCube()));
-  if (double) setCube(E(!prime, getCube()));
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["E", double, !prime]
+    ]);
+  }
 };
 
 const handleS = ({
@@ -69,7 +81,9 @@ const handleS = ({
   double,
   prime,
   setPrime,
-  setButtonsDisabled
+  setButtonsDisabled,
+  automated,
+  isUndo
 }) => {
   const newCubies = {};
   for (const i in cubies) {
@@ -86,8 +100,12 @@ const handleS = ({
   );
   setPrime(prime);
   setButtonsDisabled(true);
-  setCube(S(!prime, getCube()));
-  if (double) setCube(S(!prime, getCube()));
+  if (!isUndo && !automated) {
+    setMoveHistory([
+      ...useApplicationStore.getState().moveHistory,
+      ["S", double, !prime]
+    ]);
+  }
 };
 
 export { handleM, handleE, handleS };

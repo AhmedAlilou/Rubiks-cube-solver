@@ -1,7 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
-import { handleZ } from "../../../../moves/moveHandlers/index.js";
+import controllerz from "../../../../../../controller/cubeMoves/rotation/z.js";
 
 function ZPrime() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -22,17 +22,21 @@ function ZPrime() {
     <button
       className="button"
       onClick={() => {
-        handleZ({
-          cubies,
-          setCubies,
-          currentZRotation,
-          setCurrentZRotation,
-          double,
-          prime,
-          setPrime,
-          setButtonsDisabled,
-          automated: false
-        });
+        controllerz(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double,
+            prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
+          },
+          false
+        );
         console.log("Current Rotation:", currentZRotation);
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true

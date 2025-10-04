@@ -31,7 +31,9 @@ function WdPrime() {
             double,
             prime,
             setPrime,
-            setButtonsDisabled
+            setButtonsDisabled,
+            automated: false,
+            isUndo: false
           },
           false
         );
