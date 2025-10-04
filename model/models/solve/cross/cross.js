@@ -14,7 +14,6 @@ import execute from "../../execute.js";
 import rotateFaceToBottom from "../cross/rotateFaceToBottom.js";
 import orientSolvedEdge from "../cross/orientSolvedEdge.js";
 import { getCrossSolution } from "../../../store/solveStore.js";
-import { setTempCrossSolution } from "../../../store/solveStore.js";
 import { setCrossSolution } from "../../../store/solveStore.js";
 
 const cross = (cube) => {
@@ -37,10 +36,14 @@ const cross = (cube) => {
     //  locate edge piece
     //  find where it needs to go
     //  move it there
-    if (getCrossSolution().length > getTempCrossSolution().length) {
+    if (
+      getCrossSolution().length > getTempCrossSolution().length ||
+      getCrossSolution().length === 0
+    ) {
       setCrossSolution(getTempCrossSolution());
     }
   });
+  console.log("Cross done, executing these moves: ", getCrossSolution());
   execute(getCrossSolution());
 };
 

@@ -1,4 +1,4 @@
-let crossColours = ["y"];
+let crossColours = ["y", "g", "r", "b", "o", "w"];
 export function getCrossColours() {
   return crossColours;
 }
@@ -7,9 +7,9 @@ export function setCrossColours(newCrossColours) {
   crossColours = newCrossColours;
 }
 
-const tempCrossSolution = [];
+let tempCrossSolution = [];
 
-const crossSolution = [];
+let crossSolution = [];
 
 export function getTempCrossSolution() {
   return tempCrossSolution;
