@@ -58,7 +58,7 @@ const controllerFunctions = {
 
 const execute = (moves) => {
   // Map of all move names to their corresponding functions
-
+  if (moves.length === 0) return;
   moves.forEach((move) => {
     // Match: base letter + optional 2 or 3 + optional prime
     const match = move.trim().match(/^([A-Za-z])([23]?)(['"]?)$/);
@@ -76,6 +76,7 @@ const execute = (moves) => {
       return;
     }
     const double = countStr === "2";
+    console.log("COUNT STR:", countStr, double);
     const isPrime = prime === "'";
     const count = countStr ? parseInt(countStr) : 1;
 
@@ -92,50 +93,50 @@ const execute = (moves) => {
       setButtonsDisabled
     } = useCubiesStore.getState();
 
-    for (let i = 0; i < count; i++) {
-      // Pass correct axis/setter for each controller
-      let params = {
-        cubies,
-        setCubies,
-        double,
-        prime: isPrime,
-        setPrime,
-        setButtonsDisabled,
-        automated: true
-      };
-      if (
-        base === "F" ||
-        base === "B" ||
-        base === "f" ||
-        base === "b" ||
-        base === "S" ||
-        base === "z"
-      ) {
-        params.currentZRotation = currentZRotation;
-        params.setCurrentZRotation = setCurrentZRotation;
-      } else if (
-        base === "L" ||
-        base === "R" ||
-        base === "l" ||
-        base === "r" ||
-        base === "M" ||
-        base === "x"
-      ) {
-        params.currentXRotation = currentXRotation;
-        params.setCurrentXRotation = setCurrentXRotation;
-      } else if (
-        base === "U" ||
-        base === "D" ||
-        base === "u" ||
-        base === "d" ||
-        base === "E" ||
-        base === "y"
-      ) {
-        params.currentYRotation = currentYRotation;
-        params.setCurrentYRotation = setCurrentYRotation;
-      }
-      controller(params, !isPrime);
+    console.log("EXECUTING", move);
+    let params = {
+      cubies,
+      setCubies,
+      double: double,
+      prime: isPrime,
+      setPrime,
+      setButtonsDisabled,
+      automated: true,
+      isUndo: false
+    };
+    if (
+      base === "F" ||
+      base === "B" ||
+      base === "f" ||
+      base === "b" ||
+      base === "S" ||
+      base === "z"
+    ) {
+      params.currentZRotation = currentZRotation;
+      params.setCurrentZRotation = setCurrentZRotation;
+    } else if (
+      base === "L" ||
+      base === "R" ||
+      base === "l" ||
+      base === "r" ||
+      base === "M" ||
+      base === "x"
+    ) {
+      params.currentXRotation = currentXRotation;
+      params.setCurrentXRotation = setCurrentXRotation;
+    } else if (
+      base === "U" ||
+      base === "D" ||
+      base === "u" ||
+      base === "d" ||
+      base === "E" ||
+      base === "y"
+    ) {
+      params.currentYRotation = currentYRotation;
+      params.setCurrentYRotation = setCurrentYRotation;
     }
+    console.log(isPrime, base, double);
+    controller(params, !isPrime);
   });
 };
 

@@ -58,7 +58,9 @@ const handleD = ({
     }
   }
   setCubies(newCubies);
+  console.log("DOUBLEEEEE", double);
   const amount = double ? PI : PI / 2;
+  console.log("AMOUNT", amount);
   setCurrentYRotation(
     prime ? currentYRotation - amount : currentYRotation + amount
   );

@@ -21,18 +21,14 @@ const orientSolvedEdge = (cube, colour) => {
             console.log("edge piece oriented correctly");
           } else if (cube[pair.face][2][1] === u(true, cube)[pair.face][1][1]) {
             console.log("do D move");
-            console.log(getTempCrossSolution());
             setTempCrossSolution([...getTempCrossSolution(), "D"]);
           } else if (
             cube[pair.face][2][1] === u(false, cube)[pair.face][1][1]
           ) {
             console.log("do D' move");
-            console.log(getTempCrossSolution());
             setTempCrossSolution([...getTempCrossSolution(), "D'"]);
-            console.log(getTempCrossSolution());
           } else {
             console.log("do D2 move");
-            console.log(getTempCrossSolution());
             setTempCrossSolution([...getTempCrossSolution(), "D2"]);
           }
           found = true;
