@@ -205,7 +205,7 @@ const executeScramble = (sequence) => {
         break;
     }
 
-    const waitTime = 100;
+    const waitTime = 60;
     i++;
     setTimeout(nextMove, waitTime);
   }

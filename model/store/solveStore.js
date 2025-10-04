@@ -1,8 +1,28 @@
-let crossColours = ["w", "y", "r"];
+let crossColours = ["y"];
 export function getCrossColours() {
   return crossColours;
 }
 
 export function setCrossColours(newCrossColours) {
   crossColours = newCrossColours;
+}
+
+const tempCrossSolution = [];
+
+const crossSolution = [];
+
+export function getTempCrossSolution() {
+  return tempCrossSolution;
+}
+
+export function getCrossSolution() {
+  return crossSolution;
+}
+
+export function setTempCrossSolution(moves) {
+  tempCrossSolution = moves;
+}
+
+export function setCrossSolution(moves) {
+  crossSolution = moves;
 }

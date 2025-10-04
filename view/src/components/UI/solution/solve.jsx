@@ -10,7 +10,6 @@ function Solve() {
   const isFreePlay = useApplicationStore((state) => state.isFreePlay);
   const disabled = isSolving || isScrambling || isFreePlay;
   const handleClick = () => {
-    console.log("Solving...");
     solveCube(cube);
   };
   return (
