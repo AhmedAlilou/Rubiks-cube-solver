@@ -58,6 +58,7 @@ const controllerFunctions = {
 
 const execute = (moves) => {
   // Map of all move names to their corresponding functions
+  console.log("MOVES:", moves);
   if (moves.length === 0) return;
   moves.forEach((move) => {
     // Match: base letter + optional 2 or 3 + optional prime
@@ -76,7 +77,6 @@ const execute = (moves) => {
       return;
     }
     const double = countStr === "2";
-    console.log("COUNT STR:", countStr, double);
     const isPrime = prime === "'";
     const count = countStr ? parseInt(countStr) : 1;
 
@@ -93,7 +93,6 @@ const execute = (moves) => {
       setButtonsDisabled
     } = useCubiesStore.getState();
 
-    console.log("EXECUTING", move);
     let params = {
       cubies,
       setCubies,

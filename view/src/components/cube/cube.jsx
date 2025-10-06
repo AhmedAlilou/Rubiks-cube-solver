@@ -142,6 +142,7 @@ const Cube = () => {
 
         rotatingCubies.forEach((cubie) => {
           if (double) {
+            console.log("DOUBLE");
             updatedCubies[cubie.id] = {
               ...cubies,
               position: [

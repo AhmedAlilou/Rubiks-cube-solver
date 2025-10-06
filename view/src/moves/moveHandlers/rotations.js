@@ -1,6 +1,8 @@
 import useApplicationStore from "../../store/applicationStore";
+import useCubiesStore from "../../store/cubiesStore.js";
 const setMoveHistory = useApplicationStore.getState().setMoveHistory;
 const PI = Math.PI;
+const setDouble = useCubiesStore.getState().setDouble;
 
 const handleX = ({
   cubies,
@@ -20,6 +22,7 @@ const handleX = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentXRotation(
     prime ? currentXRotation + amount : currentXRotation - amount
   );
@@ -51,6 +54,7 @@ const handleY = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentYRotation(
     prime ? currentYRotation + amount : currentYRotation - amount
   );
@@ -82,6 +86,7 @@ const handleZ = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentZRotation(
     prime ? currentZRotation + amount : currentZRotation - amount
   );

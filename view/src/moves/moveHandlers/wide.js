@@ -1,6 +1,8 @@
 import useApplicationStore from "../../store/applicationStore";
+import useCubiesStore from "../../store/cubiesStore.js";
 const setMoveHistory = useApplicationStore.getState().setMoveHistory;
 const PI = Math.PI;
+const setDouble = useCubiesStore.getState().setDouble;
 
 const handleb = ({
   cubies,
@@ -24,6 +26,7 @@ const handleb = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentZRotation(
     prime ? currentZRotation - amount : currentZRotation + amount
   );
@@ -59,6 +62,7 @@ const handled = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentYRotation(
     prime ? currentYRotation - amount : currentYRotation + amount
   );
@@ -94,6 +98,7 @@ const handlef = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentZRotation(
     prime ? currentZRotation + amount : currentZRotation - amount
   );
@@ -129,6 +134,7 @@ const handlel = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentXRotation(
     prime ? currentXRotation - amount : currentXRotation + amount
   );
@@ -164,6 +170,7 @@ const handler = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentXRotation(
     prime ? currentXRotation + amount : currentXRotation - amount
   );
@@ -199,6 +206,7 @@ const handleu = ({
   }
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
+  setDouble(double);
   setCurrentYRotation(
     prime ? currentYRotation + amount : currentYRotation - amount
   );
