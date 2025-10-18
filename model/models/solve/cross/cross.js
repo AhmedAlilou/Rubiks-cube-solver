@@ -4,7 +4,8 @@ import { R, L, U, D, F, B } from "../../moves/turns/index.js";
 import { r, l, u, d, f, b } from "../../moves/wide/index.js";
 import {
   getCrossColours,
-  getTempCrossSolution
+  getTempCrossSolution,
+  setTempCrossSolution
 } from "../../../store/solveStore.js";
 import { getCube } from "../../../store/cubeStore.js";
 import colourInfo from "../../helperFunctions/colourInfo.js";
@@ -36,12 +37,35 @@ const cross = (cube) => {
     //  locate edge piece
     //  find where it needs to go
     //  move it there
+    let tempCrossSolutionLength = 0;
+    let crossSolutionLength = 0;
+
+    for (let i = 0; i < tempCrossSolutionLength; i++) {
+      const move = getTempCrossSolution()[i];
+      if (
+        move === "x" ||
+        move === "x'" ||
+        move === "x2" ||
+        move === "y" ||
+        move === "y'" ||
+        move === "y2" ||
+        move === "z" ||
+        move === "z'" ||
+        move === "z2"
+      ) {
+        continue;
+      } else {
+        tempCrossSolutionLength += 1;
+      }
+    }
     if (
-      getCrossSolution().length > getTempCrossSolution().length ||
-      getCrossSolution().length === 0
+      tempCrossSolutionLength < crossSolutionLength ||
+      tempCrossSolutionLength === 0
     ) {
       setCrossSolution(getTempCrossSolution());
+      crossSolutionLength = tempCrossSolutionLength;
     }
+    setTempCrossSolution([]);
   });
   console.log("Cross done, executing these moves: ", getCrossSolution());
   execute(getCrossSolution());

@@ -60,7 +60,12 @@ const execute = (moves) => {
   // Map of all move names to their corresponding functions
   console.log("MOVES:", moves);
   if (moves.length === 0) return;
-  moves.forEach((move) => {
+  let i = 0;
+  function nextMove() {
+    if (i >= moves.length) {
+      return;
+    }
+    const move = moves[i];
     // Match: base letter + optional 2 or 3 + optional prime
     const match = move.trim().match(/^([A-Za-z])([23]?)(['"]?)$/);
 
@@ -136,7 +141,10 @@ const execute = (moves) => {
     }
     console.log(isPrime, base, double);
     controller(params, !isPrime);
-  });
+    i++;
+    setTimeout(nextMove, 700);
+  }
+  nextMove();
 };
 
 export default execute;
