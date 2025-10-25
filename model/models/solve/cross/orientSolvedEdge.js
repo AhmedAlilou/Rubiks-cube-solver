@@ -1,4 +1,5 @@
 import { u } from "../../moves/wide/index.js";
+import { D } from "../../moves/turns/index.js";
 import edgePairs from "../../helperFunctions/edgePairs.js";
 import { getTempCrossSolution } from "../../../store/solveStore.js";
 import { setTempCrossSolution } from "../../../store/solveStore.js";
@@ -11,31 +12,26 @@ const orientSolvedEdge = (cube, colour) => {
         // this means its an edge piece
         if (cube.down[i][j] === colour && !found) {
           const pair = edgePairs[`down[${i}][${j}]`];
-          console.log("Pair:", pair);
-          console.log(
-            "edge piece already solved",
-            colour,
-            cube[pair.face][pair.row][pair.col]
-          );
           if (cube[pair.face][2][1] === cube[pair.face][1][1]) {
-            console.log("edge piece oriented correctly");
+            console.log("Edge already oriented");
           } else if (cube[pair.face][2][1] === u(true, cube)[pair.face][1][1]) {
-            console.log("do D move");
             setTempCrossSolution([...getTempCrossSolution(), "D"]);
+            return D(true, cube);
           } else if (
             cube[pair.face][2][1] === u(false, cube)[pair.face][1][1]
           ) {
-            console.log("do D' move");
             setTempCrossSolution([...getTempCrossSolution(), "D'"]);
+            return D(false, cube);
           } else {
-            console.log("do D2 move");
             setTempCrossSolution([...getTempCrossSolution(), "D2"]);
+            return D(true, D(true, cube));
           }
           found = true;
         }
       }
     }
   }
+  return cube;
 };
 
 export default orientSolvedEdge;

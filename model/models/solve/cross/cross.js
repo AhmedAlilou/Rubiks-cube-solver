@@ -5,17 +5,18 @@ import { r, l, u, d, f, b } from "../../moves/wide/index.js";
 import {
   getCrossColours,
   getTempCrossSolution,
-  setTempCrossSolution
+  setTempCrossSolution,
+  getCrossSolution,
+  setCrossSolution
 } from "../../../store/solveStore.js";
 import { getCube } from "../../../store/cubeStore.js";
 import colourInfo from "../../helperFunctions/colourInfo.js";
 import edgePairs from "../../helperFunctions/edgePairs.js";
 import execute from "../../execute.js";
 
-import rotateFaceToBottom from "../cross/rotateFaceToBottom.js";
-import orientSolvedEdge from "../cross/orientSolvedEdge.js";
-import { getCrossSolution } from "../../../store/solveStore.js";
-import { setCrossSolution } from "../../../store/solveStore.js";
+import rotateFaceToBottom from "./rotateFaceToBottom.js";
+import orientSolvedEdge from "./orientSolvedEdge.js";
+import countSolvedPieces from "./countSolvedPieces.js";
 
 const cross = (cube) => {
   let tempCube = getCube();
@@ -30,8 +31,8 @@ const cross = (cube) => {
     console.log("doing:", colour, "cross");
     setTempCube(cube); // reset tempCube to current cube state
     tempCube = rotateFaceToBottom(tempCube, colour); // rotate face that needs cross to bottom
-    // check for edge pieces of cross colour that are solved
-    orientSolvedEdge(tempCube, colour); // orient solved pieces correctly
+    tempCube = orientSolvedEdge(tempCube, colour);
+    countSolvedPieces(tempCube, colour);
 
     // for each edge piece in array:
     // locate edge piece
@@ -39,7 +40,7 @@ const cross = (cube) => {
     // move it there
     tempCrossSolutionLength = 0;
     for (let i = 0; i < getTempCrossSolution().length; i++) {
-      let move = getTempCrossSolution()[i];
+      const move = getTempCrossSolution()[i];
       if (
         move === "x" ||
         move === "x'" ||
@@ -51,19 +52,15 @@ const cross = (cube) => {
         move === "z'" ||
         move === "z2"
       ) {
-        console.log("ROTATION");
       } else {
         tempCrossSolutionLength += 1;
-        console.log("ignoring", move);
       }
     }
     if (tempCrossSolutionLength < crossSolutionLength) {
       setCrossSolution(getTempCrossSolution());
       crossSolutionLength = tempCrossSolutionLength;
     }
-
-    console.log("Temp length:", tempCrossSolutionLength, colour);
-    console.log("TEMP SOLUTION:", getTempCrossSolution());
+    console.log(getTempCrossSolution(), colour);
     setTempCrossSolution([]);
   });
   console.log("Cross done, executing these moves: ", getCrossSolution());
