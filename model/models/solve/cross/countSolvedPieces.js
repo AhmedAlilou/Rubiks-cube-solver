@@ -11,7 +11,7 @@ const countSolvedPieces = (tempCube, colour) => {
         const pair = edgePairs[`down[${i}][${j}]`];
         if (
           tempCube[pair.face][1][1] === tempCube[pair.face][2][1] &&
-          tile === colour
+          tile === colour // its a solved piece
         ) {
           solvedCount += 1;
           solvedColours.push(tempCube[pair.face][1][1]);

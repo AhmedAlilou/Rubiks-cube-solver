@@ -15,6 +15,8 @@ import rotateFaceToBottom from "./rotateFaceToBottom.js";
 import orientSolvedEdge from "./orientSolvedEdge.js";
 import finishCross from "./finishCross.js";
 import countSolvedPieces from "./countSolvedPieces.js";
+import returnEdgePosition from "../../helperFunctions/returnEdgePosition.js";
+import finishCross from "./finishCross.js";
 
 const cross = async (cube) => {
   console.log("THE SCRAMBLED CUBE:", cube);
