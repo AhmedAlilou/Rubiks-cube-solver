@@ -1,4 +1,4 @@
-let crossColours = ["w", "y", "r", "g", "b", "o"];
+let crossColours = ["y"];
 export function getCrossColours() {
   return crossColours;
 }
