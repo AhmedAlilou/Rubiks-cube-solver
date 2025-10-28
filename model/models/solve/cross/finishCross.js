@@ -20,6 +20,7 @@ const finishCross = (cube, colour) => {
     const face = returnEdgePosition(cube, colour, targetColour).face;
     const row = returnEdgePosition(cube, colour, targetColour).row;
     const col = returnEdgePosition(cube, colour, targetColour).col;
+    console.log("FACE:", face, row, col);
     switch (face) {
       case "top":
         // implement logic for top face
