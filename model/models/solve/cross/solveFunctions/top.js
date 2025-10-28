@@ -7,8 +7,7 @@ import {
 
 const top = (cube, row, col) => {
   switch ((row, col)) {
-    case (0, 1):
-      console.log(cube);
+    case (2, 1):
       if (cube.front[0][1] === cube.front[1][1]) {
         setTempCrossSolution([...getTempCrossSolution(), "F2"]);
         console.log("DOING NOW", cube, row, col);
@@ -28,8 +27,11 @@ const top = (cube, row, col) => {
       }
       break;
     case (1, 0):
+      break;
     case (1, 2):
+      break;
     case (2, 1):
+      break;
   }
 };
 

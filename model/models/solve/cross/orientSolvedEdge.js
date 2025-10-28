@@ -11,6 +11,7 @@ const orientSolvedEdge = (cube, colour) => {
       if ((i === 1) ^ (j === 1)) {
         // this means its an edge piece
         if (cube.down[i][j] === colour && !found) {
+          console.log("BRUV", i, j, colour, cube);
           const pair = edgePairs[`down[${i}][${j}]`];
           if (cube[pair.face][2][1] === cube[pair.face][1][1]) {
           } else if (cube[pair.face][2][1] === u(true, cube)[pair.face][1][1]) {

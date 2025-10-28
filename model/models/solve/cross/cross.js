@@ -26,6 +26,7 @@ const cross = async (cube) => {
   const setTempCube = (newCube) => {
     tempCube = newCube;
   };
+  console.log("CUBEEEEEE", cube);
   let crossColours = getCrossColours();
   crossColours.map((colour) => {
     // for each cross colour
