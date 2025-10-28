@@ -11,8 +11,6 @@ import { getCube } from "../../../../../model/store/cubeStore";
 
 function ScrambleButton(props) {
   const setScramble = useApplicationStore((state) => state.setScramble);
-  const setIsScrambling = useApplicationStore((state) => state.setIsScrambling);
-  const setIsFreePlay = useApplicationStore((state) => state.setIsFreePlay);
   const setMass = useCubiesStore((state) => state.setMass);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
@@ -20,17 +18,12 @@ function ScrambleButton(props) {
   );
   const handleClick = (props) => {
     if (props.type === "generate") {
-      setIsScrambling(true);
-      setIsFreePlay(false);
       setMass(0);
       const newScramble = generateScramble(25);
       setScramble(newScramble);
       setButtonsDisabled(true);
       executeScramble(newScramble);
     }
-    setTimeout(() => {
-      setIsScrambling(false);
-    }, 3000);
   };
   return (
     <button

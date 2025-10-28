@@ -3,6 +3,7 @@ import edgePairs from "../../helperFunctions/edgePairs";
 const countSolvedPieces = (tempCube, colour) => {
   console.log("TEMP CUBE IN COUNT FUNCTION", tempCube);
   let solvedCount = 0;
+  const solvedColours = [];
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       if ((i === 1) ^ (j === 1)) {
@@ -15,11 +16,13 @@ const countSolvedPieces = (tempCube, colour) => {
         ) {
           console.log(tempCube[pair.face][1][1], tempCube[pair.face][2][1]);
           solvedCount += 1;
+          solvedColours.push(tempCube[pair.face][1][1]);
         }
       }
     }
   }
   console.log("Solved Count:", solvedCount, "for colour:", colour);
+  return [solvedCount, solvedColours];
 };
 
 export default countSolvedPieces;

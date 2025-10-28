@@ -16,6 +16,7 @@ import execute from "../../execute.js";
 
 import rotateFaceToBottom from "./rotateFaceToBottom.js";
 import orientSolvedEdge from "./orientSolvedEdge.js";
+import finishCross from "./finishCross.js";
 import countSolvedPieces from "./countSolvedPieces.js";
 
 const cross = (cube) => {
@@ -33,6 +34,7 @@ const cross = (cube) => {
     tempCube = rotateFaceToBottom(tempCube, colour); // rotate face that needs cross to bottom
     tempCube = orientSolvedEdge(tempCube, colour);
     countSolvedPieces(tempCube, colour);
+    tempCube = finishCross(tempCube, colour);
 
     // for each edge piece in array:
     // locate edge piece

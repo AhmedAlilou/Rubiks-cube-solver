@@ -26,9 +26,7 @@ import useApplicationStore from "../store/applicationStore";
 import useCubiesStore from "../store/cubiesStore.js";
 
 const executeScramble = (sequence) => {
-  const setIsScrambling = useApplicationStore.getState().setIsScrambling;
   const setButtonsDisabled = useCubiesStore.getState().setButtonsDisabled;
-  setIsScrambling(true);
   setButtonsDisabled(true);
   const setMass = useCubiesStore.getState().setMass;
   setMass(0);
