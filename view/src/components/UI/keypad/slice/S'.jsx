@@ -1,7 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
-import { handleS } from "../../../../moves/moveHandlers/index.js";
+import { controllerS } from "../../../../../../controller/cubeMoves/slice/index.js";
 
 function SPrime() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -22,7 +22,7 @@ function SPrime() {
     <button
       className="button"
       onClick={() => {
-        handleS(
+        controllerS(
           {
             cubies,
             setCubies,

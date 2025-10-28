@@ -1,7 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
-import { handleE } from "../../../../moves/moveHandlers/index.js";
+import { controllerE } from "../../../../../../controller/cubeMoves/slice/index.js";
 
 function E() {
   const cubies = useCubiesStore((state) => state.cubies);
@@ -22,7 +22,7 @@ function E() {
     <button
       className="button"
       onClick={() => {
-        handleE(
+        controllerE(
           {
             cubies,
             setCubies,
