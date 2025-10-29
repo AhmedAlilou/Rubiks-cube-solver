@@ -20,6 +20,7 @@ import finishCross from "./finishCross.js";
 import countSolvedPieces from "./countSolvedPieces.js";
 
 const cross = (cube) => {
+  console.log("THE SCRAMBLED CUBE:", cube);
   let tempCube = getCube();
   let tempCrossSolutionLength = 0;
   let crossSolutionLength = 1000;

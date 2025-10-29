@@ -142,7 +142,7 @@ const execute = (moves) => {
     console.log(isPrime, base, double);
     controller(params, !isPrime);
     i++;
-    setTimeout(nextMove, 700);
+    setTimeout(nextMove, 1000);
   }
   nextMove();
 };
