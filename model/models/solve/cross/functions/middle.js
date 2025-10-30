@@ -15,7 +15,6 @@ const middle = (cube, tileFace, tileCol, pairColour) => {
   const faceToMove = { front: F, left: L, back: B, right: R };
   const faceToNotation = { front: "F", left: "L", back: "B", right: "R" };
   clockwise = tilePairCol === 2 ? true : false;
-  console.log("clockwise:", clockwise, tilePairCol);
   if (pairColour === cube[tilePairFace][1][1]) {
     setTempCrossSolution([
       ...getTempCrossSolution(),
@@ -52,7 +51,6 @@ const middle = (cube, tileFace, tileCol, pairColour) => {
       D(true, faceToMove[tilePairFace](clockwise, D(true, D(true, cube))))
     );
   }
-  return tempCube;
 };
 
 export default middle;

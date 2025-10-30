@@ -1,7 +1,9 @@
 import { B, D, F, L, R, U } from "../../../moves/turns/index.js";
 import { E } from "../../../moves/slice/index.js";
-import { getTempCrossSolution } from "../../../../store/solveStore.js";
-import { setTempCrossSolution } from "../../../../store/solveStore.js";
+import {
+  getTempCrossSolution,
+  setTempCrossSolution
+} from "../../../../store/solveStore.js";
 import edgePairs from "../../../helperFunctions/edgePairs.js";
 
 const top = (cube, row, col, pairColour) => {
@@ -27,7 +29,6 @@ const top = (cube, row, col, pairColour) => {
   };
 
   if (pairColour === cube[tilePairFace][1][1]) {
-    console.log(faceToMove[tilePairFace]);
     setTempCrossSolution([
       ...getTempCrossSolution(),
       faceToNotation[tilePairFace] + "2"
@@ -63,7 +64,6 @@ const top = (cube, row, col, pairColour) => {
       ] + "2"
     ]);
     tempCube = func(true, func(true, U(true, U(true, cube))));
-    console.log("move", pairColour, move);
   }
   return tempCube;
 };
