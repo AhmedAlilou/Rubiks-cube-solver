@@ -14,7 +14,6 @@ const top = (cube, row, col, pairColour) => {
   const tilePairFace = tilePairInfo.face;
   const faceToMove = { front: F, left: L, back: B, right: R };
   const faceToNotation = { front: "F", left: "L", back: "B", right: "R" };
-  let move = "";
   const faceConversionClockwise = {
     front: "right",
     right: "back",
