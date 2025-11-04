@@ -38,7 +38,14 @@ const finishCross = (cube, colour) => {
       tileRow === 2
     ) {
       tempCube = flipped(tempCube, tileFace, tilePair);
-      tempCube = middle(tempCube, tileFace, 0, tilePair);
+      tempCube = topLayer(
+        tempCube,
+        tileFace,
+        tileRow,
+        tileCol,
+        tilePair,
+        colour
+      );
     } else if (
       (tileFace === "front" ||
         tileFace === "left" ||
@@ -47,6 +54,7 @@ const finishCross = (cube, colour) => {
       tileRow === 0
     ) {
       console.log("Flipped but on top row");
+      console.log("TEMPCUBE:", tempCube, tileFace, tileRow, tileCol);
       tempCube = topLayer(
         tempCube,
         tileFace,

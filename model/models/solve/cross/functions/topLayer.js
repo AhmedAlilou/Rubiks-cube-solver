@@ -61,18 +61,11 @@ const topLayer = (
       console.log("TARGET FACES", targetFaces);
       break;
   }
-  if (
-    tempCube[tileFace][1][1] === tempCube[tileFace][2][1] &&
-    crossColour === tempCube["down"][bottomLayerPairRow][bottomLayerPairCol]
-  ) {
-    // checking if it will be displacing a solved cross edge
-    displacing = true;
-    console.log("WOULD DISPLACE A SOLVED CROSS EDGE");
-  }
+
   if (!targetFaces.includes(tileFace)) {
     // Do an extra U move first
     setTempCrossSolution([...getTempCrossSolution(), "U"]);
-    tempCube = U(true, cube);
+    tempCube = U(true, tempCube);
     tileFace = faceConversionAnticlockwise[tileFace];
   }
   // set up moves
@@ -81,20 +74,29 @@ const topLayer = (
     ...getTempCrossSolution(),
     faceToNotation[tileFace] + (clockwise ? "" : "'")
   ]);
-  tempCube = faceToMove[tileFace](clockwise, cube);
+  tempCube = faceToMove[tileFace](clockwise, tempCube);
 
   setTempCrossSolution([
     ...getTempCrossSolution(),
     faceToNotation[endFace] + (clockwise ? "'" : "")
   ]);
-  tempCube = faceToMove[endFace](!clockwise, cube);
+  tempCube = faceToMove[endFace](!clockwise, tempCube);
+
+  if (
+    tempCube[tileFace][1][1] === tempCube[tileFace][2][1] &&
+    crossColour === tempCube["down"][bottomLayerPairRow][bottomLayerPairCol]
+  ) {
+    // checking if it will be displacing a solved cross edge
+    displacing = true;
+    console.log("WOULD DISPLACE A SOLVED CROSS EDGE");
+  }
 
   if (displacing) {
     setTempCrossSolution([
       ...getTempCrossSolution(),
       faceToNotation[tileFace] + (clockwise ? "'" : "")
     ]);
-    tempCube = faceToMove[tileFace](!clockwise, cube);
+    tempCube = faceToMove[tileFace](!clockwise, tempCube);
   }
 
   return tempCube;
