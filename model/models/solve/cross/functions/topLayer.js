@@ -17,9 +17,9 @@ const topLayer = (
   const tilePairInfo = edgePairs[`${tileFace}[${tileRow}][${tileCol}]`];
   const tilePairRow = tilePairInfo.row;
   const tilePairCol = tilePairInfo.col;
-  const bottomLayerPairInfo = edgePairs[`${tileFace}[${2}][${1}]`];
-  const bottomLayerPairRow = bottomLayerPairInfo.row;
-  const bottomLayerPairCol = bottomLayerPairInfo.row;
+  let bottomLayerPairInfo = edgePairs[`${tileFace}[${2}][${1}]`];
+  let bottomLayerPairRow = bottomLayerPairInfo.row;
+  let bottomLayerPairCol = bottomLayerPairInfo.col;
   const faceToMove = { front: F, left: L, back: B, right: R };
   const faceToNotation = { front: "F", left: "L", back: "B", right: "R" };
   let displacing = false;
@@ -69,6 +69,17 @@ const topLayer = (
     tileFace = faceConversionAnticlockwise[tileFace];
   }
   // set up moves
+  bottomLayerPairInfo = edgePairs[`${tileFace}[${2}][${1}]`];
+  bottomLayerPairRow = bottomLayerPairInfo.row;
+  bottomLayerPairCol = bottomLayerPairInfo.col;
+  if (
+    tempCube[tileFace][1][1] === tempCube[tileFace][2][1] &&
+    crossColour === tempCube["down"][bottomLayerPairRow][bottomLayerPairCol]
+  ) {
+    // checking if it will be displacing a solved cross edge
+    displacing = true;
+    console.log("WOULD DISPLACE A SOLVED CROSS EDGE");
+  }
   clockwise = faceConversionClockwise[tileFace] === endFace;
   setTempCrossSolution([
     ...getTempCrossSolution(),
@@ -76,12 +87,27 @@ const topLayer = (
   ]);
   tempCube = faceToMove[tileFace](clockwise, tempCube);
 
+  bottomLayerPairInfo = edgePairs[`${tileFace}[${2}][${1}]`];
+  bottomLayerPairRow = bottomLayerPairInfo.row;
+  bottomLayerPairCol = bottomLayerPairInfo.col;
+  if (
+    tempCube[tileFace][1][1] === tempCube[tileFace][2][1] &&
+    crossColour === tempCube["down"][bottomLayerPairRow][bottomLayerPairCol]
+  ) {
+    // checking if it will be displacing a solved cross edge
+    displacing = true;
+    console.log("WOULD DISPLACE A SOLVED CROSS EDGE");
+  }
+
   setTempCrossSolution([
     ...getTempCrossSolution(),
     faceToNotation[endFace] + (clockwise ? "'" : "")
   ]);
   tempCube = faceToMove[endFace](!clockwise, tempCube);
 
+  bottomLayerPairInfo = edgePairs[`${tileFace}[${2}][${1}]`];
+  bottomLayerPairRow = bottomLayerPairInfo.row;
+  bottomLayerPairCol = bottomLayerPairInfo.col;
   if (
     tempCube[tileFace][1][1] === tempCube[tileFace][2][1] &&
     crossColour === tempCube["down"][bottomLayerPairRow][bottomLayerPairCol]

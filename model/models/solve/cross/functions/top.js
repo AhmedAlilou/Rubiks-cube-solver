@@ -6,12 +6,10 @@ import {
 } from "../../../../store/solveStore.js";
 import edgePairs from "../../../helperFunctions/edgePairs.js";
 
-const top = (cube, row, col, pairColour) => {
+const top = (cube, row, col, tilePairFace, pairColour) => {
   let tempCube = cube;
   let func = "";
   console.log("top");
-  const tilePairInfo = edgePairs[`top[${row}][${col}]`];
-  const tilePairFace = tilePairInfo.face;
   const faceToMove = { front: F, left: L, back: B, right: R };
   const faceToNotation = { front: "F", left: "L", back: "B", right: "R" };
   const faceConversionClockwise = {
@@ -33,24 +31,34 @@ const top = (cube, row, col, pairColour) => {
       faceToNotation[tilePairFace] + "2"
     ]);
     // below return the new cube after the apprpriate function has been done
-    return faceToMove[tilePairFace](true, faceToMove[tilePairFace](true, cube));
-  } else if (pairColour === E(true, cube)[tilePairFace][1][1]) {
+    return faceToMove[tilePairFace](
+      true,
+      faceToMove[tilePairFace](true, tempCube)
+    );
+  } else if (pairColour === E(true, tempCube)[tilePairFace][1][1]) {
+    console.log("THISSSS");
     func = faceToMove[faceConversionAnticlockwise[tilePairFace]];
     setTempCrossSolution([
       ...getTempCrossSolution(),
       "U",
       faceToNotation[faceConversionAnticlockwise[tilePairFace]] + "2"
     ]);
-    tempCube = func(true, func(true, U(true, cube)));
-  } else if (pairColour === E(false, cube)[tilePairFace][1][1]) {
+    tempCube = func(true, func(true, U(true, tempCube)));
+  } else if (pairColour === E(false, tempCube)[tilePairFace][1][1]) {
+    console.log(
+      "THAAAT",
+      pairColour,
+      tilePairFace,
+      E(false, tempCube)[tilePairFace][1][1]
+    );
     func = faceToMove[faceConversionClockwise[tilePairFace]];
     setTempCrossSolution([
       ...getTempCrossSolution(),
       "U'",
       faceToNotation[faceConversionClockwise[tilePairFace]] + "2"
     ]);
-    tempCube = func(true, func(true, U(false, cube)));
-  } else if (pairColour === E(false, E(false, cube))[tilePairFace][1][1]) {
+    tempCube = func(true, func(true, U(false, tempCube)));
+  } else if (pairColour === E(false, E(false, tempCube))[tilePairFace][1][1]) {
     func =
       faceToMove[
         faceConversionAnticlockwise[faceConversionAnticlockwise[tilePairFace]]
@@ -62,7 +70,7 @@ const top = (cube, row, col, pairColour) => {
         faceConversionAnticlockwise[faceConversionAnticlockwise[tilePairFace]]
       ] + "2"
     ]);
-    tempCube = func(true, func(true, U(true, U(true, cube))));
+    tempCube = func(true, func(true, U(true, U(true, tempCube))));
   }
   return tempCube;
 };

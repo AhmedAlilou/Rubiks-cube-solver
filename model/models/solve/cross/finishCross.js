@@ -6,6 +6,7 @@ import middle from "./functions/middle.js";
 import flipped from "./functions/flipped.js";
 import wrongPlace from "./functions/wrongPlace.js";
 import topLayer from "./functions/topLayer.js";
+import edgePairs from "../../helperFunctions/edgePairs.js";
 
 const finishCross = (cube, colour) => {
   let tempCube = cube;
@@ -20,8 +21,11 @@ const finishCross = (cube, colour) => {
     const tileFace = returnEdgePosition(tempCube, colour, tilePair).face;
     const tileRow = returnEdgePosition(tempCube, colour, tilePair).row;
     const tileCol = returnEdgePosition(tempCube, colour, tilePair).col;
+
+    const tilePairInfo = edgePairs[`${tileFace}[${tileRow}][${tileCol}]`];
+    const tilePairFace = tilePairInfo.face;
     if (tileFace === "top") {
-      tempCube = top(tempCube, tileRow, tileCol, tilePair);
+      tempCube = top(tempCube, tileRow, tileCol, tilePairFace, tilePair);
     } else if (
       (tileFace === "front" ||
         tileFace === "left" ||
@@ -64,12 +68,21 @@ const finishCross = (cube, colour) => {
         colour
       );
       // it is like flipped but its on top row and we have to bring it down back to the middle
-    } else if (tileFace === "down") {
+    } else if (
+      tileFace === "down" &&
+      !(tempCube[tilePairFace][1][1] === tempCube[tilePairFace[2][1]])
+    ) {
       console.log("On bottom face but placed incorrectly");
+      console.log(
+        tilePairFace,
+        tilePairInfo,
+        tempCube[tilePairFace][1][1],
+        tempCube[tilePairFace[2][1]]
+      );
       // do a double move according to face
       // then call top function
       tempCube = wrongPlace(tempCube, tileRow, tileCol);
-      tempCube = top(tempCube, tileRow, tileCol, tilePair);
+      tempCube = top(tempCube, tileRow, tileCol, tilePairFace, tilePair);
     } else {
       console.log("I HAVE MISSED A CASE!!!!!");
     }
