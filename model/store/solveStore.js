@@ -1,6 +1,16 @@
-let crossColours = ["w"];
+let crossColours = ["w"]; // make white default always there because everyone can do it
 export function getCrossColours() {
   return crossColours;
+}
+
+let solutionCrossColour = crossColours[0];
+
+export function getSolutionCrossColour() {
+  return solutionCrossColour;
+}
+
+export function setSolutionCrossColour(newColour) {
+  solutionCrossColour = newColour;
 }
 
 export function setCrossColours(newCrossColours) {
