@@ -13,11 +13,9 @@ const finishCross = (cube, colour) => {
   let toSolve = colourInfo[colour].adjacent;
   const initiallySolved = countSolvedPieces(cube, colour)[1];
   toSolve = toSolve.filter((colour) => !initiallySolved.includes(colour));
-  console.log("to solve:", toSolve);
 
   for (let i = 0; i < toSolve.length; i++) {
     const tilePair = toSolve[i];
-    console.log("solving for:", tilePair);
     const tileFace = returnEdgePosition(tempCube, colour, tilePair).face;
     const tileRow = returnEdgePosition(tempCube, colour, tilePair).row;
     const tileCol = returnEdgePosition(tempCube, colour, tilePair).col;
@@ -57,8 +55,6 @@ const finishCross = (cube, colour) => {
         tileFace === "right") &&
       tileRow === 0
     ) {
-      console.log("Flipped but on top row");
-      console.log("TEMPCUBE:", tempCube, tileFace, tileRow, tileCol);
       tempCube = topLayer(
         tempCube,
         tileFace,
@@ -72,13 +68,6 @@ const finishCross = (cube, colour) => {
       tileFace === "down" &&
       !(tempCube[tilePairFace][1][1] === tempCube[tilePairFace[2][1]])
     ) {
-      console.log("On bottom face but placed incorrectly");
-      console.log(
-        tilePairFace,
-        tilePairInfo,
-        tempCube[tilePairFace][1][1],
-        tempCube[tilePairFace[2][1]]
-      );
       // do a double move according to face
       // then call top function
       tempCube = wrongPlace(tempCube, tileRow, tileCol);

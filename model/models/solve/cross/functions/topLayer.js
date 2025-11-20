@@ -13,7 +13,6 @@ const topLayer = (
   crossColour
 ) => {
   let tempCube = cube;
-  console.log("TOP LAYER");
   const tilePairInfo = edgePairs[`${tileFace}[${tileRow}][${tileCol}]`];
   const tilePairRow = tilePairInfo.row;
   const tilePairCol = tilePairInfo.col;
@@ -78,7 +77,6 @@ const topLayer = (
   ) {
     // checking if it will be displacing a solved cross edge
     displacing = true;
-    console.log("WOULD DISPLACE A SOLVED CROSS EDGE");
   }
   clockwise = faceConversionClockwise[tileFace] === endFace;
   setTempCrossSolution([
@@ -96,7 +94,6 @@ const topLayer = (
   ) {
     // checking if it will be displacing a solved cross edge
     displacing = true;
-    console.log("WOULD DISPLACE A SOLVED CROSS EDGE");
   }
 
   setTempCrossSolution([
@@ -114,7 +111,6 @@ const topLayer = (
   ) {
     // checking if it will be displacing a solved cross edge
     displacing = true;
-    console.log("WOULD DISPLACE A SOLVED CROSS EDGE");
   }
 
   if (displacing) {

@@ -5,7 +5,6 @@ import { setTempCrossSolution } from "../../../../store/solveStore.js";
 import edgePairs from "../../../helperFunctions/edgePairs";
 
 const middle = (cube, tileFace, tileCol, pairColour) => {
-  console.log("middle");
   let clockwise = true;
   let tempCube = cube;
   let func = "";

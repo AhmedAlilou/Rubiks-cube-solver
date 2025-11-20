@@ -9,7 +9,6 @@ import edgePairs from "../../../helperFunctions/edgePairs.js";
 const top = (cube, row, col, tilePairFace, pairColour) => {
   let tempCube = cube;
   let func = "";
-  console.log("top");
   const faceToMove = { front: F, left: L, back: B, right: R };
   const faceToNotation = { front: "F", left: "L", back: "B", right: "R" };
   const faceConversionClockwise = {

@@ -6,7 +6,6 @@ import {
 import edgePairs from "../../../helperFunctions/edgePairs.js";
 const wrongPlace = (cube, row, col) => {
   let tempCube = cube;
-  console.log("wrong place");
   const tilePairInfo = edgePairs[`down[${row}][${col}]`];
   const tilePairFace = tilePairInfo.face;
   const faceToMove = { front: F, left: L, back: B, right: R };

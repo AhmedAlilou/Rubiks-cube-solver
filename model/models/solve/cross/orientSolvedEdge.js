@@ -13,7 +13,6 @@ const orientSolvedEdge = (cube, colour) => {
         if (cube.down[i][j] === colour && !found) {
           const pair = edgePairs[`down[${i}][${j}]`];
           if (cube[pair.face][2][1] === cube[pair.face][1][1]) {
-            console.log("Edge already oriented");
           } else if (cube[pair.face][2][1] === u(true, cube)[pair.face][1][1]) {
             setTempCrossSolution([...getTempCrossSolution(), "D"]);
             return D(true, cube);

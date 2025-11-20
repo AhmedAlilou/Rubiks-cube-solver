@@ -27,7 +27,6 @@ const cross = (cube) => {
   let crossColours = getCrossColours();
   crossColours.map((colour) => {
     // for each cross colour
-    console.log("doing:", colour, "cross");
     setTempCube(cube); // reset tempCube to current cube state
     tempCube = rotateFaceToBottom(tempCube, colour); // rotate face that needs cross to bottom
     tempCube = orientSolvedEdge(tempCube, colour);
@@ -63,7 +62,6 @@ const cross = (cube) => {
     }
     setTempCrossSolution([]);
   });
-  console.log("Cross done, executing these moves: ", getCrossSolution());
   execute(getCrossSolution());
 };
 
