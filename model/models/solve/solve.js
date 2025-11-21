@@ -4,7 +4,10 @@ import f2l from "./f2l/f2l.js";
 
 const solve = (cube) => {
   cross(cube);
-  f2l(getCube());
+  console.log(getCube());
+  setTimeout(() => {
+    f2l(getCube());
+  }, 10000);
 };
 
 export default solve;

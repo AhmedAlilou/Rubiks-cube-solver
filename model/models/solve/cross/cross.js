@@ -62,6 +62,7 @@ const cross = (cube) => {
     }
     setTempCrossSolution([]);
   });
+  console.log(getCrossSolution());
   execute(getCrossSolution());
 };
 
