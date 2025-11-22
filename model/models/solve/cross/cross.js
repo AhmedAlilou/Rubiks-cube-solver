@@ -16,7 +16,7 @@ import orientSolvedEdge from "./orientSolvedEdge.js";
 import finishCross from "./finishCross.js";
 import countSolvedPieces from "./countSolvedPieces.js";
 
-const cross = (cube) => {
+const cross = async (cube) => {
   console.log("THE SCRAMBLED CUBE:", cube);
   let tempCube = getCube();
   let tempCrossSolutionLength = 0;
@@ -63,7 +63,7 @@ const cross = (cube) => {
     setTempCrossSolution([]);
   });
   console.log(getCrossSolution());
-  execute(getCrossSolution());
+  await execute(getCrossSolution());
 };
 
 export default cross;

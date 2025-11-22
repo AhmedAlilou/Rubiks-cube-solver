@@ -7,7 +7,6 @@ import { getCube } from "../../../store/cubeStore";
 const f2l = (cube) => {
   let tempCube = cube;
   console.log("F2L");
-  console.log(tempCube);
 
   let crossColour = getSolutionCrossColour();
   console.log(crossColour);

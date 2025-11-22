@@ -59,92 +59,95 @@ const controllerFunctions = {
 const execute = (moves) => {
   // Map of all move names to their corresponding functions
   console.log("MOVES:", moves);
-  if (moves.length === 0) return;
-  let i = 0;
-  function nextMove() {
-    if (i >= moves.length) {
-      return;
+  if (moves.length === 0) return Promise.resolve();
+  return new Promise((resolve) => {
+    let i = 0;
+    function nextMove() {
+      if (i >= moves.length) {
+        resolve();
+        return;
+      }
+      const move = moves[i];
+      // Match: base letter + optional 2 or 3 + optional prime
+      const match = move.trim().match(/^([A-Za-z])([23]?)(['"]?)$/);
+
+      if (!match) {
+        console.warn(`Invalid move format: "${move}"`);
+        return;
+      }
+
+      const [, base, countStr, prime] = match;
+
+      const controller = controllerFunctions[base];
+      if (!controller) {
+        console.warn(`No function found for move: "${base}"`);
+        return;
+      }
+      const double = countStr === "2";
+      const isPrime = prime === "'";
+      const count = countStr ? parseInt(countStr) : 1;
+
+      const {
+        cubies,
+        setCubies,
+        currentXRotation,
+        currentYRotation,
+        currentZRotation,
+        setCurrentXRotation,
+        setCurrentYRotation,
+        setCurrentZRotation,
+        setPrime,
+        setButtonsDisabled
+      } = useCubiesStore.getState();
+
+      let params = {
+        cubies,
+        setCubies,
+        double: double,
+        prime: isPrime,
+        setPrime,
+        setButtonsDisabled,
+        automated: true,
+        isUndo: false
+      };
+      if (
+        base === "F" ||
+        base === "B" ||
+        base === "f" ||
+        base === "b" ||
+        base === "S" ||
+        base === "z"
+      ) {
+        params.currentZRotation = currentZRotation;
+        params.setCurrentZRotation = setCurrentZRotation;
+      } else if (
+        base === "L" ||
+        base === "R" ||
+        base === "l" ||
+        base === "r" ||
+        base === "M" ||
+        base === "x"
+      ) {
+        params.currentXRotation = currentXRotation;
+        params.setCurrentXRotation = setCurrentXRotation;
+      } else if (
+        base === "U" ||
+        base === "D" ||
+        base === "u" ||
+        base === "d" ||
+        base === "E" ||
+        base === "y"
+      ) {
+        params.currentYRotation = currentYRotation;
+        params.setCurrentYRotation = setCurrentYRotation;
+      }
+      console.log(isPrime, base, double);
+      controller(params, !isPrime);
+      i++;
+      setTimeout(nextMove, 1000);
     }
-    const move = moves[i];
-    // Match: base letter + optional 2 or 3 + optional prime
-    const match = move.trim().match(/^([A-Za-z])([23]?)(['"]?)$/);
-
-    if (!match) {
-      console.warn(`Invalid move format: "${move}"`);
-      return;
-    }
-
-    const [, base, countStr, prime] = match;
-
-    const controller = controllerFunctions[base];
-    if (!controller) {
-      console.warn(`No function found for move: "${base}"`);
-      return;
-    }
-    const double = countStr === "2";
-    const isPrime = prime === "'";
-    const count = countStr ? parseInt(countStr) : 1;
-
-    const {
-      cubies,
-      setCubies,
-      currentXRotation,
-      currentYRotation,
-      currentZRotation,
-      setCurrentXRotation,
-      setCurrentYRotation,
-      setCurrentZRotation,
-      setPrime,
-      setButtonsDisabled
-    } = useCubiesStore.getState();
-
-    let params = {
-      cubies,
-      setCubies,
-      double: double,
-      prime: isPrime,
-      setPrime,
-      setButtonsDisabled,
-      automated: true,
-      isUndo: false
-    };
-    if (
-      base === "F" ||
-      base === "B" ||
-      base === "f" ||
-      base === "b" ||
-      base === "S" ||
-      base === "z"
-    ) {
-      params.currentZRotation = currentZRotation;
-      params.setCurrentZRotation = setCurrentZRotation;
-    } else if (
-      base === "L" ||
-      base === "R" ||
-      base === "l" ||
-      base === "r" ||
-      base === "M" ||
-      base === "x"
-    ) {
-      params.currentXRotation = currentXRotation;
-      params.setCurrentXRotation = setCurrentXRotation;
-    } else if (
-      base === "U" ||
-      base === "D" ||
-      base === "u" ||
-      base === "d" ||
-      base === "E" ||
-      base === "y"
-    ) {
-      params.currentYRotation = currentYRotation;
-      params.setCurrentYRotation = setCurrentYRotation;
-    }
-    console.log(isPrime, base, double);
-    controller(params, !isPrime);
-    i++;
-    setTimeout(nextMove, 1000);
-  }
-  nextMove();
+    nextMove();
+  });
 };
 
 export default execute;
