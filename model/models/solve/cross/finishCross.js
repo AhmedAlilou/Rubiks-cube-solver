@@ -8,8 +8,6 @@ import wrongPlace from "./functions/wrongPlace.js";
 import topLayer from "./functions/topLayer.js";
 import edgePairs from "../../helperFunctions/edgePairs.js";
 
-import top from "./solveFunctions/top.js";
-
 const finishCross = (cube, colour) => {
   let tempCube = cube;
   let toSolve = colourInfo[colour].adjacent; // only need one colour here because the cross colour is given

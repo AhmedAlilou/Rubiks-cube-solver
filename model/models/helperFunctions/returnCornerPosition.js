@@ -21,8 +21,7 @@ const returnCornerPosition = (cube, primaryColour, otherColours) => {
             otherColours.includes(otherColourOne) &&
             otherColours.includes(otherColourTwo)
           ) {
-            console.log(primaryColour, otherColours);
-            return [face, i, j];
+            return { face: face, row: i, col: j };
           }
         }
       }

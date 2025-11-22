@@ -16,17 +16,14 @@ import orientSolvedEdge from "./orientSolvedEdge.js";
 import finishCross from "./finishCross.js";
 import countSolvedPieces from "./countSolvedPieces.js";
 import returnEdgePosition from "../../helperFunctions/returnEdgePosition.js";
-import finishCross from "./finishCross.js";
 
 const cross = async (cube) => {
-  console.log("THE SCRAMBLED CUBE:", cube);
   let tempCube = getCube();
   let tempCrossSolutionLength = 0;
   let crossSolutionLength = 1000;
   const setTempCube = (newCube) => {
     tempCube = newCube;
   };
-  console.log("CUBEEEEEE", cube);
   let crossColours = getCrossColours();
   crossColours.map((colour) => {
     // for each cross colour

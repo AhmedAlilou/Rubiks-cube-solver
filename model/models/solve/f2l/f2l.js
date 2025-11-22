@@ -1,7 +1,9 @@
 import { getSolutionCrossColour } from "../../../store/solveStore";
 import colourInfo from "../../helperFunctions/colourInfo";
 import returnSolvedPairs from "./functions/returnSolvedPairs";
+import returnEdgePosition from "../../helperFunctions/returnEdgePosition";
 import returnCornerPosition from "../../helperFunctions/returnCornerPosition";
+import identifyCase from "./identifyCase";
 import { getCube } from "../../../store/cubeStore";
 
 const f2l = (cube) => {
@@ -29,6 +31,12 @@ const f2l = (cube) => {
     const pair = pairs[i];
     console.log(pair);
     console.log(returnCornerPosition(tempCube, crossColour, pair));
+    console.log(returnEdgePosition(tempCube, pair[0], pair[1]));
+    identifyCase(
+      cube,
+      returnCornerPosition(tempCube, crossColour, pair),
+      returnEdgePosition(tempCube, pair[0], pair[1])
+    );
   }
 
   // for each pair, locate the edge piece
