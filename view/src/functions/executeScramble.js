@@ -370,6 +370,9 @@ const executeScramble = (sequence) => {
           !prime
         );
         break;
+      default:
+        console.log("WRONG");
+        break;
     }
 
     const waitTime = 100;
