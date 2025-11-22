@@ -25,9 +25,12 @@ const f2l = (cube) => {
   );
 
   // for each pair, locate the corner piece, specifically where the cross colour of that piece is
-  console.log(
-    returnCornerPosition(tempCube, crossColour, [pairs[0][0], pairs[0][1]])
-  );
+  for (let i = 0; i < pairs.length; i++) {
+    const pair = pairs[i];
+    console.log(pair);
+    console.log(returnCornerPosition(tempCube, crossColour, pair));
+  }
+
   // for each pair, locate the edge piece
 
   console.log("pairs to be solved:", pairs);

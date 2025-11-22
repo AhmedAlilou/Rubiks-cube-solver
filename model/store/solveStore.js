@@ -1,4 +1,4 @@
-let crossColours = ["w"]; // make white default always there because everyone can do it
+let crossColours = ["w", "y", "b", "g", "r", "o"]; // make white default always there because everyone can do it
 export function getCrossColours() {
   return crossColours;
 }

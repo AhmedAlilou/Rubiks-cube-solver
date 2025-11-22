@@ -4,6 +4,7 @@ import {
   setScramble,
   setScrambling
 } from "../../../../../global/store/globalStore";
+import formatAlg from "../../../../../model/models/formatAlg.js";
 import useApplicationStore from "../../../store/applicationStore";
 import executeScramble from "../../../functions/executeScramble.js";
 import useCubiesStore from "../../../store/cubiesStore";
@@ -17,12 +18,18 @@ function ScrambleButton(props) {
     (state) => state.setButtonsDisabled
   );
   const handleClick = (props) => {
+    setMass(0);
     if (props.type === "generate") {
-      setMass(0);
       const newScramble = generateScramble(25);
       setScramble(newScramble);
       setButtonsDisabled(true);
       executeScramble(newScramble);
+    } else {
+      const newScramble = (props.inputValue || "").trim();
+      if (!newScramble) return console.log("no scramble entered");
+      setScramble(newScramble);
+      setButtonsDisabled(true);
+      executeScramble(formatAlg(newScramble));
     }
   };
   return (

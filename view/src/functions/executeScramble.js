@@ -1,18 +1,3 @@
-import formatAlg from "../../../model/models/formatAlg";
-import {
-  handleX,
-  handleY,
-  handleZ,
-  handleM,
-  handleE,
-  handleS,
-  handleb,
-  handled,
-  handlef,
-  handlel,
-  handler,
-  handleu
-} from "../moves/moveHandlers";
 import {
   controllerB,
   controllerD,
@@ -21,6 +6,24 @@ import {
   controllerR,
   controllerU
 } from "../../../controller/cubeMoves/regular/index.js";
+import {
+  controllerx,
+  controllery,
+  controllerz
+} from "../../../controller/cubeMoves/rotation/index.js";
+import {
+  controllerE,
+  controllerS,
+  controllerM
+} from "../../../controller/cubeMoves/slice/index.js";
+import {
+  controllerb,
+  controllerd,
+  controllerf,
+  controllerl,
+  controllerr,
+  controlleru
+} from "../../../controller/cubeMoves/wide/index.js";
 
 import useApplicationStore from "../store/applicationStore";
 import useCubiesStore from "../store/cubiesStore.js";
@@ -163,43 +166,209 @@ const executeScramble = (sequence) => {
           !prime
         );
         break;
-      case "X":
-        handleX(double, prime);
+      case "x":
+        controllerx(
+          {
+            cubies,
+            setCubies,
+            currentXRotation,
+            setCurrentXRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
-      case "Y":
-        handleY(double, prime);
+      case "y":
+        controllery(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
-      case "Z":
-        handleZ(double, prime);
+      case "z":
+        controllerz(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "M":
-        handleM(double, prime);
+        controllerM(
+          {
+            cubies,
+            setCubies,
+            currentXRotation,
+            setCurrentXRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "E":
-        handleE(double, prime);
+        controllerE(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "S":
-        handleS(double, prime);
+        controllerS(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "b":
-        handleb(double, prime);
+        controllerb(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "d":
-        handled(double, prime);
+        controllerd(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "f":
-        handlef(double, prime);
+        controllerf(
+          {
+            cubies,
+            setCubies,
+            currentZRotation,
+            setCurrentZRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "l":
-        handlel(double, prime);
+        controllerl(
+          {
+            cubies,
+            setCubies,
+            currentXRotation,
+            setCurrentXRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "r":
-        handler(double, prime);
+        controllerr(
+          {
+            cubies,
+            setCubies,
+            currentXRotation,
+            setCurrentXRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
       case "u":
-        handleu(double, prime);
-        break;
-      default:
+        controlleru(
+          {
+            cubies,
+            setCubies,
+            currentYRotation,
+            setCurrentYRotation,
+            double: double,
+            prime: prime,
+            setPrime,
+            setButtonsDisabled,
+            automated: true,
+            isUndo: false
+          },
+          !prime
+        );
         break;
     }
 
