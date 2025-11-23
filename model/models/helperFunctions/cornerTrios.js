@@ -2,7 +2,7 @@ const cornerTrios = {
   // FRONT face corners
   "front[0][0]": [
     { face: "top", row: 2, col: 0 },
-    { face: "left", row: 2, col: 2 }
+    { face: "left", row: 0, col: 2 }
   ],
   "front[0][2]": [
     { face: "top", row: 2, col: 2 },
@@ -85,7 +85,7 @@ const cornerTrios = {
     { face: "front", row: 0, col: 0 }
   ],
   "top[2][2]": [
-    { face: "right", row: 0, col: 2 },
+    { face: "right", row: 0, col: 0 },
     { face: "front", row: 0, col: 2 }
   ],
 

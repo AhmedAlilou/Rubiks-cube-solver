@@ -25,7 +25,6 @@ const f2l = (cube) => {
   pairs = pairs.filter(
     (p) => !solvedPairs.some((sp) => sp[0] === p[0] && sp[1] === p[1])
   );
-
   // for each pair, locate the corner piece, specifically where the cross colour of that piece is
   for (let i = 0; i < pairs.length; i++) {
     const pair = pairs[i];
@@ -38,7 +37,6 @@ const f2l = (cube) => {
       returnEdgePosition(tempCube, pair[0], pair[1])
     );
   }
-
   // for each pair, locate the edge piece
 
   console.log("pairs to be solved:", pairs);

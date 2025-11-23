@@ -11,20 +11,39 @@ const identifyCase = (cube, corner, edge) => {
 
   if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 0) {
     // is corner on top layer?
-    console.log("CORNER ON TOP ROW");
+    if (edgeFace !== "top" && edgeRow === 1) {
+      console.log("edge in middle layer");
+    } else if (edgeFace === "top") {
+      console.log("edge in top layer");
+    }
+
+    console.log("CORNER ON TOP LAYER");
   } else if (cornerFace === "down") {
+    if (edgeFace !== "top" && edgeRow === 1) {
+      console.log("edge in middle layer");
+    } else if (edgeFace === "top") {
+      console.log("edge in top layer");
+    }
     console.log("CORNER FACING DOWN");
   } else if (
     cornerFace !== "down" &&
     !cornerFace !== "top" &&
     cornerRow === 2
   ) {
-    console.log("CORNER ON BOTTOM ROW");
+    if (edgeFace !== "top" && edgeRow === 1) {
+      console.log("edge in middle layer");
+    } else if (edgeFace === "top") {
+      console.log("edge in top layer");
+    }
+    console.log("CORNER ON BOTTOM LAYER");
   } else if (cornerFace === "top") {
+    if (edgeFace !== "top" && edgeRow === 1) {
+      console.log("edge in middle layer");
+    } else if (edgeFace === "top") {
+      console.log("edge in top layer");
+    }
     console.log("CORNER FACING TOP");
   }
-
-  console.log(cornerFace, cornerRow, cornerCol, edgeFace, edgeRow, edgeCol);
 
   return cube;
 };
