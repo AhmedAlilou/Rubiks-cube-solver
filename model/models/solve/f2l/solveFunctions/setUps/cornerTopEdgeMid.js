@@ -29,10 +29,14 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
     back: "right",
     right: "front"
   };
-  const secondaryEdgeFace =
-    edgeCol === 0
-      ? faceConversionAnticlockwise[edgeFace]
-      : faceConversionClockwise[edgeFace];
+  let secondaryEdgeFace = "";
+  if (edgeCol === 2) {
+    console.log("EDGE ON RIGHT");
+    secondaryEdgeFace = faceConversionAnticlockwise[edgeFace];
+  } else {
+    console.log("EDGE ON LEFT");
+    secondaryEdgeFace = faceConversionClockwise[edgeFace];
+  }
   if (
     (cornerFace === edgeFace && cornerCol == edgeCol) ||
     (cornerFace === secondaryEdgeFace && cornerCol !== edgeCol)
@@ -41,32 +45,31 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
     tempCube = U(true, tempCube);
   }
 
-  edgeCol === 2
-    ? setTempF2lSolution([
-        ...getTempF2lSolution(),
-        faceToNotation[edgeFace] + "'"
-      ])
-    : setTempF2lSolution([...getTempF2lSolution(), faceToNotation[edgeFace]]);
-  edgeCol === 2
-    ? (tempCube = faceToMove[edgeFace](false, tempCube))
-    : (tempCube = faceToMove[edgeFace](true, tempCube));
+  // convert the following into one big if else statement with edgeCol ===2 and else:
+  if (edgeCol === 2) {
+    console.log("EDGE ON RIGHT");
+    setTempF2lSolution([
+      ...getTempF2lSolution(),
+      faceToNotation[edgeFace] + "'"
+    ]);
+    tempCube = faceToMove[edgeFace](false, tempCube);
+    setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+    tempCube = U(false, tempCube);
 
-  edgeCol === 2
-    ? setTempF2lSolution([...getTempF2lSolution(), "U'"])
-    : setTempF2lSolution([...getTempF2lSolution(), "U"]);
-  edgeCol === 2
-    ? (tempCube = U(false, tempCube))
-    : (tempCube = U(true, tempCube));
-
-  edgeCol === 2
-    ? setTempF2lSolution([...getTempF2lSolution(), faceToNotation[edgeFace]])
-    : setTempF2lSolution([
-        ...getTempF2lSolution(),
-        faceToNotation[edgeFace] + "'"
-      ]);
-  edgeCol === 2
-    ? (tempCube = faceToMove[edgeFace](true, tempCube))
-    : (tempCube = faceToMove[edgeFace](false, tempCube));
+    setTempF2lSolution([...getTempF2lSolution(), faceToNotation[edgeFace]]);
+    tempCube = faceToMove[edgeFace](true, tempCube);
+  } else {
+    console.log("EDGE ON LEFT");
+    setTempF2lSolution([...getTempF2lSolution(), faceToNotation[edgeFace]]);
+    tempCube = faceToMove[edgeFace](true, tempCube);
+    setTempF2lSolution([...getTempF2lSolution(), "U"]);
+    tempCube = U(true, tempCube);
+    setTempF2lSolution([
+      ...getTempF2lSolution(),
+      faceToNotation[edgeFace] + "'"
+    ]);
+    tempCube = faceToMove[edgeFace](false, tempCube);
+  }
   // MOVE EDGE TO TOP LAYER
   // identify move needed to put edge on top.
   // make sure that the corner is not on top of the edge by doing a U move
