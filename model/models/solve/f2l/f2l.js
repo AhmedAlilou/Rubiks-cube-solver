@@ -38,8 +38,8 @@ const f2l = async (cube) => {
     console.log(pair);
     console.log(returnCornerPosition(tempCube, crossColour, pair));
     console.log(returnEdgePosition(tempCube, pair[0], pair[1]));
-    identifyCase(
-      cube,
+    tempCube = identifyCase(
+      tempCube,
       returnCornerPosition(tempCube, crossColour, pair),
       returnEdgePosition(tempCube, pair[0], pair[1])
     );

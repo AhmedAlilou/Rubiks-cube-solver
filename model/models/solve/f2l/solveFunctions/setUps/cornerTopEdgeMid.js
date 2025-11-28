@@ -37,16 +37,22 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
     console.log("EDGE ON LEFT");
     secondaryEdgeFace = faceConversionClockwise[edgeFace];
   }
-  if (
-    (cornerFace === edgeFace && cornerCol == edgeCol) ||
-    (cornerFace === secondaryEdgeFace && cornerCol !== edgeCol)
-  ) {
-    setTempF2lSolution([...getTempF2lSolution(), "U"]);
-    tempCube = U(true, tempCube);
-  }
 
   // convert the following into one big if else statement with edgeCol ===2 and else:
   if (edgeCol === 2) {
+    if (
+      (cornerFace === edgeFace && cornerCol == edgeCol) ||
+      (cornerFace === secondaryEdgeFace && cornerCol !== edgeCol) ||
+      (faceConversionClockwise[faceConversionClockwise[cornerFace]] ===
+        edgeFace &&
+        cornerCol == edgeCol) ||
+      (faceConversionClockwise[faceConversionClockwise[cornerFace]] ===
+        secondaryEdgeFace &&
+        cornerCol !== edgeCol)
+    ) {
+      setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+      tempCube = U(false, tempCube);
+    }
     console.log("EDGE ON RIGHT");
     setTempF2lSolution([
       ...getTempF2lSolution(),
@@ -59,6 +65,19 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
     setTempF2lSolution([...getTempF2lSolution(), faceToNotation[edgeFace]]);
     tempCube = faceToMove[edgeFace](true, tempCube);
   } else {
+    if (
+      (cornerFace === edgeFace && cornerCol == edgeCol) ||
+      (cornerFace === secondaryEdgeFace && cornerCol !== edgeCol) ||
+      (faceConversionClockwise[faceConversionClockwise[cornerFace]] ===
+        edgeFace &&
+        cornerCol == edgeCol) ||
+      (faceConversionClockwise[faceConversionClockwise[cornerFace]] ===
+        secondaryEdgeFace &&
+        cornerCol !== edgeCol)
+    ) {
+      setTempF2lSolution([...getTempF2lSolution(), "U"]);
+      tempCube = U(true, tempCube);
+    }
     console.log("EDGE ON LEFT");
     setTempF2lSolution([...getTempF2lSolution(), faceToNotation[edgeFace]]);
     tempCube = faceToMove[edgeFace](true, tempCube);
@@ -78,6 +97,8 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
   // if the edge on the right then do U'
   // if the edge on the left then do U
   // WORRY ABOUT KEYHOLE LATER
+
+  return tempCube;
 };
 
 export default cornerTopEdgeMid;
