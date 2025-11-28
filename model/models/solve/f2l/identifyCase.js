@@ -1,4 +1,5 @@
 import { getSolutionCrossColour } from "../../../store/solveStore";
+import cornerTopEdgeMid from "./solveFunctions/setUps/cornerTopEdgeMid";
 
 const identifyCase = (cube, corner, edge) => {
   const cornerFace = corner.face;
@@ -12,7 +13,7 @@ const identifyCase = (cube, corner, edge) => {
   if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 0) {
     // is corner on top layer?
     if (edgeFace !== "top" && edgeRow === 1) {
-      console.log("edge in middle layer");
+      cornerTopEdgeMid(cube, corner, edge);
     } else if (edgeFace === "top") {
       console.log("edge in top layer");
     }

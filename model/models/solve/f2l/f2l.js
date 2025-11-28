@@ -1,12 +1,19 @@
-import { getSolutionCrossColour } from "../../../store/solveStore";
+import {
+  getF2lSolution,
+  setF2lSolution,
+  getTempF2lSolution,
+  setTempF2lSolution,
+  getSolutionCrossColour
+} from "../../../store/solveStore";
 import colourInfo from "../../helperFunctions/colourInfo";
 import returnSolvedPairs from "./functions/returnSolvedPairs";
 import returnEdgePosition from "../../helperFunctions/returnEdgePosition";
 import returnCornerPosition from "../../helperFunctions/returnCornerPosition";
 import identifyCase from "./identifyCase";
+import execute from "../../execute.js";
 import { getCube } from "../../../store/cubeStore";
 
-const f2l = (cube) => {
+const f2l = async (cube) => {
   let tempCube = cube;
   console.log("F2L");
 
@@ -38,7 +45,9 @@ const f2l = (cube) => {
     );
   }
   // for each pair, locate the edge piece
-
+  // FOR NOW LEAVE THIS CODE UNTIL I PICK THE BEST TEMPSOLUTION OR WHATEVER
+  setF2lSolution(getTempF2lSolution());
+  await execute(getF2lSolution());
   console.log("pairs to be solved:", pairs);
 };
 

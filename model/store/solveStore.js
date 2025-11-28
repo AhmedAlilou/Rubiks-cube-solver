@@ -1,9 +1,34 @@
-let crossColours = ["w", "y", "b", "g", "r", "o"]; // make white default always there because everyone can do it
+let crossColours = ["w"]; // make white default always there because everyone can do it
+let solutionCrossColour = crossColours[0];
+let twoLookOLL = false;
+let twoLookPLL = false;
+
+let tempF2lSolution = [];
+
+let f2lSolution = [];
+let tempCrossSolution = [];
+
+let crossSolution = [];
+
+export function getTwoLookOLL() {
+  return twoLookOLL;
+}
+
+export function setTwoLookOLL(value) {
+  twoLookOLL = value;
+}
+
+export function getTwoLookPLL() {
+  return twoLookPLL;
+}
+
+export function setTwoLookPLL(value) {
+  twoLookPLL = value;
+}
+
 export function getCrossColours() {
   return crossColours;
 }
-
-let solutionCrossColour = crossColours[0];
 
 export function getSolutionCrossColour() {
   return solutionCrossColour;
@@ -16,10 +41,6 @@ export function setSolutionCrossColour(newColour) {
 export function setCrossColours(newCrossColours) {
   crossColours = newCrossColours;
 }
-
-let tempCrossSolution = [];
-
-let crossSolution = [];
 
 export function getTempCrossSolution() {
   return tempCrossSolution;
@@ -35,4 +56,20 @@ export function setTempCrossSolution(moves) {
 
 export function setCrossSolution(moves) {
   crossSolution = moves;
+}
+
+export function setF2lSolution(moves) {
+  f2lSolution = moves;
+}
+
+export function getTempF2lSolution() {
+  return tempF2lSolution;
+}
+
+export function getF2lSolution() {
+  return f2lSolution;
+}
+
+export function setTempF2lSolution(moves) {
+  tempF2lSolution = moves;
 }
