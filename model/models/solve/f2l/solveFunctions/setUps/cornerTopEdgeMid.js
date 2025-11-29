@@ -89,6 +89,9 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
       "U'",
       faceToNotation[edgeFace]
     ]);
+    tempCube = faceToMove[edgeFace](false, tempCube);
+    tempCube = U(false, tempCube);
+    tempCube = faceToMove[edgeFace](true, tempCube);
   } else {
     setTempF2lSolution([
       ...getTempF2lSolution(),
@@ -96,6 +99,9 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
       "U",
       faceToNotation[edgeFace] + "'"
     ]);
+    tempCube = faceToMove[edgeFace](true, tempCube);
+    tempCube = U(true, tempCube);
+    tempCube = faceToMove[edgeFace](false, tempCube);
   }
   // move corner on top of edge
   // if both on left: U Move U Move' ✅
