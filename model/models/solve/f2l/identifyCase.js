@@ -1,15 +1,23 @@
 import { getSolutionCrossColour } from "../../../store/solveStore";
 import cornerTopEdgeMid from "./solveFunctions/setUps/cornerTopEdgeMid";
+import cornerUpEdgeMid from "./solveFunctions/setUps/cornerUpEdgeMid";
+import returnEdgePosition from "../../helperFunctions/returnEdgePosition";
+import returnCornerPosition from "../../helperFunctions/returnCornerPosition";
 
-const identifyCase = (cube, corner, edge) => {
+const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
+  const crossColour = getSolutionCrossColour();
+  const edge = returnEdgePosition(tempCube, firstPair, secondPair);
+  const corner = returnCornerPosition(tempCube, crossColour, [
+    firstPair,
+    secondPair
+  ]);
   const cornerFace = corner.face;
   const cornerRow = corner.row;
   const cornerCol = corner.col;
   const edgeFace = edge.face;
   const edgeRow = edge.row;
   const edgeCol = edge.col;
-  const crossColour = getSolutionCrossColour();
 
   if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 0) {
     // is corner on top layer?
@@ -18,7 +26,6 @@ const identifyCase = (cube, corner, edge) => {
     } else if (edgeFace === "top") {
       console.log("edge in top layer");
     }
-
     console.log("CORNER ON TOP LAYER");
   } else if (cornerFace === "down") {
     if (edgeFace !== "top" && edgeRow === 1) {
@@ -27,24 +34,18 @@ const identifyCase = (cube, corner, edge) => {
       console.log("edge in top layer");
     }
     console.log("CORNER FACING DOWN");
-  } else if (
-    cornerFace !== "down" &&
-    !cornerFace !== "top" &&
-    cornerRow === 2
-  ) {
-    if (edgeFace !== "top" && edgeRow === 1) {
+  } else if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 2) {
+    if (cornerFace !== "top" && edgeRow === 1) {
       console.log("edge in middle layer");
     } else if (edgeFace === "top") {
       console.log("edge in top layer");
     }
-    console.log("CORNER ON BOTTOM LAYER");
   } else if (cornerFace === "top") {
     if (edgeFace !== "top" && edgeRow === 1) {
-      console.log("edge in middle layer");
+      tempCube = cornerUpEdgeMid(tempCube, corner, edge);
     } else if (edgeFace === "top") {
       console.log("edge in top layer");
     }
-    console.log("CORNER FACING TOP");
   }
 
   return tempCube;

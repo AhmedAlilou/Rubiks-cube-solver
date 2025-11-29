@@ -38,11 +38,7 @@ const f2l = async (cube) => {
     console.log(pair);
     console.log(returnCornerPosition(tempCube, crossColour, pair));
     console.log(returnEdgePosition(tempCube, pair[0], pair[1]));
-    tempCube = identifyCase(
-      tempCube,
-      returnCornerPosition(tempCube, crossColour, pair),
-      returnEdgePosition(tempCube, pair[0], pair[1])
-    );
+    tempCube = identifyCase(tempCube, pair[0], pair[1]);
   }
   // for each pair, locate the edge piece
   // FOR NOW LEAVE THIS CODE UNTIL I PICK THE BEST TEMPSOLUTION OR WHATEVER

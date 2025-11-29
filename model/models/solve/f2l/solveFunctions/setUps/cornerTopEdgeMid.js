@@ -7,6 +7,7 @@ import {
 } from "../../../../../store/solveStore.js";
 
 const cornerTopEdgeMid = (cube, corner, edge) => {
+  console.log("CORNER TOP EDGE MID");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;
@@ -14,7 +15,6 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
   const edgeFace = edge.face;
   const edgeRow = edge.row;
   const edgeCol = edge.col;
-  console.log("CORNER TOP EDGE MID ");
   const faceToMove = { front: F, left: L, back: B, right: R };
   const faceToNotation = { front: "F", left: "L", back: "B", right: "R" };
   const faceConversionClockwise = {
@@ -38,66 +38,70 @@ const cornerTopEdgeMid = (cube, corner, edge) => {
     secondaryEdgeFace = faceConversionClockwise[edgeFace];
   }
 
-  // convert the following into one big if else statement with edgeCol ===2 and else:
-  if (edgeCol === 2) {
-    if (
-      (cornerFace === edgeFace && cornerCol == edgeCol) ||
-      (cornerFace === secondaryEdgeFace && cornerCol !== edgeCol) ||
-      (faceConversionClockwise[faceConversionClockwise[cornerFace]] ===
-        edgeFace &&
-        cornerCol == edgeCol) ||
-      (faceConversionClockwise[faceConversionClockwise[cornerFace]] ===
-        secondaryEdgeFace &&
-        cornerCol !== edgeCol)
+  // check all combos of corner on right corner on left, edge on right, edge on left
+  if (cornerCol === edgeCol) {
+    // if both right or both left
+    if (cornerFace === edgeFace) {
+      setTempF2lSolution([...getTempF2lSolution(), "U"]);
+      tempCube = U(true, tempCube);
+    } else if (
+      faceConversionClockwise[faceConversionClockwise[cornerFace]] === edgeFace
     ) {
       setTempF2lSolution([...getTempF2lSolution(), "U'"]);
       tempCube = U(false, tempCube);
+    } else if (faceConversionAnticlockwise[cornerFace] === edgeFace) {
+      setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+      tempCube = U(true, U(true, tempCube));
     }
-    console.log("EDGE ON RIGHT");
-    setTempF2lSolution([
-      ...getTempF2lSolution(),
-      faceToNotation[edgeFace] + "'"
-    ]);
-    tempCube = faceToMove[edgeFace](false, tempCube);
-    setTempF2lSolution([...getTempF2lSolution(), "U'"]);
-    tempCube = U(false, tempCube);
-
-    setTempF2lSolution([...getTempF2lSolution(), faceToNotation[edgeFace]]);
-    tempCube = faceToMove[edgeFace](true, tempCube);
-  } else {
+  } else if (cornerCol === 0 && edgeCol === 2) {
+    // if corner and edge on opposite sides
     if (
-      (cornerFace === edgeFace && cornerCol == edgeCol) ||
-      (cornerFace === secondaryEdgeFace && cornerCol !== edgeCol) ||
-      (faceConversionClockwise[faceConversionClockwise[cornerFace]] ===
-        edgeFace &&
-        cornerCol == edgeCol) ||
-      (faceConversionClockwise[faceConversionClockwise[cornerFace]] ===
-        secondaryEdgeFace &&
-        cornerCol !== edgeCol)
+      faceConversionClockwise[faceConversionClockwise[cornerFace]] === edgeFace
     ) {
+      setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+      tempCube = U(true, U(true, tempCube));
+    } else if (faceConversionClockwise[cornerFace] === edgeFace) {
+      setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+      tempCube = U(false, tempCube);
+    } else if (faceConversionAnticlockwise[cornerFace] === edgeFace) {
       setTempF2lSolution([...getTempF2lSolution(), "U"]);
       tempCube = U(true, tempCube);
     }
-    console.log("EDGE ON LEFT");
-    setTempF2lSolution([...getTempF2lSolution(), faceToNotation[edgeFace]]);
-    tempCube = faceToMove[edgeFace](true, tempCube);
-    setTempF2lSolution([...getTempF2lSolution(), "U"]);
-    tempCube = U(true, tempCube);
+  } else if (cornerCol === 2 && edgeCol === 0) {
+    if (
+      faceConversionClockwise[faceConversionClockwise[cornerFace]] === edgeFace
+    ) {
+      setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+      tempCube = U(true, U(true, tempCube));
+    } else if (faceConversionClockwise[cornerFace] === edgeFace) {
+      setTempF2lSolution([...getTempF2lSolution(), "U"]);
+      tempCube = U(true, tempCube);
+    } else if (faceConversionAnticlockwise[cornerFace] === edgeFace) {
+      setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+      tempCube = U(false, tempCube);
+    }
+  } // NOW DO THE ACTUAL MOVES
+
+  if (edgeCol === 2) {
     setTempF2lSolution([
       ...getTempF2lSolution(),
+      faceToNotation[edgeFace] + "'",
+      "U'",
+      faceToNotation[edgeFace]
+    ]);
+  } else {
+    setTempF2lSolution([
+      ...getTempF2lSolution(),
+      faceToNotation[edgeFace],
+      "U",
       faceToNotation[edgeFace] + "'"
     ]);
-    tempCube = faceToMove[edgeFace](false, tempCube);
   }
-  // MOVE EDGE TO TOP LAYER
-  // identify move needed to put edge on top.
-  // make sure that the corner is not on top of the edge by doing a U move
-  // if the edge on the right then the move will be anticlockwise
-  // if the edge on the left then the move will be clockwise
-  // if the edge on the right then do U'
-  // if the edge on the left then do U
-  // WORRY ABOUT KEYHOLE LATER
-
+  // move corner on top of edge
+  // if both on left: U Move U Move' ✅
+  // if corner on left edge on right: U Move' U' Move ✅
+  // if corner on right edge on left: U' Move U Move' ✅
+  // if both on right: U Move' U' Move ✅
   return tempCube;
 };
 
