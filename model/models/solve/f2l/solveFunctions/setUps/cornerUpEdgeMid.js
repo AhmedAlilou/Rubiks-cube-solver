@@ -39,7 +39,7 @@ const cornerUpEdgeMid = (cube, corner, edge) => {
   };
 
   const cornerFaces = [rowToFace[cornerRow], colToFace[cornerCol]];
-
+  console.log(cornerFaces);
   let secondaryEdgeFace = "";
   if (edgeCol === 2) {
     console.log("EDGE ON RIGHT");
@@ -59,23 +59,80 @@ const cornerUpEdgeMid = (cube, corner, edge) => {
     console.log("corner already above edge");
   } else if (
     (faceConversionClockwise[cornerFaces[0]] === edgeFace &&
-      cornerFaces[1] === secondaryEdgeFace) ||
-    (faceConversionClockwise[cornerFaces[1]] === edgeFace &&
-      cornerFaces[0] === secondaryEdgeFace)
+      faceConversionClockwise[cornerFaces[1]] === secondaryEdgeFace) ||
+    (faceConversionClockwise[cornerFaces[0]] === secondaryEdgeFace &&
+      faceConversionClockwise[cornerFaces[1]] === edgeFace)
   ) {
     setTempF2lSolution([...getTempF2lSolution(), "U"]);
     tempCube = U(true, tempCube);
   } else if (
+    (faceConversionAnticlockwise[cornerFaces[0]] === edgeFace &&
+      faceConversionAnticlockwise[cornerFaces[1]] === secondaryEdgeFace) ||
     (faceConversionAnticlockwise[cornerFaces[0]] === secondaryEdgeFace &&
-      cornerFaces[1] === edgeFace) ||
-    (faceConversionAnticlockwise[cornerFaces[1]] === secondaryEdgeFace &&
-      cornerFaces[0] === edgeFace)
+      faceConversionAnticlockwise[cornerFaces[1]] === edgeFace)
   ) {
     setTempF2lSolution([...getTempF2lSolution(), "U'"]);
     tempCube = U(false, tempCube);
   } else {
     setTempF2lSolution([...getTempF2lSolution(), "U2"]);
     tempCube = U(true, U(true, tempCube));
+  }
+
+  let connected = false;
+  // now check if the pair is connected properly or not
+  connected =
+    tempCube[edgeFace][1][edgeCol] === tempCube[edgeFace][0][edgeCol]
+      ? true
+      : false;
+
+  if (connected) {
+    if (edgeCol === 2) {
+      setTempF2lSolution([
+        ...getTempF2lSolution(),
+        faceToNotation[edgeFace] + "'",
+        "U",
+        faceToNotation[edgeFace]
+      ]);
+      tempCube = faceToMove[edgeFace](
+        true,
+        U(true, faceToMove[edgeFace](false, tempCube))
+      );
+    } else {
+      setTempF2lSolution([
+        ...getTempF2lSolution(),
+        faceToNotation[edgeFace],
+        "U'",
+        faceToNotation[edgeFace] + "'"
+      ]);
+      tempCube = faceToMove[edgeFace](
+        false,
+        U(false, faceToMove[edgeFace](true, tempCube))
+      );
+    }
+  } else {
+    if (edgeCol === 2) {
+      setTempF2lSolution([
+        ...getTempF2lSolution(),
+        faceToNotation[edgeFace] + "'",
+        "U'",
+        faceToNotation[edgeFace],
+        "U",
+        faceToNotation[edgeFace] + "'",
+        "U'",
+        faceToNotation[edgeFace]
+      ]);
+    } else {
+      setTempF2lSolution([
+        ...getTempF2lSolution(),
+        faceToNotation[edgeFace],
+        "U",
+        faceToNotation[edgeFace] + "'",
+        "U'",
+        faceToNotation[edgeFace],
+        "U",
+        faceToNotation[edgeFace] + "'"
+      ]);
+    }
   }
 
   return tempCube;
