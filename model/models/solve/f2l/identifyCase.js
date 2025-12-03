@@ -1,4 +1,7 @@
-import { getSolutionCrossColour } from "../../../store/solveStore";
+import {
+  getSolutionCrossColour,
+  setTempF2lSolution
+} from "../../../store/solveStore";
 
 import returnEdgePosition from "../../helperFunctions/returnEdgePosition";
 import returnCornerPosition from "../../helperFunctions/returnCornerPosition";
@@ -6,6 +9,7 @@ import returnCornerPosition from "../../helperFunctions/returnCornerPosition";
 import cornerTopEdgeMid from "./solveFunctions/setUps/cornerTopEdgeMid";
 import cornerUpEdgeMid from "./solveFunctions/setUps/cornerUpEdgeMid";
 import cornerEdgeConnected from "./solveFunctions/setUps/cornerEdgeConnected";
+import cornerBottomEdgeMid from "./solveFunctions/setUps/cornerBottomEdgeMid";
 
 const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
@@ -21,10 +25,11 @@ const identifyCase = (cube, firstPair, secondPair) => {
   const edgeFace = edge.face;
   const edgeRow = edge.row;
   const edgeCol = edge.col;
+  const sideFaces = ["front", "left", "back", "right"];
 
   if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 0) {
     // is corner in top layer
-    if (edgeFace === "top" || edgeRow === 0) {
+    if (edgeFace === "top" || (edgeRow === 0 && sideFaces.includes(edgeFace))) {
       tempCube = cornerEdgeConnected(tempCube, corner, edge);
     } else {
       tempCube = cornerTopEdgeMid(tempCube, corner, edge);
@@ -38,7 +43,7 @@ const identifyCase = (cube, firstPair, secondPair) => {
     console.log("CORNER FACING DOWN");
   } else if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 2) {
     if (cornerFace !== "top" && edgeRow === 1) {
-      console.log("edge in middle layer");
+      cornerBottomEdgeMid(tempCube, corner, edge);
     } else if (edgeFace === "top") {
       console.log("edge in top layer");
     }

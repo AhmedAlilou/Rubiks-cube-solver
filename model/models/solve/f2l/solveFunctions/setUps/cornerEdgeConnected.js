@@ -88,7 +88,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
       ) {
         turningFace = faceConversionClockwise[cornerFace];
         setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(false, U(true, tempCube));
+        tempCube = U(true, U(true, tempCube));
       } else if (
         tempCube[
           faceConversionClockwise[faceConversionClockwise[cornerFaces[1]]]
@@ -123,7 +123,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
       ) {
         turningFace = faceConversionAnticlockwise[cornerFace];
         setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(false, U(true, tempCube));
+        tempCube = U(true, U(true, tempCube));
       } else if (
         tempCube[
           faceConversionClockwise[faceConversionClockwise[cornerFaces[1]]]
@@ -162,7 +162,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
         turningFace =
           faceConversionClockwise[faceConversionClockwise[cornerFace]];
         setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(false, U(true, tempCube));
+        tempCube = U(true, U(true, tempCube));
       } else if (
         tempCube[
           faceConversionClockwise[faceConversionClockwise[cornerFaces[1]]]
@@ -197,7 +197,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
         turningFace =
           faceConversionClockwise[faceConversionClockwise[cornerFace]];
         setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(false, U(true, tempCube));
+        tempCube = U(true, U(true, tempCube));
       } else if (
         tempCube[
           faceConversionClockwise[faceConversionClockwise[cornerFaces[1]]]
