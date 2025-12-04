@@ -5,10 +5,14 @@ import {
   getTempF2lSolution,
   setTempF2lSolution
 } from "../../../../../store/solveStore.js";
+import cornerTopEdgeMid from "./cornerTopEdgeMid.js";
+import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
+import { getSolutionCrossColour } from "../../../../../store/solveStore.js";
 
-const cornerBottomEdgeMid = (cube, corner, edge) => {
+const cornerBottomEdgeMid = (cube, corner, edge, firstPair, secondPair) => {
   console.log("CORNER BOTTOM EDGE MID");
   let tempCube = cube;
+  const cornerFace = corner.face;
   const cornerRow = corner.row;
   const cornerCol = corner.col;
   const edgeFace = edge.face;
@@ -38,24 +42,24 @@ const cornerBottomEdgeMid = (cube, corner, edge) => {
   if (cornerSide === "left") {
     setTempF2lSolution([
       ...getTempF2lSolution(),
-      faceToNotation[corner.face],
+      faceToNotation[cornerFace],
       "U'",
-      faceToNotation[corner.face] + "'"
+      faceToNotation[cornerFace] + "'"
     ]);
-    tempCube = faceToMove[corner.face](
+    tempCube = faceToMove[cornerFace](
       false,
-      U(false, faceToMove[corner.face](true, tempCube))
+      U(false, faceToMove[cornerFace](true, tempCube))
     );
   } else {
     setTempF2lSolution([
       ...getTempF2lSolution(),
-      faceToNotation[corner.face] + "'",
+      faceToNotation[cornerFace] + "'",
       "U",
-      faceToNotation[corner.face]
+      faceToNotation[cornerFace]
     ]);
-    tempCube = faceToMove[corner.face](
+    tempCube = faceToMove[cornerFace](
       true,
-      U(true, faceToMove[corner.face](false, tempCube))
+      U(true, faceToMove[cornerFace](false, tempCube))
     );
   }
   return tempCube;

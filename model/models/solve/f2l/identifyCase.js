@@ -11,6 +11,7 @@ import cornerUpEdgeMid from "./solveFunctions/setUps/cornerUpEdgeMid";
 import cornerEdgeConnected from "./solveFunctions/setUps/cornerEdgeConnected";
 import cornerBottomEdgeMid from "./solveFunctions/setUps/cornerBottomEdgeMid";
 import cornerDownEdgeMid from "./solveFunctions/setUps/cornerDownEdgeMid";
+import cornerBottomEdgeTop from "./solveFunctions/setUps/cornerBottomEdgeTop";
 
 const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
@@ -28,6 +29,8 @@ const identifyCase = (cube, firstPair, secondPair) => {
   const edgeCol = edge.col;
   const sideFaces = ["front", "left", "back", "right"];
 
+  // make case here if they are both not in top layer and arent even connected to get just the corner out seperately
+
   if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 0) {
     // is corner in top layer
     if (edgeFace === "top" || (edgeRow === 0 && sideFaces.includes(edgeFace))) {
@@ -38,17 +41,21 @@ const identifyCase = (cube, firstPair, secondPair) => {
   } else if (cornerFace === "down") {
     if (edgeFace !== "top" && edgeRow === 1) {
       tempCube = cornerDownEdgeMid(tempCube, corner, edge);
-      tempCube = identifyCase(tempCube, firstPair, secondPair);
     } else if (edgeFace === "top") {
       console.log("edge in top layer");
     }
     console.log("CORNER FACING DOWN");
   } else if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 2) {
     if (cornerFace !== "top" && edgeRow === 1) {
-      tempCube = cornerBottomEdgeMid(tempCube, corner, edge);
-      tempCube = identifyCase(tempCube, firstPair, secondPair);
-    } else if (edgeFace === "top") {
-      console.log("edge in top layer");
+      tempCube = cornerBottomEdgeMid(
+        tempCube,
+        corner,
+        edge,
+        firstPair,
+        secondPair
+      );
+    } else if (edgeFace === "top" || edgeRow === 0) {
+      tempCube = cornerBottomEdgeTop(tempCube, corner, edge);
     }
   } else if (cornerFace === "top") {
     if (edgeFace !== "top" && edgeRow === 1) {

@@ -41,7 +41,6 @@ const f2l = async (cube) => {
     tempCube = identifyCase(tempCube, pair[0], pair[1]);
   }
   // for each pair, locate the edge piece
-  // FOR NOW LEAVE THIS CODE UNTIL I PICK THE BEST TEMPSOLUTION OR WHATEVER
   setF2lSolution(getTempF2lSolution());
   await execute(getF2lSolution());
   console.log("pairs to be solved:", pairs);

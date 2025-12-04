@@ -5,10 +5,12 @@ import {
   getTempF2lSolution,
   setTempF2lSolution
 } from "../../../../../store/solveStore.js";
+import cornerTopEdgeMid from "./cornerTopEdgeMid.js";
 
 const cornerDownEdgeMid = (cube, corner, edge) => {
   console.log("CORNER DOWN EDGE MID");
   let tempCube = cube;
+  const cornerFace = corner.face;
   const cornerRow = corner.row;
   const cornerCol = corner.col;
   const edgeFace = edge.face;
