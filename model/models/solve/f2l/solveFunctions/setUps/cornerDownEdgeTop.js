@@ -6,8 +6,8 @@ import {
   setTempF2lSolution
 } from "../../../../../store/solveStore.js";
 
-const cornerBottomEdgeTop = (cube, corner, edge) => {
-  console.log("CORNER BOTTOM, EDGE TOP");
+const cornerDownEdgeTop = (cube, corner, edge) => {
+  console.log("CORNER DOWN, EDGE TOP");
   let tempCube = cube;
 
   const cornerRow = corner.row;
@@ -42,8 +42,9 @@ const cornerBottomEdgeTop = (cube, corner, edge) => {
     2: "back"
   };
 
-  const turningFace = cornerFace;
   const cornerOnLeft = cornerCol === 0;
+  let cornerFaces = [];
+  let turningFace = "";
 
   let sideEdgeFace = "";
 
@@ -61,6 +62,15 @@ const cornerBottomEdgeTop = (cube, corner, edge) => {
     sideEdgeFace = edgeFace;
   }
 
+  cornerFaces = [bottomColToFace[cornerCol], bottomRowToFace[cornerRow]];
+
+  if (cornerFaces.includes("left")) {
+    turningFace = "left";
+  } else {
+    turningFace = "right";
+  }
+
+  // place edge in correct spot first:
   if (turningFace === faceConversionClockwise[sideEdgeFace]) {
     setTempF2lSolution([...getTempF2lSolution(), "U"]);
     tempCube = U(true, tempCube);
@@ -77,16 +87,16 @@ const cornerBottomEdgeTop = (cube, corner, edge) => {
 
   setTempF2lSolution([
     ...getTempF2lSolution(),
-    faceToNotation[turningFace] + (!cornerOnLeft ? "'" : ""),
-    cornerOnLeft ? "U" : "U'",
-    faceToNotation[turningFace] + (cornerOnLeft ? "'" : "")
+    faceToNotation[turningFace] + (cornerOnLeft ? "'" : ""),
+    cornerOnLeft ? "U'" : "U",
+    faceToNotation[turningFace] + (!cornerOnLeft ? "'" : "")
   ]);
   tempCube = faceToMove[turningFace](
-    !cornerOnLeft,
-    U(cornerOnLeft, faceToMove[turningFace](cornerOnLeft, tempCube))
+    cornerOnLeft,
+    U(cornerOnLeft, faceToMove[turningFace](!cornerOnLeft, tempCube))
   );
 
   return tempCube;
 };
 
-export default cornerBottomEdgeTop;
+export default cornerDownEdgeTop;

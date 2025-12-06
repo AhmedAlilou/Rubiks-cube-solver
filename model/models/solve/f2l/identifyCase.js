@@ -12,6 +12,7 @@ import cornerUpEdgeMid from "./solveFunctions/setUps/cornerUpEdgeMid";
 import cornerEdgeConnected from "./solveFunctions/setUps/cornerEdgeConnected";
 import cornerBottomEdgeMid from "./solveFunctions/setUps/cornerBottomEdgeMid";
 import cornerDownEdgeMid from "./solveFunctions/setUps/cornerDownEdgeMid";
+import cornerDownEdgeTop from "./solveFunctions/setUps/cornerDownEdgeTop";
 import cornerBottomEdgeTop from "./solveFunctions/setUps/cornerBottomEdgeTop";
 
 const identifyCase = (cube, firstPair, secondPair) => {
@@ -68,8 +69,9 @@ const identifyCase = (cube, firstPair, secondPair) => {
   ) {
     cornerFaces = [bottomColToFace[cornerCol], bottomRowToFace[cornerRow]];
     if (
-      !cornerFaces.includes(edgeFace) ||
-      !cornerFaces.includes(secondaryEdgeFace)
+      cornerFace !== "top" &&
+      (!cornerFaces.includes(edgeFace) ||
+        !cornerFaces.includes(secondaryEdgeFace))
     ) {
       // now seperate the corner
       tempCube = moveCornerToTop(
@@ -91,8 +93,9 @@ const identifyCase = (cube, firstPair, secondPair) => {
         : faceConversionAnticlockwise[cornerFace]
     ];
     if (
-      !cornerFaces.includes(edgeFace) ||
-      !cornerFaces.includes(secondaryEdgeFace)
+      cornerFace !== "top" &&
+      (!cornerFaces.includes(edgeFace) ||
+        !cornerFaces.includes(secondaryEdgeFace))
     ) {
       tempCube = moveCornerToTop(
         tempCube,
@@ -112,8 +115,6 @@ const identifyCase = (cube, firstPair, secondPair) => {
   edgeCol = edge.col;
 
   if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 0) {
-    // make case here if they are both not in top layer and arent even connected to get just the corner out seperately
-
     // is corner in top layer
     if (edgeFace === "top" || (edgeRow === 0 && sideFaces.includes(edgeFace))) {
       tempCube = cornerEdgeConnected(tempCube, corner, edge);
@@ -124,11 +125,10 @@ const identifyCase = (cube, firstPair, secondPair) => {
     if (edgeFace !== "top" && edgeRow === 1) {
       tempCube = cornerDownEdgeMid(tempCube, corner, edge);
     } else if (edgeFace === "top") {
-      console.log("edge in top layer");
+      tempCube = cornerDownEdgeTop(tempCube, corner, edge);
     }
-    console.log("CORNER FACING DOWN");
   } else if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 2) {
-    if (cornerFace !== "top" && edgeRow === 1) {
+    if (edgeRow === 1 && edgeFace !== "top") {
       tempCube = cornerBottomEdgeMid(
         tempCube,
         corner,
@@ -136,14 +136,14 @@ const identifyCase = (cube, firstPair, secondPair) => {
         firstPair,
         secondPair
       );
-    } else if (edgeFace === "top" || edgeRow === 0) {
+    } else {
       tempCube = cornerBottomEdgeTop(tempCube, corner, edge);
     }
   } else if (cornerFace === "top") {
     if (edgeFace !== "top" && edgeRow === 1) {
       tempCube = cornerUpEdgeMid(tempCube, corner, edge);
-    } else if (edgeFace === "top") {
-      console.log("edge in top layer");
+    } else if (edgeFace === "top" || edgeRow === 0) {
+      console.log("CORNER TOP EDGE TOP");
     }
   }
 
