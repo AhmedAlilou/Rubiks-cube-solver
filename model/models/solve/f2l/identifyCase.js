@@ -70,6 +70,8 @@ const identifyCase = (cube, firstPair, secondPair) => {
   ) {
     cornerFaces = [bottomColToFace[cornerCol], bottomRowToFace[cornerRow]];
     if (
+      edgeFace !== "top" &&
+      edgeRow === 1 &&
       cornerFace !== "top" &&
       (!cornerFaces.includes(edgeFace) ||
         !cornerFaces.includes(secondaryEdgeFace))
@@ -94,6 +96,8 @@ const identifyCase = (cube, firstPair, secondPair) => {
         : faceConversionAnticlockwise[cornerFace]
     ];
     if (
+      edgeFace !== "top" &&
+      edgeRow === 1 &&
       cornerFace !== "top" &&
       (!cornerFaces.includes(edgeFace) ||
         !cornerFaces.includes(secondaryEdgeFace))

@@ -61,6 +61,22 @@ const cornerTopEdgeTop = (cube, corner, edge) => {
   const turningFace = sideEdgeFace;
   let clockwise = false;
 
+  const topColToFace = {
+    0: "left",
+    2: "right"
+  };
+
+  const topRowToFace = {
+    0: "back",
+    2: "front"
+  };
+
+  const cornerFaces = [topColToFace[cornerCol], topRowToFace[cornerRow]];
+
+  if (!cornerFaces.includes(turningFace)) {
+    return tempCube;
+  }
+
   if (turningFace === "right") {
     if (cornerRow === 2) {
       clockwise = true;
