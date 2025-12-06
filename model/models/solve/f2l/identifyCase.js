@@ -14,6 +14,7 @@ import cornerBottomEdgeMid from "./solveFunctions/setUps/cornerBottomEdgeMid";
 import cornerDownEdgeMid from "./solveFunctions/setUps/cornerDownEdgeMid";
 import cornerDownEdgeTop from "./solveFunctions/setUps/cornerDownEdgeTop";
 import cornerBottomEdgeTop from "./solveFunctions/setUps/cornerBottomEdgeTop";
+import cornerTopEdgeTop from "./solveFunctions/setUps/cornerTopEdgeTop";
 
 const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
@@ -143,7 +144,7 @@ const identifyCase = (cube, firstPair, secondPair) => {
     if (edgeFace !== "top" && edgeRow === 1) {
       tempCube = cornerUpEdgeMid(tempCube, corner, edge);
     } else if (edgeFace === "top" || edgeRow === 0) {
-      console.log("CORNER TOP EDGE TOP");
+      tempCube = cornerTopEdgeTop(cube, corner, edge);
     }
   }
 
