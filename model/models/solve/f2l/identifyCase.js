@@ -15,6 +15,7 @@ import cornerDownEdgeMid from "./solveFunctions/setUps/cornerDownEdgeMid";
 import cornerDownEdgeTop from "./solveFunctions/setUps/cornerDownEdgeTop";
 import cornerBottomEdgeTop from "./solveFunctions/setUps/cornerBottomEdgeTop";
 import cornerTopEdgeTop from "./solveFunctions/setUps/cornerTopEdgeTop";
+import cornerTrios from "../../helperFunctions/cornerTrios";
 
 const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
@@ -129,7 +130,7 @@ const identifyCase = (cube, firstPair, secondPair) => {
   } else if (cornerFace === "down") {
     if (edgeFace !== "top" && edgeRow === 1) {
       tempCube = cornerDownEdgeMid(tempCube, corner, edge);
-    } else if (edgeFace === "top") {
+    } else if (edgeFace === "top" || edgeRow === 0) {
       tempCube = cornerDownEdgeTop(tempCube, corner, edge);
     }
   } else if (cornerFace !== "down" && cornerFace !== "top" && cornerRow === 2) {
@@ -151,6 +152,69 @@ const identifyCase = (cube, firstPair, secondPair) => {
       tempCube = cornerTopEdgeTop(cube, corner, edge);
     }
   }
+
+  corner = returnCornerPosition(tempCube, crossColour, [firstPair, secondPair]);
+  edge = returnEdgePosition(tempCube, firstPair, secondPair);
+  cornerFace = corner.face;
+  cornerRow = corner.row;
+  cornerCol = corner.col;
+  edgeFace = edge.face;
+  edgeRow = edge.row;
+  edgeCol = edge.col;
+
+  // now look at the pair and check each case
+  let edgeTopColour = tempCube["top"][edgeRow][edgeCol];
+
+  if (edgeFace !== "top") {
+    switch (edgeFace) {
+      case "front":
+        edgeTopColour = tempCube["top"][2][1];
+        break;
+      case "left":
+        edgeTopColour = tempCube["top"][1][0];
+        break;
+      case "back":
+        edgeTopColour = tempCube["top"][0][1];
+        break;
+      case "right":
+        edgeTopColour = tempCube["top"][1][2];
+        break;
+    }
+  }
+
+  // compute cornerTopColour (the sticker of this corner that lies on the top face)
+  let cornerTopColour;
+  if (cornerFace === "top") {
+    cornerTopColour = tempCube["top"][cornerRow][cornerCol];
+  } else {
+    const cornerKey = `${cornerFace}[${cornerRow}][${cornerCol}]`;
+    const trio = cornerTrios[cornerKey];
+    if (Array.isArray(trio)) {
+      const topInfo = trio.find((t) => t.face === "top");
+      if (topInfo) {
+        cornerTopColour = tempCube["top"][topInfo.row][topInfo.col];
+      }
+    }
+    if (typeof cornerTopColour === "undefined") {
+      console.warn(
+        "identifyCase: missing top sticker mapping for corner",
+        cornerKey
+      );
+      cornerTopColour = null;
+    }
+  }
+
+  // - Is corner facing up (4)
+  if (cornerFace === "top") {
+    console.log("CORNER FACING UP");
+  }
+  // - does the top of the corner and top of the edge match (4)
+  else if (edgeTopColour === cornerTopColour) {
+    console.log("COLOURS MATCH");
+  } else {
+    console.log("COLOURS DONT MATCH");
+  }
+  // - does the top of the corner and top of the edge have different colours (4)
 
   return tempCube;
 };

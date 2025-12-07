@@ -42,7 +42,6 @@ const cornerDownEdgeTop = (cube, corner, edge) => {
     2: "back"
   };
 
-  const cornerOnLeft = cornerCol === 0;
   let cornerFaces = [];
   let turningFace = "";
 
@@ -63,12 +62,25 @@ const cornerDownEdgeTop = (cube, corner, edge) => {
   }
 
   cornerFaces = [bottomColToFace[cornerCol], bottomRowToFace[cornerRow]];
-
+  let cornerOnLeft = false;
+  console.log(cornerFaces);
   if (cornerFaces.includes("left")) {
+    if (cornerFaces.includes("back")) {
+      cornerOnLeft = true;
+    } else {
+      cornerOnLeft = false;
+    }
     turningFace = "left";
   } else {
+    if (cornerFaces.includes("back")) {
+      cornerOnLeft = false;
+    } else {
+      cornerOnLeft = true;
+    }
     turningFace = "right";
   }
+  console.log(cornerOnLeft);
+  console.log("TURNING FACE: ", turningFace);
 
   // place edge in correct spot first:
   if (turningFace === faceConversionClockwise[sideEdgeFace]) {
@@ -87,13 +99,13 @@ const cornerDownEdgeTop = (cube, corner, edge) => {
 
   setTempF2lSolution([
     ...getTempF2lSolution(),
-    faceToNotation[turningFace] + (cornerOnLeft ? "'" : ""),
-    cornerOnLeft ? "U'" : "U",
-    faceToNotation[turningFace] + (!cornerOnLeft ? "'" : "")
+    faceToNotation[turningFace] + (!cornerOnLeft ? "'" : ""),
+    !cornerOnLeft ? "U'" : "U",
+    faceToNotation[turningFace] + (cornerOnLeft ? "'" : "")
   ]);
   tempCube = faceToMove[turningFace](
-    cornerOnLeft,
-    U(cornerOnLeft, faceToMove[turningFace](!cornerOnLeft, tempCube))
+    !cornerOnLeft,
+    U(cornerOnLeft, faceToMove[turningFace](cornerOnLeft, tempCube))
   );
 
   return tempCube;
