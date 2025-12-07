@@ -17,6 +17,8 @@ import cornerBottomEdgeTop from "./solveFunctions/setUps/cornerBottomEdgeTop";
 import cornerTopEdgeTop from "./solveFunctions/setUps/cornerTopEdgeTop";
 import cornerTrios from "../../helperFunctions/cornerTrios";
 
+import cornerFacingUp from "./solveFunctions/inserts/cornerFacingUp";
+
 const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
   const crossColour = getSolutionCrossColour();
@@ -181,6 +183,8 @@ const identifyCase = (cube, firstPair, secondPair) => {
         break;
     }
   }
+  const edgeSideColour =
+    [firstPair, secondPair].find((c) => c !== edgeTopColour) || null;
 
   // compute cornerTopColour (the sticker of this corner that lies on the top face)
   let cornerTopColour;
@@ -206,7 +210,7 @@ const identifyCase = (cube, firstPair, secondPair) => {
 
   // - Is corner facing up (4)
   if (cornerFace === "top") {
-    console.log("CORNER FACING UP");
+    tempCube = cornerFacingUp(tempCube, corner, edge, edgeSideColour);
   }
   // - does the top of the corner and top of the edge match (4)
   else if (edgeTopColour === cornerTopColour) {

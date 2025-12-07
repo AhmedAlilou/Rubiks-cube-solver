@@ -1,11 +1,8 @@
 import { B, D, F, L, R, U } from "../../../../moves/turns/index.js";
-import { x, y, z } from "../../../../moves/rotation/index.js";
-import { E } from "../../../../moves/slice/index.js";
 import {
   getTempF2lSolution,
   setTempF2lSolution
 } from "../../../../../store/solveStore.js";
-import cornerTopEdgeMid from "./cornerTopEdgeMid.js";
 
 const cornerDownEdgeMid = (cube, corner, edge) => {
   console.log("CORNER DOWN EDGE MID");
