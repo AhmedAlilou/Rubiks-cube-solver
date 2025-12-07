@@ -121,6 +121,13 @@ const cornerUpEdgeMid = (cube, corner, edge) => {
         "U'",
         faceToNotation[edgeFace]
       ]);
+      tempCube = faceToMove[edgeFace](false, tempCube);
+      tempCube = U(false, tempCube);
+      tempCube = faceToMove[edgeFace](true, tempCube);
+      tempCube = U(true, tempCube);
+      tempCube = faceToMove[edgeFace](false, tempCube);
+      tempCube = U(false, tempCube);
+      tempCube = faceToMove[edgeFace](true, tempCube);
     } else {
       setTempF2lSolution([
         ...getTempF2lSolution(),
@@ -132,9 +139,15 @@ const cornerUpEdgeMid = (cube, corner, edge) => {
         "U",
         faceToNotation[edgeFace] + "'"
       ]);
+      tempCube = faceToMove[edgeFace](true, tempCube);
+      tempCube = U(true, tempCube);
+      tempCube = faceToMove[edgeFace](false, tempCube);
+      tempCube = U(false, tempCube);
+      tempCube = faceToMove[edgeFace](true, tempCube);
+      tempCube = U(true, tempCube);
+      tempCube = faceToMove[edgeFace](false, tempCube);
     }
   }
-
   return tempCube;
 };
 

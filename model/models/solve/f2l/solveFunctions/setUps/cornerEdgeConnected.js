@@ -55,10 +55,8 @@ const cornerEdgeConnected = (cube, corner, edge) => {
 
   // first make sure that it is EITHER weirdly connected or invertedly connected
   // if one of the edge faces mathces one of the corner faces and isnt the same in colour then its fine, else its not
-  if (
-    !cornerFaces.includes(edgeFace) &&
-    !cornerFaces.includes(secondaryEdgeFace) // or they are connected but correctly which we dont want
-  ) {
+  if (cornerFaces[1] === edgeFace || cornerFaces[1] === secondaryEdgeFace) {
+    // or they are connected but correctly which we dont want
     return tempCube;
   }
   // now we know its connected we just need to eliminate it if it is a free pair
