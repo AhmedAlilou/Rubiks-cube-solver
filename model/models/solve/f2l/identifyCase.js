@@ -208,17 +208,23 @@ const identifyCase = (cube, firstPair, secondPair) => {
     }
   }
 
-  // - Is corner facing up (4)
+  // Is corner facing up (4)
   if (cornerFace === "top") {
-    tempCube = cornerFacingUp(tempCube, corner, edge, edgeSideColour);
+    tempCube = cornerFacingUp(
+      tempCube,
+      corner,
+      edge,
+      edgeSideColour,
+      edgeTopColour
+    );
   }
-  // - does the top of the corner and top of the edge match (4)
+  // does the top of the corner and top of the edge match (4)
   else if (edgeTopColour === cornerTopColour) {
     console.log("COLOURS MATCH");
   } else {
     console.log("COLOURS DONT MATCH");
   }
-  // - does the top of the corner and top of the edge have different colours (4)
+  // does the top of the corner and top of the edge have different colours (4)
 
   return tempCube;
 };

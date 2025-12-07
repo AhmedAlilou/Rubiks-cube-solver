@@ -1,10 +1,12 @@
 import { B, D, F, L, R, U } from "../../../../moves/turns/index.js";
 import {
+  getSolutionCrossColour,
   getTempF2lSolution,
   setTempF2lSolution
 } from "../../../../../store/solveStore.js";
+import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
 
-const cornerFacingUp = (cube, corner, edge, edgeSideColour) => {
+const cornerFacingUp = (cube, corner, edge, edgeSideColour, edgeTopColour) => {
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;
@@ -37,6 +39,7 @@ const cornerFacingUp = (cube, corner, edge, edgeSideColour) => {
   };
 
   let sideEdgeFace = edgeFace;
+  let edgeFaces = [];
 
   if (edgeFace === "top") {
     switch (edgeCol) {
@@ -57,6 +60,7 @@ const cornerFacingUp = (cube, corner, edge, edgeSideColour) => {
     }
   }
   let turningFace = "";
+
   // move edge with U moves so it matches with centre colour
   switch (edgeSideColour) {
     case tempCube[faceConversionClockwise[sideEdgeFace]][1][1]:
@@ -80,7 +84,79 @@ const cornerFacingUp = (cube, corner, edge, edgeSideColour) => {
     default:
       break;
   }
-  // when none of the corner is solved do anticlockwise
+  edgeFaces.push(turningFace);
+  // focus on the empty slot that we're tryna get it in
+  // make sure when you make the turn it brings the slot up not down
+  // identify where the slot it (left or right of the edge in turning face)
+  // turn clockwise or anticlockwise depending on previous
+  switch (edgeTopColour) {
+    case tempCube[faceConversionClockwise[turningFace]][1][1]:
+      edgeFaces.push(faceConversionAnticlockwise[turningFace]);
+      setTempF2lSolution([
+        ...getTempF2lSolution(),
+        faceToNotation[turningFace]
+      ]);
+      tempCube = faceToMove[turningFace](true, tempCube);
+      break;
+    case tempCube[faceConversionAnticlockwise[turningFace]][1][1]:
+      edgeFaces.push(faceConversionClockwise[turningFace]);
+      setTempF2lSolution([
+        ...getTempF2lSolution(),
+        faceToNotation[turningFace] + "'"
+      ]);
+      tempCube = faceToMove[turningFace](false, tempCube);
+      break;
+    default:
+      console.log("ERRRRM THATS NOT SUPPOSED TO HAPPEN");
+      break;
+  }
+  // now do U moves until corner matches edge
+
+  const newCorner = returnCornerPosition(tempCube, edgeSideColour, [
+    getSolutionCrossColour(),
+    edgeTopColour
+  ]);
+  const newCornerFace = newCorner.face;
+
+  switch (turningFace) {
+    case faceConversionClockwise[newCornerFace]:
+      setTempF2lSolution([...getTempF2lSolution(), "U"]);
+      tempCube = U(true, tempCube);
+      break;
+    case faceConversionAnticlockwise[newCornerFace]:
+      setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+      tempCube = U(false, tempCube);
+      break;
+    case faceConversionClockwise[faceConversionClockwise[newCornerFace]]:
+      setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+      tempCube = U(true, U(true, tempCube));
+      break;
+    default:
+      break;
+  }
+
+  // then undo the turningFace move
+  switch (edgeTopColour) {
+    case tempCube[faceConversionClockwise[turningFace]][1][1]:
+      edgeFaces.push(faceConversionAnticlockwise[turningFace]);
+      setTempF2lSolution([
+        ...getTempF2lSolution(),
+        faceToNotation[turningFace] + "'"
+      ]);
+      tempCube = faceToMove[turningFace](false, tempCube);
+      break;
+    case tempCube[faceConversionAnticlockwise[turningFace]][1][1]:
+      edgeFaces.push(faceConversionClockwise[turningFace]);
+      setTempF2lSolution([
+        ...getTempF2lSolution(),
+        faceToNotation[turningFace]
+      ]);
+      tempCube = faceToMove[turningFace](true, tempCube);
+      break;
+    default:
+      console.log("ERRRRM THATS NOT SUPPOSED TO HAPPEN");
+      break;
+  }
 
   return tempCube;
 };
