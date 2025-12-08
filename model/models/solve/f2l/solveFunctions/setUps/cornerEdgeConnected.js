@@ -60,13 +60,21 @@ const cornerEdgeConnected = (cube, corner, edge) => {
     return tempCube;
   }
   // now we know its connected we just need to eliminate it if it is a free pair
-  if (!connectedWeirdly && cornerOnRight) {
-    if (tempCube[cornerFaces[1]][0][0] === tempCube[cornerFaces[1]][0][1]) {
-      return tempCube;
-    }
-  } else if (!connectedWeirdly && !cornerOnRight) {
-    if (tempCube[cornerFaces[1]][0][2] === tempCube[cornerFaces[1]][0][1]) {
-      return tempCube;
+  if (cornerFace !== "top") {
+    if (!connectedWeirdly && cornerOnRight) {
+      if (
+        edgeFace !== faceConversionAnticlockwise[cornerFace] &&
+        secondaryEdgeFace !== faceConversionAnticlockwise[cornerFace]
+      ) {
+        return tempCube;
+      }
+    } else if (!connectedWeirdly && !cornerOnRight) {
+      if (
+        edgeFace !== faceConversionClockwise[cornerFace] &&
+        secondaryEdgeFace !== faceConversionClockwise[cornerFace]
+      ) {
+        return tempCube;
+      }
     }
   }
 

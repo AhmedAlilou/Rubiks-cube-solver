@@ -18,6 +18,7 @@ import cornerTopEdgeTop from "./solveFunctions/setUps/cornerTopEdgeTop";
 import cornerTrios from "../../helperFunctions/cornerTrios";
 
 import cornerFacingUp from "./solveFunctions/inserts/cornerFacingUp";
+import topColoursMatch from "./solveFunctions/inserts/topColoursMatch";
 
 const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
@@ -220,7 +221,7 @@ const identifyCase = (cube, firstPair, secondPair) => {
   }
   // does the top of the corner and top of the edge match (4)
   else if (edgeTopColour === cornerTopColour) {
-    console.log("COLOURS MATCH");
+    tempCube = topColoursMatch(tempCube, corner, edge, cornerTopColour);
   } else {
     console.log("COLOURS DONT MATCH");
   }
