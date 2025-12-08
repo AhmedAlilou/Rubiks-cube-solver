@@ -5,8 +5,16 @@ import {
   setTempF2lSolution
 } from "../../../../../store/solveStore.js";
 import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
+import returnEdgePosition from "../../../../helperFunctions/returnEdgePosition.js";
 
-const topColoursMatch = (cube, corner, edge, cornerTopColour) => {
+const topColoursMatch = (
+  cube,
+  corner,
+  edge,
+  cornerTopColour,
+  edgeSideColour
+) => {
+  console.log("COLOURS MATCH");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;
@@ -33,6 +41,19 @@ const topColoursMatch = (cube, corner, edge, cornerTopColour) => {
   let turningFace = "";
   const oneMover =
     edgeFace === faceConversionClockwise[faceConversionClockwise[cornerFace]];
+
+  const edgePos = returnEdgePosition(tempCube, edgeSideColour, cornerTopColour);
+  const edgeSideFace = edgePos.face;
+
+  if (cornerOnLeft) {
+    if (edgeSideFace === faceConversionClockwise[cornerFace]) {
+      return tempCube;
+    }
+  } else {
+    if (edgeSideFace === faceConversionAnticlockwise[cornerFace]) {
+      return tempCube;
+    }
+  }
 
   if (cornerOnLeft) {
     switch (cornerTopColour) {

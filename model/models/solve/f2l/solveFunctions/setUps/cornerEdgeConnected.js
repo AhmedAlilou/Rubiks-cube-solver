@@ -12,7 +12,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
   const cornerFace = corner.face;
   const cornerRow = corner.row;
   const cornerCol = corner.col;
-  const edgeFace = edge.face;
+  let edgeFace = edge.face;
   const edgeRow = edge.row;
   const edgeCol = edge.col;
   const faceToMove = { front: F, left: L, back: B, right: R };
@@ -36,7 +36,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
       ? faceConversionAnticlockwise[cornerFace]
       : faceConversionClockwise[cornerFace]
   ];
-  let secondaryEdgeFace = "";
+  let secondaryEdgeFace = "top";
   if (edgeFace === "top") {
     if (edgeRow === 0 && edgeCol === 1) {
       secondaryEdgeFace = "back";
@@ -47,6 +47,9 @@ const cornerEdgeConnected = (cube, corner, edge) => {
     } else {
       secondaryEdgeFace = "front";
     }
+  } else {
+    secondaryEdgeFace = edgeFace;
+    edgeFace = secondaryEdgeFace;
   }
   const cornerOnRight = cornerCol === 2;
   const connectedWeirdly =
@@ -77,7 +80,6 @@ const cornerEdgeConnected = (cube, corner, edge) => {
       }
     }
   }
-
   // move the corner above the slot it needs to go to first
   // moving the connected pair so that when it is seperated we dont disturb other pairs
 

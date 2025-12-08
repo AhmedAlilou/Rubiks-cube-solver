@@ -211,6 +211,7 @@ const identifyCase = (cube, firstPair, secondPair) => {
   }
 
   // Is corner facing up (4)
+  let setUpNeeded = false;
   if (cornerFace === "top") {
     tempCube = cornerFacingUp(
       tempCube,
@@ -219,12 +220,25 @@ const identifyCase = (cube, firstPair, secondPair) => {
       edgeSideColour,
       edgeTopColour
     );
+    setUpNeeded = true;
   }
   // does the top of the corner and top of the edge match (4)
   else if (edgeTopColour === cornerTopColour) {
-    tempCube = topColoursMatch(tempCube, corner, edge, cornerTopColour);
-  } else {
+    tempCube = topColoursMatch(
+      tempCube,
+      corner,
+      edge,
+      cornerTopColour,
+      edgeSideColour
+    );
+    setUpNeeded = true;
+  } else if (
+    edgeTopColour !== cornerTopColour &&
+    cornerFace !== "top" &&
+    cornerFace !== "down"
+  ) {
     tempCube = topColoursDifferent(tempCube, corner, edge, cornerTopColour);
+    setUpNeeded = true;
   }
 
   corner = returnCornerPosition(tempCube, crossColour, [firstPair, secondPair]);
@@ -235,7 +249,21 @@ const identifyCase = (cube, firstPair, secondPair) => {
   edgeFace = edge.face;
   edgeRow = edge.row;
   edgeCol = edge.col;
+  const cornerOnRight = cornerCol === 2;
 
+  if (cornerOnRight && setUpNeeded) {
+    if (faceConversionClockwise[cornerFace] === edgeFace) {
+      // disconnected 3 move insert
+    } else {
+      // connected pair
+    }
+  } else if (!cornerOnRight && setUpNeeded) {
+    if (faceConversionAnticlockwise[cornerFace] === edgeFace) {
+      // disconnected 3 move insert
+    } else {
+      // connected pair
+    }
+  }
   // do final insert if pair is connected and not in
   // do final insert if it is a disconnected 3 move insert
 
