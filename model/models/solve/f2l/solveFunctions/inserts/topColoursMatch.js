@@ -44,7 +44,7 @@ const topColoursMatch = (
 
   const edgePos = returnEdgePosition(tempCube, edgeSideColour, cornerTopColour);
   const edgeSideFace = edgePos.face;
-
+  console.log("PLEEEAAASEEEE:", cornerOnLeft, edgeSideFace, cornerFace);
   if (cornerOnLeft) {
     if (edgeSideFace === faceConversionClockwise[cornerFace]) {
       return tempCube;

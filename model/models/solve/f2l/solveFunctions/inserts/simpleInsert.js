@@ -76,35 +76,36 @@ const simpleInsert = (cube, corner, edge) => {
   } else {
     switch (tempCube[edgeFace][0][1]) {
       case tempCube[faceConversionClockwise[cornerFace]][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U"]);
-        tempCube = U(true, tempCube);
+        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+        tempCube = U(false, tempCube);
         turningFace = faceConversionAnticlockwise[cornerFace];
         break;
       case tempCube[faceConversionAnticlockwise[cornerFace]][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
-        tempCube = U(false, tempCube);
+        setTempF2lSolution([...getTempF2lSolution(), "U"]);
+        tempCube = U(true, tempCube);
         turningFace = faceConversionClockwise[cornerFace];
         break;
       case tempCube[
         faceConversionClockwise[faceConversionClockwise[cornerFace]]
       ][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(true, U(true, tempCube));
         turningFace =
           faceConversionClockwise[faceConversionClockwise[cornerFace]];
         break;
       default:
+        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+        tempCube = U(true, U(true, tempCube));
         turningFace = cornerFace;
         break;
     }
   }
 
+  console.log("AHALHALHA:", cornerOnLeft);
   if (cornerOnLeft) {
     setTempF2lSolution([
       ...getTempF2lSolution(),
-      faceToNotation[turningFace],
+      faceToNotation[turningFace] + "'",
       "U",
-      faceToNotation[turningFace] + "'"
+      faceToNotation[turningFace]
     ]);
     tempCube = faceToMove[turningFace](true, tempCube);
     tempCube = U(true, tempCube);
@@ -112,9 +113,9 @@ const simpleInsert = (cube, corner, edge) => {
   } else {
     setTempF2lSolution([
       ...getTempF2lSolution(),
-      faceToNotation[turningFace] + "'",
+      faceToNotation[turningFace],
       "U'",
-      faceToNotation[turningFace]
+      faceToNotation[turningFace] + "'"
     ]);
     tempCube = faceToMove[turningFace](false, tempCube);
     tempCube = U(false, tempCube);
