@@ -19,6 +19,7 @@ import cornerTrios from "../../helperFunctions/cornerTrios";
 
 import cornerFacingUp from "./solveFunctions/inserts/cornerFacingUp";
 import topColoursMatch from "./solveFunctions/inserts/topColoursMatch";
+import topColoursDifferent from "./solveFunctions/inserts/topColoursDifferent";
 
 const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
@@ -223,9 +224,20 @@ const identifyCase = (cube, firstPair, secondPair) => {
   else if (edgeTopColour === cornerTopColour) {
     tempCube = topColoursMatch(tempCube, corner, edge, cornerTopColour);
   } else {
-    console.log("COLOURS DONT MATCH");
+    tempCube = topColoursDifferent(tempCube, corner, edge, cornerTopColour);
   }
-  // does the top of the corner and top of the edge have different colours (4)
+
+  corner = returnCornerPosition(tempCube, crossColour, [firstPair, secondPair]);
+  edge = returnEdgePosition(tempCube, firstPair, secondPair);
+  cornerFace = corner.face;
+  cornerRow = corner.row;
+  cornerCol = corner.col;
+  edgeFace = edge.face;
+  edgeRow = edge.row;
+  edgeCol = edge.col;
+
+  // do final insert if pair is connected and not in
+  // do final insert if it is a disconnected 3 move insert
 
   return tempCube;
 };
