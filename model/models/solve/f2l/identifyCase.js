@@ -20,6 +20,8 @@ import cornerTrios from "../../helperFunctions/cornerTrios";
 import cornerFacingUp from "./solveFunctions/inserts/cornerFacingUp";
 import topColoursMatch from "./solveFunctions/inserts/topColoursMatch";
 import topColoursDifferent from "./solveFunctions/inserts/topColoursDifferent";
+import simpleInsert from "./solveFunctions/inserts/simpleInsert";
+import otherInsert from "./solveFunctions/inserts/otherInsert";
 
 const identifyCase = (cube, firstPair, secondPair) => {
   let tempCube = cube;
@@ -253,15 +255,15 @@ const identifyCase = (cube, firstPair, secondPair) => {
 
   if (cornerOnRight && setUpNeeded) {
     if (faceConversionClockwise[cornerFace] === edgeFace) {
-      // disconnected 3 move insert
+      tempCube = otherInsert(tempCube, corner, edge);
     } else {
-      // connected pair
+      tempCube = simpleInsert(tempCube, corner, edge);
     }
   } else if (!cornerOnRight && setUpNeeded) {
     if (faceConversionAnticlockwise[cornerFace] === edgeFace) {
-      // disconnected 3 move insert
+      tempCube = otherInsert(tempCube, corner, edge);
     } else {
-      // connected pair
+      tempCube = simpleInsert(tempCube, corner, edge);
     }
   }
   // do final insert if pair is connected and not in

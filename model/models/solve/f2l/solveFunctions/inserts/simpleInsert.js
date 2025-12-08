@@ -6,13 +6,13 @@ import {
 } from "../../../../../store/solveStore.js";
 import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
 
-const topColoursDifferent = (cube, corner, edge, cornerTopColour) => {
-  console.log("CORNER DIFFERENT");
+const simpleInsert = (cube, corner, edge) => {
+  console.log("SIMPLE INSERT");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;
   const cornerCol = corner.col;
-  const edgeFace = edge.face;
+  let edgeFace = edge.face;
   const edgeRow = edge.row;
   const edgeCol = edge.col;
   const faceToMove = { front: F, left: L, back: B, right: R };
@@ -33,74 +33,65 @@ const topColoursDifferent = (cube, corner, edge, cornerTopColour) => {
   const cornerOnLeft = cornerCol === 0;
   let secondaryEdgeFace = "";
   let turningFace = "";
+
   if (edgeFace === "top") {
     if (edgeCol === 0) {
-      secondaryEdgeFace = "left";
+      edgeFace = "left";
     }
     if (edgeCol === 2) {
-      secondaryEdgeFace = "right";
+      edgeFace = "right";
     }
     if (edgeRow === 0) {
-      secondaryEdgeFace = "back";
+      edgeFace = "back";
     }
     if (edgeRow === 2) {
-      secondaryEdgeFace = "front";
+      edgeFace = "front";
     }
   }
 
-  if (
-    cornerFace !== faceConversionClockwise[faceConversionClockwise[edgeFace]] &&
-    cornerFace !==
-      faceConversionClockwise[faceConversionClockwise[secondaryEdgeFace]]
-  ) {
-    // if its a 3 move insert then we deal with it outside of here thank you!
-    return tempCube;
-  }
-
-  // first do appropriate U moves
   if (cornerOnLeft) {
-    switch (cornerTopColour) {
-      case tempCube[cornerFace][1][1]:
+    switch (tempCube[edgeFace][0][1]) {
+      case tempCube[faceConversionClockwise[cornerFace]][1][1]:
         setTempF2lSolution([...getTempF2lSolution(), "U"]);
         tempCube = U(true, tempCube);
         turningFace = faceConversionClockwise[cornerFace];
         break;
-      case tempCube[faceConversionClockwise[cornerFace]][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(true, U(true, tempCube));
-        turningFace =
-          faceConversionClockwise[faceConversionClockwise[cornerFace]];
+      case tempCube[faceConversionAnticlockwise[cornerFace]][1][1]:
+        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+        tempCube = U(false, tempCube);
+        turningFace = faceConversionAnticlockwise[cornerFace];
         break;
       case tempCube[
         faceConversionClockwise[faceConversionClockwise[cornerFace]]
       ][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
-        tempCube = U(false, tempCube);
-        turningFace = faceConversionAnticlockwise[cornerFace];
+        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+        tempCube = U(true, U(true, tempCube));
+        turningFace =
+          faceConversionClockwise[faceConversionClockwise[cornerFace]];
         break;
       default:
         turningFace = cornerFace;
         break;
     }
   } else {
-    switch (cornerTopColour) {
-      case tempCube[cornerFace][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
-        tempCube = U(false, tempCube);
+    switch (tempCube[edgeFace][0][1]) {
+      case tempCube[faceConversionClockwise[cornerFace]][1][1]:
+        setTempF2lSolution([...getTempF2lSolution(), "U"]);
+        tempCube = U(true, tempCube);
         turningFace = faceConversionAnticlockwise[cornerFace];
         break;
       case tempCube[faceConversionAnticlockwise[cornerFace]][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(true, U(true, tempCube));
-        turningFace =
-          faceConversionClockwise[faceConversionClockwise[cornerFace]];
+        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+        tempCube = U(false, tempCube);
+        turningFace = faceConversionClockwise[cornerFace];
         break;
       case tempCube[
         faceConversionClockwise[faceConversionClockwise[cornerFace]]
       ][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U"]);
-        tempCube = U(true, tempCube);
-        turningFace = faceConversionClockwise[cornerFace];
+        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+        tempCube = U(true, U(true, tempCube));
+        turningFace =
+          faceConversionClockwise[faceConversionClockwise[cornerFace]];
         break;
       default:
         turningFace = cornerFace;
@@ -111,26 +102,26 @@ const topColoursDifferent = (cube, corner, edge, cornerTopColour) => {
   if (cornerOnLeft) {
     setTempF2lSolution([
       ...getTempF2lSolution(),
-      faceToNotation[turningFace] + "'",
-      "U",
-      faceToNotation[turningFace]
-    ]);
-    tempCube = faceToMove[turningFace](false, tempCube);
-    tempCube = U(true, tempCube);
-    tempCube = faceToMove[turningFace](true, tempCube);
-  } else {
-    setTempF2lSolution([
-      ...getTempF2lSolution(),
       faceToNotation[turningFace],
-      "U'",
+      "U",
       faceToNotation[turningFace] + "'"
     ]);
     tempCube = faceToMove[turningFace](true, tempCube);
-    tempCube = U(false, tempCube);
+    tempCube = U(true, tempCube);
     tempCube = faceToMove[turningFace](false, tempCube);
+  } else {
+    setTempF2lSolution([
+      ...getTempF2lSolution(),
+      faceToNotation[turningFace] + "'",
+      "U'",
+      faceToNotation[turningFace]
+    ]);
+    tempCube = faceToMove[turningFace](false, tempCube);
+    tempCube = U(false, tempCube);
+    tempCube = faceToMove[turningFace](true, tempCube);
   }
 
   return tempCube;
 };
 
-export default topColoursDifferent;
+export default simpleInsert;

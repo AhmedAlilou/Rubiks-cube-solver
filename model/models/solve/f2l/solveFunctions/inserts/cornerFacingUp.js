@@ -82,6 +82,7 @@ const cornerFacingUp = (cube, corner, edge, edgeSideColour, edgeTopColour) => {
         faceConversionAnticlockwise[faceConversionAnticlockwise[sideEdgeFace]];
       break;
     default:
+      turningFace = sideEdgeFace;
       break;
   }
   edgeFaces.push(turningFace);
