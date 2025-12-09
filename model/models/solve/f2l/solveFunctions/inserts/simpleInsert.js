@@ -52,24 +52,24 @@ const simpleInsert = (cube, corner, edge) => {
   if (cornerOnLeft) {
     switch (tempCube[edgeFace][0][1]) {
       case tempCube[faceConversionClockwise[cornerFace]][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U"]);
-        tempCube = U(true, tempCube);
+        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+        tempCube = U(false, tempCube);
         turningFace = faceConversionClockwise[cornerFace];
         break;
       case tempCube[faceConversionAnticlockwise[cornerFace]][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
-        tempCube = U(false, tempCube);
+        setTempF2lSolution([...getTempF2lSolution(), "U"]);
+        tempCube = U(true, tempCube);
         turningFace = faceConversionAnticlockwise[cornerFace];
         break;
       case tempCube[
         faceConversionClockwise[faceConversionClockwise[cornerFace]]
       ][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(true, U(true, tempCube));
         turningFace =
           faceConversionClockwise[faceConversionClockwise[cornerFace]];
         break;
       default:
+        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+        tempCube = U(true, U(true, tempCube));
         turningFace = cornerFace;
         break;
     }
@@ -78,12 +78,12 @@ const simpleInsert = (cube, corner, edge) => {
       case tempCube[faceConversionClockwise[cornerFace]][1][1]:
         setTempF2lSolution([...getTempF2lSolution(), "U'"]);
         tempCube = U(false, tempCube);
-        turningFace = faceConversionAnticlockwise[cornerFace];
+        turningFace = faceConversionClockwise[cornerFace];
         break;
       case tempCube[faceConversionAnticlockwise[cornerFace]][1][1]:
         setTempF2lSolution([...getTempF2lSolution(), "U"]);
         tempCube = U(true, tempCube);
-        turningFace = faceConversionClockwise[cornerFace];
+        turningFace = faceConversionAnticlockwise[cornerFace];
         break;
       case tempCube[
         faceConversionClockwise[faceConversionClockwise[cornerFace]]
