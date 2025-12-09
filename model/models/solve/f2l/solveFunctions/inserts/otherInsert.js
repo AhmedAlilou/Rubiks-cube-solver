@@ -52,25 +52,26 @@ const otherInsert = (cube, corner, edge) => {
   if (cornerOnLeft) {
     switch (tempCube[edgeFace][0][1]) {
       case tempCube[faceConversionAnticlockwise[cornerFace]][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U"]);
-        tempCube = U(true, tempCube);
+        setTempF2lSolution([...getTempF2lSolution(), "U'"]);
+        tempCube = U(false, tempCube);
         turningFace = edgeFace;
         break;
       case tempCube[faceConversionClockwise[cornerFace]][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
-        tempCube = U(true, U(true, tempCube));
-        turningFace = faceConversionClockwise[edgeFace];
+        setTempF2lSolution([...getTempF2lSolution(), "U"]);
+        tempCube = U(true, tempCube);
+        turningFace =
+          faceConversionClockwise[faceConversionClockwise[edgeFace]];
         break;
       case tempCube[
         faceConversionClockwise[faceConversionClockwise[cornerFace]]
       ][1][1]:
-        setTempF2lSolution([...getTempF2lSolution(), "U"]);
-        tempCube = U(false, tempCube);
+        setTempF2lSolution([...getTempF2lSolution(), "U2"]);
+        tempCube = U(true, U(true, tempCube));
         turningFace =
           faceConversionClockwise[faceConversionClockwise[cornerFace]];
         break;
       default:
-        turningFace = faceConversionAnticlockwise[edgeFace];
+        turningFace = faceConversionClockwise[edgeFace];
         break;
     }
   } else {
@@ -102,13 +103,13 @@ const otherInsert = (cube, corner, edge) => {
   if (cornerOnLeft) {
     setTempF2lSolution([
       ...getTempF2lSolution(),
-      faceToNotation[turningFace] + "'",
+      faceToNotation[turningFace],
       "U",
-      faceToNotation[turningFace]
+      faceToNotation[turningFace] + "'"
     ]);
-    tempCube = faceToMove[turningFace](false, tempCube);
-    tempCube = U(true, tempCube);
     tempCube = faceToMove[turningFace](true, tempCube);
+    tempCube = U(true, tempCube);
+    tempCube = faceToMove[turningFace](false, tempCube);
   } else {
     setTempF2lSolution([
       ...getTempF2lSolution(),
@@ -116,9 +117,9 @@ const otherInsert = (cube, corner, edge) => {
       "U'",
       faceToNotation[turningFace]
     ]);
-    tempCube = faceToMove[turningFace](true, tempCube);
-    tempCube = U(false, tempCube);
     tempCube = faceToMove[turningFace](false, tempCube);
+    tempCube = U(false, tempCube);
+    tempCube = faceToMove[turningFace](true, tempCube);
   }
 
   return tempCube;

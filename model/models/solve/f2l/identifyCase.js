@@ -253,14 +253,32 @@ const identifyCase = (cube, firstPair, secondPair) => {
   edgeCol = edge.col;
   const cornerOnRight = cornerCol === 2;
 
+  if (edgeFace === "top") {
+    if (edgeCol === 0) {
+      secondaryEdgeFace = "left";
+    }
+    if (edgeCol === 2) {
+      secondaryEdgeFace = "right";
+    }
+    if (edgeRow === 0) {
+      secondaryEdgeFace = "back";
+    }
+    if (edgeRow === 2) {
+      secondaryEdgeFace = "front";
+    }
+  }
+
+  const sideEdgeFace = edgeFace === "top" ? secondaryEdgeFace : edgeFace;
+
   if (cornerOnRight && setUpNeeded) {
-    if (faceConversionClockwise[cornerFace] === edgeFace) {
+    if (faceConversionClockwise[cornerFace] === sideEdgeFace) {
       tempCube = otherInsert(tempCube, corner, edge);
     } else {
       tempCube = simpleInsert(tempCube, corner, edge);
     }
   } else if (!cornerOnRight && setUpNeeded) {
-    if (faceConversionAnticlockwise[cornerFace] === edgeFace) {
+    console.log(cornerFace, sideEdgeFace);
+    if (faceConversionAnticlockwise[cornerFace] === sideEdgeFace) {
       tempCube = otherInsert(tempCube, corner, edge);
     } else {
       tempCube = simpleInsert(tempCube, corner, edge);

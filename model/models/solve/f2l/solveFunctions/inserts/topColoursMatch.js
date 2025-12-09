@@ -38,9 +38,26 @@ const topColoursMatch = (
   };
   // move corner on top of any unsolved slot
   const cornerOnLeft = cornerCol === 0;
-  let turningFace = "";
+  let secondaryEdgeFace = edgeFace;
+  let turningFace = "top";
+  if (edgeFace === "top") {
+    if (edgeCol === 0) {
+      secondaryEdgeFace = "left";
+    }
+    if (edgeCol === 2) {
+      secondaryEdgeFace = "right";
+    }
+    if (edgeRow === 0) {
+      secondaryEdgeFace = "back";
+    }
+    if (edgeRow === 2) {
+      secondaryEdgeFace = "front";
+    }
+  }
   const oneMover =
-    edgeFace === faceConversionClockwise[faceConversionClockwise[cornerFace]];
+    edgeFace === faceConversionClockwise[faceConversionClockwise[cornerFace]] ||
+    secondaryEdgeFace ===
+      faceConversionClockwise[faceConversionClockwise[cornerFace]];
 
   const edgePos = returnEdgePosition(tempCube, edgeSideColour, cornerTopColour);
   const edgeSideFace = edgePos.face;
@@ -104,6 +121,7 @@ const topColoursMatch = (
         break;
     }
   }
+  console.log(oneMover);
 
   if (cornerOnLeft) {
     setTempF2lSolution([
