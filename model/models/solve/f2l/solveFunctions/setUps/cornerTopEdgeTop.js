@@ -2,11 +2,13 @@ import { B, D, F, L, R, U } from "../../../../moves/turns/index.js";
 import { x, y, z } from "../../../../moves/rotation/index.js";
 import { E } from "../../../../moves/slice/index.js";
 import {
+  getSolutionCrossColour,
   getTempF2lSolution,
   setTempF2lSolution
 } from "../../../../../store/solveStore.js";
+import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
 
-const cornerTopEdgeTop = (cube, corner, edge) => {
+const cornerTopEdgeTop = (cube, corner, edge, firstPair, secondPair) => {
   console.log("CORNER TOP, EDGE TOP");
   let tempCube = cube;
 
@@ -58,7 +60,7 @@ const cornerTopEdgeTop = (cube, corner, edge) => {
     sideEdgeFace = edgeFace;
   }
 
-  const turningFace = sideEdgeFace;
+  let turningFace = sideEdgeFace;
   let clockwise = false;
 
   const topColToFace = {
@@ -72,25 +74,92 @@ const cornerTopEdgeTop = (cube, corner, edge) => {
   };
 
   const cornerFaces = [topColToFace[cornerCol], topRowToFace[cornerRow]];
-
   if (!cornerFaces.includes(turningFace)) {
     return tempCube;
   }
+  const firstCorner = returnCornerPosition(tempCube, firstPair, [
+    secondPair,
+    getSolutionCrossColour()
+  ]);
+  let firstCornerFace = firstCorner.face;
+  const firstCornerOnRight = firstCorner.col === 2;
+  const secondCorner = returnCornerPosition(tempCube, secondPair, [
+    firstPair,
+    getSolutionCrossColour()
+  ]);
+  let secondCornerFace = secondCorner.face;
 
+  // do U moves until its on top of its slot
+  let valid = false;
+
+  console.log("FLA:JFLKAJLKFAJALK:", firstCorner, secondCorner);
+  console.log(turningFace);
+
+  while (!valid) {
+    if (firstCornerOnRight) {
+      if (
+        !(
+          tempCube[firstCornerFace][1][2] === tempCube[firstCornerFace][2][2] &&
+          tempCube[firstCornerFace][2][2] === tempCube[firstCornerFace][1][1]
+        ) &&
+        tempCube[secondCornerFace][1][0] === tempCube[secondCornerFace][2][0] &&
+        tempCube[secondCornerFace][2][0] === tempCube[secondCornerFace][1][1]
+      ) {
+        setTempF2lSolution([...getTempF2lSolution(), "U"]);
+        tempCube = U(true, tempCube);
+        firstCornerFace = faceConversionClockwise[firstCornerFace];
+        secondCornerFace = faceConversionClockwise[secondCornerFace];
+        turningFace = faceConversionClockwise[turningFace];
+        console.log(turningFace);
+      } else {
+        valid = true;
+      }
+    } else {
+      if (
+        tempCube[secondCornerFace][1][2] === tempCube[secondCornerFace][2][2] &&
+        tempCube[secondCornerFace][2][2] === tempCube[secondCornerFace][1][1] &&
+        tempCube[firstCornerFace][1][0] === tempCube[firstCornerFace][2][0] &&
+        tempCube[firstCornerFace][2][0] === tempCube[firstCornerFace][1][1]
+      ) {
+        setTempF2lSolution([...getTempF2lSolution(), "U"]);
+        tempCube = U(true, tempCube);
+        firstCornerFace = faceConversionClockwise[firstCornerFace];
+        secondCornerFace = faceConversionClockwise[secondCornerFace];
+        turningFace = faceConversionClockwise[turningFace];
+        console.log(turningFace);
+      } else {
+        valid = true;
+      }
+    }
+  }
+
+  // update this cornerCol and cornerRow
+
+  const newCornerRow = returnCornerPosition(
+    tempCube,
+    getSolutionCrossColour(),
+    [firstPair, secondPair]
+  ).row;
+  const newCornerCol = returnCornerPosition(
+    tempCube,
+    getSolutionCrossColour(),
+    [firstPair, secondPair]
+  ).col;
+  console.log(turningFace);
   if (turningFace === "right") {
-    if (cornerRow === 2) {
+    if (newCornerRow === 2) {
       clockwise = true;
     }
   } else if (turningFace === "front") {
-    if (cornerCol === 0) {
+    if (newCornerCol === 0) {
       clockwise = true;
     }
   } else if (turningFace === "left") {
-    if (cornerRow === 0) {
+    if (newCornerRow === 0) {
       clockwise = true;
     }
   } else {
-    if (cornerCol === 2) {
+    if (newCornerCol === 2) {
       clockwise = true;
     }
   }

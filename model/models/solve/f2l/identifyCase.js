@@ -155,7 +155,7 @@ const identifyCase = (cube, firstPair, secondPair) => {
     if (edgeFace !== "top" && edgeRow === 1) {
       tempCube = cornerUpEdgeMid(tempCube, corner, edge);
     } else if (edgeFace === "top" || edgeRow === 0) {
-      tempCube = cornerTopEdgeTop(cube, corner, edge);
+      tempCube = cornerTopEdgeTop(cube, corner, edge, firstPair, secondPair);
     }
   }
 
