@@ -3,12 +3,13 @@ let solutionCrossColour = crossColours[0];
 let twoLookOLL = false;
 let twoLookPLL = false;
 
-let tempF2lSolution = [];
-
-let f2lSolution = [];
 let tempCrossSolution = [];
-
 let crossSolution = [];
+
+let tempF2lSolution = [];
+let f2lSolution = [];
+
+let ollSolution = [];
 
 export function getTwoLookOLL() {
   return twoLookOLL;
@@ -72,4 +73,12 @@ export function getF2lSolution() {
 
 export function setTempF2lSolution(moves) {
   tempF2lSolution = moves;
+}
+
+export function getOllSolution() {
+  return ollSolution;
+}
+
+export function setOllSolution(moves) {
+  ollSolution = moves;
 }
