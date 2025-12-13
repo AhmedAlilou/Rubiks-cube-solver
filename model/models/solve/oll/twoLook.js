@@ -1,7 +1,14 @@
 import { getSolutionCrossColour } from "../../../store/solveStore";
+import mapOutTopLayer from "./functions/mapOutTopLayer.js";
+import checkForAdjacentCorners from "./functions/checkForAdjacentCorners.js";
+import checkForOppositeCorners from "./functions/checkForOppositeCorners.js";
+import checkForOneSolvedCorner from "./functions/checkForOneSolvedCorner.js";
+
 import dot from "./twoLook/dot.js";
 import bar from "./twoLook/bar.js";
 import hook from "./twoLook/hook.js";
+
+import blocks from "./twoLook/blocks.js";
 
 const twoLook = (cube, colour) => {
   let tempCube = cube;
@@ -26,18 +33,32 @@ const twoLook = (cube, colour) => {
 
   const isHook = !(crossDone || isDot || isBar);
 
-  console.log("cross: ", crossDone);
-  console.log("dot: ", isDot);
-  console.log("bar: ", isBar);
-  console.log("hook: ", isHook);
-
   if (isDot) {
-    dot();
+    tempCube = dot(tempCube);
   } else if (isBar) {
-    bar(tempCube, colour);
+    tempCube = bar(tempCube, colour);
   } else if (isHook) {
-    hook(tempCube, colour);
+    tempCube = hook(tempCube, colour);
   }
+
+  const mappedOutTopLayer = mapOutTopLayer(tempCube);
+  const sideRows = mappedOutTopLayer.sideRows;
+  const topCorners = mappedOutTopLayer.corners;
+  const isSign = checkForAdjacentCorners(topCorners, colour);
+  const isBlocks = checkForOppositeCorners(topCorners, colour);
+  const isFish = checkForOneSolvedCorner(topCorners);
+
+  if (!topCorners.includes(colour)) {
+    console.log("CROSS");
+  } else if (isSign) {
+    console.log("SIGN");
+  } else if (isBlocks) {
+    tempCube = blocks(tempCube, sideRows, colour);
+  } else if (isFish) {
+    console.log("FISH");
+  }
+
+  return tempCube;
 };
 
 export default twoLook;
