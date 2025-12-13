@@ -1,6 +1,7 @@
 import { getSolutionCrossColour } from "../../../store/solveStore";
 import dot from "./twoLook/dot.js";
 import bar from "./twoLook/bar.js";
+import hook from "./twoLook/hook.js";
 
 const twoLook = (cube, colour) => {
   let tempCube = cube;
@@ -23,20 +24,19 @@ const twoLook = (cube, colour) => {
         (tempCube["top"][1][0] === tempCube["top"][1][2])
   );
 
-  const hook = !(crossDone || isDot || isBar);
+  const isHook = !(crossDone || isDot || isBar);
 
   console.log("cross: ", crossDone);
   console.log("dot: ", isDot);
   console.log("bar: ", isBar);
-  console.log("hook: ", hook);
+  console.log("hook: ", isHook);
 
   if (isDot) {
     dot();
   } else if (isBar) {
     bar(tempCube, colour);
-  } else if (hook) {
-    // TODO: call hook handler when implemented
-    console.log("handle hook case");
+  } else if (isHook) {
+    hook(tempCube, colour);
   }
 };
 
