@@ -6,16 +6,17 @@ const checkForAdjacentCorners = (corners, colour) => {
     largestCount = 1;
   }
 
-  corners.map((corner) => {
-    if (corner === colour) {
+  for (let i = 0; i < 4; i++) {
+    if (corners[i] === colour) {
       count++;
       if (count > largestCount) {
-        largestCount++;
+        largestCount = count;
       }
     } else {
       count = 0;
     }
-  });
+  }
+  console.log(corners, count, largestCount);
   return largestCount === 2;
 };
 

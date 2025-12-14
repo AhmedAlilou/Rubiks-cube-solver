@@ -1,4 +1,4 @@
-let crossColours = ["w"]; // make white default always there because everyone can do it
+let crossColours = ["w", "y", "o", "g", "b", "r"]; // make white default always there because everyone can do it
 let solutionCrossColour = crossColours[0];
 let twoLookOLL = false;
 let twoLookPLL = false;

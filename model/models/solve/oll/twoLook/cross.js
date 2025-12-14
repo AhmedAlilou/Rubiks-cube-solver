@@ -25,7 +25,7 @@ const cross = (cube, sideRows, colour) => {
       tempCube = U(true, tempCube);
     } else if (!sideRows[2].includes(colour)) {
       setOllSolution([...getOllSolution(), "U"]);
-      tempCube = U(false, tempCube);
+      tempCube = U(true, tempCube);
     }
   } else {
     if (!sideRows[1].includes(colour)) {
@@ -39,8 +39,6 @@ const cross = (cube, sideRows, colour) => {
       tempCube = U(true, tempCube);
     }
   }
-
-  console.log(front, side, sideRows);
 
   const moves = front
     ? ["R", "U", "U", "R'", "U'", "R", "U", "R'", "U'", "R", "U'", "R'"]
