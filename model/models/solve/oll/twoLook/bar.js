@@ -7,7 +7,7 @@ import { getOllSolution, setOllSolution } from "../../../../store/solveStore";
 const dot = (cube, colour) => {
   let tempCube = cube;
   if (tempCube["top"][0][1] === colour) {
-    setOllSolution["U"];
+    setOllSolution(["U"]);
     tempCube = U(true, tempCube);
   }
   setOllSolution([...getOllSolution(), "F", "R", "U", "R'", "U'", "F'"]);
