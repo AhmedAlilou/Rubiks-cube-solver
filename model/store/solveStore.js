@@ -11,6 +11,8 @@ let f2lSolution = [];
 
 let ollSolution = [];
 
+let pllSolution = [];
+
 export function getTwoLookOLL() {
   return twoLookOLL;
 }
@@ -81,4 +83,12 @@ export function getOllSolution() {
 
 export function setOllSolution(moves) {
   ollSolution = moves;
+}
+
+export function getPllSolution() {
+  return pllSolution;
+}
+
+export function setPllSolution(moves) {
+  pllSolution = moves;
 }
