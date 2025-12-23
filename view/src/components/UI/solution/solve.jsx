@@ -16,7 +16,7 @@ function Solve() {
       disabled={buttonsDisabled}
       onClick={() => handleClick()}
     >
-      Solve (Most of the time)
+      Solve
     </button>
   );
 }

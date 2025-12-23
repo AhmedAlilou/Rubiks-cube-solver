@@ -20,6 +20,7 @@ function App() {
         <Solution />
       </div>
       <Scramble />
+      <div className="footer">Report issues to my Instagram (<a href="https://instagram.com/ahmedalilou1" target="_blank" rel="noopener noreferrer">ahmedalilou1</a>)</div>
     </div>
   );
 }
