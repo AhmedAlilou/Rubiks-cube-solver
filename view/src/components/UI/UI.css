@@ -81,6 +81,7 @@
   color: white;
   padding: 0.8%;
   border-radius: 10px;
+  width: 50vw;
 }
 
 .scrambleinput:focus {
