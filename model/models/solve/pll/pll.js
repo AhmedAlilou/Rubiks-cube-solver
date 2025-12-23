@@ -1,11 +1,12 @@
 import {
   getSolutionCrossColour,
   getPllSolution
-} from "../../../store/solveStore";
+} from "../../../store/solveStore.js";
 import colourInfo from "../../helperFunctions/colourInfo";
 import mapOutTopLayer from "../oll/functions/mapOutTopLayer";
 import oneLook from "./oneLook";
 import execute from "../../execute.js";
+import lastMove from "./functions/lastMove.js";
 
 const pll = async (cube) => {
   let tempCube = cube;
@@ -15,6 +16,8 @@ const pll = async (cube) => {
   const sideRows = mappedOutTopLayer.sideRows;
   // if oneLook PLL
   tempCube = oneLook(tempCube, sideRows);
+  tempCube = lastMove(tempCube);
+  // final move
 
   await execute(getPllSolution());
 };

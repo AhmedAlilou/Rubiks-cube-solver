@@ -1,0 +1,187 @@
+"filename", "language", "JavaScript", "Markdown", "JSON", "JavaScript JSX", "PostCSS", "HTML", "comment", "blank", "total"
+"/Users/ahmed/Documents/Coding/projects/cubing/README.md", "Markdown", 0, 33, 0, 0, 0, 0, 0, 19, 52
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/regular/B.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/regular/D.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/regular/F.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/regular/L.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/regular/R.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/regular/U.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/regular/index.js", "JavaScript", 14, 0, 0, 0, 0, 0, 1, 2, 17
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/rotation/index.js", "JavaScript", 4, 0, 0, 0, 0, 0, 1, 2, 7
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/rotation/x.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/rotation/y.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/rotation/z.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/slice/E.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/slice/M.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/slice/S.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/slice/index.js", "JavaScript", 4, 0, 0, 0, 0, 0, 1, 2, 7
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/wide/b.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 3, 37
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/wide/d.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 3, 37
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/wide/f.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 3, 37
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/wide/index.js", "JavaScript", 14, 0, 0, 0, 0, 0, 1, 2, 17
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/wide/l.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 3, 37
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/wide/r.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 3, 37
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/cubeMoves/wide/u.js", "JavaScript", 34, 0, 0, 0, 0, 0, 0, 3, 37
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/scrambles/getScramble.js", "JavaScript", 5, 0, 0, 0, 0, 0, 0, 3, 8
+"/Users/ahmed/Documents/Coding/projects/cubing/controller/solution/solve.js", "JavaScript", 5, 0, 0, 0, 0, 0, 0, 3, 8
+"/Users/ahmed/Documents/Coding/projects/cubing/global/store/globalStore.js", "JavaScript", 21, 0, 0, 0, 0, 0, 0, 9, 30
+"/Users/ahmed/Documents/Coding/projects/cubing/model/main.js", "JavaScript", 16, 0, 0, 0, 0, 0, 4, 3, 23
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/execute.js", "JavaScript", 138, 0, 0, 0, 0, 0, 3, 13, 154
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/formatAlg.js", "JavaScript", 19, 0, 0, 0, 0, 0, 1, 4, 24
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/colourInfo.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 2, 11
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/cornerTrios.js", "JavaScript", 99, 0, 0, 0, 0, 0, 6, 7, 112
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/edgePairs.js", "JavaScript", 27, 0, 0, 0, 0, 0, 6, 7, 40
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/getCol.js", "JavaScript", 4, 0, 0, 0, 0, 0, 0, 2, 6
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/getRow.js", "JavaScript", 4, 0, 0, 0, 0, 0, 0, 2, 6
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/returnCornerPosition.js", "JavaScript", 30, 0, 0, 0, 0, 0, 1, 2, 33
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/returnEdgePosition.js", "JavaScript", 20, 0, 0, 0, 0, 0, 1, 3, 24
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/reverse.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 2, 9
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/rotateFace.js", "JavaScript", 25, 0, 0, 0, 0, 0, 5, 2, 32
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/setCol.js", "JavaScript", 8, 0, 0, 0, 0, 0, 0, 2, 10
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/helperFunctions/setRow.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 2, 8
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/f2l.js", "JavaScript", 42, 0, 0, 0, 0, 0, 4, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/rotation/index.js", "JavaScript", 4, 0, 0, 0, 0, 0, 0, 2, 6
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/rotation/x.js", "JavaScript", 36, 0, 0, 0, 0, 0, 2, 5, 43
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/rotation/y.js", "JavaScript", 22, 0, 0, 0, 0, 0, 2, 5, 29
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/rotation/z.js", "JavaScript", 22, 0, 0, 0, 0, 0, 2, 5, 29
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/slice/E.js", "JavaScript", 11, 0, 0, 0, 0, 0, 0, 3, 14
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/slice/M.js", "JavaScript", 11, 0, 0, 0, 0, 0, 0, 3, 14
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/slice/S.js", "JavaScript", 11, 0, 0, 0, 0, 0, 0, 3, 14
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/slice/index.js", "JavaScript", 4, 0, 0, 0, 0, 0, 0, 2, 6
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/turns/B.js", "JavaScript", 31, 0, 0, 0, 0, 0, 5, 6, 42
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/turns/D.js", "JavaScript", 29, 0, 0, 0, 0, 0, 5, 5, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/turns/F.js", "JavaScript", 31, 0, 0, 0, 0, 0, 6, 7, 44
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/turns/L.js", "JavaScript", 29, 0, 0, 0, 0, 0, 6, 8, 43
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/turns/R.js", "JavaScript", 29, 0, 0, 0, 0, 0, 6, 6, 41
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/turns/U.js", "JavaScript", 30, 0, 0, 0, 0, 0, 6, 5, 41
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/turns/index.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 2, 9
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/wide/b.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 3, 12
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/wide/d.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 3, 12
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/wide/f.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 3, 12
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/wide/index.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 2, 9
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/wide/l.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 3, 12
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/wide/r.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 3, 12
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/moves/wide/u.js", "JavaScript", 9, 0, 0, 0, 0, 0, 0, 3, 12
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/scramble/generateScramble.js", "JavaScript", 30, 0, 0, 0, 0, 0, 0, 2, 32
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/countSolvedPieces.js", "JavaScript", 22, 0, 0, 0, 0, 0, 1, 3, 26
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/cross.js", "JavaScript", 60, 0, 0, 0, 0, 0, 5, 5, 70
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/finishCross.js", "JavaScript", 75, 0, 0, 0, 0, 0, 3, 6, 84
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/functions/flipped.js", "JavaScript", 20, 0, 0, 0, 0, 0, 0, 3, 23
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/functions/middle.js", "JavaScript", 53, 0, 0, 0, 0, 0, 0, 3, 56
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/functions/top.js", "JavaScript", 67, 0, 0, 0, 0, 0, 1, 4, 72
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/functions/topLayer.js", "JavaScript", 113, 0, 0, 0, 0, 0, 5, 10, 128
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/functions/wrongPlace.js", "JavaScript", 23, 0, 0, 0, 0, 0, 0, 3, 26
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/orientSolvedEdge.js", "JavaScript", 34, 0, 0, 0, 0, 0, 1, 3, 38
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/rotateFaceToBottom.js", "JavaScript", 30, 0, 0, 0, 0, 0, 0, 3, 33
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/cross/solveFunctions/top.js", "JavaScript", 36, 0, 0, 0, 0, 0, 0, 3, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/f2l.js", "JavaScript", 42, 0, 0, 0, 0, 0, 4, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/functions/returnSolvedPairs.js", "JavaScript", 37, 0, 0, 0, 0, 0, 0, 2, 39
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/identifyCase.js", "JavaScript", 266, 0, 0, 0, 0, 0, 8, 20, 294
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/inserts/cornerFacingUp.js", "JavaScript", 148, 0, 0, 0, 0, 0, 7, 11, 166
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/inserts/otherInsert.js", "JavaScript", 121, 0, 0, 0, 0, 0, 1, 7, 129
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/inserts/simpleInsert.js", "JavaScript", 121, 0, 0, 0, 0, 0, 1, 7, 129
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/inserts/topColoursDifferent.js", "JavaScript", 127, 0, 0, 0, 0, 0, 3, 7, 137
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/inserts/topColoursMatch.js", "JavaScript", 144, 0, 0, 0, 0, 0, 9, 7, 160
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/cornerBottomEdgeMid.js", "JavaScript", 60, 0, 0, 0, 0, 0, 3, 5, 68
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/cornerBottomEdgeTop.js", "JavaScript", 80, 0, 0, 0, 0, 0, 0, 13, 93
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/cornerDownEdgeMid.js", "JavaScript", 85, 0, 0, 0, 0, 0, 0, 7, 92
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/cornerDownEdgeTop.js", "JavaScript", 100, 0, 0, 0, 0, 0, 1, 14, 115
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/cornerEdgeConnected.js", "JavaScript", 246, 0, 0, 0, 0, 0, 7, 10, 263
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/cornerTopEdgeMid.js", "JavaScript", 102, 0, 0, 0, 0, 0, 8, 5, 115
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/cornerTopEdgeTop.js", "JavaScript", 160, 0, 0, 0, 0, 0, 2, 21, 183
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/cornerUpEdgeMid.js", "JavaScript", 143, 0, 0, 0, 0, 0, 3, 9, 155
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/f2l/solveFunctions/setUps/moveCornerToTop.js", "JavaScript", 47, 0, 0, 0, 0, 0, 0, 6, 53
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/functions/checkForAdjacentCorners.js", "JavaScript", 21, 0, 0, 0, 0, 0, 0, 3, 24
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/functions/checkForOneSolvedCorner.js", "JavaScript", 10, 0, 0, 0, 0, 0, 0, 3, 13
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/functions/checkForOppositeCorners.js", "JavaScript", 18, 0, 0, 0, 0, 0, 0, 3, 21
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/functions/checkForSolved.js", "JavaScript", 17, 0, 0, 0, 0, 0, 0, 2, 19
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/functions/mapOutTopLayer.js", "JavaScript", 27, 0, 0, 0, 0, 0, 0, 4, 31
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/oll.js", "JavaScript", 16, 0, 0, 0, 0, 0, 2, 4, 22
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/oneLook.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/twoLook.js", "JavaScript", 66, 0, 0, 0, 0, 0, 0, 11, 77
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/twoLook/bar.js", "JavaScript", 16, 0, 0, 0, 0, 0, 0, 5, 21
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/twoLook/blocks.js", "JavaScript", 41, 0, 0, 0, 0, 0, 0, 9, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/twoLook/cross.js", "JavaScript", 75, 0, 0, 0, 0, 0, 0, 10, 85
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/twoLook/dot.js", "JavaScript", 27, 0, 0, 0, 0, 0, 0, 5, 32
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/twoLook/fish.js", "JavaScript", 65, 0, 0, 0, 0, 0, 0, 11, 76
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/twoLook/hook.js", "JavaScript", 28, 0, 0, 0, 0, 0, 0, 5, 33
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/oll/twoLook/sign.js", "JavaScript", 75, 0, 0, 0, 0, 0, 0, 10, 85
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/pll/algs.js", "JavaScript", 14, 0, 0, 0, 0, 0, 0, 1, 15
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/pll/oneLook.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/pll/pll.js", "JavaScript", 7, 0, 0, 0, 0, 0, 0, 3, 10
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/pll/twoLook.js", "JavaScript", 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solve/solve.js", "JavaScript", 10, 0, 0, 0, 0, 0, 1, 3, 14
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solvingFunctions/findSideByColour.js", "JavaScript", 8, 0, 0, 0, 0, 0, 0, 1, 9
+"/Users/ahmed/Documents/Coding/projects/cubing/model/models/solvingFunctions/rotateColourToFace.js", "JavaScript", 5, 0, 0, 0, 0, 0, 0, 3, 8
+"/Users/ahmed/Documents/Coding/projects/cubing/model/package-lock.json", "JSON", 0, 0, 45, 0, 0, 0, 0, 1, 46
+"/Users/ahmed/Documents/Coding/projects/cubing/model/package.json", "JSON", 0, 0, 17, 0, 0, 0, 0, 1, 18
+"/Users/ahmed/Documents/Coding/projects/cubing/model/store/cubeStore.js", "JavaScript", 38, 0, 0, 0, 0, 0, 0, 3, 41
+"/Users/ahmed/Documents/Coding/projects/cubing/model/store/solveStore.js", "JavaScript", 70, 0, 0, 0, 0, 0, 0, 25, 95
+"/Users/ahmed/Documents/Coding/projects/cubing/view/eslint.config.js", "JavaScript", 32, 0, 0, 0, 0, 0, 0, 2, 34
+"/Users/ahmed/Documents/Coding/projects/cubing/view/index.html", "HTML", 0, 0, 0, 0, 0, 13, 0, 1, 14
+"/Users/ahmed/Documents/Coding/projects/cubing/view/package-lock.json", "JSON", 0, 0, 8372, 0, 0, 0, 0, 1, 8373
+"/Users/ahmed/Documents/Coding/projects/cubing/view/package.json", "JSON", 0, 0, 39, 0, 0, 0, 0, 1, 40
+"/Users/ahmed/Documents/Coding/projects/cubing/view/postcss.config.js", "JavaScript", 6, 0, 0, 0, 0, 0, 0, 1, 7
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/App.css", "PostCSS", 0, 0, 0, 0, 29, 0, 0, 5, 34
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/App.jsx", "JavaScript JSX", 0, 0, 0, 25, 0, 0, 0, 3, 28
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/UI.css", "PostCSS", 0, 0, 0, 0, 116, 0, 0, 13, 129
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/keypad.jsx", "JavaScript JSX", 0, 0, 0, 96, 0, 0, 0, 11, 107
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/B'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/B.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 3, 48
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/D'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/D.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/F'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/F.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/L'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/L.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/R'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/R.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/U'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/regular/U.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/rotation/x'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/rotation/x.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/rotation/y'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/rotation/y.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/rotation/z'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/rotation/z.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 3, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/slice/E'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/slice/E.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/slice/M'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/slice/M.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/slice/S'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/slice/S.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/subheading.jsx", "JavaScript JSX", 0, 0, 0, 9, 0, 0, 0, 3, 12
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/toggle.jsx", "JavaScript JSX", 0, 0, 0, 19, 0, 0, 0, 3, 22
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/undo.jsx", "JavaScript JSX", 0, 0, 0, 194, 0, 0, 1, 6, 201
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/b'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 3, 48
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/b.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 3, 48
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/d'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/d.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/f'.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/f.jsx", "JavaScript JSX", 0, 0, 0, 45, 0, 0, 0, 4, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/l'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/l.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/r'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/r.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/u'.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/keypad/wide/u.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 4, 50
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/scramble/scramble.jsx", "JavaScript JSX", 0, 0, 0, 28, 0, 0, 0, 3, 31
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/scramble/scramblebutton.jsx", "JavaScript JSX", 0, 0, 0, 46, 0, 0, 0, 3, 49
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/solution/solution.jsx", "JavaScript JSX", 0, 0, 0, 13, 0, 0, 0, 3, 16
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/UI/solution/solve.jsx", "JavaScript JSX", 0, 0, 0, 22, 0, 0, 0, 3, 25
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/cube/cube.jsx", "JavaScript JSX", 0, 0, 0, 268, 0, 0, 3, 27, 298
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/cube/cubie.jsx", "JavaScript JSX", 0, 0, 0, 43, 0, 0, 0, 4, 47
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/components/tile/tile.jsx", "JavaScript JSX", 0, 0, 0, 11, 0, 0, 0, 3, 14
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/functions/executeScramble.js", "JavaScript", 376, 0, 0, 0, 0, 0, 0, 11, 387
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/main.jsx", "JavaScript JSX", 0, 0, 0, 8, 0, 0, 0, 2, 10
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/moves/moveHandlers/index.js", "JavaScript", 38, 0, 0, 0, 0, 0, 0, 2, 40
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/moves/moveHandlers/regular.js", "JavaScript", 229, 0, 0, 0, 0, 0, 0, 12, 241
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/moves/moveHandlers/rotations.js", "JavaScript", 99, 0, 0, 0, 0, 0, 0, 5, 104
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/moves/moveHandlers/slice.js", "JavaScript", 111, 0, 0, 0, 0, 0, 0, 6, 117
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/moves/moveHandlers/wide.js", "JavaScript", 216, 0, 0, 0, 0, 0, 0, 8, 224
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/scene.jsx", "JavaScript JSX", 0, 0, 0, 21, 0, 0, 0, 3, 24
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/store/applicationStore.js", "JavaScript", 8, 0, 0, 0, 0, 0, 0, 3, 11
+"/Users/ahmed/Documents/Coding/projects/cubing/view/src/store/cubiesStore.js", "JavaScript", 184, 0, 0, 0, 0, 0, 0, 4, 188
+"/Users/ahmed/Documents/Coding/projects/cubing/view/tailwind.config.js", "JavaScript", 7, 0, 0, 0, 0, 0, 1, 1, 9
+"/Users/ahmed/Documents/Coding/projects/cubing/view/vite.config.js", "JavaScript", 6, 0, 0, 0, 0, 0, 1, 2, 9
+"Total", "-", 6083, 33, 8473, 2440, 145, 13, 157, 867, 18211
