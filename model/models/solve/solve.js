@@ -6,10 +6,9 @@ import pll from "./pll/pll.js";
 
 const solve = async (cube) => {
   await cross(cube);
-  // call f2l once cross has finished executing moves
   await f2l(getCube());
   await oll(getCube());
-  pll(getCube());
+  await pll(getCube());
 };
 
 export default solve;

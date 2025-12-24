@@ -2,16 +2,13 @@ import {
   getF2lSolution,
   setF2lSolution,
   getTempF2lSolution,
-  setTempF2lSolution,
   getSolutionCrossColour
 } from "../../../store/solveStore";
 import colourInfo from "../../helperFunctions/colourInfo";
 import returnSolvedPairs from "./functions/returnSolvedPairs";
-import returnEdgePosition from "../../helperFunctions/returnEdgePosition";
-import returnCornerPosition from "../../helperFunctions/returnCornerPosition";
 import identifyCase from "./identifyCase";
 import execute from "../../execute.js";
-import { getCube } from "../../../store/cubeStore";
+import removeContradictions from "../../helperFunctions/removeContradictions.js";
 
 const f2l = async (cube) => {
   let tempCube = cube;
@@ -35,15 +32,12 @@ const f2l = async (cube) => {
   // for each pair, locate the corner piece, specifically where the cross colour of that piece is
   for (let i = 0; i < pairs.length; i++) {
     const pair = pairs[i];
-    console.log(pair);
-    console.log(returnCornerPosition(tempCube, crossColour, pair));
-    console.log(returnEdgePosition(tempCube, pair[0], pair[1]));
     tempCube = identifyCase(tempCube, pair[0], pair[1]);
   }
   // for each pair, locate the edge piece
   setF2lSolution(getTempF2lSolution());
+  setF2lSolution(removeContradictions(getF2lSolution()));
   await execute(getF2lSolution());
-  console.log("pairs to be solved:", pairs);
 };
 
 export default f2l;

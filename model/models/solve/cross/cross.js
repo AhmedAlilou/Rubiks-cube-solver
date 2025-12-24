@@ -7,15 +7,13 @@ import {
   setSolutionCrossColour
 } from "../../../store/solveStore.js";
 import { getCube } from "../../../store/cubeStore.js";
-import colourInfo from "../../helperFunctions/colourInfo.js";
-import edgePairs from "../../helperFunctions/edgePairs.js";
 import execute from "../../execute.js";
 
 import rotateFaceToBottom from "./rotateFaceToBottom.js";
 import orientSolvedEdge from "./orientSolvedEdge.js";
 import finishCross from "./finishCross.js";
 import countSolvedPieces from "./countSolvedPieces.js";
-import returnEdgePosition from "../../helperFunctions/returnEdgePosition.js";
+import removeContradictions from "../../helperFunctions/removeContradictions.js";
 
 const cross = async (cube) => {
   let tempCube = getCube();
@@ -62,7 +60,8 @@ const cross = async (cube) => {
     }
     setTempCrossSolution([]);
   });
-  console.log(getCrossSolution());
+  setCrossSolution(removeContradictions(getCrossSolution()));
+
   await execute(getCrossSolution());
 };
 

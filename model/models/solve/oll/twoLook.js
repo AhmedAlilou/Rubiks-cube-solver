@@ -1,4 +1,3 @@
-import { getSolutionCrossColour } from "../../../store/solveStore";
 import mapOutTopLayer from "./functions/mapOutTopLayer.js";
 import checkForAdjacentCorners from "./functions/checkForAdjacentCorners.js";
 import checkForOppositeCorners from "./functions/checkForOppositeCorners.js";
@@ -69,8 +68,6 @@ const twoLook = (cube, colour) => {
   } else if (skip) {
     console.log("OLL SKIP");
   }
-
-  return tempCube;
 };
 
 export default twoLook;

@@ -1,4 +1,5 @@
-const mapOutTopLayer = (tempCube, colour) => {
+const mapOutTopLayer = (cube) => {
+  let tempCube = cube;
   const firstRow = tempCube["front"][0];
   const secondRow = tempCube["left"][0];
   const thirdRow = tempCube["back"][0];

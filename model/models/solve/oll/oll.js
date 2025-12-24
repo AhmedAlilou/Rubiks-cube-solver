@@ -1,20 +1,29 @@
 import {
   getOllSolution,
   setOllSolution,
-  getSolutionCrossColour
+  getSolutionCrossColour,
+  getTwoLookOll
 } from "../../../store/solveStore";
 import execute from "../../execute.js";
 import colourInfo from "../../helperFunctions/colourInfo.js";
+import removeContradictions from "../../helperFunctions/removeContradictions.js";
 import twoLook from "./twoLook.js";
+import oneLookOll from "./oneLook.js";
 
 const oll = async (cube) => {
   console.log("OLL INITIATED");
   let tempCube = cube;
+  console.log(tempCube, cube);
   const topLayerColour = colourInfo[getSolutionCrossColour()].opposite;
 
-  // two look function
-  tempCube = twoLook(tempCube, topLayerColour);
-  // one look function
+  if (getTwoLookOll()) {
+    twoLook(tempCube, topLayerColour);
+    console.log("TWO LOOK OLL");
+  } else {
+    oneLookOll(tempCube, topLayerColour);
+  }
+
+  setOllSolution(removeContradictions(getOllSolution()));
   await execute(getOllSolution());
 };
 

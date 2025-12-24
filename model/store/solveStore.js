@@ -1,7 +1,7 @@
 let crossColours = ["w", "y", "o", "g", "b", "r"]; // make white default always there because everyone can do it
 let solutionCrossColour = crossColours[0];
-let twoLookOLL = false;
-let twoLookPLL = false;
+let twoLookOll = false;
+let twoLookPll = false;
 
 let tempCrossSolution = [];
 let crossSolution = [];
@@ -13,20 +13,20 @@ let ollSolution = [];
 
 let pllSolution = [];
 
-export function getTwoLookOLL() {
-  return twoLookOLL;
+export function getTwoLookOll() {
+  return twoLookOll;
 }
 
-export function setTwoLookOLL(value) {
-  twoLookOLL = value;
+export function setTwoLookOll(value) {
+  twoLookOll = value;
 }
 
-export function getTwoLookPLL() {
-  return twoLookPLL;
+export function getTwoLookPll() {
+  return twoLookPll;
 }
 
-export function setTwoLookPLL(value) {
-  twoLookPLL = value;
+export function setTwoLookPll(value) {
+  twoLookPll = value;
 }
 
 export function getCrossColours() {
