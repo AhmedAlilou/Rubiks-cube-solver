@@ -13,12 +13,30 @@ let ollSolution = [];
 
 let pllSolution = [];
 
+// simple subscription system so UI can react to changes
+const _listeners = new Set();
+
+export function subscribeSolveStore(fn) {
+  _listeners.add(fn);
+  return () => _listeners.delete(fn);
+}
+
+function _notify() {
+  _listeners.forEach((fn) => {
+    try {
+      fn();
+    } catch (e) {
+      // ignore listener errors
+    }
+  });
+}
 export function getTwoLookOll() {
   return twoLookOll;
 }
 
 export function setTwoLookOll(value) {
   twoLookOll = value;
+  _notify();
 }
 
 export function getTwoLookPll() {
@@ -27,6 +45,7 @@ export function getTwoLookPll() {
 
 export function setTwoLookPll(value) {
   twoLookPll = value;
+  _notify();
 }
 
 export function getCrossColours() {
@@ -39,10 +58,12 @@ export function getSolutionCrossColour() {
 
 export function setSolutionCrossColour(newColour) {
   solutionCrossColour = newColour;
+  _notify();
 }
 
 export function setCrossColours(newCrossColours) {
   crossColours = newCrossColours;
+  _notify();
 }
 
 export function getTempCrossSolution() {
@@ -55,14 +76,17 @@ export function getCrossSolution() {
 
 export function setTempCrossSolution(moves) {
   tempCrossSolution = moves;
+  _notify();
 }
 
 export function setCrossSolution(moves) {
   crossSolution = moves;
+  _notify();
 }
 
 export function setF2lSolution(moves) {
   f2lSolution = moves;
+  _notify();
 }
 
 export function getTempF2lSolution() {
@@ -75,6 +99,7 @@ export function getF2lSolution() {
 
 export function setTempF2lSolution(moves) {
   tempF2lSolution = moves;
+  _notify();
 }
 
 export function getOllSolution() {
@@ -83,6 +108,7 @@ export function getOllSolution() {
 
 export function setOllSolution(moves) {
   ollSolution = moves;
+  _notify();
 }
 
 export function getPllSolution() {
@@ -91,4 +117,5 @@ export function getPllSolution() {
 
 export function setPllSolution(moves) {
   pllSolution = moves;
+  _notify();
 }
