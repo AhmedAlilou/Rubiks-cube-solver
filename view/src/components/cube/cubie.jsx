@@ -5,7 +5,8 @@ import React, { useRef } from "react";
 
 const PI = Math.PI;
 const grey = "#808080"; // Default grey colour for the front face
-const black = "#341539";
+// use a realistic dark grey for the inner (unset) sticker colour
+const black = "#1f1f1f";
 
 const Cubie = (props) => {
   return (
@@ -13,32 +14,32 @@ const Cubie = (props) => {
       <Tile
         colour={props.frontColour || black}
         rotation={[0, 0, 0]}
-        position={[0, 0, 0.5]}
+        position={[0, 0, 0.495]}
       />
       <Tile
         colour={props.rightColour || black}
         rotation={[0, PI / 2, 0]}
-        position={[0.5, 0, 0]}
+        position={[0.495, 0, 0]}
       />
       <Tile
         colour={props.leftColour || black}
         rotation={[0, PI / 2, 0]}
-        position={[-0.5, 0, 0]}
+        position={[-0.495, 0, 0]}
       />
       <Tile
         colour={props.backColour || black}
         rotation={[0, 0, 0]}
-        position={[0, 0, -0.5]}
+        position={[0, 0, -0.495]}
       />
       <Tile
         colour={props.topColour || black}
         rotation={[PI / 2, 0, 0]}
-        position={[0, 0.5, 0]}
+        position={[0, 0.495, 0]}
       />
       <Tile
         colour={props.bottomColour || black}
         rotation={[PI / 2, 0, 0]}
-        position={[0, -0.5, 0]}
+        position={[0, -0.495, 0]}
       />
     </group>
   );
