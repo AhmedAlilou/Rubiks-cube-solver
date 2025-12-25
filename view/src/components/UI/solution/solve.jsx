@@ -12,7 +12,7 @@ function Solve() {
   };
   return (
     <button
-      className="h-[5%]"
+      className="solve"
       disabled={buttonsDisabled}
       onClick={() => handleClick()}
     >

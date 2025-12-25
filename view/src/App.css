@@ -18,7 +18,7 @@ body {
 }
 
 .canvas {
-  background-color: #333533;
+  background-color: #1f1f1f;
   width: 50vw;
   height: 60vh;
   margin: 1%;
@@ -38,13 +38,13 @@ body {
   font-size: 0.9rem;
   color: #9ca3af; /* Muted gray */
   background: transparent;
-  border-top: 1px solid rgba(255,255,255,0.03);
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
   border-radius: 6px;
   margin: 1rem auto;
   max-width: 980px;
 }
 .footer a {
-  color: #60a5fa; /* Tailwind sky-400 */
+  color: #b83333; /* Tailwind sky-400 */
   text-decoration: none;
   font-weight: 600;
 }
