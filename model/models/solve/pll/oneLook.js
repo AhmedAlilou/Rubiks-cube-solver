@@ -36,16 +36,13 @@ const oneLook = (cube, sideRows) => {
       console.log(formattedSideRows);
       moves = alg;
       if (cyclicEquality(formattedSideRows, pattern)[1] === 1) {
-        console.log("U'");
-        setPllSolution(["U'"]);
+        setPllSolution([...getPllSolution(), "U'"]);
         tempCube = U(false, tempCube);
       } else if (cyclicEquality(formattedSideRows, pattern)[1] === 2) {
-        console.log("U2");
-        setPllSolution(["U2"]);
+        setPllSolution([...getPllSolution(), "U2"]);
         tempCube = U(true, U(true, tempCube));
       } else if (cyclicEquality(formattedSideRows, pattern)[1] === 3) {
-        console.log("U");
-        setPllSolution(["U"]);
+        setPllSolution([...getPllSolution(), "U"]);
         tempCube = U(true, tempCube);
       }
     }
