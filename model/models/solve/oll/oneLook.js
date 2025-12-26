@@ -61,7 +61,9 @@ const oneLookOll = (cube, colour) => {
           algs[i][1]
         )[1]
       );
-      moves = algs[i][2];
+      if (algs[i][2].length !== 1) {
+        moves = algs[i][2];
+      }
     }
   }
   setOllSolution([...getOllSolution(), ...moves]);
