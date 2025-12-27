@@ -15,13 +15,10 @@ const oneLookOll = (cube, colour) => {
   const formattedOll = formatOll(tempCube["top"], sideRows, colour);
   const formattedTop = formattedOll[0];
   const formattedSideRows = formattedOll[1];
-  console.log(formattedOll, formattedTop, formattedSideRows);
   for (let i = 1; i < 59; i++) {
-    console.log(i);
     if (
       cyclicEquality(formattedTop, formattedSideRows, algs[i][0], algs[i][1])[0]
     ) {
-      console.log(tempCube);
       if (
         cyclicEquality(
           formattedTop,

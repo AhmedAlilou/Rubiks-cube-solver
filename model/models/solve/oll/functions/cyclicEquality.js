@@ -11,10 +11,8 @@ const cyclicEquality = (top, sideRows, top2, sideRows2) => {
       JSON.stringify(newSideRows) === JSON.stringify(sideRows2)
     ) {
       equal = true;
-      console.log("CYCLIC EQUALITY FOUND");
       return [true, count];
     }
-    console.log(newTop, newSideRows, top2, sideRows2);
     newTop = rotateFace(newTop, true);
     newSideRows = [newSideRows[3], ...newSideRows.slice(0, 3)];
     count++;

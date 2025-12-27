@@ -26,7 +26,7 @@ const pll = async (cube) => {
   tempCube = lastMove(tempCube);
   // final move
 
-  setPllSolution(getPllSolution(), removeContradictions(getPllSolution()));
+  setPllSolution(removeContradictions(getPllSolution()));
 
   await execute(getPllSolution());
 };
