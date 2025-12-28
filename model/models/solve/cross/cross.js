@@ -28,8 +28,9 @@ const cross = async (cube) => {
     setTempCube(cube); // reset tempCube to current cube state
     tempCube = rotateFaceToBottom(tempCube, colour); // rotate face that needs cross to bottom
     tempCube = orientSolvedEdge(tempCube, colour);
+    const initialMoves = getTempCrossSolution();
     countSolvedPieces(tempCube, colour);
-    tempCube = finishCross(tempCube, colour);
+    tempCube = finishCross(tempCube, colour, initialMoves);
 
     // for each edge piece in array:
     // locate edge piece

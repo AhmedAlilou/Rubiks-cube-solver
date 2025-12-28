@@ -59,19 +59,19 @@ const twoLook = (cube, sideRows) => {
     tempCube = oneLook(tempCube, sideRows);
   } else if (headlights) {
     // move headlights to left
-    switch (count) {
-      case 0:
+    if (count !== 1) {
+      if (count === 0) {
         setPllSolution(["U"]);
         tempCube = U(true, tempCube);
-      case 1:
-        break;
-      case 2:
+      } else if (count === 2) {
         setPllSolution(["U'"]);
         tempCube = U(false, tempCube);
-      case 3:
+      } else if (count === 3) {
         setPllSolution(["U2"]);
         tempCube = U(true, U(true, tempCube));
+      }
     }
+
     setPllSolution([
       ...getPllSolution(),
       "R",
