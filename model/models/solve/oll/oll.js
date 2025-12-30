@@ -11,14 +11,14 @@ import twoLook from "./twoLook.js";
 import oneLookOll from "./oneLook.js";
 
 const oll = async (cube) => {
-  console.log("OLL INITIATED");
+  ("OLL INITIATED");
   let tempCube = cube;
-  console.log(tempCube, cube);
+  tempCube, cube;
   const topLayerColour = colourInfo[getSolutionCrossColour()].opposite;
 
   if (getTwoLookOll()) {
     twoLook(tempCube, topLayerColour);
-    console.log("TWO LOOK OLL");
+    ("TWO LOOK OLL");
   } else {
     oneLookOll(tempCube, topLayerColour);
   }

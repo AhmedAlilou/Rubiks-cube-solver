@@ -22,16 +22,16 @@ const D = (clockwise, cube) => {
     newCube.back = setRow(cube.back, 2, values.right);
     newCube.right = setRow(cube.right, 2, values.front);
 
-    console.log("D");
+    ("D");
   } else {
     // Anticlockwise: front → left → back → right → front
     newCube.front = setRow(cube.front, 2, values.right);
     newCube.right = setRow(cube.right, 2, values.back);
     newCube.back = setRow(cube.back, 2, values.left);
     newCube.left = setRow(cube.left, 2, values.front);
-    console.log("D'");
+    ("D'");
   }
-  console.log(newCube);
+  newCube;
   return newCube;
 };
 

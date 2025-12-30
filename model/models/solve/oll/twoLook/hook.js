@@ -25,7 +25,7 @@ const hook = (cube, colour) => {
   setOllSolution([...getOllSolution(), "F", "U", "R", "U'", "R'", "F'"]);
   tempCube = F(false, R(false, U(false, R(true, U(true, F(true, tempCube))))));
 
-  console.log("HOOK");
+  ("HOOK");
   return tempCube;
 };
 

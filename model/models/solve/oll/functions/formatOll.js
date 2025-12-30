@@ -1,6 +1,6 @@
 const formatOll = (top = [], sideRows = [], colour) => {
-  console.log("FORMAT OLL INITIATED");
-  console.log(top);
+  ("FORMAT OLL INITIATED");
+  top;
 
   // Deep-clone the rows so we don't mutate the original cube data
   const clonedTop = (top || []).map((row) => row.slice());

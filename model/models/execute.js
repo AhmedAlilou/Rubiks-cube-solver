@@ -58,7 +58,7 @@ const controllerFunctions = {
 
 const execute = (moves) => {
   // Map of all move names to their corresponding functions
-  console.log("MOVES:", moves);
+  "MOVES:", moves;
   if (moves.length === 0) return Promise.resolve();
   return new Promise((resolve) => {
     let i = 0;
@@ -141,7 +141,7 @@ const execute = (moves) => {
         params.currentYRotation = currentYRotation;
         params.setCurrentYRotation = setCurrentYRotation;
       }
-      console.log(isPrime, base, double);
+      isPrime, base, double;
       controller(params, !isPrime);
       i++;
       setTimeout(nextMove, 1000);

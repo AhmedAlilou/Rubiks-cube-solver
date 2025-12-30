@@ -7,7 +7,7 @@ import {
 } from "../../../../../store/solveStore.js";
 
 const cornerEdgeConnected = (cube, corner, edge) => {
-  console.log("CORNER EDGE CONNECTED");
+  ("CORNER EDGE CONNECTED");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;
@@ -67,8 +67,8 @@ const cornerEdgeConnected = (cube, corner, edge) => {
         tempCube[secondaryEdgeFace][0][1] === tempCube[cornerFaces[1]][0][2])
     ) {
       // or they are connected but correctly which we dont want
-      console.log(cornerFaces, edgeFace, secondaryEdgeFace);
-      console.log("1");
+      cornerFaces, edgeFace, secondaryEdgeFace;
+      ("1");
       return tempCube;
     }
   } else if (cornerOnRight) {
@@ -79,8 +79,8 @@ const cornerEdgeConnected = (cube, corner, edge) => {
         tempCube[secondaryEdgeFace][0][1] === tempCube[cornerFaces[1]][0][0])
     ) {
       // or they are connected but correctly which we dont want
-      console.log(cornerFaces, edgeFace, secondaryEdgeFace);
-      console.log("1");
+      cornerFaces, edgeFace, secondaryEdgeFace;
+      ("1");
       return tempCube;
     }
   }
@@ -107,7 +107,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
   // moving the connected pair so that when it is seperated we dont disturb other pairs
 
   if (connectedWeirdly) {
-    console.log("CONNECTED WEIRDLY");
+    ("CONNECTED WEIRDLY");
     if (cornerOnRight) {
       if (tempCube[cornerFaces[1]][1][1] === tempCube[cornerFaces[1]][0][0]) {
         turningFace = cornerFace;
@@ -131,7 +131,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
         tempCube = U(false, tempCube);
       } else {
         turningFace = faceConversionAnticlockwise[cornerFace];
-        console.log("DO NOTHING");
+        ("DO NOTHING");
       }
       setTempF2lSolution([
         ...getTempF2lSolution(),
@@ -166,7 +166,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
         tempCube = U(true, tempCube);
       } else {
         turningFace = faceConversionClockwise[cornerFace];
-        console.log("DO NOTHING");
+        ("DO NOTHING");
       }
       setTempF2lSolution([
         ...getTempF2lSolution(),
@@ -180,7 +180,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
       );
     }
   } else {
-    console.log("CONNECTED INVERTEDLY");
+    ("CONNECTED INVERTEDLY");
     if (cornerOnRight) {
       if (tempCube[cornerFaces[1]][1][1] === tempCube[cornerFaces[1]][0][0]) {
         turningFace = faceConversionAnticlockwise[cornerFace];
@@ -204,7 +204,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
         tempCube = U(true, tempCube);
       } else {
         turningFace = cornerFace;
-        console.log("DO NOTHING");
+        ("DO NOTHING");
       }
       setTempF2lSolution([
         ...getTempF2lSolution(),
@@ -239,7 +239,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
         tempCube = U(false, tempCube);
       } else {
         turningFace = cornerFace;
-        console.log("DO NOTHING");
+        ("DO NOTHING");
       }
       setTempF2lSolution([
         ...getTempF2lSolution(),
@@ -254,7 +254,7 @@ const cornerEdgeConnected = (cube, corner, edge) => {
     }
   }
 
-  console.log(cornerFaces);
+  cornerFaces;
 
   return tempCube;
 };

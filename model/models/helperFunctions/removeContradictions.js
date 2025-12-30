@@ -15,13 +15,11 @@ const removeContradictions = (moves) => {
       const currentMoveCount = countFor(move);
       const totalMoveCount = lastMoveCount + currentMoveCount;
 
-      console.log(
-        lastMove,
+      lastMove,
         lastMoveCount,
         currentMoveCount,
         totalMoveCount,
-        simplifiedMoves
-      );
+        simplifiedMoves;
 
       const rem = ((totalMoveCount % 4) + 4) % 4;
       if (rem === 0) {

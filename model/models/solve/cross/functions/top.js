@@ -35,7 +35,7 @@ const top = (cube, row, col, tilePairFace, pairColour) => {
       faceToMove[tilePairFace](true, tempCube)
     );
   } else if (pairColour === E(true, tempCube)[tilePairFace][1][1]) {
-    console.log("THISSSS");
+    ("THISSSS");
     func = faceToMove[faceConversionAnticlockwise[tilePairFace]];
     setTempCrossSolution([
       ...getTempCrossSolution(),

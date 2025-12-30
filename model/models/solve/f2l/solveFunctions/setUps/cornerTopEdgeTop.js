@@ -9,7 +9,7 @@ import {
 import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
 
 const cornerTopEdgeTop = (cube, corner, edge, firstPair, secondPair) => {
-  console.log("CORNER TOP, EDGE TOP");
+  ("CORNER TOP, EDGE TOP");
   let tempCube = cube;
 
   const cornerRow = corner.row;
@@ -92,8 +92,8 @@ const cornerTopEdgeTop = (cube, corner, edge, firstPair, secondPair) => {
   // do U moves until its on top of its slot
   let valid = false;
 
-  console.log("FLA:JFLKAJLKFAJALK:", firstCorner, secondCorner);
-  console.log(turningFace);
+  "FLA:JFLKAJLKFAJALK:", firstCorner, secondCorner;
+  turningFace;
 
   while (!valid) {
     if (firstCornerOnRight) {
@@ -110,7 +110,7 @@ const cornerTopEdgeTop = (cube, corner, edge, firstPair, secondPair) => {
         firstCornerFace = faceConversionClockwise[firstCornerFace];
         secondCornerFace = faceConversionClockwise[secondCornerFace];
         turningFace = faceConversionClockwise[turningFace];
-        console.log(turningFace);
+        turningFace;
       } else {
         valid = true;
       }
@@ -126,7 +126,7 @@ const cornerTopEdgeTop = (cube, corner, edge, firstPair, secondPair) => {
         firstCornerFace = faceConversionClockwise[firstCornerFace];
         secondCornerFace = faceConversionClockwise[secondCornerFace];
         turningFace = faceConversionClockwise[turningFace];
-        console.log(turningFace);
+        turningFace;
       } else {
         valid = true;
       }
@@ -145,7 +145,7 @@ const cornerTopEdgeTop = (cube, corner, edge, firstPair, secondPair) => {
     getSolutionCrossColour(),
     [firstPair, secondPair]
   ).col;
-  console.log(turningFace);
+  turningFace;
   if (turningFace === "right") {
     if (newCornerRow === 2) {
       clockwise = true;

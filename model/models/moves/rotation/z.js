@@ -13,15 +13,15 @@ const z = (clockwise, cube) => {
     newCube.right = rotateFace([...cube.top], clockwise);
     newCube.down = rotateFace([...cube.right], clockwise);
     newCube.left = rotateFace([...cube.down], clockwise);
-    console.log("z");
+    ("z");
   } else {
     newCube.top = rotateFace([...cube.right], clockwise);
     newCube.left = rotateFace([...cube.top], clockwise);
     newCube.down = rotateFace([...cube.left], clockwise);
     newCube.right = rotateFace([...cube.down], clockwise);
-    console.log("z'");
+    ("z'");
   }
-  console.log(newCube);
+  newCube;
   return newCube;
 };
 

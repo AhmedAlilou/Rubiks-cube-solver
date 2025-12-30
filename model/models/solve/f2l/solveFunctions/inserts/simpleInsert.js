@@ -7,7 +7,7 @@ import {
 import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
 
 const simpleInsert = (cube, corner, edge) => {
-  console.log("SIMPLE INSERT");
+  ("SIMPLE INSERT");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;
@@ -99,7 +99,7 @@ const simpleInsert = (cube, corner, edge) => {
     }
   }
 
-  console.log("AHALHALHA:", cornerOnLeft);
+  "AHALHALHA:", cornerOnLeft;
   if (cornerOnLeft) {
     setTempF2lSolution([
       ...getTempF2lSolution(),

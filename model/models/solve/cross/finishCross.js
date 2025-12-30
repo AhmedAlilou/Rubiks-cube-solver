@@ -11,6 +11,7 @@ import flipped from "./functions/flipped.js";
 import wrongPlace from "./functions/wrongPlace.js";
 import topLayer from "./functions/topLayer.js";
 import edgePairs from "../../helperFunctions/edgePairs.js";
+import generatePermutations from "./solveFunctions/generatePermutations.js";
 
 const finishCross = (cube, colour, initialMoves) => {
   let tempCube = cube;
@@ -18,16 +19,18 @@ const finishCross = (cube, colour, initialMoves) => {
   const initiallySolved = countSolvedPieces(cube, colour)[1];
   let bestSolution = [];
   toSolve = toSolve.filter((colour) => !initiallySolved.includes(colour));
+  const permutations = generatePermutations(toSolve);
 
   for (
-    let permutationCounter = 1;
-    permutationCounter < 3;
+    let permutationCounter = 0;
+    permutationCounter < permutations.length;
     permutationCounter++
   ) {
     setTempCrossSolution(initialMoves);
     tempCube = cube;
     for (let i = 0; i < toSolve.length; i++) {
-      const tilePair = toSolve[i];
+      permutationCounter, i;
+      const tilePair = permutations[permutationCounter][i];
       const tileFace = returnEdgePosition(tempCube, colour, tilePair).face;
       const tileRow = returnEdgePosition(tempCube, colour, tilePair).row;
       const tileCol = returnEdgePosition(tempCube, colour, tilePair).col;
@@ -85,9 +88,10 @@ const finishCross = (cube, colour, initialMoves) => {
         tempCube = wrongPlace(tempCube, tileRow, tileCol);
         tempCube = top(tempCube, tileRow, tileCol, tilePairFace, tilePair);
       } else {
-        console.log("I HAVE MISSED A CASE!!!!!");
+        ("I HAVE MISSED A CASE!!!!!");
       }
     }
+    "CURRENT SOLUTION:", getTempCrossSolution();
     if (
       bestSolution.length === 0 ||
       bestSolution.length > getTempCrossSolution().length
@@ -95,6 +99,8 @@ const finishCross = (cube, colour, initialMoves) => {
       bestSolution = getTempCrossSolution();
     }
   }
+
+  setTempCrossSolution(bestSolution);
 
   return tempCube;
 };

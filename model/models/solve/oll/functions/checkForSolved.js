@@ -1,5 +1,5 @@
 const checkForSolved = (sideRows, topLayer, colour) => {
-  console.log(topLayer, sideRows);
+  topLayer, sideRows;
   for (let i = 0; i < 4; i++) {
     if (sideRows[i].includes(colour)) {
       return false;

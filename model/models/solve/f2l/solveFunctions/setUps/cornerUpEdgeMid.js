@@ -7,7 +7,7 @@ import {
 } from "../../../../../store/solveStore.js";
 
 const cornerUpEdgeMid = (cube, corner, edge) => {
-  console.log("CORNER UP EDGE MID");
+  ("CORNER UP EDGE MID");
   let tempCube = cube;
   const cornerRow = corner.row;
   const cornerCol = corner.col;
@@ -39,13 +39,13 @@ const cornerUpEdgeMid = (cube, corner, edge) => {
   };
 
   const cornerFaces = [rowToFace[cornerRow], colToFace[cornerCol]];
-  console.log(cornerFaces);
+  cornerFaces;
   let secondaryEdgeFace = "";
   if (edgeCol === 2) {
-    console.log("EDGE ON RIGHT");
+    ("EDGE ON RIGHT");
     secondaryEdgeFace = faceConversionAnticlockwise[edgeFace];
   } else {
-    console.log("EDGE ON LEFT");
+    ("EDGE ON LEFT");
     secondaryEdgeFace = faceConversionClockwise[edgeFace];
   }
 
@@ -56,7 +56,7 @@ const cornerUpEdgeMid = (cube, corner, edge) => {
     cornerFaces.includes(secondaryEdgeFace)
   ) {
     // do nothing
-    console.log("corner already above edge");
+    ("corner already above edge");
   } else if (
     (faceConversionClockwise[cornerFaces[0]] === edgeFace &&
       faceConversionClockwise[cornerFaces[1]] === secondaryEdgeFace) ||

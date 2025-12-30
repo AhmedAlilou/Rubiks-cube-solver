@@ -24,7 +24,7 @@ const dot = (cube) => {
     )
   );
 
-  console.log("DOT");
+  ("DOT");
   return tempCube;
 };
 

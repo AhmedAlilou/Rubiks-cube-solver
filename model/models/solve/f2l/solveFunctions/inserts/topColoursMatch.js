@@ -14,7 +14,7 @@ const topColoursMatch = (
   cornerTopColour,
   edgeSideColour
 ) => {
-  console.log("COLOURS MATCH");
+  ("COLOURS MATCH");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;
@@ -61,7 +61,7 @@ const topColoursMatch = (
 
   const edgePos = returnEdgePosition(tempCube, edgeSideColour, cornerTopColour);
   const edgeSideFace = edgePos.face;
-  console.log("PLEEEAAASEEEE:", cornerOnLeft, edgeSideFace, cornerFace);
+  "PLEEEAAASEEEE:", cornerOnLeft, edgeSideFace, cornerFace;
   if (cornerOnLeft) {
     if (edgeSideFace === faceConversionClockwise[cornerFace]) {
       return tempCube;
@@ -121,7 +121,7 @@ const topColoursMatch = (
         break;
     }
   }
-  console.log(oneMover);
+  oneMover;
 
   if (cornerOnLeft) {
     setTempF2lSolution([

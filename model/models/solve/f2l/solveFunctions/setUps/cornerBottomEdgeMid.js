@@ -5,7 +5,7 @@ import {
 } from "../../../../../store/solveStore.js";
 
 const cornerBottomEdgeMid = (cube, corner) => {
-  console.log("CORNER BOTTOM EDGE MID");
+  ("CORNER BOTTOM EDGE MID");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerCol = corner.col;

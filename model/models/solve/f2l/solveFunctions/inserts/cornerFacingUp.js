@@ -108,7 +108,7 @@ const cornerFacingUp = (cube, corner, edge, edgeSideColour, edgeTopColour) => {
       tempCube = faceToMove[turningFace](false, tempCube);
       break;
     default:
-      console.log("ERRRRM THATS NOT SUPPOSED TO HAPPEN");
+      "ERRRRM THATS NOT SUPPOSED TO HAPPEN";
       break;
   }
   // now do U moves until corner matches edge
@@ -155,7 +155,7 @@ const cornerFacingUp = (cube, corner, edge, edgeSideColour, edgeTopColour) => {
       tempCube = faceToMove[turningFace](true, tempCube);
       break;
     default:
-      console.log("ERRRRM THATS NOT SUPPOSED TO HAPPEN");
+      "ERRRRM THATS NOT SUPPOSED TO HAPPEN";
       break;
   }
 

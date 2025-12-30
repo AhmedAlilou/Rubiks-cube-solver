@@ -12,10 +12,10 @@ import removeContradictions from "../../helperFunctions/removeContradictions.js"
 
 const f2l = async (cube) => {
   let tempCube = cube;
-  console.log("F2L");
+  ("F2L");
 
   let crossColour = getSolutionCrossColour();
-  console.log(crossColour);
+  crossColour;
   let pairs = colourInfo[crossColour].adjacent;
   pairs = [
     [pairs[0], pairs[1]],

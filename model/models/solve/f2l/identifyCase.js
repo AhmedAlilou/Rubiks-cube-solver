@@ -277,7 +277,7 @@ const identifyCase = (cube, firstPair, secondPair) => {
       tempCube = simpleInsert(tempCube, corner, edge);
     }
   } else if (!cornerOnRight && setUpNeeded) {
-    console.log(cornerFace, sideEdgeFace);
+    cornerFace, sideEdgeFace;
     if (faceConversionAnticlockwise[cornerFace] === sideEdgeFace) {
       tempCube = otherInsert(tempCube, corner, edge);
     } else {

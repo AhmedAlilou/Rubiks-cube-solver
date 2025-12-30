@@ -14,7 +14,7 @@ import removeContradictions from "../../helperFunctions/removeContradictions.js"
 
 const pll = async (cube) => {
   let tempCube = cube;
-  console.log("PLL INITIATED");
+  ("PLL INITIATED");
   const mappedOutTopLayer = mapOutTopLayer(tempCube);
   const sideRows = mappedOutTopLayer.sideRows;
   // if oneLook PLL

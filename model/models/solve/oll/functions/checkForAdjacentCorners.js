@@ -16,7 +16,7 @@ const checkForAdjacentCorners = (corners, colour) => {
       count = 0;
     }
   }
-  console.log(corners, count, largestCount);
+  corners, count, largestCount;
   return largestCount === 2;
 };
 

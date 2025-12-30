@@ -13,15 +13,15 @@ const y = (clockwise, cube) => {
     newCube.back = cube.left;
     newCube.right = cube.back;
     newCube.front = cube.right;
-    console.log("y");
+    ("y");
   } else {
     newCube.left = cube.back;
     newCube.front = cube.left;
     newCube.right = cube.front;
     newCube.back = cube.right;
-    console.log("y'");
+    ("y'");
   }
-  console.log(newCube);
+  newCube;
   return newCube;
 };
 

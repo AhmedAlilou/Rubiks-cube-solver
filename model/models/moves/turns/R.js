@@ -23,17 +23,17 @@ const R = (clockwise, cube) => {
     newCube.front = setCol(cube.front, 2, values.down);
     newCube.down = setCol(cube.down, 2, values.back.reverse());
     newCube.back = setCol(cube.back, 0, values.top.reverse());
-    console.log("R");
+    ("R");
   } else {
     // Anticlockwise: top → front → down → back → top
     newCube.top = setCol(cube.top, 2, values.back.reverse());
     newCube.back = setCol(cube.back, 0, values.down.reverse());
     newCube.down = setCol(cube.down, 2, values.front);
     newCube.front = setCol(cube.front, 2, values.top);
-    console.log("R'");
+    ("R'");
   }
 
-  console.log(newCube);
+  newCube;
   return newCube;
 };
 

@@ -1,7 +1,7 @@
 import colourInfo from "../../helperFunctions/colourInfo";
 
 const formatPll = (rows, colour) => {
-  console.log(rows);
+  rows;
   const first = rows[0][0];
   const third = colourInfo[first].opposite;
 
@@ -46,7 +46,7 @@ const formatPll = (rows, colour) => {
     }
   }
 
-  console.log(output);
+  output;
   return output;
 };
 

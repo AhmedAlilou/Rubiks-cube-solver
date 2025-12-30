@@ -13,7 +13,7 @@ const dot = (cube, colour) => {
   setOllSolution([...getOllSolution(), "F", "R", "U", "R'", "U'", "F'"]);
   tempCube = F(false, U(false, R(false, U(true, R(true, F(true, tempCube))))));
 
-  console.log("BAR");
+  ("BAR");
   return tempCube;
 };
 

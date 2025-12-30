@@ -7,7 +7,7 @@ import {
 import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
 
 const otherInsert = (cube, corner, edge) => {
-  console.log("OTHER INSERT");
+  ("OTHER INSERT");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;

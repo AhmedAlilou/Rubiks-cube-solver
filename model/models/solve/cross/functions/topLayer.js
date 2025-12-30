@@ -42,22 +42,22 @@ const topLayer = (
     case cube["front"][1][1]:
       endFace = "front";
       targetFaces = ["left", "right"];
-      console.log("TARGET FACES", targetFaces);
+      "TARGET FACES", targetFaces;
       break;
     case cube["right"][1][1]:
       endFace = "right";
       targetFaces = ["front", "back"];
-      console.log("TARGET FACES", targetFaces);
+      "TARGET FACES", targetFaces;
       break;
     case cube["back"][1][1]:
       endFace = "back";
       targetFaces = ["left", "right"];
-      console.log("TARGET FACES", targetFaces);
+      "TARGET FACES", targetFaces;
       break;
     case cube["left"][1][1]:
       endFace = "left";
       targetFaces = ["front", "back"];
-      console.log("TARGET FACES", targetFaces);
+      "TARGET FACES", targetFaces;
       break;
   }
 

@@ -66,7 +66,7 @@ const twoLook = (cube, colour) => {
   } else if (isFish) {
     tempCube = fish(tempCube, sideRows, colour);
   } else if (skip) {
-    console.log("OLL SKIP");
+    ("OLL SKIP");
   }
 };
 

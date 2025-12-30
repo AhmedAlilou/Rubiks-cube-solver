@@ -19,7 +19,7 @@ const cyclicEquality = (array1, array2) => {
 
     for (let j = 0; j < n; j++) {
       if (JSON.stringify(rotated) === JSON.stringify(array2)) {
-        console.log("count is ", j);
+        "count is ", j;
         return [true, j];
       }
       rotated.push(rotated.shift()); // rotate rows

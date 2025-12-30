@@ -44,7 +44,7 @@ const fish = (cube, sideRows, colour) => {
     }
   }
 
-  console.log(sune, sideRows);
+  sune, sideRows;
 
   const moves = sune
     ? ["R", "U", "R'", "U", "R", "U", "U", "R'"]

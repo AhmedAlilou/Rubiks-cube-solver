@@ -7,7 +7,7 @@ import {
 import returnCornerPosition from "../../../../helperFunctions/returnCornerPosition.js";
 
 const topColoursDifferent = (cube, corner, edge, cornerTopColour) => {
-  console.log("CORNER DIFFERENT");
+  ("CORNER DIFFERENT");
   let tempCube = cube;
   const cornerFace = corner.face;
   const cornerRow = corner.row;

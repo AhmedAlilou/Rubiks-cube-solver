@@ -4,7 +4,7 @@ import getRow from "../../helperFunctions/getRow.js";
 import setRow from "../../helperFunctions/setRow.js";
 
 const U = (clockwise, cube) => {
-  console.log(cube);
+  cube;
   // 1. Rotate top face
   const newTop = rotateFace([...cube.top], clockwise);
   // 2. Handle adjacent faces using cycle notation
@@ -23,7 +23,7 @@ const U = (clockwise, cube) => {
     newCube.front = setRow(cube.front, 0, values.right);
     newCube.right = setRow(cube.right, 0, values.back);
 
-    console.log("U");
+    ("U");
   } else {
     // Anticlockwise: back → left → front → right → back
     newCube.back = setRow(cube.back, 0, values.right);
@@ -31,9 +31,9 @@ const U = (clockwise, cube) => {
     newCube.front = setRow(cube.front, 0, values.left);
     newCube.left = setRow(cube.left, 0, values.back);
 
-    console.log("U'");
+    ("U'");
   }
-  console.log(newCube);
+  newCube;
   return newCube;
 };
 

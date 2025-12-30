@@ -46,14 +46,7 @@ const twoLook = (cube, sideRows) => {
     }
   }
 
-  console.log(
-    "knownCase:",
-    knownCase,
-    "headlights:",
-    headlights,
-    "count: ",
-    count
-  );
+  "knownCase:", knownCase, "headlights:", headlights, "count: ", count;
 
   if (knownCase) {
     tempCube = oneLook(tempCube, sideRows);

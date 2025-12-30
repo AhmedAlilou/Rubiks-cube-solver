@@ -21,7 +21,7 @@ const x = (clockwise, cube) => {
       clockwise
     );
     newCube.front = cube.down;
-    console.log("x");
+    ("x");
   } else {
     newCube.front = cube.top;
     newCube.top = rotateFace(
@@ -33,9 +33,9 @@ const x = (clockwise, cube) => {
       clockwise
     );
     newCube.down = cube.front;
-    console.log("x'");
+    ("x'");
   }
-  console.log(newCube);
+  newCube;
   return newCube;
 };
 

@@ -32,8 +32,8 @@ const oneLook = (cube, sideRows) => {
     const alg = pllData[1];
 
     if (cyclicEquality(formattedSideRows, pattern)[0]) {
-      console.log(pllName, pattern);
-      console.log(formattedSideRows);
+      pllName, pattern;
+      formattedSideRows;
       moves = alg;
       if (cyclicEquality(formattedSideRows, pattern)[1] === 1) {
         setPllSolution([...getPllSolution(), "U'"]);
@@ -47,7 +47,7 @@ const oneLook = (cube, sideRows) => {
       }
     }
   }
-  console.log("MOVES:::", moves);
+  "MOVES:::", moves;
   setPllSolution([...getPllSolution(), ...moves]);
   moves.forEach((move) => {
     tempCube = letterToMove[move[0]](move[1] ? false : true, tempCube);

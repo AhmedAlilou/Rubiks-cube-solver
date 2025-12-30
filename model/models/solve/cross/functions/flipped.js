@@ -7,7 +7,7 @@ import { E } from "../../../moves/slice/index.js";
 import middle from "./middle.js";
 const flipped = (cube, tileFace, tilePair) => {
   let tempCube = cube;
-  console.log("FLIPPED TILE FACE", tileFace, tilePair);
+  "FLIPPED TILE FACE", tileFace, tilePair;
   const faceToMove = { front: F, left: L, back: B, right: R };
   const faceToNotation = { front: "F", left: "L", back: "B", right: "R" };
 

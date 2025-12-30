@@ -7,7 +7,7 @@ import {
 import { U } from "../../../moves/turns/index.js";
 
 const lastMove = (cube) => {
-  console.log("AUF");
+  ("AUF");
   let tempCube = cube;
 
   switch (tempCube["front"][1][1]) {

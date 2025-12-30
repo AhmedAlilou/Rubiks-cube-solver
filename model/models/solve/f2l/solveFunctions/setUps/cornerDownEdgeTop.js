@@ -7,7 +7,7 @@ import {
 } from "../../../../../store/solveStore.js";
 
 const cornerDownEdgeTop = (cube, corner, edge) => {
-  console.log("CORNER DOWN, EDGE TOP");
+  ("CORNER DOWN, EDGE TOP");
   let tempCube = cube;
 
   const cornerRow = corner.row;
@@ -63,7 +63,7 @@ const cornerDownEdgeTop = (cube, corner, edge) => {
 
   cornerFaces = [bottomColToFace[cornerCol], bottomRowToFace[cornerRow]];
   let cornerOnLeft = false;
-  console.log(cornerFaces);
+  cornerFaces;
   if (cornerFaces.includes("left")) {
     if (cornerFaces.includes("back")) {
       cornerOnLeft = true;
@@ -79,8 +79,8 @@ const cornerDownEdgeTop = (cube, corner, edge) => {
     }
     turningFace = "right";
   }
-  console.log(cornerOnLeft);
-  console.log("TURNING FACE: ", turningFace);
+  cornerOnLeft;
+  "TURNING FACE: ", turningFace;
 
   // place edge in correct spot first:
   if (turningFace === faceConversionClockwise[sideEdgeFace]) {

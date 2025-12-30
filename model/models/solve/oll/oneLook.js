@@ -50,14 +50,12 @@ const oneLookOll = (cube, colour) => {
         setOllSolution(["U'"]);
         tempCube = U(false, tempCube);
       }
-      console.log(
-        cyclicEquality(
-          formattedTop,
-          formattedSideRows,
-          algs[i][0],
-          algs[i][1]
-        )[1]
-      );
+      cyclicEquality(
+        formattedTop,
+        formattedSideRows,
+        algs[i][0],
+        algs[i][1]
+      )[1];
       if (algs[i][2].length !== 1) {
         moves = algs[i][2];
       }

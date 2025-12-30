@@ -7,7 +7,7 @@ import {
 } from "../../../../../store/solveStore.js";
 
 const moveCornerToTop = (cube, cornerFace, cornerFaces, cornerOnLeft) => {
-  console.log("Removing Corner");
+  ("Removing Corner");
   let cornerOnRight = !cornerOnLeft;
   let tempCube = cube;
   const faceToMove = { front: F, left: L, back: B, right: R };
