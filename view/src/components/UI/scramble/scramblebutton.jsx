@@ -26,7 +26,7 @@ function ScrambleButton(props) {
       executeScramble(newScramble);
     } else {
       const newScramble = (props.inputValue || "").trim();
-      if (!newScramble) return console.log("no scramble entered");
+      if (!newScramble) return "no scramble entered";
       setScramble(newScramble);
       setButtonsDisabled(true);
       executeScramble(formatAlg(newScramble));
@@ -34,7 +34,7 @@ function ScrambleButton(props) {
   };
   return (
     <button
-      className="scramblebutton"
+      className="scramblebutton h-[4vh]"
       onClick={() => {
         handleClick(props);
       }}

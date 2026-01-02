@@ -75,13 +75,19 @@
   cursor: not-allowed;
 }
 
+.scramble {
+  margin-left: 1.5vw;
+  margin-right: 1.5vw;
+}
+
 .scrambleinput {
   background-color: #1f1f1f;
   border: none;
   color: white;
   padding: 0.8%;
   border-radius: 10px;
-  width: 50vw;
+  width: 40vw;
+  height: 4vh;
 }
 
 .scrambleinput:focus {
@@ -90,17 +96,22 @@
   transition: 0.3s ease-in;
 }
 
+.scramblebuttons {
+  display: flex;
+  flex-direction: row;
+  gap: 1vw;
+  margin-left: 1.5vw;
+  align-items: center;
+}
+
 .scramblebutton {
   background-color: #1f1f1f;
   border: none;
   color: white;
   padding: 0;
-  margin-left: 1%;
-  margin-right: 1%;
   text-align: center;
   cursor: pointer;
   width: 12vw;
-  height: 6vh;
   border-radius: 10px;
   transition: 0.3s ease-in;
   transition: 0.3s ease-out;

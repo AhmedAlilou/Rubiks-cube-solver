@@ -37,7 +37,7 @@ function UPrime() {
           },
           false
         );
-        console.log("Current Rotation:", currentYRotation);
+        "Current Rotation:", currentYRotation;
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

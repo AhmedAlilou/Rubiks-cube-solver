@@ -37,7 +37,7 @@ function L() {
           },
           true
         );
-        console.log("Current Rotation:", currentXRotation);
+        "Current Rotation:", currentXRotation;
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

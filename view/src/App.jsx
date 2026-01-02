@@ -1,6 +1,7 @@
 import React from "react";
 import { Canvas } from "@react-three/fiber";
 import "./App.css";
+import useApplicationStore from "./store/applicationStore";
 import Scene from "./scene";
 import Keypad from "./components/UI/keypad/keypad";
 import Scramble from "./components/UI/scramble/scramble";
@@ -8,6 +9,7 @@ import Solution from "./components/UI/solution/solution";
 import Menu from "./components/UI/menu/menu";
 
 function App() {
+  const axisHelper = useApplicationStore((state) => state.axisHelper);
   return (
     <div className="App">
       <div className="flex flex-row w-[100vw] h-[60vh]">
@@ -15,7 +17,9 @@ function App() {
         <div className="canvas">
           <Canvas>
             <Scene />
-            <axesHelper args={[1000]} />
+            {axisHelper ? <axesHelper args={[1000]} /> : null}
+            {/*<axesHelper args={[1000]} /> MAKE THIS OPTIONAL FOR THE USER LATER*/}
+            user
           </Canvas>
         </div>
         <Solution />

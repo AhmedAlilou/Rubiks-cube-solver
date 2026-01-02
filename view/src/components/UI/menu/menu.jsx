@@ -3,6 +3,7 @@ import "./menu.css";
 import ToggleOll from "./toggleOll";
 import TogglePll from "./togglePll";
 import CrossColours from "./crossColours";
+import ToggleAxis from "./toggleAxis";
 
 function Menu() {
   return (
@@ -14,6 +15,7 @@ function Menu() {
           <TogglePll />
         </div>
         <CrossColours />
+        <ToggleAxis />
       </div>
     </div>
   );

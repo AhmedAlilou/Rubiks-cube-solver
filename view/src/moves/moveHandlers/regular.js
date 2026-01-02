@@ -61,7 +61,7 @@ const handleD = ({
       newCubies[i] = { ...cubies[i], isRotating: false };
     }
   }
-  console.log({
+  ({
     cubies,
     setCubies,
     currentYRotation,
@@ -77,7 +77,7 @@ const handleD = ({
   const amount = double ? PI : PI / 2;
 
   setDouble(double);
-  console.log(amount);
+  amount;
   setCurrentYRotation(
     prime ? currentYRotation - amount : currentYRotation + amount
   );

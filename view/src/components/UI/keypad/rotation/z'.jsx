@@ -37,7 +37,7 @@ function ZPrime() {
           },
           false
         );
-        console.log("Current Rotation:", currentZRotation);
+        "Current Rotation:", currentZRotation;
       }}
       disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
     >

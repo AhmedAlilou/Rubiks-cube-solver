@@ -64,7 +64,7 @@ const Cube = () => {
     reset: resetXSpring,
     onRest: () => {
       if (!resetXSpring) {
-        console.log("Animation complete - updating cubie positions");
+        ("Animation complete - updating cubie positions");
 
         const updatedCubies = {};
 
@@ -136,13 +136,13 @@ const Cube = () => {
     reset: resetYSpring,
     onRest: () => {
       if (!resetYSpring) {
-        console.log("Animation complete - updating cubie positions");
+        ("Animation complete - updating cubie positions");
 
         const updatedCubies = {};
 
         rotatingCubies.forEach((cubie) => {
           if (double) {
-            console.log("DOUBLE");
+            ("DOUBLE");
             updatedCubies[cubie.id] = {
               ...cubies,
               position: [
@@ -209,7 +209,7 @@ const Cube = () => {
     reset: resetZSpring,
     onRest: () => {
       if (!resetZSpring) {
-        console.log("Animation complete - updating cubie positions");
+        ("Animation complete - updating cubie positions");
 
         const updatedCubies = {};
 

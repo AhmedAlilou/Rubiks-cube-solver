@@ -54,7 +54,7 @@ function Undo() {
 
   const handleClick = () => {
     if (moveHistory.length === 0 || buttonsDisabled) return;
-    console.log("working");
+    ("working");
     const [move, double, prime] = moveHistory[moveHistory.length - 1];
     setMoveHistory(moveHistory.slice(0, -1));
     const params = {
@@ -180,7 +180,7 @@ function Undo() {
         );
         break;
     }
-    console.log("moveHistory in Undo: ", moveHistory);
+    "moveHistory in Undo: ", moveHistory;
     // call that function that is last in the moveHistory stack with parameters including isUndo = true
   };
 

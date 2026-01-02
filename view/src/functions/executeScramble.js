@@ -371,7 +371,7 @@ const executeScramble = (sequence) => {
         );
         break;
       default:
-        console.log("WRONG");
+        "WRONG";
         break;
     }
 
