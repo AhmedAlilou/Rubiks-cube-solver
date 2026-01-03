@@ -5,9 +5,9 @@ import ScrambleButton from "./scramblebutton";
 function Scramble() {
   const [inputValue, setInputValue] = useState("");
   return (
-    <div className="scramble h-[8vh] w-[65vw] mt-[2vh] flex flex-row justify-start">
+    <div className="scramble w-[65vw] mt-[2vh] flex flex-row justify-start">
       <label className="w-[40vw]">
-        Enter your scramble or click generate for a random one:
+        Enter or randomly generate a scramble:
         <input
           className="scrambleinput h-[3vh] w-[32vw] p-0"
           id="scrambleInput"

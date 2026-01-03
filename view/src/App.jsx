@@ -12,13 +12,12 @@ function App() {
   const axisHelper = useApplicationStore((state) => state.axisHelper);
   return (
     <div className="App">
-      <div className="flex flex-row w-[100vw] h-[60vh]">
+      <div className="mainRow">
         <Keypad />
         <div className="canvas">
           <Canvas>
             <Scene />
             {axisHelper ? <axesHelper args={[1000]} /> : null}
-            {/*<axesHelper args={[1000]} /> MAKE THIS OPTIONAL FOR THE USER LATER*/}
             user
           </Canvas>
         </div>

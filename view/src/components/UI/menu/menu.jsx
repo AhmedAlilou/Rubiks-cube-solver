@@ -7,16 +7,13 @@ import ToggleAxis from "./toggleAxis";
 
 function Menu() {
   return (
-    <div className="menu">
-      <div style={{ padding: "0.5rem" }}>Menu</div>
-      <div className="flex flex-col">
-        <div style={{ display: "flex", gap: "0.6rem", alignItems: "center" }}>
-          <ToggleOll />
-          <TogglePll />
-        </div>
-        <CrossColours />
+    <div className="menu flex flex-row gap-[2vw] align-center">
+      <div className="toggles flex flex-col h-[100%] justify-around">
+        <ToggleOll />
+        <TogglePll />
         <ToggleAxis />
       </div>
+      <CrossColours />
     </div>
   );
 }

@@ -13,7 +13,7 @@ function Toggle() {
       }}
       disabled={buttonsDisabled}
     >
-      Toggle double
+      2x
     </button>
   );
 }

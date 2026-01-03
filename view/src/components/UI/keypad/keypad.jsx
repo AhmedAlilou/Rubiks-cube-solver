@@ -41,7 +41,7 @@ import Subheading from "./subheading.jsx";
 function Keypad() {
   return (
     <div className="keypad grid grid-cols-6 grid-rows-12 w-[24vw] mx-[1.5vw] gap-4">
-      <div className=" col-span-6 row-span-1 flex flex-row">
+      <div className=" col-span-6 row-span-1 gap-[0.5vw] flex flex-row">
         <Subheading text={"Regular turns"} />
         <Toggle />
         <Undo />

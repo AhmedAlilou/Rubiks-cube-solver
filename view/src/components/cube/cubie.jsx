@@ -6,7 +6,7 @@ import React, { useRef } from "react";
 const PI = Math.PI;
 const grey = "#808080"; // Default grey colour for the front face
 // use a realistic dark grey for the inner (unset) sticker colour
-const black = "#1f1f1f";
+const black = "#262626";
 
 const Cubie = (props) => {
   return (

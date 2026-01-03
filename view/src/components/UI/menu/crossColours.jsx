@@ -48,25 +48,28 @@ function CrossColours() {
   };
 
   return (
-    <div className="crossColoursContainer">
-      {ALL.map((code) => (
-        <div className="crossOption" key={code} onClick={() => toggle(code)}>
-          <div
-            className="swatch"
-            style={{
-              backgroundColor: COLOR_MAP[code],
-              border: code === "w" ? "1px solid #c7c7c7" : undefined
-            }}
-          />
-          <input
-            type="checkbox"
-            checked={selected.includes(code)}
-            readOnly
-            className="crossCheckbox"
-            aria-label={code}
-          />
-        </div>
-      ))}
+    <div className="crossColoursContainer flex flex-col">
+      <div className="crossColoursTitle"> Select cross colours</div>
+      <div className="flex flex-row gap-[1vw]">
+        {ALL.map((code) => (
+          <div className="crossOption" key={code} onClick={() => toggle(code)}>
+            <div
+              className="swatch"
+              style={{
+                backgroundColor: COLOR_MAP[code],
+                border: code === "w" ? "1px solid #c7c7c7" : undefined
+              }}
+            />
+            <input
+              type="checkbox"
+              checked={selected.includes(code)}
+              readOnly
+              className="crossCheckbox"
+              aria-label={code}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

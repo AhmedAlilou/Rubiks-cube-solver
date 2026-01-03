@@ -39,12 +39,12 @@ function Solution() {
   };
 
   return (
-    <div className="solution flex flex-col">
-      <div className="mt-[4%] h-[15%]">Scramble: {scramble}</div>
-      <div>Cross: {renderMoves(cross)}</div>
-      <div>F2L: {renderMoves(f2l)}</div>
-      <div>OLL: {renderMoves(oll)}</div>
-      <div>PLL: {renderMoves(pll)}</div>
+    <div className="solution">
+      <div className="mt-[4%] h-[8%]">Scramble: {scramble}</div>
+      <div className="step">Cross: {renderMoves(cross)}</div>
+      <div className="step">F2L: {renderMoves(f2l)}</div>
+      <div className="step">OLL: {renderMoves(oll)}</div>
+      <div className="step">PLL: {renderMoves(pll)}</div>
       <Solve />
     </div>
   );

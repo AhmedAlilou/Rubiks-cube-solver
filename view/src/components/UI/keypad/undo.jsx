@@ -1,6 +1,7 @@
 import React from "react";
 import useCubiesStore from "../../../store/cubiesStore";
 import useApplicationStore from "../../../store/applicationStore";
+import { FaUndo } from "react-icons/fa";
 import {
   controllerR,
   controllerL,
@@ -192,7 +193,7 @@ function Undo() {
       }}
       disabled={buttonsDisabled || moveHistory.length === 0}
     >
-      Undo
+      {<FaUndo size={18} />}
     </button>
   );
 }

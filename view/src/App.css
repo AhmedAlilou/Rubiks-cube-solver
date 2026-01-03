@@ -18,7 +18,7 @@ body {
 }
 
 .canvas {
-  background-color: #1f1f1f;
+  background-color: #262626;
   width: 50vw;
   height: 60vh;
   margin: 1%;
@@ -29,6 +29,46 @@ body {
   background-color: #121212;
   padding: 0.5%;
   height: 70vh;
+}
+
+/* Responsive layout for main row */
+.mainRow {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 60vh;
+}
+
+/* Make layout stack on narrow screens */
+@media (max-width: 900px) {
+  .mainRow {
+    flex-direction: column;
+    height: auto;
+  }
+  .canvas {
+    width: calc(100% - 2rem);
+    height: 45vh;
+    margin: 1rem auto;
+  }
+  .keypad {
+    width: calc(100% - 2rem);
+    height: auto;
+    margin: 0.5rem auto;
+  }
+  .solution {
+    width: calc(100% - 2rem);
+    height: auto;
+    margin: 0.5rem auto;
+  }
+  .menu {
+    width: calc(100% - 2rem);
+    margin: 0.5rem auto;
+  }
+  .scramble {
+    width: calc(100% - 2rem);
+    margin: 0.5rem auto;
+  }
 }
 
 /* Footer styles */
