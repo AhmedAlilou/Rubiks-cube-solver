@@ -14,6 +14,17 @@ let ollSolution = [];
 
 let pllSolution = [];
 
+let solution = [[], [], [], []];
+
+export function getSolution() {
+  return solution;
+}
+
+export function setSolution(newSolution) {
+  solution = newSolution;
+  return solution;
+}
+
 // simple subscription system so UI can react to changes
 const _listeners = new Set();
 
