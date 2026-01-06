@@ -28,7 +28,7 @@ body {
 .keypad {
   background-color: #121212;
   padding: 0.5%;
-  height: 70vh;
+  height: 60vh;
 }
 
 /* Responsive layout for main row */
@@ -90,4 +90,28 @@ body {
 }
 .footer a:hover {
   text-decoration: underline;
+}
+
+/* Global custom scrollbar (WebKit) and Firefox fallback */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #b83333, #7a1f1f);
+  border-radius: 12px;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.25);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #c94b4b, #8a2a2a);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #b83333 rgba(255, 255, 255, 0.02);
 }

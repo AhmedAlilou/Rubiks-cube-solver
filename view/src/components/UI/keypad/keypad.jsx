@@ -63,7 +63,7 @@ function Keypad() {
 
       <B />
       <BPrime />
-      <div className="col-span-6">
+      <div className="col-span-6 h-[2vh]">
         <Subheading text={"Rotations"} />
       </div>
       <X />
