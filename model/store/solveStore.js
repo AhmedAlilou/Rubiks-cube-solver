@@ -131,3 +131,14 @@ export function setPllSolution(moves) {
   pllSolution = moves;
   _notify();
 }
+
+let pointer = 0;
+
+export function getPointer() {
+  return pointer;
+}
+
+export function setPointer(newPointer) {
+  pointer = newPointer;
+  return pointer;
+}
