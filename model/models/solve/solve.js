@@ -9,6 +9,7 @@ const solve = async (cube) => {
   await f2l(getCube());
   await oll(getCube());
   await pll(getCube());
+  console.log("HELLO");
 };
 
 export default solve;
