@@ -40,65 +40,75 @@ import Subheading from "./subheading.jsx";
 
 function Keypad() {
   return (
-    <div className="keypad grid grid-cols-6 grid-rows-12 w-[24vw] mx-[1.5vw] gap-4">
-      <div className=" col-span-6 row-span-1 gap-[0.5vw] flex flex-row">
+    <div className="keypad grid grid-cols-6 grid-rows-16 w-[24vw] mx-[1.5vw] gap-4">
+      <div className=" col-span-6 row-span-1 gap-[0.8vw] flex flex-row">
         <Subheading text={"Regular turns"} />
         <Toggle />
         <Undo />
       </div>
-      <F />
-      <FPrime />
+      <div className="buttons row-span-2 flex flex-row col-span-6 justify-between">
+        <F />
+        <FPrime />
 
-      <R />
-      <RPrime />
+        <R />
+        <RPrime />
 
-      <U />
-      <UPrime />
+        <U />
+        <UPrime />
+      </div>
+      <div className="buttons row-span-2 flex flex-row col-span-6">
+        <D />
+        <DPrime />
 
-      <D />
-      <DPrime />
+        <L />
+        <LPrime />
 
-      <L />
-      <LPrime />
-
-      <B />
-      <BPrime />
-      <div className="col-span-6 h-[2vh]">
+        <B />
+        <BPrime />
+      </div>
+      <div className="col-span-6 h-[2vh] row-span-">
         <Subheading text={"Rotations"} />
       </div>
-      <X />
-      <XPrime />
+      <div className="buttons row-span-2 flex flex-row col-span-6">
+        <X />
+        <XPrime />
 
-      <Y />
-      <YPrime />
-      <Z />
-      <ZPrime />
+        <Y />
+        <YPrime />
+        <Z />
+        <ZPrime />
+      </div>
       <div className="col-span-6">
         <Subheading text={"Slice turns"} />
       </div>
-      <M />
-      <MPrime />
-      <E />
-      <EPrime />
-      <S />
-      <SPrime />
-
+      <div className="buttons row-span-2 flex flex-row col-span-6">
+        <M />
+        <MPrime />
+        <E />
+        <EPrime />
+        <S />
+        <SPrime />
+      </div>
       <div className="col-span-6">
         <Subheading text={"Wide turns"} />
       </div>
+      <div className="buttons row-span-2 flex flex-row col-span-6">
+        <Wb />
+        <WbPrime />
+        <Wd />
+        <WdPrime />
+        <Wf />
+        <WfPrime />
+      </div>
+      <div className="buttons row-span-2 flex flex-row col-span-6">
+        <Wl />
+        <WlPrime />
 
-      <Wb />
-      <WbPrime />
-      <Wd />
-      <WdPrime />
-      <Wf />
-      <WfPrime />
-      <Wl />
-      <WlPrime />
-      <Wr />
-      <WrPrime />
-      <Wu />
-      <WuPrime />
+        <Wr />
+        <WrPrime />
+        <Wu />
+        <WuPrime />
+      </div>
     </div>
   );
 }

@@ -6,11 +6,12 @@
   margin: 0;
   text-align: center;
   cursor: pointer;
-  width: 90%;
-  height: 80%;
+  width: 80%;
+  height: 70%;
   border-radius: 10%;
   transition: 0.3s ease-in;
   transition: 0.3s ease-out;
+  margin-right: 0.3vw;
 }
 
 .button:disabled {
