@@ -7,7 +7,7 @@ const useApplicationStore = create((set) => ({
   setSolverMode: (mode) => set({ solverMode: mode }),
   moveHistory: [],
   setMoveHistory: (value) => set({ moveHistory: value }),
-  axisHelper: false,
+  axisHelper: true,
   setAxisHelper: (value) => set({ axisHelper: value })
 }));
 
