@@ -20,6 +20,7 @@ const oneLook = (cube, sideRows) => {
     L: L,
     D: D,
     r: r,
+    l: l,
     S: S,
     M: M,
     x: x,
@@ -47,7 +48,6 @@ const oneLook = (cube, sideRows) => {
       }
     }
   }
-  "MOVES:::", moves;
   setPllSolution([...getPllSolution(), ...moves]);
   moves.forEach((move) => {
     tempCube = letterToMove[move[0]](move[1] ? false : true, tempCube);
