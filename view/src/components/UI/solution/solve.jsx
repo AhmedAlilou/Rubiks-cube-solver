@@ -16,34 +16,34 @@ function Solve() {
     setSolverMode("solving");
     try {
       await solveCube(cube);
-      setSolverMode("solved");
+      setSolverMode("review");
     } catch (err) {
       setSolverMode("idle");
       throw err;
     }
   };
 
-  if (solverMode === "solving" || solverMode === "solved") {
+  if (solverMode === "solving" || solverMode === "review") {
     return (
       <div className="navButtons">
         <button
           className="reviewButton"
           aria-label="return-to-start"
-          disabled={!solverMode === "review"}
+          disabled={solverMode !== "review"}
         >
           <FaUndo />
         </button>
         <button
           className="reviewButton"
           aria-label="back"
-          disabled={!solverMode === "review"}
+          disabled={solverMode !== "review"}
         >
           <FaBackward />
         </button>
         <button
           className="reviewButton"
           aria-label="forward"
-          disabled={!solverMode === "review"}
+          disabled={solverMode !== "review"}
         >
           <FaForward />
         </button>
