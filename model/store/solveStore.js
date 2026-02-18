@@ -16,12 +16,33 @@ let pllSolution = [];
 
 let solution = [[], [], [], []];
 
+let stepPointer = 3;
+
+export function getStepPointer() {
+  return stepPointer;
+}
+
+export function setStepPointer(newPointer) {
+  stepPointer = newPointer;
+}
+
+let movePointer = 0;
+
+export function getMovePointer() {
+  return movePointer;
+}
+
+export function setMovePointer(newPointer) {
+  movePointer = newPointer;
+}
+
 export function getSolution() {
   return solution;
 }
 
 export function setSolution(newSolution) {
   solution = newSolution;
+  movePointer = solution[3].length - 1;
   return solution;
 }
 
@@ -130,15 +151,4 @@ export function getPllSolution() {
 export function setPllSolution(moves) {
   pllSolution = moves;
   _notify();
-}
-
-let pointer = 0;
-
-export function getPointer() {
-  return pointer;
-}
-
-export function setPointer(newPointer) {
-  pointer = newPointer;
-  return pointer;
 }

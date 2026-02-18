@@ -30,7 +30,6 @@ const solve = async (cube) => {
     const { setSolverMode } = useApplicationStore.getState();
     setSolverMode && setSolverMode("review");
     console.log(useApplicationStore.getState()?.solverMode);
-    console.log(useApplicationStore.getState().solverMode);
   } else if (typeof useApplicationStore.setState === "function") {
     useApplicationStore.setState({ solverMode: "review" });
     console.log(useApplicationStore.getState?.().solverMode);
