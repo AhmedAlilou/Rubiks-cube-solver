@@ -42,7 +42,7 @@ export function getSolution() {
 
 export function setSolution(newSolution) {
   solution = newSolution;
-  movePointer = solution[3].length - 1;
+  movePointer = solution[3].length;
   return solution;
 }
 
