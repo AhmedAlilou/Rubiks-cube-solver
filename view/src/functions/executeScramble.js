@@ -25,7 +25,6 @@ import {
   controlleru
 } from "../../../controller/cubeMoves/wide/index.js";
 
-import useApplicationStore from "../store/applicationStore";
 import useCubiesStore from "../store/cubiesStore.js";
 
 const executeScramble = (sequence) => {
