@@ -2,9 +2,18 @@ import React from "react";
 import useApplicationStore from "../../../store/applicationStore";
 import solveCube from "../../../../../controller/solution/solve";
 import { getCube } from "../../../../../model/store/cubeStore";
+import {
+  getSolution,
+  getStepPointer,
+  setStepPointer,
+  getMovePointer,
+  setMovePointer
+} from "../../../../../model/store/solveStore.js";
 import useCubiesStore from "../../../store/cubiesStore";
 import { FaBackward, FaForward, FaUndo } from "react-icons/fa";
 import "../UI.css";
+import backward from "./backward";
+import forward from "./forward";
 
 function Solve() {
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -36,14 +45,27 @@ function Solve() {
         <button
           className="reviewButton"
           aria-label="back"
-          disabled={solverMode !== "review"}
+          disabled={
+            solverMode !== "review" ||
+            (getStepPointer() === 0 && getMovePointer() === 0)
+          }
+          onClick={() => {
+            backward();
+          }}
         >
           <FaBackward />
         </button>
         <button
           className="reviewButton"
           aria-label="forward"
-          disabled={solverMode !== "review"}
+          disabled={
+            solverMode !== "review" ||
+            (getStepPointer() === 3 &&
+              getMovePointer() === getSolution()[3].length)
+          }
+          onClick={() => {
+            forward();
+          }}
         >
           <FaForward />
         </button>
