@@ -25,17 +25,6 @@ function Explanation() {
       const pllLength = getPllSolution()?.length || 0;
 
       setSolveData({ crossLength, f2lLength, ollLength, pllLength });
-
-      console.log(
-        "Cross:",
-        crossLength,
-        "F2L:",
-        f2lLength,
-        "OLL:",
-        ollLength,
-        "PLL:",
-        pllLength
-      );
     };
 
     // Subscribe to store changes

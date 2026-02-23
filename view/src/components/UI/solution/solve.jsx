@@ -38,7 +38,11 @@ function Solve() {
         <button
           className="reviewButton"
           aria-label="return-to-start"
-          disabled={solverMode !== "review"}
+          disabled={
+            buttonsDisabled ||
+            solverMode !== "review" ||
+            (getStepPointer() === 0 && getMovePointer() === 0)
+          }
         >
           <FaUndo />
         </button>
@@ -46,6 +50,7 @@ function Solve() {
           className="reviewButton"
           aria-label="back"
           disabled={
+            buttonsDisabled ||
             solverMode !== "review" ||
             (getStepPointer() === 0 && getMovePointer() === 0)
           }
@@ -59,6 +64,7 @@ function Solve() {
           className="reviewButton"
           aria-label="forward"
           disabled={
+            buttonsDisabled ||
             solverMode !== "review" ||
             (getStepPointer() === 3 &&
               getMovePointer() === getSolution()[3].length)
