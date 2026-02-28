@@ -14,6 +14,7 @@ import { FaBackward, FaForward, FaUndo } from "react-icons/fa";
 import "../UI.css";
 import backward from "./backward";
 import forward from "./forward";
+import returnToStart from "./return.js";
 
 function Solve() {
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
@@ -43,6 +44,9 @@ function Solve() {
             solverMode !== "review" ||
             (getStepPointer() === 0 && getMovePointer() === 0)
           }
+          onClick={() => {
+            returnToStart();
+          }}
         >
           <FaUndo />
         </button>
