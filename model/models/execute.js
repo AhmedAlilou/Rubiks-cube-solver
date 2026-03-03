@@ -144,7 +144,7 @@ const execute = (moves) => {
       (isPrime, base, double);
       controller(params, !isPrime);
       i++;
-      setTimeout(nextMove, 1000);
+      setTimeout(nextMove, 900);
     }
     nextMove();
   });
