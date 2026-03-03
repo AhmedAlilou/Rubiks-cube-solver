@@ -1,17 +1,12 @@
-import React from "react";
 import generateScramble from "../../../../../model/models/scramble/generateScramble";
-import {
-  setScramble,
-  setScrambling
-} from "../../../../../global/store/globalStore";
 import formatAlg from "../../../../../model/models/formatAlg.js";
 import useApplicationStore from "../../../store/applicationStore";
 import executeScramble from "../../../functions/executeScramble.js";
 import useCubiesStore from "../../../store/cubiesStore";
-import { getCube } from "../../../../../model/store/cubeStore";
 
 function ScrambleButton(props) {
   const setScramble = useApplicationStore((state) => state.setScramble);
+  const scrambleLength = useApplicationStore((state) => state.scrambleLength);
   const setMass = useCubiesStore((state) => state.setMass);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
@@ -20,7 +15,7 @@ function ScrambleButton(props) {
   const handleClick = (props) => {
     setMass(0);
     if (props.type === "generate") {
-      const newScramble = generateScramble(25);
+      const newScramble = generateScramble(scrambleLength);
       setScramble(newScramble);
       setButtonsDisabled(true);
       executeScramble(newScramble);

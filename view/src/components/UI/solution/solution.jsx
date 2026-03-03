@@ -6,45 +6,62 @@ import {
   getF2lSolution,
   getOllSolution,
   getPllSolution,
+  getSolution,
+  getStepPointer,
+  getMovePointer,
   subscribeSolveStore
 } from "../../../../../model/store/solveStore";
 
 function Solution() {
   const scramble = useApplicationStore((state) => state.scramble);
+  const solverMode = useApplicationStore((state) => state.solverMode);
 
-  const [cross, setCross] = useState(getCrossSolution());
-  const [f2l, setF2l] = useState(getF2lSolution());
-  const [oll, setOll] = useState(getOllSolution());
-  const [pll, setPll] = useState(getPllSolution());
+  const [solution, setSolution] = useState(getSolution());
+  const [stepPointer, setStepPointer] = useState(getStepPointer());
+  const [movePointer, setMovePointer] = useState(getMovePointer());
 
   useEffect(() => {
     // subscribe to store changes
     const unsub = subscribeSolveStore(() => {
-      setCross(getCrossSolution());
-      setF2l(getF2lSolution());
-      setOll(getOllSolution());
-      setPll(getPllSolution());
+      setSolution(getSolution());
+      setStepPointer(getStepPointer());
+      setMovePointer(getMovePointer());
     });
     return unsub;
   }, []);
 
-  const renderMoves = (moves) => {
-    if (!moves) return "";
-    if (Array.isArray(moves)) {
-      // flatten nested arrays (f2l might be nested)
-      const flattened = moves.flat ? moves.flat() : [].concat(...moves);
-      return flattened.join(" ");
-    }
-    return String(moves);
+  const flattenMoves = (moves) => {
+    if (!Array.isArray(moves)) return [moves];
+    return moves.flat ? moves.flat() : [].concat(...moves);
+  };
+
+  const renderMoves = (moves, step) => {
+    if (!moves || moves.length === 0) return "";
+
+    const isReviewMode = solverMode === "review";
+    const flattened = flattenMoves(moves);
+
+    return flattened.map((move, index) => {
+      const isCurrentMove =
+        isReviewMode && stepPointer === step && movePointer === index;
+      return (
+        <span
+          key={`${step}-${index}`}
+          style={isCurrentMove ? { color: "#ef4444", fontWeight: "bold" } : {}}
+        >
+          {move}{" "}
+        </span>
+      );
+    });
   };
 
   return (
     <div className="solution">
       <div className="mt-[4%] h-[8%]">Scramble: {scramble}</div>
-      <div className="step">Cross: {renderMoves(cross)}</div>
-      <div className="step">F2L: {renderMoves(f2l)}</div>
-      <div className="step">OLL: {renderMoves(oll)}</div>
-      <div className="step">PLL: {renderMoves(pll)}</div>
+      <div className="step">Cross: {renderMoves(solution[0], 0)}</div>
+      <div className="step">F2L: {renderMoves(solution[1], 1)}</div>
+      <div className="step">OLL: {renderMoves(solution[2], 2)}</div>
+      <div className="step">PLL: {renderMoves(solution[3], 3)}</div>
       <Solve />
     </div>
   );

@@ -45,7 +45,7 @@ function Explanation() {
 
   return (
     <div className="explanation">
-      Explanation
+      Review
       {isSolveComplete && (
         <Overview
           crossLength={solveData.crossLength}

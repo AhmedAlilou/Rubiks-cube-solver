@@ -8,7 +8,9 @@ const useApplicationStore = create((set) => ({
   moveHistory: [],
   setMoveHistory: (value) => set({ moveHistory: value }),
   axisHelper: true,
-  setAxisHelper: (value) => set({ axisHelper: value })
+  setAxisHelper: (value) => set({ axisHelper: value }),
+  scrambleLength: 25,
+  setScrambleLength: (length) => set({ scrambleLength: length })
 }));
 
 export default useApplicationStore;

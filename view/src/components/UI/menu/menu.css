@@ -85,3 +85,42 @@
   width: 18px;
   height: 18px;
 }
+
+.scrambleLengthContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scrambleLengthLabel {
+  color: #d1d5db;
+  font-size: 0.95rem;
+}
+
+.scrambleLengthInput {
+  background-color: #3f3f46;
+  border: 1px solid #52525b;
+  color: #d1d5db;
+  border-radius: 4px;
+  padding: 0.4rem 0.5rem;
+  font-size: 0.9rem;
+  width: 60px;
+  text-align: center;
+  transition: border-color 0.18s ease;
+}
+
+.scrambleLengthInput:focus {
+  outline: none;
+  border-color: #b83333;
+}
+
+.scrambleLengthInput::-webkit-outer-spin-button,
+.scrambleLengthInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.scrambleLengthInput[type="number"] {
+  -moz-appearance: textfield;
+}

@@ -256,7 +256,29 @@
   background-color: #262626;
   border-radius: 10px;
   width: 30vw;
-  height: 40vh;
+  height: 32vh;
   margin-right: 1%;
   margin-top: 3.5vh;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.overview p {
+  margin: 0.25rem 0;
+  font-size: 0.95rem;
+  color: #e0e0e0;
+}
+
+.overviewTotal {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #404040;
+  color: #ffffff;
 }

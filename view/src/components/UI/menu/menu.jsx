@@ -4,6 +4,7 @@ import ToggleOll from "./toggleOll";
 import TogglePll from "./togglePll";
 import CrossColours from "./crossColours";
 import ToggleAxis from "./toggleAxis";
+import ScrambleLength from "./scrambleLength";
 
 function Menu() {
   return (
@@ -14,6 +15,7 @@ function Menu() {
         <ToggleAxis />
       </div>
       <CrossColours />
+      <ScrambleLength />
     </div>
   );
 }

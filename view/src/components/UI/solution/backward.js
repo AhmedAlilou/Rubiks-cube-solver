@@ -65,24 +65,24 @@ const backward = () => {
   if (stepPointer === 0 && movePointer === 0) {
     return;
   }
-  console.log("out of the hood");
-  if (movePointer === 0) {
+
+  // Determine which move to reverse
+  let move;
+  if (movePointer > 0) {
+    // Undo the previous move in the current step
+    move = solution[stepPointer][movePointer - 1];
+    movePointer -= 1;
+  } else {
+    // We're at the start of a step, go back to the last move of the previous step
     stepPointer -= 1;
     movePointer = solution[stepPointer].length - 1;
-    console.log("good");
+    move = solution[stepPointer][movePointer];
   }
 
-  // execute the reverse move
-  let move = "";
-  if (movePointer !== 0) {
-    move = reverse([String(solution[stepPointer][movePointer - 1])])[0];
-  } else {
-    move = reverse([String(solution[stepPointer - 1][stepPointer.length])])[0];
-  }
-  const double = move.includes("2");
-  const prime = move.includes("'");
-  const baseMove = move.replace(/[2']/g, "");
-  console.log(move, solution[stepPointer], movePointer);
+  const reversedMove = reverse([String(move)])[0];
+  const double = reversedMove.includes("2");
+  const prime = reversedMove.includes("'");
+  const baseMove = reversedMove.replace(/[2']/g, "");
 
   const {
     cubies,
@@ -120,12 +120,9 @@ const backward = () => {
     !prime
   );
 
-  if (movePointer === 1) {
-    setStepPointer(stepPointer - 1);
-    setMovePointer(solution[stepPointer - 1].length);
-  } else {
-    setMovePointer(movePointer - 1);
-  }
+  // Update pointers
+  setStepPointer(stepPointer);
+  setMovePointer(movePointer);
 };
 
 export default backward;
