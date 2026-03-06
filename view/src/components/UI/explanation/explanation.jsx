@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../UI.css";
 import Overview from "./overview";
+import useApplicationStore from "../../../store/applicationStore";
 import {
   getCrossSolution,
   getF2lSolution,
@@ -8,8 +9,11 @@ import {
   getPllSolution,
   subscribeSolveStore
 } from "../../../../../model/store/solveStore.js";
+import Reset from "./reset.jsx";
 
 function Explanation() {
+  const solverMode = useApplicationStore((state) => state.solverMode);
+
   const [solveData, setSolveData] = useState({
     crossLength: 0,
     f2lLength: 0,
@@ -27,13 +31,10 @@ function Explanation() {
       setSolveData({ crossLength, f2lLength, ollLength, pllLength });
     };
 
-    // Subscribe to store changes
     const unsubscribe = subscribeSolveStore(updateSolveData);
 
-    // Initial call
     updateSolveData();
 
-    // Cleanup subscription
     return unsubscribe;
   }, []);
 
@@ -46,14 +47,17 @@ function Explanation() {
   return (
     <div className="explanation">
       Review
-      {isSolveComplete && (
-        <Overview
-          crossLength={solveData.crossLength}
-          f2lLength={solveData.f2lLength}
-          ollLength={solveData.ollLength}
-          pllLength={solveData.pllLength}
-        />
-      )}
+      <div className="explanationContent">
+        {isSolveComplete && (
+          <Overview
+            crossLength={solveData.crossLength}
+            f2lLength={solveData.f2lLength}
+            ollLength={solveData.ollLength}
+            pllLength={solveData.pllLength}
+          />
+        )}
+        <Reset solverMode={solverMode} />
+      </div>
     </div>
   );
 }

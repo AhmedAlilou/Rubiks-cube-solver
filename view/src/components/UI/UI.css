@@ -253,6 +253,8 @@
 }
 
 .explanation {
+  display: flex;
+  flex-direction: column;
   background-color: #262626;
   border-radius: 10px;
   width: 30vw;
@@ -263,11 +265,20 @@
   overflow-y: auto;
 }
 
+.explanationContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex: 1;
+  margin-top: 1rem;
+}
+
 .overview {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  margin-top: 1rem;
+  flex: 1;
 }
 
 .overview p {
@@ -281,4 +292,28 @@
   padding-top: 0.75rem;
   border-top: 1px solid #404040;
   color: #ffffff;
+}
+
+.resetButton {
+  background-color: #1a1a1a;
+  border: 1px solid #404040;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: 0.3s ease-in-out;
+  font-weight: 500;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.resetButton:hover {
+  background-color: #b83333;
+  border-color: #b83333;
+}
+
+.resetButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
