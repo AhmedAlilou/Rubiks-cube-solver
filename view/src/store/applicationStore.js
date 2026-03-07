@@ -10,7 +10,9 @@ const useApplicationStore = create((set) => ({
   axisHelper: true,
   setAxisHelper: (value) => set({ axisHelper: value }),
   scrambleLength: 25,
-  setScrambleLength: (length) => set({ scrambleLength: length })
+  setScrambleLength: (length) => set({ scrambleLength: length }),
+  showHelpModal: false,
+  setShowHelpModal: (value) => set({ showHelpModal: value })
 }));
 
 export default useApplicationStore;

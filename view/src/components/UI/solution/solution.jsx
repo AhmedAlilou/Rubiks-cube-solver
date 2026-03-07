@@ -11,6 +11,7 @@ import {
   getMovePointer,
   subscribeSolveStore
 } from "../../../../../model/store/solveStore";
+import jumpToMove from "./jumpToMove";
 
 function Solution() {
   const scramble = useApplicationStore((state) => state.scramble);
@@ -35,6 +36,12 @@ function Solution() {
     return moves.flat ? moves.flat() : [].concat(...moves);
   };
 
+  const handleMoveClick = (step, moveIndex) => {
+    if (solverMode === "review") {
+      jumpToMove(step, moveIndex);
+    }
+  };
+
   const renderMoves = (moves, step) => {
     if (!moves || moves.length === 0) return "";
 
@@ -47,7 +54,23 @@ function Solution() {
       return (
         <span
           key={`${step}-${index}`}
-          style={isCurrentMove ? { color: "#ef4444", fontWeight: "bold" } : {}}
+          onClick={() => handleMoveClick(step, index)}
+          style={{
+            color: isCurrentMove ? "#ef4444" : "#d1d5db",
+            fontWeight: isCurrentMove ? "bold" : "normal",
+            cursor: isReviewMode ? "pointer" : "default",
+            transition: "color 0.18s ease"
+          }}
+          onMouseEnter={(e) => {
+            if (isReviewMode && !isCurrentMove) {
+              e.currentTarget.style.color = "#f3f4f6";
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (isReviewMode && !isCurrentMove) {
+              e.currentTarget.style.color = "#d1d5db";
+            }
+          }}
         >
           {move}{" "}
         </span>

@@ -8,11 +8,13 @@ import Scramble from "./components/UI/scramble/scramble";
 import Solution from "./components/UI/solution/solution";
 import Menu from "./components/UI/menu/menu";
 import Explanation from "./components/UI/explanation/explanation";
+import HelpModal from "./components/UI/explanation/helpModal";
 
 function App() {
   const axisHelper = useApplicationStore((state) => state.axisHelper);
   return (
     <div className="App">
+      <HelpModal />
       <div className="mainRow">
         <Keypad />
         <div className="canvas">

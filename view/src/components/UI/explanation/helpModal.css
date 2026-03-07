@@ -1,0 +1,145 @@
+.helpModalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.helpModalContent {
+  background-color: #262626;
+  border-radius: 12px;
+  max-width: 600px;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid #52525b;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.helpModalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  border-bottom: 1px solid #52525b;
+}
+
+.helpModalHeader h2 {
+  margin: 0;
+  color: #f3f4f6;
+  font-size: 1.5rem;
+}
+
+.helpModalClose {
+  background: none;
+  border: none;
+  color: #d1d5db;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.18s ease;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.helpModalClose:hover {
+  color: #b83333;
+}
+
+.helpModalBody {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1.5rem;
+}
+
+.helpSection {
+  margin-bottom: 1.5rem;
+}
+
+.helpSection h3 {
+  color: #b83333;
+  font-size: 1.1rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.helpSection p {
+  color: #d1d5db;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+.helpModalFooter {
+  padding: 1.5rem;
+  border-top: 1px solid #52525b;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.helpModalButton {
+  background-color: #b83333;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.18s ease;
+}
+
+.helpModalButton:hover {
+  background-color: #d93333;
+}
+
+.helpModalButton:active {
+  background-color: #a02d2d;
+}
+
+/* Scrollbar styling */
+.helpModalBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.helpModalBody::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.helpModalBody::-webkit-scrollbar-thumb {
+  background: #52525b;
+  border-radius: 3px;
+}
+
+.helpModalBody::-webkit-scrollbar-thumb:hover {
+  background: #71717a;
+}
