@@ -1,10 +1,10 @@
 const removeContradictions = (moves) => {
   const simplifiedMoves = [];
 
-  const countFor = (m) => {
-    if (!m) return 0;
-    if (m.length === 1) return 1;
-    if (m[1] === "'") return -1;
+  const countFor = (move) => {
+    if (!move) return 0;
+    if (move.length === 1) return 1;
+    if (move[1] === "'") return -1;
     return 2;
   };
 
@@ -15,22 +15,21 @@ const removeContradictions = (moves) => {
       const currentMoveCount = countFor(move);
       const totalMoveCount = lastMoveCount + currentMoveCount;
 
-      lastMove,
+      (lastMove,
         lastMoveCount,
         currentMoveCount,
         totalMoveCount,
-        simplifiedMoves;
+        simplifiedMoves);
 
-      const rem = ((totalMoveCount % 4) + 4) % 4;
-      if (rem === 0) {
+      const remainder = ((totalMoveCount % 4) + 4) % 4;
+      if (remainder === 0) {
         simplifiedMoves.pop();
       } else {
         let addition = "";
-        if (rem === 1) addition = "";
-        else if (rem === 2) addition = "2";
-        else if (rem === 3) addition = "'";
+        if (remainder === 1) addition = "";
+        else if (remainder === 2) addition = "2";
+        else if (remainder === 3) addition = "'";
         const newMove = move[0] + addition;
-        // replace the last move instead of pushing a new one
         simplifiedMoves[simplifiedMoves.length - 1] = newMove;
       }
     } else {
