@@ -56,7 +56,7 @@ function Explanation() {
             pllLength={solveData.pllLength}
           />
         )}
-        <Reset solverMode={solverMode} />
+        {solverMode === "review" && <Reset solverMode={solverMode} />}
       </div>
     </div>
   );
