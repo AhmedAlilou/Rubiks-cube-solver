@@ -128,6 +128,11 @@
   transition: 0.3s ease-out;
 }
 
+.scramblebutton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .scramblebutton:hover {
   background-color: #b83333;
   transition: 0.3s ease-in;
@@ -253,32 +258,21 @@
 }
 
 .explanation {
-  display: flex;
-  flex-direction: column;
   background-color: #262626;
   border-radius: 10px;
-  width: 30vw;
-  height: 32vh;
+  width: 28vw;
+  height: 34vh;
   margin-right: 1%;
   margin-top: 3.5vh;
   padding: 1.5rem;
   overflow-y: auto;
 }
 
-.explanationContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 1rem;
-  flex: 1;
-  margin-top: 1rem;
-}
-
 .overview {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  flex: 1;
+  margin-top: 1rem;
 }
 
 .overview p {

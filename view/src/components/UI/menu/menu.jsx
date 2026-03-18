@@ -13,7 +13,7 @@ function Menu() {
   );
 
   return (
-    <div className="menu flex flex-row gap-[2vw] align-center">
+    <div className="menu flex flex-row gap-[2vw] w-[20%] align-center">
       <div className="toggles flex flex-col h-[100%] justify-around">
         <ToggleOll />
         <TogglePll />

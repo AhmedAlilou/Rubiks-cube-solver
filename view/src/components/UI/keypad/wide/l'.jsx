@@ -1,6 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
+import useApplicationStore from "../../../../store/applicationStore.js";
 import controllerl from "../../../../../../controller/cubeMoves/wide/l.js";
 
 function WlPrime() {
@@ -14,6 +15,7 @@ function WlPrime() {
   const prime = true;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
+  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
   const setButtonsDisabled = useCubiesStore(
     (state) => state.setButtonsDisabled
   );
@@ -39,7 +41,7 @@ function WlPrime() {
         );
         "Current Rotation:", currentXRotation;
       }}
-      disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
+      disabled={buttonsDisabled || automaticMovesInProgress} // Disable the button if buttonsDisabled is true
     >
       l{double ? "2" : ""}'
     </button>

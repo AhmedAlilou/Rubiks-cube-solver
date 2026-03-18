@@ -10,10 +10,8 @@ const friction = 25;
 const Cube = () => {
   const cubies = useCubiesStore((state) => state.cubies);
   const setCubies = useCubiesStore((state) => state.setCubies);
-
   const staticCubies = [];
   const rotatingCubies = [];
-
   const currentXRotation = useCubiesStore((state) => state.currentXRotation); // current rotation state
   const setCurrentXRotation = useCubiesStore(
     (state) => state.setCurrentXRotation
@@ -26,20 +24,12 @@ const Cube = () => {
   const setCurrentZRotation = useCubiesStore(
     (state) => state.setCurrentZRotation
   );
-
   const prime = useCubiesStore((state) => state.prime); // whether the rotation is a prime turn
-  const setPrime = useCubiesStore((state) => state.setPrime); // function to update prime state
-
   const double = useCubiesStore((state) => state.double);
-  const setDouble = useCubiesStore((state) => state.setDouble);
-
-  const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
     (state) => state.setButtonsDisabled
   );
-
   const mass = useCubiesStore((state) => state.mass);
-
   const [resetXSpring, setResetXSpring] = useState(false); // these are here to reset rotation to 0 without triggering another useSpring animation
   const [resetYSpring, setResetYSpring] = useState(false);
   const [resetZSpring, setResetZSpring] = useState(false);
@@ -64,8 +54,6 @@ const Cube = () => {
     reset: resetXSpring,
     onRest: () => {
       if (!resetXSpring) {
-        ("Animation complete - updating cubie positions");
-
         const updatedCubies = {};
 
         rotatingCubies.forEach((cubie) => {
@@ -117,7 +105,6 @@ const Cube = () => {
         });
 
         setCubies(updatedCubies);
-
         setResetXSpring(true);
         setCurrentXRotation(0);
       } else {

@@ -1,6 +1,5 @@
 import { create } from "zustand";
 
-const PI = Math.PI;
 const orange = "#DD5500";
 const yellow = "#CCCC00";
 const red = "#B70000";

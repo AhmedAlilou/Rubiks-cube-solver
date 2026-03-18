@@ -26,10 +26,14 @@ import {
 } from "../../../controller/cubeMoves/wide/index.js";
 
 import useCubiesStore from "../store/cubiesStore.js";
+import useApplicationStore from "../store/applicationStore.js";
 
 const executeScramble = (sequence) => {
   const setButtonsDisabled = useCubiesStore.getState().setButtonsDisabled;
+  const setAutomaticMovesInProgress =
+    useApplicationStore.getState().setAutomaticMovesInProgress;
   setButtonsDisabled(true);
+  setAutomaticMovesInProgress(true);
   const setMass = useCubiesStore.getState().setMass;
   setMass(0);
 
@@ -39,6 +43,7 @@ const executeScramble = (sequence) => {
   function nextMove() {
     if (i >= list.length) {
       setMass(0.8);
+      setAutomaticMovesInProgress(false);
       return;
     }
 

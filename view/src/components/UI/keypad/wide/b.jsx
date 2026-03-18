@@ -1,6 +1,7 @@
 import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
+import useApplicationStore from "../../../../store/applicationStore.js";
 import controllerb from "../../../../../../controller/cubeMoves/wide/b.js";
 
 function Wb() {
@@ -14,6 +15,7 @@ function Wb() {
   const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
+  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
   const setButtonsDisabled = useCubiesStore(
     (state) => state.setButtonsDisabled
   );
@@ -37,7 +39,7 @@ function Wb() {
           true
         );
       }}
-      disabled={buttonsDisabled} // Disable the button if buttonsDisabled is true
+      disabled={buttonsDisabled || automaticMovesInProgress} // Disable the button if buttonsDisabled is true
     >
       b{double ? "2" : ""}
     </button>

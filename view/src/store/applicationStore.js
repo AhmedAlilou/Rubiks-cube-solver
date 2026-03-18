@@ -12,7 +12,10 @@ const useApplicationStore = create((set) => ({
   scrambleLength: 25,
   setScrambleLength: (length) => set({ scrambleLength: length }),
   showHelpModal: false,
-  setShowHelpModal: (value) => set({ showHelpModal: value })
+  setShowHelpModal: (value) => set({ showHelpModal: value }),
+  automaticMovesInProgress: false,
+  setAutomaticMovesInProgress: (value) =>
+    set({ automaticMovesInProgress: value })
 }));
 
 export default useApplicationStore;

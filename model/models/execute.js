@@ -57,8 +57,6 @@ const controllerFunctions = {
 };
 
 const execute = (moves) => {
-  // Map of all move names to their corresponding functions
-  ("MOVES:", moves);
   if (moves.length === 0) return Promise.resolve();
   return new Promise((resolve) => {
     let i = 0;
@@ -85,7 +83,6 @@ const execute = (moves) => {
       }
       const double = countStr === "2";
       const isPrime = prime === "'";
-      const count = countStr ? parseInt(countStr) : 1;
 
       const {
         cubies,

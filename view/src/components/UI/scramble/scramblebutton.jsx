@@ -7,6 +7,9 @@ import useCubiesStore from "../../../store/cubiesStore";
 function ScrambleButton(props) {
   const setScramble = useApplicationStore((state) => state.setScramble);
   const scrambleLength = useApplicationStore((state) => state.scrambleLength);
+  const automaticMovesInProgress = useApplicationStore(
+    (state) => state.automaticMovesInProgress
+  );
   const setMass = useCubiesStore((state) => state.setMass);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
   const setButtonsDisabled = useCubiesStore(
@@ -33,7 +36,7 @@ function ScrambleButton(props) {
       onClick={() => {
         handleClick(props);
       }}
-      disabled={buttonsDisabled}
+      disabled={buttonsDisabled || automaticMovesInProgress}
     >
       {props.text}
     </button>

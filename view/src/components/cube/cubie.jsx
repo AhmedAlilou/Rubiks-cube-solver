@@ -1,11 +1,6 @@
 import Tile from "../tile/tile.jsx";
-import { useFrame } from "@react-three/fiber";
-import * as THREE from "three";
-import React, { useRef } from "react";
 
 const PI = Math.PI;
-const grey = "#808080"; // Default grey colour for the front face
-// use a realistic dark grey for the inner (unset) sticker colour
 const black = "#262626";
 
 const Cubie = (props) => {

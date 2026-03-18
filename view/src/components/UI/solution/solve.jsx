@@ -18,6 +18,7 @@ import returnToStart from "./return.js";
 
 function Solve() {
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
+  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
   const cube = getCube();
   const solverMode = useApplicationStore((s) => s.solverMode);
   const setSolverMode = useApplicationStore((s) => s.setSolverMode);
@@ -41,6 +42,7 @@ function Solve() {
           aria-label="return-to-start"
           disabled={
             buttonsDisabled ||
+            automaticMovesInProgress ||
             solverMode !== "review" ||
             (getStepPointer() === 0 && getMovePointer() === 0)
           }
@@ -55,6 +57,7 @@ function Solve() {
           aria-label="back"
           disabled={
             buttonsDisabled ||
+            automaticMovesInProgress ||
             solverMode !== "review" ||
             (getStepPointer() === 0 && getMovePointer() === 0)
           }
@@ -69,6 +72,7 @@ function Solve() {
           aria-label="forward"
           disabled={
             buttonsDisabled ||
+            automaticMovesInProgress ||
             solverMode !== "review" ||
             (getStepPointer() === 3 &&
               getMovePointer() === getSolution()[3].length)
@@ -86,7 +90,7 @@ function Solve() {
   return (
     <button
       className="solve"
-      disabled={buttonsDisabled}
+      disabled={buttonsDisabled || automaticMovesInProgress}
       onClick={() => startSolve()}
     >
       Solve

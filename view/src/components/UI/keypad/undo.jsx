@@ -46,6 +46,7 @@ function Undo() {
   );
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
+  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
   const setButtonsDisabled = useCubiesStore(
     (state) => state.setButtonsDisabled
   );
@@ -191,7 +192,7 @@ function Undo() {
       onClick={() => {
         handleClick();
       }}
-      disabled={buttonsDisabled || moveHistory.length === 0}
+      disabled={buttonsDisabled || automaticMovesInProgress || moveHistory.length === 0}
     >
       {<FaUndo size={18} />}
     </button>

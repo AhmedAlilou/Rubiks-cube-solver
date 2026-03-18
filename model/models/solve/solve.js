@@ -18,21 +18,17 @@ const solve = async (cube) => {
   await f2l(getCube());
   await oll(getCube());
   await pll(getCube());
-  console.log("HELLO");
   setSolution([
     [...getCrossSolution()],
     [...getF2lSolution()],
     [...getOllSolution()],
     [...getPllSolution()]
   ]);
-  console.log(getSolution());
   if (typeof useApplicationStore.getState === "function") {
     const { setSolverMode } = useApplicationStore.getState();
     setSolverMode && setSolverMode("review");
-    console.log(useApplicationStore.getState()?.solverMode);
   } else if (typeof useApplicationStore.setState === "function") {
     useApplicationStore.setState({ solverMode: "review" });
-    console.log(useApplicationStore.getState?.().solverMode);
   }
 };
 
