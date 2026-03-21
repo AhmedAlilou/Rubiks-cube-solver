@@ -12,7 +12,8 @@ const controllerr = (
     prime,
     setPrime,
     setButtonsDisabled,
-    automated
+    automated,
+    isUndo
   },
   clockwise
 ) => {
@@ -25,7 +26,8 @@ const controllerr = (
     prime,
     setPrime,
     setButtonsDisabled,
-    automated
+    automated,
+    isUndo
   });
   setCube(r(clockwise, getCube()));
   if (double) {
