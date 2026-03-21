@@ -14,16 +14,13 @@ const jumpToMove = (targetStep, targetMove) => {
   const currentStep = getStepPointer();
   const currentMove = getMovePointer();
 
-  // Already at target
   if (currentStep === targetStep && currentMove === targetMove) return;
 
-  // Check if target is behind current position
   const isBehind =
     currentStep > targetStep ||
     (currentStep === targetStep && currentMove > targetMove);
 
   if (isBehind) {
-    // Collect moves from current position back to target
     const movesToReverse = [];
     for (let i = currentStep; i >= targetStep; i--) {
       const startJ =
@@ -39,7 +36,6 @@ const jumpToMove = (targetStep, targetMove) => {
       executeScramble(reversedMoves);
     }
   } else {
-    // Target is ahead, collect moves from current to target
     const movesToExecute = [];
     for (let i = currentStep; i <= targetStep; i++) {
       const startJ = i === currentStep ? currentMove : 0;

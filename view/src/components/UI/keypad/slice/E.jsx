@@ -15,7 +15,9 @@ function E() {
   const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
-  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
+  const automaticMovesInProgress = useApplicationStore(
+    (state) => state.automaticMovesInProgress
+  );
   const setButtonsDisabled = useCubiesStore(
     (state) => state.setButtonsDisabled
   );

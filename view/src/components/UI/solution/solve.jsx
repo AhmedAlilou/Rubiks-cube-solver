@@ -5,9 +5,7 @@ import { getCube } from "../../../../../model/store/cubeStore";
 import {
   getSolution,
   getStepPointer,
-  setStepPointer,
-  getMovePointer,
-  setMovePointer
+  getMovePointer
 } from "../../../../../model/store/solveStore.js";
 import useCubiesStore from "../../../store/cubiesStore";
 import { FaBackward, FaForward, FaUndo } from "react-icons/fa";
@@ -18,7 +16,9 @@ import returnToStart from "./return.js";
 
 function Solve() {
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
-  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
+  const automaticMovesInProgress = useApplicationStore(
+    (state) => state.automaticMovesInProgress
+  );
   const cube = getCube();
   const solverMode = useApplicationStore((s) => s.solverMode);
   const setSolverMode = useApplicationStore((s) => s.setSolverMode);

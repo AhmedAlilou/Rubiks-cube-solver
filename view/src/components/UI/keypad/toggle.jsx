@@ -4,7 +4,9 @@ import useApplicationStore from "../../../store/applicationStore.js";
 
 function Toggle() {
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
-  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
+  const automaticMovesInProgress = useApplicationStore(
+    (state) => state.automaticMovesInProgress
+  );
   const double = useCubiesStore((state) => state.double);
   const setDouble = useCubiesStore((state) => state.setDouble);
   return (

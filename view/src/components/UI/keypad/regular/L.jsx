@@ -15,7 +15,9 @@ function L() {
   const prime = false;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
-  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
+  const automaticMovesInProgress = useApplicationStore(
+    (state) => state.automaticMovesInProgress
+  );
   const setButtonsDisabled = useCubiesStore(
     (state) => state.setButtonsDisabled
   );
@@ -39,7 +41,7 @@ function L() {
           },
           true
         );
-        "Current Rotation:", currentXRotation;
+        ("Current Rotation:", currentXRotation);
       }}
       disabled={buttonsDisabled || automaticMovesInProgress} // Disable the button if buttonsDisabled is true
     >

@@ -15,7 +15,9 @@ function ZPrime() {
   const prime = true;
   const setPrime = useCubiesStore((state) => state.setPrime);
   const buttonsDisabled = useCubiesStore((state) => state.buttonsDisabled);
-  const automaticMovesInProgress = useApplicationStore((state) => state.automaticMovesInProgress);
+  const automaticMovesInProgress = useApplicationStore(
+    (state) => state.automaticMovesInProgress
+  );
   const setButtonsDisabled = useCubiesStore(
     (state) => state.setButtonsDisabled
   );
@@ -39,7 +41,7 @@ function ZPrime() {
           },
           false
         );
-        "Current Rotation:", currentZRotation;
+        ("Current Rotation:", currentZRotation);
       }}
       disabled={buttonsDisabled || automaticMovesInProgress} // Disable the button if buttonsDisabled is true
     >

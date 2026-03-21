@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import Solve from "./solve";
 import useApplicationStore from "../../../store/applicationStore";
 import {
-  getCrossSolution,
-  getF2lSolution,
-  getOllSolution,
-  getPllSolution,
   getSolution,
   getStepPointer,
   getMovePointer,
