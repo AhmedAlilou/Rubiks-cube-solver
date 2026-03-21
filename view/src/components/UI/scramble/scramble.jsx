@@ -18,7 +18,12 @@ function Scramble() {
         />
       </label>
       <div className="scramblebuttons gap-2">
-        <ScrambleButton type="enter" text="Enter" inputValue={inputValue} />
+        <ScrambleButton
+          type="enter"
+          text="Enter"
+          inputValue={inputValue}
+          setInputValue={setInputValue}
+        />
         <ScrambleButton type="generate" text="Generate" />
       </div>
     </div>

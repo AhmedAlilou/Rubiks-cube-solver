@@ -1,4 +1,3 @@
-import React from "react";
 import "./menu.css";
 import ToggleOll from "./toggleOll";
 import TogglePll from "./togglePll";

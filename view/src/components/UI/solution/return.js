@@ -5,7 +5,6 @@ import {
   getMovePointer,
   setMovePointer
 } from "../../../../../model/store/solveStore.js";
-import useCubiesStore from "../../../store/cubiesStore.js";
 
 import {
   controllerB,

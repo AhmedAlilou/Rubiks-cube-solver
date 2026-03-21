@@ -1,4 +1,3 @@
-import React from "react";
 import useCubiesStore from "../../../store/cubiesStore";
 import useApplicationStore from "../../../store/applicationStore";
 import { FaUndo } from "react-icons/fa";
@@ -58,7 +57,6 @@ function Undo() {
 
   const handleClick = () => {
     if (moveHistory.length === 0 || buttonsDisabled) return;
-    ("working");
     const [move, double, prime] = moveHistory[moveHistory.length - 1];
     setMoveHistory(moveHistory.slice(0, -1));
     const params = {
@@ -108,8 +106,6 @@ function Undo() {
           { ...params, currentZRotation, setCurrentZRotation },
           !prime
         );
-        break;
-      default:
         break;
       case "x":
         controllerx(
@@ -183,9 +179,9 @@ function Undo() {
           !prime
         );
         break;
+      default:
+        break;
     }
-    ("moveHistory in Undo: ", moveHistory);
-    // call that function that is last in the moveHistory stack with parameters including isUndo = true
   };
 
   return (

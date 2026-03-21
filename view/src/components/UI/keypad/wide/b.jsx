@@ -1,4 +1,3 @@
-import React from "react";
 import "../../UI.css";
 import useCubiesStore from "../../../../store/cubiesStore.js";
 import useApplicationStore from "../../../../store/applicationStore.js";

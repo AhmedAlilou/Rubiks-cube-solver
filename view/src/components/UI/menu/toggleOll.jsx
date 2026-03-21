@@ -7,9 +7,7 @@ import {
 
 function ToggleOll() {
   const [twoLook, setTwoLook] = useState(getTwoLookOll());
-
   useEffect(() => {
-    // keep local state in sync if something else changes the store
     setTwoLook(getTwoLookOll());
   }, []);
 

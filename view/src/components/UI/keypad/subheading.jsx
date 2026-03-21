@@ -1,5 +1,3 @@
-import React from "react";
-
 function Subheading({ text }) {
   return (
     <div className="subheading">

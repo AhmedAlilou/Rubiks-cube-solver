@@ -31,7 +31,7 @@ const handleb = ({
     prime ? currentZRotation - amount : currentZRotation + amount
   );
   setPrime(!prime);
-  setButtonsDisabled(true); // Disable buttons during rotation
+  setButtonsDisabled(true);
   if (!isUndo && !automated) {
     setMoveHistory([
       ...useApplicationStore.getState().moveHistory,

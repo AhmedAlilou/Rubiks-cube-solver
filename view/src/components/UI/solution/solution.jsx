@@ -18,7 +18,6 @@ function Solution() {
   const [movePointer, setMovePointer] = useState(getMovePointer());
 
   useEffect(() => {
-    // subscribe to store changes
     const unsub = subscribeSolveStore(() => {
       setSolution(getSolution());
       setStepPointer(getStepPointer());

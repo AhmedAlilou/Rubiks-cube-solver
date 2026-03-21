@@ -25,9 +25,42 @@ function ScrambleButton(props) {
     } else {
       const newScramble = (props.inputValue || "").trim();
       if (!newScramble) return "no scramble entered";
+
+      const sequence = formatAlg(newScramble).filter((s) => s && s.trim());
+
+      const allowedStarters = new Set([
+        "B",
+        "D",
+        "F",
+        "L",
+        "R",
+        "U",
+        "x",
+        "y",
+        "z",
+        "M",
+        "E",
+        "S",
+        "b",
+        "d",
+        "f",
+        "l",
+        "r",
+        "u"
+      ]);
+
+      for (const token of sequence) {
+        const starter = token[0];
+        if (!allowedStarters.has(starter)) {
+          window.alert(`Unknown move: "${token}"`);
+          if (props.setInputValue) props.setInputValue("");
+          return;
+        }
+      }
+
       setScramble(newScramble);
       setButtonsDisabled(true);
-      executeScramble(formatAlg(newScramble));
+      executeScramble(sequence);
     }
   };
   return (

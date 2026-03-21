@@ -61,23 +61,9 @@ const handleD = ({
       newCubies[i] = { ...cubies[i], isRotating: false };
     }
   }
-  ({
-    cubies,
-    setCubies,
-    currentYRotation,
-    setCurrentYRotation,
-    double,
-    prime,
-    setPrime,
-    setButtonsDisabled,
-    automated,
-    isUndo
-  });
   setCubies(newCubies);
   const amount = double ? PI : PI / 2;
-
   setDouble(double);
-  amount;
   setCurrentYRotation(
     prime ? currentYRotation - amount : currentYRotation + amount
   );
